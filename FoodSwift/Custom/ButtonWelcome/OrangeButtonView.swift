@@ -7,11 +7,11 @@
 
 import UIKit
 
-class WelcomeButtonView: UIView {
+class OrangeButtonView: UIView {
 
-    @IBOutlet private var welcomButtonView: UIView!
+    @IBOutlet private var orangeButtonView: UIView!
     @IBOutlet private weak var startButton: UIButton!
-    var delegate: WelcomButtonViewDelegate?
+    var delegate: OrangeButtonViewViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,10 +24,10 @@ class WelcomeButtonView: UIView {
     }
     
     private func setUpUIView() {
-        Bundle.main.loadNibNamed("WelcomeButtonView", owner: self, options: nil)
-        self.addSubview(welcomButtonView)
-        welcomButtonView.frame = self.bounds
-        welcomButtonView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        Bundle.main.loadNibNamed("OrangeButtonView", owner: self, options: nil)
+        self.addSubview(orangeButtonView)
+        orangeButtonView.frame = self.bounds
+        orangeButtonView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         startButton.setAttributedTitle(NSAttributedString(string: "GET STARTED", attributes: [
             .font: UIFont.fontYugothicUIBold(ofSize: 14) as Any
         ]), for: .normal)
@@ -49,6 +49,6 @@ class WelcomeButtonView: UIView {
     
 }
 
-protocol WelcomButtonViewDelegate {
-    func tappingInsideButton(view: WelcomeButtonView)
+protocol OrangeButtonViewViewDelegate {
+    func tappingInsideButton(view: OrangeButtonView)
 }

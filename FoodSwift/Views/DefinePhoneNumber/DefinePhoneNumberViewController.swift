@@ -18,7 +18,7 @@ final class DefinePhoneNumberViewController: BaseViewController {
     @IBOutlet private weak var listFlagTableView: UITableView!
     @IBOutlet private weak var phoneNumberLabel: UILabel!
     @IBOutlet private weak var phoneNumberTextField: UITextField!
-    @IBOutlet private weak var signUpButtonView: WelcomeButtonView!
+    @IBOutlet private weak var signUpButtonView: OrangeButtonView!
     @IBOutlet private weak var topSpaceSignUpButtonView: NSLayoutConstraint!
     
     // MARK: - Properties
@@ -159,8 +159,8 @@ extension DefinePhoneNumberViewController: UITextFieldDelegate {
     }
 }
 
-extension DefinePhoneNumberViewController: WelcomButtonViewDelegate {
-    func tappingInsideButton(view: WelcomeButtonView) {
+extension DefinePhoneNumberViewController: OrangeButtonViewViewDelegate {
+    func tappingInsideButton(view: OrangeButtonView) {
         self.navigationController?.pushViewController(ScreenName.verifyPhoneNumber, animated: true)
     }
 

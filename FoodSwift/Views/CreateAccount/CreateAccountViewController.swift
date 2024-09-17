@@ -13,7 +13,7 @@ class CreateAccountViewController: BaseViewController {
     @IBOutlet private weak var emailFormView: TextFieldLoginView!
     @IBOutlet private weak var passwordFormView: TextFieldLoginView!
     @IBOutlet private weak var fullNameFormView: TextFieldLoginView!
-    @IBOutlet private weak var signUpButtonView: WelcomeButtonView!
+    @IBOutlet private weak var signUpButtonView: OrangeButtonView!
     @IBOutlet private weak var privacyLabel: UILabel!
     @IBOutlet private weak var orLabel: UILabel!
     @IBOutlet private weak var googleLoginButton: SocialButtonView!
@@ -131,8 +131,8 @@ class CreateAccountViewController: BaseViewController {
     }
 }
 
-extension CreateAccountViewController: WelcomButtonViewDelegate {
-    func tappingInsideButton(view: WelcomeButtonView) {
+extension CreateAccountViewController: OrangeButtonViewViewDelegate {
+    func tappingInsideButton(view: OrangeButtonView) {
         self.navigationController?.pushViewController(ScreenName.definePhoneNumber, animated: true)
     }
 }

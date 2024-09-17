@@ -7,10 +7,19 @@
 
 import UIKit
 
-class VerifylePhoneNumberVC: BaseViewController {
+final class VerifylePhoneNumberVC: BaseViewController {
     
     @IBOutlet private weak var descriptionTitleLabel: UILabel!
     @IBOutlet private weak var descriptionTextLabel: UILabel!
+    @IBOutlet private weak var otpTextField1: UITextField!
+    @IBOutlet private weak var otpTextField2: UITextField!
+    @IBOutlet private weak var otpTextField3: UITextField!
+    @IBOutlet private weak var otpTextField4: UITextField!
+    @IBOutlet private weak var continueButtonView: OrangeButtonView!
+    @IBOutlet private weak var didntRecevieCodeLabel: UILabel!
+    @IBOutlet private weak var sendAgainButton: UIButton!
+    @IBOutlet private weak var policyLabel: UILabel!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +28,21 @@ class VerifylePhoneNumberVC: BaseViewController {
     }
     
     override func setUpUI() {
+        view.backgroundColor = UIColor(hex: "#FBFBFB")
         setUpNavigation()
         setUpLabel()
+        
+//        sendAgainButton.setTitle("Resend Again", for: .normal)
+//        sendAgainButton.setTitleColor(UIColor(hex: "#EEA734"), for: .normal)
+//        sendAgainButton.titleLabel?.textColor = UIColor(hex: "#EEA734")
+//        sendAgainButton.titleLabel?.font = UIFont.fontYugothicLight(ofSize: 12)
+        let attributedSendAgainButton = NSAttributedString(string: "Resend Again", attributes: [
+            .font: UIFont.fontYugothicLight(ofSize: 12) as Any,
+            .foregroundColor: UIColor(hex: "#EEA734")
+        ])
+        sendAgainButton.titleLabel?.numberOfLines = 1
+        sendAgainButton.titleLabel?.lineBreakMode = .byTruncatingTail
+        sendAgainButton.setAttributedTitle(attributedSendAgainButton, for: .normal)
     }
     
     private func setUpNavigation() {
@@ -46,10 +68,31 @@ class VerifylePhoneNumberVC: BaseViewController {
         descriptionTextLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
         descriptionTextLabel.textColor = UIColor(hex: "#010F07")
         descriptionTextLabel.numberOfLines = 0
+        
+        didntRecevieCodeLabel.text = "Didn’t receive code?"
+        didntRecevieCodeLabel.font = UIFont.fontYugothicLight(ofSize: 12)
+        didntRecevieCodeLabel.textColor = UIColor(hex: "#868686")
+        
+        policyLabel.text = "By Signing up you agree to our Terms\nConditions & Privacy Policy."
+        policyLabel.numberOfLines = 0
+        policyLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
+        policyLabel.textColor = UIColor(hex: "#868686")
+        policyLabel.textAlignment = .center
     }
     
     @objc func leftAction() {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    private func setUpOrangeButtonView() {
+        continueButtonView.delegate = self
+        continueButtonView.setButtonTitle("CONTINUE")
+    }
 
+}
+
+extension VerifylePhoneNumberVC: OrangeButtonViewViewDelegate {
+    func tappingInsideButton(view: OrangeButtonView) {
+        print("OTP")
+    }
 }
