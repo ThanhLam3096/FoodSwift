@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="31" id="KGk-i7-Jjw" customClass="FlagCodeNumberTableViewCell" customModule="FoodSwift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="31"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="31"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dSH-o4-gxb">
+                        <rect key="frame" x="0.0" y="0.0" width="38" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="F7F-6v-b7x"/>
+                            <constraint firstAttribute="width" constant="38" id="Ho5-jm-rIP"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBv-We-BVv" userLabel="Nation">
+                        <rect key="frame" x="48" y="0.0" width="42" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dSH-o4-gxb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="AoE-Fz-E0l"/>
+                    <constraint firstItem="PBv-We-BVv" firstAttribute="leading" secondItem="dSH-o4-gxb" secondAttribute="trailing" constant="10" id="LCc-e1-lfO"/>
+                    <constraint firstItem="dSH-o4-gxb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="MJ9-JL-1UI"/>
+                    <constraint firstAttribute="bottom" secondItem="dSH-o4-gxb" secondAttribute="bottom" id="Sqw-Xb-sQ7"/>
+                    <constraint firstItem="PBv-We-BVv" firstAttribute="top" secondItem="dSH-o4-gxb" secondAttribute="top" id="cXI-SD-33R"/>
+                    <constraint firstItem="PBv-We-BVv" firstAttribute="bottom" secondItem="dSH-o4-gxb" secondAttribute="bottom" id="xeO-Dm-OWN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="flagUIImageView" destination="dSH-o4-gxb" id="FdX-AS-ufa"/>
+                <outlet property="textNation" destination="PBv-We-BVv" id="FWi-a8-rSX"/>
+            </connections>
+            <point key="canvasLocation" x="-106.87022900763358" y="15.140845070422536"/>
+        </tableViewCell>
+    </objects>
+</document>

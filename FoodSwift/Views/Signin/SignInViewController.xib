@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="FoodSwift" customModuleProvider="target">
+            <connections>
+                <outlet property="createNewAccountButton" destination="h5f-QI-u7J" id="UV6-87-9ez"/>
+                <outlet property="dontHaveAccountButton" destination="XjK-CT-xIJ" id="2l7-XP-Vkb"/>
+                <outlet property="emailFormView" destination="3ej-as-0wG" id="QDX-rT-ohF"/>
+                <outlet property="facebookLoginButton" destination="c1o-xR-wlf" id="lSd-Cc-Ad4"/>
+                <outlet property="forgotPasswordButton" destination="Ewr-eb-CFJ" id="qap-yk-aBh"/>
+                <outlet property="googleLoginButton" destination="6MT-25-LyN" id="ukn-Q1-Q0e"/>
+                <outlet property="orLabel" destination="MZE-xc-Rm5" id="Ag8-M2-dI0"/>
+                <outlet property="passwordFormView" destination="IHX-8F-SBN" id="B8i-Sg-7S3"/>
+                <outlet property="title2IntroLabel" destination="u8w-uv-Y8q" id="kuU-QY-pmO"/>
+                <outlet property="titleIntroLabel" destination="nfF-PO-sLK" id="Ggb-X7-ycX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="JQD-Hj-cBc"/>
+                <outlet property="welcomeButtonView" destination="ShR-iq-KcU" id="uWR-DT-PNW"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68X-qc-7Le">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jp7-Jl-AFi">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfF-PO-sLK">
+                                    <rect key="frame" x="20" y="0.0" width="74.666666666666671" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="YdR-ES-vpu"/>
+                                    </constraints>
+                                    <attributedString key="attributedText">
+                                        <fragment content="TextIntro">
+                                            <attributes>
+                                                <font key="NSFont" size="17" name="HiraginoSans-W3"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="10" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8w-uv-Y8q">
+                                    <rect key="frame" x="20.000000000000004" y="100" width="41.333333333333343" height="74"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="74" id="wQB-ur-vP5"/>
+                                    </constraints>
+                                    <attributedString key="attributedText">
+                                        <fragment content="Label">
+                                            <attributes>
+                                                <font key="NSFont" metaFont="system" size="17"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ej-as-0wG" userLabel="EmailForm" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="174" width="353" height="65"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="65" id="q6B-Yt-96t"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IHX-8F-SBN" userLabel="PasswordForm" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="249" width="353" height="65"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="65" id="CpP-bj-dsM"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ewr-eb-CFJ" userLabel="ForgotPassword">
+                                    <rect key="frame" x="159" y="324" width="75" height="38.333333333333314"/>
+                                    <color key="tintColor" systemColor="systemBrownColor"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                    <connections>
+                                        <action selector="forgotPasswordButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="hdI-6E-r0r"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ShR-iq-KcU" userLabel="SignInButton" customClass="WelcomeButtonView" customModule="FoodSwift" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="382.33333333333331" width="353" height="48"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="48" id="nBM-W1-gQ2"/>
+                                    </constraints>
+                                </view>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCe-7b-UdE">
+                                    <rect key="frame" x="40" y="450.33333333333331" width="313" height="12"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XjK-CT-xIJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="156.66666666666666" height="12"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain">
+                                                <attributedString key="attributedTitle">
+                                                    <fragment content="Don't have account?">
+                                                        <attributes>
+                                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                                            <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                            </buttonConfiguration>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5f-QI-u7J">
+                                            <rect key="frame" x="156.66666666666663" y="0.0" width="156.33333333333337" height="12"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain">
+                                                <attributedString key="attributedTitle">
+                                                    <fragment content="Create new account">
+                                                        <attributes>
+                                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                                            <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="createAccountTouchUpInside:" destination="-1" eventType="touchUpInside" id="4aO-N6-l22"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="12" id="GG6-Ua-mfN"/>
+                                    </constraints>
+                                </stackView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZE-xc-Rm5">
+                                    <rect key="frame" x="187" y="482.33333333333337" width="19" height="20.333333333333314"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1o-xR-wlf" userLabel="Facebook" customClass="SocialButtonView" customModule="FoodSwift" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="522.66666666666663" width="353" height="44"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="MD5-zS-lOU"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6MT-25-LyN" userLabel="Google" customClass="SocialButtonView" customModule="FoodSwift" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="586.66666666666663" width="353" height="44"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="EVP-lj-RCB"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="c1o-xR-wlf" firstAttribute="top" secondItem="MZE-xc-Rm5" secondAttribute="bottom" constant="20" id="2BC-9w-Wfg"/>
+                                <constraint firstItem="MZE-xc-Rm5" firstAttribute="centerX" secondItem="jp7-Jl-AFi" secondAttribute="centerX" id="5me-pn-Slx"/>
+                                <constraint firstItem="nfF-PO-sLK" firstAttribute="top" secondItem="jp7-Jl-AFi" secondAttribute="top" id="62B-iu-oxO"/>
+                                <constraint firstItem="3ej-as-0wG" firstAttribute="leading" secondItem="jp7-Jl-AFi" secondAttribute="leading" constant="20" id="6Zw-WB-QDq"/>
+                                <constraint firstAttribute="trailing" secondItem="IHX-8F-SBN" secondAttribute="trailing" constant="20" id="FI1-9B-gsa"/>
+                                <constraint firstAttribute="trailing" secondItem="3ej-as-0wG" secondAttribute="trailing" constant="20" id="Foz-ms-vyT"/>
+                                <constraint firstItem="ShR-iq-KcU" firstAttribute="leading" secondItem="jp7-Jl-AFi" secondAttribute="leading" constant="20" id="MGh-r9-C6v"/>
+                                <constraint firstItem="ShR-iq-KcU" firstAttribute="top" secondItem="Ewr-eb-CFJ" secondAttribute="bottom" constant="20" id="MqQ-8u-jSL"/>
+                                <constraint firstItem="IHX-8F-SBN" firstAttribute="top" secondItem="3ej-as-0wG" secondAttribute="bottom" constant="10" id="NoR-hn-6qb"/>
+                                <constraint firstAttribute="trailing" secondItem="ShR-iq-KcU" secondAttribute="trailing" constant="20" id="RGy-H0-Ntp"/>
+                                <constraint firstAttribute="trailing" secondItem="c1o-xR-wlf" secondAttribute="trailing" constant="20" id="Rnv-ah-ZAq"/>
+                                <constraint firstItem="MZE-xc-Rm5" firstAttribute="top" secondItem="DCe-7b-UdE" secondAttribute="bottom" constant="20" id="SNG-yz-NdN"/>
+                                <constraint firstItem="nfF-PO-sLK" firstAttribute="leading" secondItem="jp7-Jl-AFi" secondAttribute="leading" constant="20" id="UHt-Ot-TNd"/>
+                                <constraint firstAttribute="height" priority="250" constant="1500" id="Vs1-Qc-96x"/>
+                                <constraint firstItem="6MT-25-LyN" firstAttribute="leading" secondItem="jp7-Jl-AFi" secondAttribute="leading" constant="20" id="WlC-IR-jA3"/>
+                                <constraint firstItem="6MT-25-LyN" firstAttribute="top" secondItem="c1o-xR-wlf" secondAttribute="bottom" constant="20" id="eVt-Y9-E9L"/>
+                                <constraint firstItem="DCe-7b-UdE" firstAttribute="leading" secondItem="jp7-Jl-AFi" secondAttribute="leading" constant="40" id="elw-n1-NZp"/>
+                                <constraint firstItem="3ej-as-0wG" firstAttribute="top" secondItem="u8w-uv-Y8q" secondAttribute="bottom" id="fqj-ev-ntB"/>
+                                <constraint firstItem="DCe-7b-UdE" firstAttribute="centerX" secondItem="jp7-Jl-AFi" secondAttribute="centerX" id="gWr-H8-Bm0"/>
+                                <constraint firstItem="DCe-7b-UdE" firstAttribute="top" secondItem="ShR-iq-KcU" secondAttribute="bottom" constant="20" id="hmn-bZ-eCp"/>
+                                <constraint firstItem="Ewr-eb-CFJ" firstAttribute="top" secondItem="IHX-8F-SBN" secondAttribute="bottom" constant="10" id="jpk-wo-WIi"/>
+                                <constraint firstAttribute="trailing" secondItem="DCe-7b-UdE" secondAttribute="trailing" constant="40" id="o4r-kG-FzB"/>
+                                <constraint firstItem="c1o-xR-wlf" firstAttribute="leading" secondItem="jp7-Jl-AFi" secondAttribute="leading" constant="20" id="sL9-tm-bhp"/>
+                                <constraint firstItem="u8w-uv-Y8q" firstAttribute="top" secondItem="nfF-PO-sLK" secondAttribute="bottom" id="sQd-yq-19C"/>
+                                <constraint firstItem="Ewr-eb-CFJ" firstAttribute="centerX" secondItem="jp7-Jl-AFi" secondAttribute="centerX" id="tUp-BC-kh5"/>
+                                <constraint firstItem="IHX-8F-SBN" firstAttribute="leading" secondItem="jp7-Jl-AFi" secondAttribute="leading" constant="20" id="uno-Su-dz3"/>
+                                <constraint firstAttribute="trailing" secondItem="6MT-25-LyN" secondAttribute="trailing" constant="20" id="x0K-Rf-Oag"/>
+                                <constraint firstItem="u8w-uv-Y8q" firstAttribute="leading" secondItem="jp7-Jl-AFi" secondAttribute="leading" constant="20" id="xQ3-oa-ENB"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="jp7-Jl-AFi" secondAttribute="bottom" id="WcV-mw-LoC"/>
+                        <constraint firstItem="jp7-Jl-AFi" firstAttribute="top" secondItem="68X-qc-7Le" secondAttribute="top" id="YML-gk-EpJ"/>
+                        <constraint firstAttribute="trailing" secondItem="jp7-Jl-AFi" secondAttribute="trailing" id="cfP-ro-rj9"/>
+                        <constraint firstItem="jp7-Jl-AFi" firstAttribute="width" secondItem="68X-qc-7Le" secondAttribute="width" id="grS-kX-KN2"/>
+                        <constraint firstItem="jp7-Jl-AFi" firstAttribute="leading" secondItem="68X-qc-7Le" secondAttribute="leading" id="iu6-f2-fxI"/>
+                        <constraint firstItem="jp7-Jl-AFi" firstAttribute="height" secondItem="68X-qc-7Le" secondAttribute="height" id="ygN-I7-Rfm"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="0bl-AB-mLI"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="w8R-Tv-KtH"/>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fmU-hC-1Id"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="68X-qc-7Le" firstAttribute="bottom" secondItem="fmU-hC-1Id" secondAttribute="bottom" id="5fy-2X-FKo"/>
+                <constraint firstItem="68X-qc-7Le" firstAttribute="leading" secondItem="fmU-hC-1Id" secondAttribute="leading" id="Ty0-nA-ESd"/>
+                <constraint firstItem="68X-qc-7Le" firstAttribute="trailing" secondItem="fmU-hC-1Id" secondAttribute="trailing" id="cJM-ij-5qp"/>
+                <constraint firstItem="68X-qc-7Le" firstAttribute="top" secondItem="fmU-hC-1Id" secondAttribute="top" id="upn-LD-OOd"/>
+            </constraints>
+            <point key="canvasLocation" x="-19.083969465648853" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
