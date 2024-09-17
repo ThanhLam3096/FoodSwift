@@ -14,7 +14,7 @@ class PageTwoViewController: BaseViewController {
     @IBOutlet private weak var deliveryLabel: UILabel!
     @IBOutlet private weak var sologanTitleLabel: UILabel!
     @IBOutlet private weak var pageView: PageStackView!
-    @IBOutlet weak var welcomeButtonView: WelcomeButtonView!
+    @IBOutlet weak var welcomeButtonView: OrangeButtonView!
     @IBOutlet weak var heightStartButtonView: NSLayoutConstraint!
     @IBOutlet weak var widthStartButtonView: NSLayoutConstraint!
 
@@ -49,8 +49,8 @@ class PageTwoViewController: BaseViewController {
     }
 }
 
-extension PageTwoViewController: WelcomButtonViewDelegate {
-    func tappingInsideButton(view: WelcomeButtonView) {
+extension PageTwoViewController: OrangeButtonViewViewDelegate {
+    func tappingInsideButton(view: OrangeButtonView) {
         self.navigationController?.pushViewController(ScreenName.pageThree, animated: true)
     }
 }

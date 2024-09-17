@@ -18,7 +18,7 @@ class WelcomeViewController: BaseViewController {
     @IBOutlet private weak var welcomeLabel: UILabel!
     @IBOutlet weak var spaceWelcomeImageConstraint: NSLayoutConstraint!
     @IBOutlet private weak var titleWelcomeLabel: UILabel!
-    @IBOutlet weak var welcomeButtonView: WelcomeButtonView!
+    @IBOutlet weak var welcomeButtonView: OrangeButtonView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +48,8 @@ class WelcomeViewController: BaseViewController {
     }
 }
 
-extension WelcomeViewController: WelcomButtonViewDelegate {
-    func tappingInsideButton(view: WelcomeButtonView) {
+extension WelcomeViewController: OrangeButtonViewViewDelegate {
+    func tappingInsideButton(view: OrangeButtonView) {
         self.navigationController?.pushViewController(ScreenName.pageOne, animated: true)
     }
 }

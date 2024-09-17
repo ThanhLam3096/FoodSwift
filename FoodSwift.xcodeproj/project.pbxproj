@@ -20,8 +20,8 @@
 		041529AC2BD759A300818A4A /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041529AA2BD759A300818A4A /* WelcomeViewController.xib */; };
 		041529AF2BD75C3300818A4A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041529AE2BD75C3300818A4A /* BaseViewController.swift */; };
 		041529B22BD7AB7800818A4A /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041529B12BD7AB7800818A4A /* ScreenSize.swift */; };
-		041529B62BE0D5D500818A4A /* WelcomeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041529B52BE0D5D500818A4A /* WelcomeButtonView.swift */; };
-		041529B82BE0D5EC00818A4A /* WelcomeButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041529B72BE0D5EC00818A4A /* WelcomeButtonView.xib */; };
+		041529B62BE0D5D500818A4A /* OrangeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041529B52BE0D5D500818A4A /* OrangeButtonView.swift */; };
+		041529B82BE0D5EC00818A4A /* OrangeButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041529B72BE0D5EC00818A4A /* OrangeButtonView.xib */; };
 		04343B662C86AAB2007D3331 /* TopVericallyTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04343B652C86AAB2007D3331 /* TopVericallyTextLabel.swift */; };
 		04343B6B2C8947F7007D3331 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04343B6A2C8947F7007D3331 /* ForgotPasswordViewController.xib */; };
 		04343B6C2C8947F7007D3331 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04343B692C8947F7007D3331 /* ForgotPasswordViewController.swift */; };
@@ -99,8 +99,8 @@
 		041529AA2BD759A300818A4A /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		041529AE2BD75C3300818A4A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		041529B12BD7AB7800818A4A /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
-		041529B52BE0D5D500818A4A /* WelcomeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeButtonView.swift; sourceTree = "<group>"; };
-		041529B72BE0D5EC00818A4A /* WelcomeButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeButtonView.xib; sourceTree = "<group>"; };
+		041529B52BE0D5D500818A4A /* OrangeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButtonView.swift; sourceTree = "<group>"; };
+		041529B72BE0D5EC00818A4A /* OrangeButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrangeButtonView.xib; sourceTree = "<group>"; };
 		04343B652C86AAB2007D3331 /* TopVericallyTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVericallyTextLabel.swift; sourceTree = "<group>"; };
 		04343B692C8947F7007D3331 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		04343B6A2C8947F7007D3331 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
@@ -272,8 +272,8 @@
 		041529B42BE0D5A500818A4A /* ButtonWelcome */ = {
 			isa = PBXGroup;
 			children = (
-				041529B52BE0D5D500818A4A /* WelcomeButtonView.swift */,
-				041529B72BE0D5EC00818A4A /* WelcomeButtonView.xib */,
+				041529B52BE0D5D500818A4A /* OrangeButtonView.swift */,
+				041529B72BE0D5EC00818A4A /* OrangeButtonView.xib */,
 			);
 			path = ButtonWelcome;
 			sourceTree = "<group>";
@@ -538,7 +538,7 @@
 				048BECE92C85BC1B0087F446 /* yugothib.ttf in Resources */,
 				04788A302BE38729009AB6DD /* IntroducePageViewController.xib in Resources */,
 				041529AC2BD759A300818A4A /* WelcomeViewController.xib in Resources */,
-				041529B82BE0D5EC00818A4A /* WelcomeButtonView.xib in Resources */,
+				041529B82BE0D5EC00818A4A /* OrangeButtonView.xib in Resources */,
 				04C03E472C81655500DB9B0D /* yugothil.ttf in Resources */,
 				048BECF22C85F8480087F446 /* CreateAccountViewController.xib in Resources */,
 				04C03E492C81772900DB9B0D /* yu-gothic-regular.ttf in Resources */,
@@ -588,7 +588,7 @@
 				04343B732C8B1034007D3331 /* DefinePhoneNumberVM.swift in Sources */,
 				041529AF2BD75C3300818A4A /* BaseViewController.swift in Sources */,
 				048BECE22C8574AD0087F446 /* SocialButtonViewVM.swift in Sources */,
-				041529B62BE0D5D500818A4A /* WelcomeButtonView.swift in Sources */,
+				041529B62BE0D5D500818A4A /* OrangeButtonView.swift in Sources */,
 				0415297D2BD7595600818A4A /* ViewController.swift in Sources */,
 				04C03E3C2C75818500DB9B0D /* SignInViewController.swift in Sources */,
 				048BECDE2C85695A0087F446 /* SocialButtonView.swift in Sources */,

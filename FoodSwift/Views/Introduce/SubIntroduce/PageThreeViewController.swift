@@ -14,7 +14,7 @@ class PageThreeViewController: BaseViewController {
     @IBOutlet private weak var chooseFoodLabel: UILabel!
     @IBOutlet private weak var sologanTitleLabel: UILabel!
     @IBOutlet private weak var pageView: PageStackView!
-    @IBOutlet weak var welcomeButtonView: WelcomeButtonView!
+    @IBOutlet weak var welcomeButtonView: OrangeButtonView!
     @IBOutlet weak var heightStartButtonView: NSLayoutConstraint!
     @IBOutlet weak var widthStartButtonView: NSLayoutConstraint!
 
@@ -52,8 +52,8 @@ class PageThreeViewController: BaseViewController {
     }
 }
 
-extension PageThreeViewController: WelcomButtonViewDelegate {
-    func tappingInsideButton(view: WelcomeButtonView) {
+extension PageThreeViewController: OrangeButtonViewViewDelegate {
+    func tappingInsideButton(view: OrangeButtonView) {
         self.navigationController?.pushViewController(ScreenName.signIn, animated: true)
     }
 }

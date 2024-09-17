@@ -14,7 +14,7 @@ class SignInViewController: BaseViewController {
     @IBOutlet private weak var emailFormView: TextFieldLoginView!
     @IBOutlet private weak var passwordFormView: TextFieldLoginView!
     @IBOutlet private weak var forgotPasswordButton: UIButton!
-    @IBOutlet private weak var welcomeButtonView: WelcomeButtonView!
+    @IBOutlet private weak var welcomeButtonView: OrangeButtonView!
     @IBOutlet private weak var dontHaveAccountButton: UIButton!
     @IBOutlet private weak var createNewAccountButton: UIButton!
     @IBOutlet private weak var orLabel: UILabel!

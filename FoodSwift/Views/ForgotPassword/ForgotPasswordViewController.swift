@@ -12,12 +12,12 @@ class ForgotPasswordViewController: BaseViewController {
     @IBOutlet private weak var forgotPassTitleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var emailFormView: TextFieldLoginView!
-    @IBOutlet private weak var resetPasswordButtonView: WelcomeButtonView!
+    @IBOutlet private weak var resetPasswordButtonView: OrangeButtonView!
     
     @IBOutlet private weak var resetEmailView: UIView!
     @IBOutlet private weak var resendEmailTitleLabel: UILabel!
     @IBOutlet private weak var descriptionResendEmailLabel: UILabel!
-    @IBOutlet private weak var sendAgainButtonView: WelcomeButtonView!
+    @IBOutlet private weak var sendAgainButtonView: OrangeButtonView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,8 +123,8 @@ class ForgotPasswordViewController: BaseViewController {
     }
 }
 
-extension ForgotPasswordViewController: WelcomButtonViewDelegate {
-    func tappingInsideButton(view: WelcomeButtonView) {
+extension ForgotPasswordViewController: OrangeButtonViewViewDelegate {
+    func tappingInsideButton(view: OrangeButtonView) {
         if resetEmailView.isHidden {
             resetEmailView.isHidden = false
         } else {
