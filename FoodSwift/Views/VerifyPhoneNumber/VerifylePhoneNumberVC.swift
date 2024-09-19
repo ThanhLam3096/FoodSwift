@@ -31,6 +31,7 @@ final class VerifylePhoneNumberVC: BaseViewController {
         view.backgroundColor = UIColor(hex: "#FBFBFB")
         setUpNavigation()
         setUpLabel()
+        setUpTextField()
         
 //        sendAgainButton.setTitle("Resend Again", for: .normal)
 //        sendAgainButton.setTitleColor(UIColor(hex: "#EEA734"), for: .normal)
@@ -43,6 +44,14 @@ final class VerifylePhoneNumberVC: BaseViewController {
         sendAgainButton.titleLabel?.numberOfLines = 1
         sendAgainButton.titleLabel?.lineBreakMode = .byTruncatingTail
         sendAgainButton.setAttributedTitle(attributedSendAgainButton, for: .normal)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true) // Ẩn bàn phím hoặc mất focus từ textField
     }
     
     private func setUpNavigation() {
@@ -88,11 +97,92 @@ final class VerifylePhoneNumberVC: BaseViewController {
         continueButtonView.delegate = self
         continueButtonView.setButtonTitle("CONTINUE")
     }
+    
+    private func setUpTextField() {
+        let listCodeOTP = [otpTextField1, otpTextField2, otpTextField3, otpTextField4]
+        for textField in listCodeOTP {
+            guard let textField = textField else {
+                return
+            }
+            textField.keyboardType = .numberPad
+            textField.font = UIFont.fontYugothicLight(ofSize: 16)
+            textField.textColor = UIColor(hex: "#010F07")
+            textField.tintColor = UIColor(hex: "#22A45D")
+            textField.delegate = self
+            textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        }
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        let listCodeOTP = [otpTextField1, otpTextField2, otpTextField3, otpTextField4]
+        guard let text = textField.text, !text.isEmpty else { return }
+        
+        // Tìm vị trí của textField hiện tại
+        if let index = listCodeOTP.firstIndex(of: textField) {
+            // Chuyển focus sang textField tiếp theo, nếu có
+            if index < listCodeOTP.count - 1 {
+                listCodeOTP[index + 1]?.becomeFirstResponder()
+            } else {
+                textField.resignFirstResponder()  // Khi đến ô cuối cùng
+            }
+        }
+    }
 
 }
 
 extension VerifylePhoneNumberVC: OrangeButtonViewViewDelegate {
     func tappingInsideButton(view: OrangeButtonView) {
         print("OTP")
+    }
+}
+
+extension VerifylePhoneNumberVC: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        let listCodeOTP = [otpTextField1, otpTextField2, otpTextField3, otpTextField4]
+//        guard let text = textField.text else { return false }
+//        
+//        if string.isEmpty {  // Khi người dùng xóa ký tự
+//            if let index = listCodeOTP.firstIndex(of: textField), index > 0 {
+//                listCodeOTP[index]?.text = ""
+//                listCodeOTP[index]?.becomeFirstResponder()  // Quay về ô trước
+//            }
+//        } else {
+//            // Chỉ cho phép nhập 1 ký tự duy nhất
+//            return text.count < 1
+//        }
+//        return true
+        
+        textField.text = ""
+        if textField.text == "" {
+            print("Backspace has been pressed")
+        }
+        if string == ""
+        {
+            switch textField {
+            case otpTextField2:
+                otpTextField1.becomeFirstResponder()
+            case otpTextField3:
+                otpTextField2.becomeFirstResponder()
+            case otpTextField4:
+                otpTextField3.becomeFirstResponder()
+            default:
+                otpTextField1.resignFirstResponder()
+            }
+            textField.text = ""
+            return false
+        }
+        
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // lỗi khi đặt con trỏ ở cuối chuỗi fix sau
+        if let endPosition = textField.position(from: textField.endOfDocument, offset: 0) {
+            textField.selectedTextRange = textField.textRange(from: endPosition, to: endPosition)
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("abcd")
     }
 }
