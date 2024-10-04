@@ -52,6 +52,15 @@
 		048C75F72C183221001DB3AD /* PageTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048C75F52C183221001DB3AD /* PageTwoViewController.xib */; };
 		048C75FA2C18324E001DB3AD /* PageThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C75F82C18324E001DB3AD /* PageThreeViewController.swift */; };
 		048C75FB2C18324E001DB3AD /* PageThreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048C75F92C18324E001DB3AD /* PageThreeViewController.xib */; };
+		0491EC6D2CAFEB3500157BE7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491EC6B2CAFEB3500157BE7 /* HomeViewController.swift */; };
+		0491EC6E2CAFEB3500157BE7 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0491EC6C2CAFEB3500157BE7 /* HomeViewController.xib */; };
+		0491EC712CB0064F00157BE7 /* FoodTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491EC702CB0064F00157BE7 /* FoodTabBarViewController.swift */; };
+		0491EC752CB006D000157BE7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491EC732CB006D000157BE7 /* SearchViewController.swift */; };
+		0491EC762CB006D000157BE7 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0491EC742CB006D000157BE7 /* SearchViewController.xib */; };
+		0491EC7A2CB0071100157BE7 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491EC782CB0071100157BE7 /* OrdersViewController.swift */; };
+		0491EC7B2CB0071100157BE7 /* OrdersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0491EC792CB0071100157BE7 /* OrdersViewController.xib */; };
+		0491EC832CB0073C00157BE7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491EC812CB0073C00157BE7 /* ProfileViewController.swift */; };
+		0491EC842CB0073C00157BE7 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0491EC822CB0073C00157BE7 /* ProfileViewController.xib */; };
 		04C03E382C74786B00DB9B0D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C03E372C74786B00DB9B0D /* UIColor.swift */; };
 		04C03E3C2C75818500DB9B0D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C03E3A2C75818500DB9B0D /* SignInViewController.swift */; };
 		04C03E3D2C75818500DB9B0D /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C03E3B2C75818500DB9B0D /* SignInViewController.xib */; };
@@ -131,6 +140,15 @@
 		048C75F52C183221001DB3AD /* PageTwoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageTwoViewController.xib; sourceTree = "<group>"; };
 		048C75F82C18324E001DB3AD /* PageThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageThreeViewController.swift; sourceTree = "<group>"; };
 		048C75F92C18324E001DB3AD /* PageThreeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageThreeViewController.xib; sourceTree = "<group>"; };
+		0491EC6B2CAFEB3500157BE7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0491EC6C2CAFEB3500157BE7 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		0491EC702CB0064F00157BE7 /* FoodTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTabBarViewController.swift; sourceTree = "<group>"; };
+		0491EC732CB006D000157BE7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		0491EC742CB006D000157BE7 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		0491EC782CB0071100157BE7 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
+		0491EC792CB0071100157BE7 /* OrdersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrdersViewController.xib; sourceTree = "<group>"; };
+		0491EC812CB0073C00157BE7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		0491EC822CB0073C00157BE7 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		04C03E372C74786B00DB9B0D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		04C03E3A2C75818500DB9B0D /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		04C03E3B2C75818500DB9B0D /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
@@ -228,6 +246,11 @@
 		041529A82BD7598700818A4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0491EC802CB0072F00157BE7 /* ProfileViewController */,
+				0491EC772CB006FD00157BE7 /* OrdersViewController */,
+				0491EC722CB0068B00157BE7 /* SearchViewController */,
+				0491EC6F2CB005FF00157BE7 /* FoodTabBarViewController */,
+				0491EC6A2CAFEB2700157BE7 /* HomeViewController */,
 				045578EE2C97E18C00EA420B /* VerifyPhoneNumber */,
 				04343B712C8AA326007D3331 /* DefinePhoneNumber */,
 				04343B682C8947DE007D3331 /* ForgotPassword */,
@@ -383,6 +406,51 @@
 				048C75F92C18324E001DB3AD /* PageThreeViewController.xib */,
 			);
 			path = SubIntroduce;
+			sourceTree = "<group>";
+		};
+		0491EC6A2CAFEB2700157BE7 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0491EC6B2CAFEB3500157BE7 /* HomeViewController.swift */,
+				0491EC6C2CAFEB3500157BE7 /* HomeViewController.xib */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		0491EC6F2CB005FF00157BE7 /* FoodTabBarViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0491EC702CB0064F00157BE7 /* FoodTabBarViewController.swift */,
+			);
+			name = FoodTabBarViewController;
+			path = "FoodTabBarViewControllẻ";
+			sourceTree = "<group>";
+		};
+		0491EC722CB0068B00157BE7 /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0491EC732CB006D000157BE7 /* SearchViewController.swift */,
+				0491EC742CB006D000157BE7 /* SearchViewController.xib */,
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		0491EC772CB006FD00157BE7 /* OrdersViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0491EC782CB0071100157BE7 /* OrdersViewController.swift */,
+				0491EC792CB0071100157BE7 /* OrdersViewController.xib */,
+			);
+			path = OrdersViewController;
+			sourceTree = "<group>";
+		};
+		0491EC802CB0072F00157BE7 /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0491EC812CB0073C00157BE7 /* ProfileViewController.swift */,
+				0491EC822CB0073C00157BE7 /* ProfileViewController.xib */,
+			);
+			path = ProfileViewController;
 			sourceTree = "<group>";
 		};
 		04C03E362C74785100DB9B0D /* Extension */ = {
@@ -543,14 +611,18 @@
 				048BECF22C85F8480087F446 /* CreateAccountViewController.xib in Resources */,
 				04C03E492C81772900DB9B0D /* yu-gothic-regular.ttf in Resources */,
 				04343B772C8B12D8007D3331 /* FlagCodeNumberTableViewCell.xib in Resources */,
+				0491EC762CB006D000157BE7 /* SearchViewController.xib in Resources */,
 				048C75FB2C18324E001DB3AD /* PageThreeViewController.xib in Resources */,
+				0491EC842CB0073C00157BE7 /* ProfileViewController.xib in Resources */,
 				04C03E4E2C81F0D300DB9B0D /* TextFieldLoginView.xib in Resources */,
+				0491EC6E2CAFEB3500157BE7 /* HomeViewController.xib in Resources */,
 				041529852BD7595700818A4A /* Base in Resources */,
 				048BECED2C85BD660087F446 /* YuGothB.ttc in Resources */,
 				041529802BD7595600818A4A /* Base in Resources */,
 				04C03E3D2C75818500DB9B0D /* SignInViewController.xib in Resources */,
 				046E777C2C6F5563000F6FD1 /* PageStackView.xib in Resources */,
 				048C75F32C18320E001DB3AD /* PageOneViewController.xib in Resources */,
+				0491EC7B2CB0071100157BE7 /* OrdersViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +649,7 @@
 			files = (
 				04343B782C8B12D8007D3331 /* FlagCodeNumberTableViewCell.swift in Sources */,
 				04C03E502C84114E00DB9B0D /* TextFieldLoginViewVM.swift in Sources */,
+				0491EC6D2CAFEB3500157BE7 /* HomeViewController.swift in Sources */,
 				04C03E422C81607300DB9B0D /* UILabel.swift in Sources */,
 				048C75F22C18320E001DB3AD /* PageOneViewController.swift in Sources */,
 				04C03E382C74786B00DB9B0D /* UIColor.swift in Sources */,
@@ -586,7 +659,10 @@
 				04343B662C86AAB2007D3331 /* TopVericallyTextLabel.swift in Sources */,
 				04343B6C2C8947F7007D3331 /* ForgotPasswordViewController.swift in Sources */,
 				04343B732C8B1034007D3331 /* DefinePhoneNumberVM.swift in Sources */,
+				0491EC752CB006D000157BE7 /* SearchViewController.swift in Sources */,
+				0491EC712CB0064F00157BE7 /* FoodTabBarViewController.swift in Sources */,
 				041529AF2BD75C3300818A4A /* BaseViewController.swift in Sources */,
+				0491EC7A2CB0071100157BE7 /* OrdersViewController.swift in Sources */,
 				048BECE22C8574AD0087F446 /* SocialButtonViewVM.swift in Sources */,
 				041529B62BE0D5D500818A4A /* OrangeButtonView.swift in Sources */,
 				0415297D2BD7595600818A4A /* ViewController.swift in Sources */,
@@ -603,6 +679,7 @@
 				04343B702C8AA320007D3331 /* DefinePhoneNumberViewController.swift in Sources */,
 				04C03E3F2C76D96F00DB9B0D /* UIFont.swift in Sources */,
 				046E777E2C733E6B000F6FD1 /* ScreenName.swift in Sources */,
+				0491EC832CB0073C00157BE7 /* ProfileViewController.swift in Sources */,
 				0415297B2BD7595600818A4A /* SceneDelegate.swift in Sources */,
 				04788A312BE38729009AB6DD /* IntroducePageViewController.swift in Sources */,
 			);
