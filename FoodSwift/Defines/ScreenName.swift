@@ -8,6 +8,7 @@
 import Foundation
 
 struct ScreenName {
+    static let welcomeScreen = WelcomeViewController()
     static let pageOne = PageOneViewController()
     static let pageTwo = PageTwoViewController()
     static let pageThree = PageThreeViewController()

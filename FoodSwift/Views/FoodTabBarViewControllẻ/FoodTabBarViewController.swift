@@ -13,6 +13,11 @@ class FoodTabBarViewController: UITabBarController {
         super.viewDidLoad()
         setupUI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
 
     // MARK: - Private Function
     private func setupUI() {

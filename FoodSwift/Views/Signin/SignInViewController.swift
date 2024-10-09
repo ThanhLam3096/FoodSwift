@@ -14,7 +14,7 @@ class SignInViewController: BaseViewController {
     @IBOutlet private weak var emailFormView: TextFieldLoginView!
     @IBOutlet private weak var passwordFormView: TextFieldLoginView!
     @IBOutlet private weak var forgotPasswordButton: UIButton!
-    @IBOutlet private weak var welcomeButtonView: OrangeButtonView!
+    @IBOutlet private weak var signInButtonView: OrangeButtonView!
     @IBOutlet private weak var dontHaveAccountButton: UIButton!
     @IBOutlet private weak var createNewAccountButton: UIButton!
     @IBOutlet private weak var orLabel: UILabel!
@@ -54,7 +54,8 @@ class SignInViewController: BaseViewController {
         orLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
         orLabel.textColor = UIColor.black.withAlphaComponent(0.8)
         setUpSocialLoginButton()
-        welcomeButtonView.setButtonTitle("SIGN IN")
+        signInButtonView.setButtonTitle("SIGN IN")
+        signInButtonView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,5 +100,11 @@ class SignInViewController: BaseViewController {
     @objc func leftAction() {
 //        self.navigationController?.popViewController(animated: true)
         print("abcd1234")
+    }
+}
+
+extension SignInViewController: OrangeButtonViewViewDelegate {
+    func tappingInsideButton(view: OrangeButtonView) {
+        self.navigationController?.pushViewController(ScreenName.baseTabbar, animated: true)
     }
 }
