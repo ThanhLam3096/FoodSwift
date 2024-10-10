@@ -29,6 +29,10 @@
 		042FFBA92CB400A5004B6D85 /* LocationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFBA82CB400A5004B6D85 /* LocationListViewModel.swift */; };
 		042FFBAB2CB40127004B6D85 /* HomeViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFBAA2CB40127004B6D85 /* HomeViewVM.swift */; };
 		042FFBAD2CB4051C004B6D85 /* HeaderHomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFBAC2CB4051C004B6D85 /* HeaderHomeVM.swift */; };
+		042FFBB12CB7DEB9004B6D85 /* SliderImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFBAF2CB7DEB9004B6D85 /* SliderImageCollectionViewCell.swift */; };
+		042FFBB22CB7DEB9004B6D85 /* SliderImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FFBB02CB7DEB9004B6D85 /* SliderImageCollectionViewCell.xib */; };
+		042FFBB42CB7DECA004B6D85 /* SliderImageCollectionViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFBB32CB7DECA004B6D85 /* SliderImageCollectionViewCellVM.swift */; };
+		042FFBB62CB7E78F004B6D85 /* UICollectionViewEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFBB52CB7E78F004B6D85 /* UICollectionViewEXT.swift */; };
 		04343B662C86AAB2007D3331 /* TopVericallyTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04343B652C86AAB2007D3331 /* TopVericallyTextLabel.swift */; };
 		04343B6B2C8947F7007D3331 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04343B6A2C8947F7007D3331 /* ForgotPasswordViewController.xib */; };
 		04343B6C2C8947F7007D3331 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04343B692C8947F7007D3331 /* ForgotPasswordViewController.swift */; };
@@ -68,6 +72,7 @@
 		0491EC842CB0073C00157BE7 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0491EC822CB0073C00157BE7 /* ProfileViewController.xib */; };
 		0491EC872CB12BD200157BE7 /* HeaderHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491EC862CB12BD200157BE7 /* HeaderHomeView.swift */; };
 		0491EC892CB12BE200157BE7 /* HeaderHomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0491EC882CB12BE200157BE7 /* HeaderHomeView.xib */; };
+		04B3CC382CB80BC600F95E94 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CC372CB80BC600F95E94 /* CustomPageControl.swift */; };
 		04C03E382C74786B00DB9B0D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C03E372C74786B00DB9B0D /* UIColor.swift */; };
 		04C03E3C2C75818500DB9B0D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C03E3A2C75818500DB9B0D /* SignInViewController.swift */; };
 		04C03E3D2C75818500DB9B0D /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C03E3B2C75818500DB9B0D /* SignInViewController.xib */; };
@@ -124,6 +129,10 @@
 		042FFBA82CB400A5004B6D85 /* LocationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewModel.swift; sourceTree = "<group>"; };
 		042FFBAA2CB40127004B6D85 /* HomeViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewVM.swift; sourceTree = "<group>"; };
 		042FFBAC2CB4051C004B6D85 /* HeaderHomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderHomeVM.swift; sourceTree = "<group>"; };
+		042FFBAF2CB7DEB9004B6D85 /* SliderImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		042FFBB02CB7DEB9004B6D85 /* SliderImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		042FFBB32CB7DECA004B6D85 /* SliderImageCollectionViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderImageCollectionViewCellVM.swift; sourceTree = "<group>"; };
+		042FFBB52CB7E78F004B6D85 /* UICollectionViewEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewEXT.swift; sourceTree = "<group>"; };
 		04343B652C86AAB2007D3331 /* TopVericallyTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopVericallyTextLabel.swift; sourceTree = "<group>"; };
 		04343B692C8947F7007D3331 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		04343B6A2C8947F7007D3331 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
@@ -163,6 +172,7 @@
 		0491EC822CB0073C00157BE7 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		0491EC862CB12BD200157BE7 /* HeaderHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderHomeView.swift; sourceTree = "<group>"; };
 		0491EC882CB12BE200157BE7 /* HeaderHomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderHomeView.xib; sourceTree = "<group>"; };
+		04B3CC372CB80BC600F95E94 /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		04C03E372C74786B00DB9B0D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		04C03E3A2C75818500DB9B0D /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		04C03E3B2C75818500DB9B0D /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
@@ -297,6 +307,7 @@
 		041529B32BE0D54400818A4A /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				04B3CC362CB80BA100F95E94 /* CustomPageControl */,
 				04343B672C86ADD3007D3331 /* TopAlignedLabel */,
 				048BECDC2C8569420087F446 /* SocialButton */,
 				04C03E4A2C81F02000DB9B0D /* TextFieldLoginCustom */,
@@ -323,6 +334,16 @@
 				042FFBA82CB400A5004B6D85 /* LocationListViewModel.swift */,
 			);
 			path = LocationListTableCell;
+			sourceTree = "<group>";
+		};
+		042FFBAE2CB7DE88004B6D85 /* RandomImageCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				042FFBAF2CB7DEB9004B6D85 /* SliderImageCollectionViewCell.swift */,
+				042FFBB02CB7DEB9004B6D85 /* SliderImageCollectionViewCell.xib */,
+				042FFBB32CB7DECA004B6D85 /* SliderImageCollectionViewCellVM.swift */,
+			);
+			path = RandomImageCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		04343B672C86ADD3007D3331 /* TopAlignedLabel */ = {
@@ -435,6 +456,7 @@
 		0491EC6A2CAFEB2700157BE7 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				042FFBAE2CB7DE88004B6D85 /* RandomImageCollectionViewCell */,
 				042FFBA32CB3FF8D004B6D85 /* LocationListTableCell */,
 				0491EC852CB12B8200157BE7 /* HeaderHomeView */,
 				042FFB9F2CB3E27E004B6D85 /* HomeViewController.swift */,
@@ -490,12 +512,21 @@
 			path = HeaderHomeView;
 			sourceTree = "<group>";
 		};
+		04B3CC362CB80BA100F95E94 /* CustomPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				04B3CC372CB80BC600F95E94 /* CustomPageControl.swift */,
+			);
+			path = CustomPageControl;
+			sourceTree = "<group>";
+		};
 		04C03E362C74785100DB9B0D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				04C03E372C74786B00DB9B0D /* UIColor.swift */,
 				04C03E3E2C76D96F00DB9B0D /* UIFont.swift */,
 				0463F9A82C8B2CC900DFA5E7 /* UITableViewEXT.swift */,
+				042FFBB52CB7E78F004B6D85 /* UICollectionViewEXT.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -661,6 +692,7 @@
 				04C03E3D2C75818500DB9B0D /* SignInViewController.xib in Resources */,
 				046E777C2C6F5563000F6FD1 /* PageStackView.xib in Resources */,
 				048C75F32C18320E001DB3AD /* PageOneViewController.xib in Resources */,
+				042FFBB22CB7DEB9004B6D85 /* SliderImageCollectionViewCell.xib in Resources */,
 				0491EC7B2CB0071100157BE7 /* OrdersViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -688,6 +720,7 @@
 			files = (
 				042FFBA62CB3FFBA004B6D85 /* LocationListTableViewCell.swift in Sources */,
 				042FFBA92CB400A5004B6D85 /* LocationListViewModel.swift in Sources */,
+				042FFBB62CB7E78F004B6D85 /* UICollectionViewEXT.swift in Sources */,
 				04343B782C8B12D8007D3331 /* FlagCodeNumberTableViewCell.swift in Sources */,
 				04C03E502C84114E00DB9B0D /* TextFieldLoginViewVM.swift in Sources */,
 				04C03E422C81607300DB9B0D /* UILabel.swift in Sources */,
@@ -708,6 +741,7 @@
 				048BECE22C8574AD0087F446 /* SocialButtonViewVM.swift in Sources */,
 				041529B62BE0D5D500818A4A /* OrangeButtonView.swift in Sources */,
 				0415297D2BD7595600818A4A /* ViewController.swift in Sources */,
+				042FFBB12CB7DEB9004B6D85 /* SliderImageCollectionViewCell.swift in Sources */,
 				04C03E3C2C75818500DB9B0D /* SignInViewController.swift in Sources */,
 				048BECDE2C85695A0087F446 /* SocialButtonView.swift in Sources */,
 				041529AB2BD759A300818A4A /* WelcomeViewController.swift in Sources */,
@@ -715,9 +749,11 @@
 				042FFBA12CB3E27E004B6D85 /* HomeViewController.swift in Sources */,
 				046E777A2C6F547A000F6FD1 /* PageStackView.swift in Sources */,
 				045578F22C97E1B600EA420B /* VerifylePhoneNumberVC.swift in Sources */,
+				042FFBB42CB7DECA004B6D85 /* SliderImageCollectionViewCellVM.swift in Sources */,
 				04C03E4C2C81F0C200DB9B0D /* TextFieldLoginView.swift in Sources */,
 				041529792BD7595600818A4A /* AppDelegate.swift in Sources */,
 				0463F9A92C8B2CC900DFA5E7 /* UITableViewEXT.swift in Sources */,
+				04B3CC382CB80BC600F95E94 /* CustomPageControl.swift in Sources */,
 				04343B7A2C8B12EF007D3331 /* FlagCodeNumberCellVM.swift in Sources */,
 				04343B702C8AA320007D3331 /* DefinePhoneNumberViewController.swift in Sources */,
 				042FFBAD2CB4051C004B6D85 /* HeaderHomeVM.swift in Sources */,

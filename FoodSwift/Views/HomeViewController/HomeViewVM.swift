@@ -10,18 +10,34 @@ import Foundation
 final class HomeViewVM {
     let listLocation: [String] = ["Ha Noi, Viet Nam", "New York, USA", "Parisn, France", "London, England", "Bac Kinh, China", "Tokyo, Japan", "Malina, India", "Kevin, Australia", "Moccow, Russia", "Munich ,Germany", "Madrid, Spanish", "Buenos Aires, Argentina", "Brasília, Brazil"]
     
-    // MARK: - TableView Data
-    func numberOfRowsInSection() -> Int {
+    let listSliderFoodImage: [String] = ["food1", "food2", "food3", "food4", "food5"]
+    // MARK: - TableView HeaderView Data
+    func numberOfRowsInSectionHeaderView() -> Int {
         return listLocation.count
     }
 
-    func cellForRowAt(indexPath: IndexPath) -> LocationListViewModel {
+    func cellForRowAtHeaderView(indexPath: IndexPath) -> LocationListViewModel {
         let itemLocaiton = listLocation[indexPath.row]
         let model = LocationListViewModel(location: itemLocaiton)
         return model
     }
 
-    func heightForRowAt() -> CGFloat {
+    func heightForRowAtHeaderView() -> CGFloat {
+        return 36
+    }
+    
+    // MARK: - TableView HeaderView Data
+    func numberOfRowsInSectionSlider() -> Int {
+        return listSliderFoodImage.count
+    }
+
+    func cellForRowAtSlider(indexPath: IndexPath) -> SliderImageCollectionViewCellViewModel {
+        let item = listSliderFoodImage[indexPath.row]
+        let model = SliderImageCollectionViewCellViewModel(image: item)
+        return model
+    }
+
+    func heightForRowAtSlider() -> CGFloat {
         return 36
     }
 }

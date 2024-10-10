@@ -13,6 +13,8 @@
             <connections>
                 <outlet property="headerHomeView" destination="saK-rz-yKw" id="8Xm-CP-kd5"/>
                 <outlet property="locationListTableView" destination="kgO-xt-0Mc" id="y3m-S5-dpY"/>
+                <outlet property="randomImageCollectionView" destination="WFg-rp-9QT" id="Rdw-Po-2a8"/>
+                <outlet property="sliderImagePageControl" destination="ldz-Lp-lrs" id="kIO-Qk-jdD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -42,10 +44,31 @@
                                         <constraint firstAttribute="width" constant="200" id="tpN-DX-7rI"/>
                                     </constraints>
                                 </tableView>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="WFg-rp-9QT">
+                                    <rect key="frame" x="20" y="90" width="353" height="185"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="185" id="vdc-go-JJh"/>
+                                    </constraints>
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RC7-mU-pjU">
+                                        <size key="itemSize" width="128" height="128"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                </collectionView>
+                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ldz-Lp-lrs">
+                                    <rect key="frame" x="287.33333333333331" y="249" width="115.66666666666669" height="26"/>
+                                </pageControl>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="kgO-xt-0Mc" firstAttribute="top" secondItem="saK-rz-yKw" secondAttribute="bottom" constant="5" id="3aq-fV-lIM"/>
+                                <constraint firstItem="WFg-rp-9QT" firstAttribute="top" secondItem="saK-rz-yKw" secondAttribute="bottom" constant="20" id="5Qj-rN-gtA"/>
+                                <constraint firstAttribute="trailing" secondItem="WFg-rp-9QT" secondAttribute="trailing" constant="20" id="6mL-80-Rii"/>
+                                <constraint firstAttribute="trailing" secondItem="ldz-Lp-lrs" secondAttribute="trailing" constant="-10" id="9y7-bT-ge7"/>
+                                <constraint firstItem="ldz-Lp-lrs" firstAttribute="bottom" secondItem="WFg-rp-9QT" secondAttribute="bottom" id="A8e-Y1-AcF"/>
+                                <constraint firstItem="WFg-rp-9QT" firstAttribute="leading" secondItem="Luc-WL-oDU" secondAttribute="leading" constant="20" id="GAT-EU-pqP"/>
                                 <constraint firstItem="saK-rz-yKw" firstAttribute="leading" secondItem="Luc-WL-oDU" secondAttribute="leading" id="YfV-xh-FDd"/>
                                 <constraint firstAttribute="height" priority="250" constant="1500" id="kDq-eu-nlz"/>
                                 <constraint firstItem="kgO-xt-0Mc" firstAttribute="centerX" secondItem="Luc-WL-oDU" secondAttribute="centerX" id="rDr-Hk-sSl"/>
