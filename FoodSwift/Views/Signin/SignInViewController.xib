@@ -18,10 +18,10 @@
                 <outlet property="googleLoginButton" destination="6MT-25-LyN" id="ukn-Q1-Q0e"/>
                 <outlet property="orLabel" destination="MZE-xc-Rm5" id="Ag8-M2-dI0"/>
                 <outlet property="passwordFormView" destination="IHX-8F-SBN" id="B8i-Sg-7S3"/>
+                <outlet property="signInButtonView" destination="ShR-iq-KcU" id="uWR-DT-PNW"/>
                 <outlet property="title2IntroLabel" destination="u8w-uv-Y8q" id="kuU-QY-pmO"/>
                 <outlet property="titleIntroLabel" destination="nfF-PO-sLK" id="Ggb-X7-ycX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="JQD-Hj-cBc"/>
-                <outlet property="welcomeButtonView" destination="ShR-iq-KcU" id="uWR-DT-PNW"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -216,7 +216,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

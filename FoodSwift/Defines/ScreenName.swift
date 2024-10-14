@@ -8,6 +8,7 @@
 import Foundation
 
 struct ScreenName {
+    static let welcomeScreen = WelcomeViewController()
     static let pageOne = PageOneViewController()
     static let pageTwo = PageTwoViewController()
     static let pageThree = PageThreeViewController()
@@ -16,4 +17,5 @@ struct ScreenName {
     static let forgotPassword = ForgotPasswordViewController()
     static let definePhoneNumber = DefinePhoneNumberViewController()
     static let verifyPhoneNumber = VerifylePhoneNumberVC()
+    static let baseTabbar = FoodTabBarViewController()
 }
