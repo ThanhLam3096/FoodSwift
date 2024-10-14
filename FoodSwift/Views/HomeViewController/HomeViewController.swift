@@ -17,7 +17,14 @@ class HomeViewController: BaseViewController {
     @IBOutlet private weak var featuredPartnersLabel: UILabel!
     @IBOutlet private weak var featuredPartnersSeeAllButton: UIButton!
     @IBOutlet private weak var featuredPartnersCollectionView: UICollectionView!
-    @IBOutlet private weak var homeScrollView: UIScrollView!
+    @IBOutlet private weak var restaurantLabel: UILabel!
+    @IBOutlet private weak var restaurantSeeAllButton: UIButton!
+    @IBOutlet private weak var bestFoodOfRestaurntsCollectionView: UICollectionView!
+    @IBOutlet private weak var allRestaurantLabel: UILabel!
+    @IBOutlet private weak var allRestaurantSeeAllButton: UIButton!
+    @IBOutlet private weak var allRestaurantTableView: UITableView!
+    @IBOutlet private weak var heightListTableView: NSLayoutConstraint!
+    @IBOutlet private weak var heightContentViewConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     var viewModel: HomeViewVM = HomeViewVM()
@@ -35,12 +42,20 @@ class HomeViewController: BaseViewController {
     override func setUpUI() {
         setUpTableView()
         setUpRandomImageCollectionView()
+        setUpFeaturedPartnersCollectionView(collectionView: featuredPartnersCollectionView)
+        setUpFeaturedPartnersCollectionView(collectionView: bestFoodOfRestaurntsCollectionView)
         setUpPageControl()
         headerHomeView.delegate = self
+        
         setUpTitleLabel(label: featuredPartnersLabel, title: "Featured Partners")
         setUpSeeAllButton(seeAllButton: featuredPartnersSeeAllButton)
-        setUpFeaturedPartnersCollectionView()
-        homeScrollView.isScrollEnabled = true
+        
+        setUpTitleLabel(label: restaurantLabel, title: "Best Picks Restaurants by team")
+        setUpSeeAllButton(seeAllButton: restaurantSeeAllButton)
+        
+        setUpTitleLabel(label: allRestaurantLabel, title: "All Restaurants")
+        setUpSeeAllButton(seeAllButton: allRestaurantSeeAllButton)
+        heightContentViewConstraint.constant = CGFloat(1500 + (282 * (viewModel.numberOfRowsInSectionListRestaurants() - 1)))
     }
     
     private func setUpTitleLabel(label: UILabel, title: String) {
@@ -62,6 +77,12 @@ class HomeViewController: BaseViewController {
         locationListTableView.isHidden = true
         locationListTableView.delegate = self
         locationListTableView.dataSource = self
+        
+        allRestaurantTableView.register(nibWithCellClass: ListAllResTableViewCell.self)
+        allRestaurantTableView.delegate = self
+        allRestaurantTableView.dataSource = self
+        allRestaurantTableView.isScrollEnabled = false
+        heightListTableView.constant = CGFloat(282 * viewModel.numberOfRowsInSectionListRestaurants())
     }
     
     private func setUpRandomImageCollectionView() {
@@ -77,17 +98,17 @@ class HomeViewController: BaseViewController {
         randomImageCollectionView.register(nibWithCellClass: SliderImageCollectionViewCell.self)
     }
     
-    private func setUpFeaturedPartnersCollectionView() {
+    private func setUpFeaturedPartnersCollectionView(collectionView: UICollectionView) {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 20
         
-        featuredPartnersCollectionView.collectionViewLayout = layout
-        featuredPartnersCollectionView.isPagingEnabled = true
-        featuredPartnersCollectionView.showsHorizontalScrollIndicator = false
-        featuredPartnersCollectionView.delegate = self
-        featuredPartnersCollectionView.dataSource = self
-        featuredPartnersCollectionView.register(nibWithCellClass: FeaturedPartnersCollectionViewCell.self)
+        collectionView.collectionViewLayout = layout
+        collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(nibWithCellClass: FeaturedPartnersCollectionViewCell.self)
     }
     
     // MARK: - Page Control Setup
@@ -131,23 +152,44 @@ extension HomeViewController: UITableViewDelegate {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSectionHeaderView()
+        if tableView == locationListTableView {
+            return viewModel.numberOfRowsInSectionHeaderView()
+        } else {
+            return viewModel.numberOfRowsInSectionListRestaurants()
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withClass: LocationListTableViewCell.self, for: indexPath)
-        cell.viewModel = viewModel.cellForRowAtHeaderView(indexPath: indexPath)
-        return cell
+        if tableView == locationListTableView {
+            let cell = tableView.dequeueReusableCell(withClass: LocationListTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAtHeaderView(indexPath: indexPath)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withClass: ListAllResTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAtListRestaurants(indexPath: indexPath)
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let location = viewModel.listLocation[indexPath.row]
-        headerHomeView.viewModel = HeaderHomeVM(location: location)
-        locationListTableView.isHidden = true
+        if tableView == locationListTableView { 
+            let location = viewModel.listLocation[indexPath.row]
+            headerHomeView.viewModel = HeaderHomeVM(location: location)
+            locationListTableView.isHidden = true
+        } else {
+            let item = dummyRestaurant.listAllRes[indexPath.row]
+            print("Check Info Restaurant : \(item.name)")
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return viewModel.heightForRowAtHeaderView()
+        if tableView == locationListTableView {
+            return viewModel.heightForRowAtHeaderView()
+        } else {
+            return viewModel.heightForRowAtListRestaurants()
+        }
+        
     }
 }
 

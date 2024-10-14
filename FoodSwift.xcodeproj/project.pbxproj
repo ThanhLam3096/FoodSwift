@@ -64,6 +64,10 @@
 		048C75F72C183221001DB3AD /* PageTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048C75F52C183221001DB3AD /* PageTwoViewController.xib */; };
 		048C75FA2C18324E001DB3AD /* PageThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C75F82C18324E001DB3AD /* PageThreeViewController.swift */; };
 		048C75FB2C18324E001DB3AD /* PageThreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048C75F92C18324E001DB3AD /* PageThreeViewController.xib */; };
+		048D96292CBD1B0E00977AD1 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D96282CBD1B0E00977AD1 /* Restaurant.swift */; };
+		048D962D2CBD1E4400977AD1 /* ListAllResTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D962B2CBD1E4400977AD1 /* ListAllResTableViewCell.swift */; };
+		048D962E2CBD1E4400977AD1 /* ListAllResTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048D962C2CBD1E4400977AD1 /* ListAllResTableViewCell.xib */; };
+		048D96302CBD1E5400977AD1 /* ListAllResTableViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D962F2CBD1E5400977AD1 /* ListAllResTableViewCellVM.swift */; };
 		0491EC712CB0064F00157BE7 /* FoodTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491EC702CB0064F00157BE7 /* FoodTabBarViewController.swift */; };
 		0491EC752CB006D000157BE7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491EC732CB006D000157BE7 /* SearchViewController.swift */; };
 		0491EC762CB006D000157BE7 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0491EC742CB006D000157BE7 /* SearchViewController.xib */; };
@@ -170,6 +174,10 @@
 		048C75F52C183221001DB3AD /* PageTwoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageTwoViewController.xib; sourceTree = "<group>"; };
 		048C75F82C18324E001DB3AD /* PageThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageThreeViewController.swift; sourceTree = "<group>"; };
 		048C75F92C18324E001DB3AD /* PageThreeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageThreeViewController.xib; sourceTree = "<group>"; };
+		048D96282CBD1B0E00977AD1 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		048D962B2CBD1E4400977AD1 /* ListAllResTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAllResTableViewCell.swift; sourceTree = "<group>"; };
+		048D962C2CBD1E4400977AD1 /* ListAllResTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListAllResTableViewCell.xib; sourceTree = "<group>"; };
+		048D962F2CBD1E5400977AD1 /* ListAllResTableViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAllResTableViewCellVM.swift; sourceTree = "<group>"; };
 		0491EC702CB0064F00157BE7 /* FoodTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTabBarViewController.swift; sourceTree = "<group>"; };
 		0491EC732CB006D000157BE7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0491EC742CB006D000157BE7 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -467,9 +475,20 @@
 			path = SubIntroduce;
 			sourceTree = "<group>";
 		};
+		048D962A2CBD1E2700977AD1 /* ListAllRestaurantsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				048D962B2CBD1E4400977AD1 /* ListAllResTableViewCell.swift */,
+				048D962C2CBD1E4400977AD1 /* ListAllResTableViewCell.xib */,
+				048D962F2CBD1E5400977AD1 /* ListAllResTableViewCellVM.swift */,
+			);
+			path = ListAllRestaurantsTableViewCell;
+			sourceTree = "<group>";
+		};
 		0491EC6A2CAFEB2700157BE7 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				048D962A2CBD1E2700977AD1 /* ListAllRestaurantsTableViewCell */,
 				04B3CC412CBBF28200F95E94 /* FeaturedPartnersCollectionViewCell */,
 				042FFBAE2CB7DE88004B6D85 /* RandomImageCollectionViewCell */,
 				042FFBA32CB3FF8D004B6D85 /* LocationListTableCell */,
@@ -564,6 +583,7 @@
 			isa = PBXGroup;
 			children = (
 				04B3CC3F2CB94F0000F95E94 /* Meal.swift */,
+				048D96282CBD1B0E00977AD1 /* Restaurant.swift */,
 			);
 			path = Schema;
 			sourceTree = "<group>";
@@ -757,6 +777,7 @@
 				041529802BD7595600818A4A /* Base in Resources */,
 				04C03E3D2C75818500DB9B0D /* SignInViewController.xib in Resources */,
 				04B3CC452CBBF2C800F95E94 /* FeaturedPartnersCollectionViewCell.xib in Resources */,
+				048D962E2CBD1E4400977AD1 /* ListAllResTableViewCell.xib in Resources */,
 				046E777C2C6F5563000F6FD1 /* PageStackView.xib in Resources */,
 				048C75F32C18320E001DB3AD /* PageOneViewController.xib in Resources */,
 				042FFBB22CB7DEB9004B6D85 /* SliderImageCollectionViewCell.xib in Resources */,
@@ -795,6 +816,7 @@
 				04C03E382C74786B00DB9B0D /* UIColor.swift in Sources */,
 				048C75FA2C18324E001DB3AD /* PageThreeViewController.swift in Sources */,
 				041529B22BD7AB7800818A4A /* ScreenSize.swift in Sources */,
+				048D96292CBD1B0E00977AD1 /* Restaurant.swift in Sources */,
 				048C75F62C183221001DB3AD /* PageTwoViewController.swift in Sources */,
 				04343B662C86AAB2007D3331 /* TopVericallyTextLabel.swift in Sources */,
 				04343B6C2C8947F7007D3331 /* ForgotPasswordViewController.swift in Sources */,
@@ -803,9 +825,11 @@
 				042FFBAB2CB40127004B6D85 /* HomeViewVM.swift in Sources */,
 				0491EC712CB0064F00157BE7 /* FoodTabBarViewController.swift in Sources */,
 				041529AF2BD75C3300818A4A /* BaseViewController.swift in Sources */,
+				048D962D2CBD1E4400977AD1 /* ListAllResTableViewCell.swift in Sources */,
 				0491EC7A2CB0071100157BE7 /* OrdersViewController.swift in Sources */,
 				0491EC872CB12BD200157BE7 /* HeaderHomeView.swift in Sources */,
 				048BECE22C8574AD0087F446 /* SocialButtonViewVM.swift in Sources */,
+				048D96302CBD1E5400977AD1 /* ListAllResTableViewCellVM.swift in Sources */,
 				04B3CC3D2CB9105F00F95E94 /* Networking.swift in Sources */,
 				041529B62BE0D5D500818A4A /* OrangeButtonView.swift in Sources */,
 				0415297D2BD7595600818A4A /* ViewController.swift in Sources */,

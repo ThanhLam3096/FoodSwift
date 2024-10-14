@@ -34,8 +34,7 @@ struct dummyMealFeaturePartnes {
         Meal(image: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fpublic-assets.meredithcorp.io%2Ff926647f3c831a8bb7a3024468adfd8f%2F1687043234863Screenshot_20230618_090145_Chrome.jpg&q=60&c=sc&orient=true&poi=auto&h=512", name: "Chicken", address: "New York, USA", nation1: "England", nation2: "America", time: "22min", rating: "3.0", fee: 12, idMeal: "9"),
         Meal(image: "https://cdn.tgdd.vn/Files/2020/12/26/1316162/cach-lam-pizza-pate-thom-ngon-nuc-mui-ai-an-cung-me-202012261006404180.jpg", name: "Pizza", address: "Roma, Italia", nation1: "America", nation2: "Italia", time: "22min", rating: "4.0", fee: 14, idMeal: "10"),
         Meal(image: "https://hapinut.com/wp-content/uploads/2022/03/mi-quang-quang-nam.jpg", name: "Mỳ Quảng", address: "Quảng Nam, Việt Nam", nation1: "Việt Nam", nation2: "Việt Nam", time: "20min", rating: "5.0", fee: 20, idMeal: "11"),
-        Meal(image: "https://img-global.cpcdn.com/recipes/da2ad5d76d683cf3/1360x964cq70/bun-ch%E1%BA%A3-ca-da-n%E1%BA%B5ng-recipe-main-photo.webp", name: "Bún Chả Cá", address: "Đà Nẵng, Việt Nam", nation1: "Việt Nam", nation2: "Việt Nam", time: "15min", rating: "5.0", fee: 5    , idMeal: "12"),
+        Meal(image: "https://img-global.cpcdn.com/recipes/da2ad5d76d683cf3/1360x964cq70/bun-ch%E1%BA%A3-ca-da-n%E1%BA%B5ng-recipe-main-photo.webp", name: "Bún Chả Cá", address: "Đà Nẵng, Việt Nam", nation1: "Việt Nam", nation2: "Việt Nam", time: "15min", rating: "5.0", fee: 5, idMeal: "12"),
         Meal(image: "https://blogdulich.net/wp-content/uploads/2021/12/banh-mi-ba-lan-da-nang-6-1377x1536.jpeg", name: "Bánh Mỳ", address: "Đà Nẵng, Việt Nam", nation1: "Việt Nam", nation2: "Việt Nam", time: "15min", rating: "5.0", fee: 5, idMeal: "13"),
-        
     ]
 }

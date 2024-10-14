@@ -55,4 +55,19 @@ final class HomeViewVM {
     func heightForRowAtFeaturedPartners() -> CGFloat {
         return 254
     }
+    
+    // MARK: - TableView List Res Data
+    func numberOfRowsInSectionListRestaurants() -> Int {
+        return dummyRestaurant.listAllRes.count
+    }
+
+    func cellForRowAtListRestaurants(indexPath: IndexPath) -> ListAllResTableViewCellVM {
+        let item = dummyRestaurant.listAllRes[indexPath.row]
+        let model = ListAllResTableViewCellVM(restaurant: item)
+        return model
+    }
+
+    func heightForRowAtListRestaurants() -> CGFloat {
+        return 282
+    }
 }
