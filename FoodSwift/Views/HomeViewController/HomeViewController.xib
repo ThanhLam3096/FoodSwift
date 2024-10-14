@@ -31,7 +31,7 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="1092"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Luc-WL-oDU" userLabel="Content View">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="1092"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="1500"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saK-rz-yKw" userLabel="Custom HeaderView" customClass="HeaderHomeView" customModule="FoodSwift" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
@@ -113,7 +113,7 @@
                                 <constraint firstItem="IN7-rQ-LeH" firstAttribute="centerY" secondItem="AXc-6q-8cT" secondAttribute="centerY" id="UM1-MG-J3w"/>
                                 <constraint firstAttribute="trailing" secondItem="HG6-lJ-wxK" secondAttribute="trailing" id="VQN-iu-JOV"/>
                                 <constraint firstItem="saK-rz-yKw" firstAttribute="leading" secondItem="Luc-WL-oDU" secondAttribute="leading" id="YfV-xh-FDd"/>
-                                <constraint firstAttribute="height" priority="250" constant="1500" id="kDq-eu-nlz"/>
+                                <constraint firstAttribute="height" constant="1500" id="kDq-eu-nlz"/>
                                 <constraint firstItem="HG6-lJ-wxK" firstAttribute="leading" secondItem="Luc-WL-oDU" secondAttribute="leading" constant="20" id="o4r-Y4-Kl3"/>
                                 <constraint firstItem="kgO-xt-0Mc" firstAttribute="centerX" secondItem="Luc-WL-oDU" secondAttribute="centerX" id="rDr-Hk-sSl"/>
                                 <constraint firstItem="saK-rz-yKw" firstAttribute="top" secondItem="Luc-WL-oDU" secondAttribute="top" id="uZm-Fv-DoL"/>
@@ -127,7 +127,7 @@
                         <constraint firstItem="Luc-WL-oDU" firstAttribute="top" secondItem="RUC-kn-Whe" secondAttribute="top" id="UyS-g6-qvZ"/>
                         <constraint firstItem="Luc-WL-oDU" firstAttribute="width" secondItem="Q06-wa-feo" secondAttribute="width" id="dVi-2M-ywE"/>
                         <constraint firstItem="Luc-WL-oDU" firstAttribute="leading" secondItem="RUC-kn-Whe" secondAttribute="leading" id="tav-mW-X64"/>
-                        <constraint firstItem="Luc-WL-oDU" firstAttribute="height" secondItem="Q06-wa-feo" secondAttribute="height" id="wyL-eV-BWq"/>
+                        <constraint firstItem="Luc-WL-oDU" firstAttribute="height" secondItem="Q06-wa-feo" secondAttribute="height" priority="250" id="wyL-eV-BWq"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="RUC-kn-Whe"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="Q06-wa-feo"/>
