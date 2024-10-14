@@ -26,7 +26,7 @@ final class HomeViewVM {
         return 36
     }
     
-    // MARK: - TableView HeaderView Data
+    // MARK: - CollectionView Slider Data
     func numberOfRowsInSectionSlider() -> Int {
         return listSliderFoodImage.count
     }
@@ -39,5 +39,20 @@ final class HomeViewVM {
 
     func heightForRowAtSlider() -> CGFloat {
         return 36
+    }
+    
+    // MARK: - CollectionView Featured Partners Data
+    func numberOfRowsInSectionFeaturedPartners() -> Int {
+        return dummyMealFeaturePartnes.featurePartnesMeal.count
+    }
+
+    func cellForRowAtFeaturedPartners(indexPath: IndexPath) -> FeaturedPartnersCollectionViewCellViewModel {
+        let item = dummyMealFeaturePartnes.featurePartnesMeal[indexPath.row]
+        let model = FeaturedPartnersCollectionViewCellViewModel(meal: item)
+        return model
+    }
+
+    func heightForRowAtFeaturedPartners() -> CGFloat {
+        return 254
     }
 }

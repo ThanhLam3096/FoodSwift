@@ -14,6 +14,10 @@ class HomeViewController: BaseViewController {
     @IBOutlet private weak var locationListTableView: UITableView!
     @IBOutlet private weak var randomImageCollectionView: UICollectionView!
     @IBOutlet private weak var sliderImagePageControl: UIPageControl!
+    @IBOutlet private weak var featuredPartnersLabel: UILabel!
+    @IBOutlet private weak var featuredPartnersSeeAllButton: UIButton!
+    @IBOutlet private weak var featuredPartnersCollectionView: UICollectionView!
+    @IBOutlet private weak var homeScrollView: UIScrollView!
     
     // MARK: - Properties
     var viewModel: HomeViewVM = HomeViewVM()
@@ -33,6 +37,24 @@ class HomeViewController: BaseViewController {
         setUpRandomImageCollectionView()
         setUpPageControl()
         headerHomeView.delegate = self
+        setUpTitleLabel(label: featuredPartnersLabel, title: "Featured Partners")
+        setUpSeeAllButton(seeAllButton: featuredPartnersSeeAllButton)
+        setUpFeaturedPartnersCollectionView()
+        homeScrollView.isScrollEnabled = true
+    }
+    
+    private func setUpTitleLabel(label: UILabel, title: String) {
+        label.text = title
+        label.font = UIFont.fontYugothicUISemiBold(ofSize: 24)
+        label.textColor = UIColor(hex: "#010F07")
+        label.numberOfLines = 0
+        label.widthAnchor.constraint(equalToConstant: ScreenSize.screenWidth / 2).isActive = true
+    }
+    
+    private func setUpSeeAllButton(seeAllButton: UIButton) {
+        seeAllButton.setAttributedTitle(NSAttributedString(string: "See all", attributes: [
+            .font: UIFont.fontYugothicRegular(ofSize: 16) as Any, .foregroundColor: UIColor(hex: "#F8B64C")
+        ]), for: .normal)
     }
     
     private func setUpTableView() {
@@ -53,6 +75,19 @@ class HomeViewController: BaseViewController {
         randomImageCollectionView.delegate = self
         randomImageCollectionView.dataSource = self
         randomImageCollectionView.register(nibWithCellClass: SliderImageCollectionViewCell.self)
+    }
+    
+    private func setUpFeaturedPartnersCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 20
+        
+        featuredPartnersCollectionView.collectionViewLayout = layout
+        featuredPartnersCollectionView.isPagingEnabled = true
+        featuredPartnersCollectionView.showsHorizontalScrollIndicator = false
+        featuredPartnersCollectionView.delegate = self
+        featuredPartnersCollectionView.dataSource = self
+        featuredPartnersCollectionView.register(nibWithCellClass: FeaturedPartnersCollectionViewCell.self)
     }
     
     // MARK: - Page Control Setup
@@ -129,36 +164,59 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSectionSlider()
+        if collectionView == randomImageCollectionView {
+            return viewModel.numberOfRowsInSectionSlider()
+        } else {
+            return viewModel.numberOfRowsInSectionFeaturedPartners()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withClass: SliderImageCollectionViewCell.self, for: indexPath)
-        cell.viewModel = viewModel.cellForRowAtSlider(indexPath: indexPath)
-        return cell
+        if collectionView == randomImageCollectionView {
+            let cell = collectionView.dequeueReusableCell(withClass: SliderImageCollectionViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAtSlider(indexPath: indexPath)
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withClass: FeaturedPartnersCollectionViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAtFeaturedPartners(indexPath: indexPath)
+            return cell
+        }
+        
     }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+        if collectionView == randomImageCollectionView { 
+            return CGSize(width: randomImageCollectionView.frame.width, height: randomImageCollectionView.frame.height)
+        }
+        else {
+            return CGSize(width: 200, height: featuredPartnersCollectionView.frame.height)
+        }
+        
     }
     
     // Dừng timer khi người dùng cuộn thủ công
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        timer?.invalidate()
+        if scrollView == randomImageCollectionView {
+            timer?.invalidate()
+        }
     }
     
     // Khởi động lại timer khi người dùng dừng cuộn
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        startTimer()
+        if scrollView == randomImageCollectionView {
+            startTimer()
+        }
     }
     
     // Cập nhật page control khi cuộn
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let pageIndex = round(scrollView.contentOffset.x / view.frame.size.width)
-        sliderImagePageControl.currentPage = Int(pageIndex)
-        currentIndex = Int(pageIndex)
+        if scrollView == randomImageCollectionView {
+            let pageIndex = round(scrollView.contentOffset.x / view.frame.size.width)
+            sliderImagePageControl.currentPage = Int(pageIndex)
+            currentIndex = Int(pageIndex)
+        }
     }
 }
 
