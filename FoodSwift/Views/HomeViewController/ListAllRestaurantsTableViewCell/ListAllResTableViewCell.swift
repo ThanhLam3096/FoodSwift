@@ -40,6 +40,8 @@ class ListAllResTableViewCell: UITableViewCell {
     }
     
     private func setUpUI() {
+        restaurantImageView.layer.cornerRadius = 6
+        
         setUpLabel(label: nameResLabel, labelFont: UIFont.fontYugothicLight(ofSize: 20) ?? UIFont.systemFont(ofSize: 17), labelTextColor: UIColor(hex: "#010F07"))
         setUpLabel(label: priceLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 17), labelTextColor: UIColor(hex: "#868686"))
         setUpLabel(label: branch1Label, labelFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 17), labelTextColor: UIColor(hex: "#868686"))
