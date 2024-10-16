@@ -22,6 +22,11 @@
 		041529B22BD7AB7800818A4A /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041529B12BD7AB7800818A4A /* ScreenSize.swift */; };
 		041529B62BE0D5D500818A4A /* OrangeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041529B52BE0D5D500818A4A /* OrangeButtonView.swift */; };
 		041529B82BE0D5EC00818A4A /* OrangeButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041529B72BE0D5EC00818A4A /* OrangeButtonView.xib */; };
+		04156AA52CBE9865000A1B0F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04156AA42CBE9865000A1B0F /* API.swift */; };
+		04156AA72CBEA46B000A1B0F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04156AA62CBEA46B000A1B0F /* String.swift */; };
+		04156AA92CBEA4C6000A1B0F /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04156AA82CBEA4C6000A1B0F /* App.swift */; };
+		04156AAD2CBEA6EB000A1B0F /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04156AAC2CBEA6EB000A1B0F /* UIViewControllerExt.swift */; };
+		04156AAF2CBEA759000A1B0F /* DataEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04156AAE2CBEA759000A1B0F /* DataEXT.swift */; };
 		042FFBA12CB3E27E004B6D85 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFB9F2CB3E27E004B6D85 /* HomeViewController.swift */; };
 		042FFBA22CB3E27E004B6D85 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FFBA02CB3E27E004B6D85 /* HomeViewController.xib */; };
 		042FFBA62CB3FFBA004B6D85 /* LocationListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFBA42CB3FFBA004B6D85 /* LocationListTableViewCell.swift */; };
@@ -132,6 +137,11 @@
 		041529B12BD7AB7800818A4A /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
 		041529B52BE0D5D500818A4A /* OrangeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButtonView.swift; sourceTree = "<group>"; };
 		041529B72BE0D5EC00818A4A /* OrangeButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrangeButtonView.xib; sourceTree = "<group>"; };
+		04156AA42CBE9865000A1B0F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		04156AA62CBEA46B000A1B0F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		04156AA82CBEA4C6000A1B0F /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		04156AAC2CBEA6EB000A1B0F /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
+		04156AAE2CBEA759000A1B0F /* DataEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEXT.swift; sourceTree = "<group>"; };
 		042FFB9F2CB3E27E004B6D85 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		042FFBA02CB3E27E004B6D85 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		042FFBA42CB3FFBA004B6D85 /* LocationListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListTableViewCell.swift; sourceTree = "<group>"; };
@@ -253,6 +263,7 @@
 		041529772BD7595600818A4A /* FoodSwift */ = {
 			isa = PBXGroup;
 			children = (
+				04156AAA2CBEA6D1000A1B0F /* Library */,
 				04B3CC392CB9102E00F95E94 /* Model */,
 				04C03E432C81633A00DB9B0D /* Font */,
 				04C03E362C74785100DB9B0D /* Extension */,
@@ -321,6 +332,8 @@
 				041529B12BD7AB7800818A4A /* ScreenSize.swift */,
 				046E777D2C733E6B000F6FD1 /* ScreenName.swift */,
 				04C03E412C81607300DB9B0D /* UILabel.swift */,
+				04156AA62CBEA46B000A1B0F /* String.swift */,
+				04156AA82CBEA4C6000A1B0F /* App.swift */,
 			);
 			path = Defines;
 			sourceTree = "<group>";
@@ -346,6 +359,23 @@
 				041529B72BE0D5EC00818A4A /* OrangeButtonView.xib */,
 			);
 			path = ButtonWelcome;
+			sourceTree = "<group>";
+		};
+		04156AAA2CBEA6D1000A1B0F /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				04156AAB2CBEA6E0000A1B0F /* EXT */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		04156AAB2CBEA6E0000A1B0F /* EXT */ = {
+			isa = PBXGroup;
+			children = (
+				04156AAC2CBEA6EB000A1B0F /* UIViewControllerExt.swift */,
+				04156AAE2CBEA759000A1B0F /* DataEXT.swift */,
+			);
+			path = EXT;
 			sourceTree = "<group>";
 		};
 		042FFBA32CB3FF8D004B6D85 /* LocationListTableCell */ = {
@@ -575,6 +605,7 @@
 			isa = PBXGroup;
 			children = (
 				04B3CC3C2CB9105F00F95E94 /* Networking.swift */,
+				04156AA42CBE9865000A1B0F /* API.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -811,6 +842,7 @@
 				042FFBB62CB7E78F004B6D85 /* UICollectionViewEXT.swift in Sources */,
 				04343B782C8B12D8007D3331 /* FlagCodeNumberTableViewCell.swift in Sources */,
 				04C03E502C84114E00DB9B0D /* TextFieldLoginViewVM.swift in Sources */,
+				04156AA92CBEA4C6000A1B0F /* App.swift in Sources */,
 				04C03E422C81607300DB9B0D /* UILabel.swift in Sources */,
 				048C75F22C18320E001DB3AD /* PageOneViewController.swift in Sources */,
 				04C03E382C74786B00DB9B0D /* UIColor.swift in Sources */,
@@ -818,6 +850,8 @@
 				041529B22BD7AB7800818A4A /* ScreenSize.swift in Sources */,
 				048D96292CBD1B0E00977AD1 /* Restaurant.swift in Sources */,
 				048C75F62C183221001DB3AD /* PageTwoViewController.swift in Sources */,
+				04156AA72CBEA46B000A1B0F /* String.swift in Sources */,
+				04156AAD2CBEA6EB000A1B0F /* UIViewControllerExt.swift in Sources */,
 				04343B662C86AAB2007D3331 /* TopVericallyTextLabel.swift in Sources */,
 				04343B6C2C8947F7007D3331 /* ForgotPasswordViewController.swift in Sources */,
 				04343B732C8B1034007D3331 /* DefinePhoneNumberVM.swift in Sources */,
@@ -838,8 +872,10 @@
 				048BECDE2C85695A0087F446 /* SocialButtonView.swift in Sources */,
 				041529AB2BD759A300818A4A /* WelcomeViewController.swift in Sources */,
 				048BECF12C85F8480087F446 /* CreateAccountViewController.swift in Sources */,
+				04156AAF2CBEA759000A1B0F /* DataEXT.swift in Sources */,
 				042FFBA12CB3E27E004B6D85 /* HomeViewController.swift in Sources */,
 				046E777A2C6F547A000F6FD1 /* PageStackView.swift in Sources */,
+				04156AA52CBE9865000A1B0F /* API.swift in Sources */,
 				04B3CC482CBBF5B600F95E94 /* CircleGrayView.swift in Sources */,
 				045578F22C97E1B600EA420B /* VerifylePhoneNumberVC.swift in Sources */,
 				042FFBB42CB7DECA004B6D85 /* SliderImageCollectionViewCellVM.swift in Sources */,
