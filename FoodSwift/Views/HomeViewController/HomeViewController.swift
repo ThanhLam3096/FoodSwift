@@ -222,7 +222,6 @@ extension HomeViewController: UITableViewDataSource {
         } else {
             return viewModel.heightForRowAtListRestaurants()
         }
-        
     }
 }
 
