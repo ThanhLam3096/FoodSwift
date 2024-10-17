@@ -58,6 +58,39 @@ class HomeViewController: BaseViewController {
         heightContentViewConstraint.constant = CGFloat(1500 + (282 * (viewModel.numberOfRowsInSectionListRestaurants() - 1)))
     }
     
+    override func setUpData() {
+        loadAPIListFeaturePartners()
+        loadAPIListNationFood()
+    }
+    
+    private func loadAPIListFeaturePartners() {
+        viewModel.getAPIListFeaturePartners { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                this.updateView()
+            } else {
+                this.showAlert(message: msg)
+            }
+        }
+    }
+    
+    private func loadAPIListNationFood() {
+        viewModel.getAPIListNationFood { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                this.updateView()
+            } else {
+                this.showAlert(message: msg)
+            }
+        }
+    }
+    
+    private func updateView() {
+        guard isViewLoaded else { return }
+        featuredPartnersCollectionView.reloadData()
+        bestFoodOfRestaurntsCollectionView.reloadData()
+    }
+    
     private func setUpTitleLabel(label: UILabel, title: String) {
         label.text = title
         label.font = UIFont.fontYugothicUISemiBold(ofSize: 24)
@@ -189,7 +222,6 @@ extension HomeViewController: UITableViewDataSource {
         } else {
             return viewModel.heightForRowAtListRestaurants()
         }
-        
     }
 }
 
@@ -207,9 +239,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == randomImageCollectionView {
-            return viewModel.numberOfRowsInSectionSlider()
+            return viewModel.numberOfRowsInSectionCollectionView(type: .slider)
+        } else if collectionView ==  featuredPartnersCollectionView{
+            return viewModel.numberOfRowsInSectionCollectionView(type: .featurePartner )
         } else {
-            return viewModel.numberOfRowsInSectionFeaturedPartners()
+            return viewModel.numberOfRowsInSectionCollectionView(type: .nationFood )
         }
     }
     
@@ -218,12 +252,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let cell = collectionView.dequeueReusableCell(withClass: SliderImageCollectionViewCell.self, for: indexPath)
             cell.viewModel = viewModel.cellForRowAtSlider(indexPath: indexPath)
             return cell
+        } else if collectionView == featuredPartnersCollectionView {
+            let cell = collectionView.dequeueReusableCell(withClass: FeaturedPartnersCollectionViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAtCollectionMeal(indexPath: indexPath, type: .featurePartner)
+            return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withClass: FeaturedPartnersCollectionViewCell.self, for: indexPath)
-            cell.viewModel = viewModel.cellForRowAtFeaturedPartners(indexPath: indexPath)
+            cell.viewModel = viewModel.cellForRowAtCollectionMeal(indexPath: indexPath, type: .nationFood)
             return cell
         }
-        
     }
 }
 

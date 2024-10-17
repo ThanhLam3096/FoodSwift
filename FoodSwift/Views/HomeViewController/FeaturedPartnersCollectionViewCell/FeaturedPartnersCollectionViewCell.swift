@@ -75,5 +75,4 @@ class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
             feeShipLabel.text = "\(meal.fee)$"
         }
     }
-
 }
