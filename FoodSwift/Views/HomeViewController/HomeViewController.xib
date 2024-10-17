@@ -142,6 +142,10 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="282" id="lNc-4X-1RK"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="gna-6w-v5S"/>
+                                        <outlet property="delegate" destination="-1" id="aW7-fW-JoH"/>
+                                    </connections>
                                 </tableView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
