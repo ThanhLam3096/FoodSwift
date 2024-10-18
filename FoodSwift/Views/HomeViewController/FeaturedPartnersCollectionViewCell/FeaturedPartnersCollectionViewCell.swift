@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
 
@@ -56,15 +57,16 @@ class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
     
     private func updateView() {
         guard let meal = viewModel?.meal else { return }
-        if let imageUrl = URL(string: meal.image) {
-            URLSession.shared.dataTask(with: imageUrl) { data, response, error in
-                if let data = data {
-                    DispatchQueue.main.async {
-                        self.featuredPartnersImageView.image = UIImage(data: data)
-                    }
+        Networking.shared().loadImage(from: meal.image) { image in
+            DispatchQueue.main.async {
+                if let image = image {
+                    self.featuredPartnersImageView.image = image
+                } else {
+                    print("Failed to load image")
                 }
-            }.resume()
+            }
         }
+        featuredPartnersImageView.sd_setImage(with: URL(string: meal.image))
         nameFoodLabel.text = meal.name
         addressLabel.text = meal.address
         ratingFoodLabel.text = meal.rating

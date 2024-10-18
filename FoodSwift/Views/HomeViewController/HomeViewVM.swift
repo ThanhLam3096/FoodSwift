@@ -120,7 +120,7 @@ final class HomeViewVM {
             case .failure(let error):
                 listNationFoodCompletion(false, error)
             case .success(let result):
-                for item in result.nationFood {
+                for item in result.meals {
                     this.listNationFood.append(item)
                 }
                 listNationFoodCompletion(true, App.String.loadSuccess)

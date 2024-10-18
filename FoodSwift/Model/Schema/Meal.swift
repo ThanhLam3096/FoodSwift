@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 final class Meal: Codable {
     var image: String
@@ -30,16 +31,29 @@ final class Meal: Codable {
         self.idMeal = json["idMeal"] as! String
     }
     
-//    init(image: String, name: String, address: String, nation1: String, nation2: String, time: String, rating: String, fee: Double, idMeal: String) {
-//        self.image = image
-//        self.name = name
-//        self.address = address
-//        self.nation1 = nation1
-//        self.nation2 = nation2
-//        self.time = time
-//        self.rating = rating
-//        self.fee = fee
-//        self.idMeal = idMeal
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        self.image = try container.decode(String.self, forKey: .image)
+//        self.name = try container.decode(String.self, forKey: .name)
+//        self.address = try container.decode(String.self, forKey: .address)
+//        self.nation1 = try container.decode(String.self, forKey: .nation1)
+//        self.nation2 = try container.decode(String.self, forKey: .nation2)
+//        self.time = try container.decode(String.self, forKey: .time)
+//        self.rating = try container.decode(String.self, forKey: .rating)
+//        self.fee = try container.decode(Double.self, forKey: .fee)
+//        self.idMeal = try container.decode(String.self, forKey: .idMeal)
+//    }
+   
+//    enum CodingKeys: String, CodingKey {
+//        case image = "image"
+//        case name = "name"
+//        case address = "address"
+//        case nation1 = "nation1"
+//        case nation2 = "nation2"
+//        case time = "time"
+//        case rating = "rating"
+//        case fee = "fee"
+//        case idMeal = "idMeal"
 //    }
 }
 

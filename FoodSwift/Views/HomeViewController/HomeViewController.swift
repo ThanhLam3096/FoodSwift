@@ -67,7 +67,7 @@ class HomeViewController: BaseViewController {
         viewModel.getAPIListFeaturePartners { [weak self] (done, msg) in
             guard let this = self else { return }
             if done {
-                this.updateView()
+                this.updateCollectionView()
             } else {
                 this.showAlert(message: msg)
             }
@@ -78,14 +78,14 @@ class HomeViewController: BaseViewController {
         viewModel.getAPIListNationFood { [weak self] (done, msg) in
             guard let this = self else { return }
             if done {
-                this.updateView()
+                this.updateCollectionView()
             } else {
                 this.showAlert(message: msg)
             }
         }
     }
     
-    private func updateView() {
+    private func updateCollectionView() {
         guard isViewLoaded else { return }
         featuredPartnersCollectionView.reloadData()
         bestFoodOfRestaurntsCollectionView.reloadData()
