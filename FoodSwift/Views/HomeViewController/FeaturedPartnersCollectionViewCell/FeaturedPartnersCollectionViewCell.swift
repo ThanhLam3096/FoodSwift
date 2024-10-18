@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
 
@@ -65,6 +66,7 @@ class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
                 }
             }
         }
+        featuredPartnersImageView.sd_setImage(with: URL(string: meal.image))
         nameFoodLabel.text = meal.name
         addressLabel.text = meal.address
         ratingFoodLabel.text = meal.rating

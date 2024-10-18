@@ -69,14 +69,6 @@ class ListAllResTableViewCell: UITableViewCell {
         numberVoteLabel.text = restaurant.numberRating
         timeShipLabel.text = restaurant.time
         feeShipLabel.text = restaurant.feeDelivery
-        if let imageUrl = URL(string: restaurant.image) {
-            URLSession.shared.dataTask(with: imageUrl) { data, response, error in
-                if let data = data {
-                    DispatchQueue.main.async {
-                        self.restaurantImageView.image = UIImage(data: data)
-                    }
-                }
-            }.resume()
-        }
+        restaurantImageView.sd_setImage(with: URL(string: restaurant.image))
     }
 }
