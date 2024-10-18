@@ -31,7 +31,7 @@ final class Api {
         static let apiRandomMeal = "\(pathURL)random.php"
         static let apiSearchFirstLetter = "\(pathURL)search.php?f="
         static let apiSearchByName = "\(pathURL)search.php?s="
-        static let apiFeaturedParners = "https://api.mockfly.dev/mocks/bc355ce1-e405-469e-b48f-31e05fe874ed/listFeaturedPartners"
+        static let apiFeaturedParners = "https://api.mockfly.dev/mocks/536bedbb-b5d1-4150-b09b-02c5d0b13d18/featurePartners"
         static let apiNationFoodVietNam = "https://api.mockfly.dev/mocks/536bedbb-b5d1-4150-b09b-02c5d0b13d18/listFoodVietNam"
 
     }

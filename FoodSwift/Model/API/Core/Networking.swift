@@ -6,16 +6,19 @@
 //
 
 import Foundation
-
-import Foundation
 import UIKit
+import Alamofire
 
 struct FeaturePartnesResult {
     var featurePartnes: [Meal]
 }
 
-struct NationFoodResult {
-    var nationFood: [Meal]
+struct NationFoodResult: Decodable {
+    var meals: [Meal]
+    
+    enum CodingKeys: String, CodingKey {
+        case meals = "Meal"
+    }
 }
 
 //MARK: Enum
@@ -75,42 +78,26 @@ final class Networking {
             completion(.failure(App.String.alertFailedAPI))
             return
         }
-        let config = URLSessionConfiguration.ephemeral
-        config.waitsForConnectivity = true
-        let session = URLSession(configuration: config)
-        let task = session.dataTask(with: url) { (data, respone, error) in
+        // Alamofire from version lower than 6
+        AF.request(url).validate().responseJSON { response in
             DispatchQueue.main.async {
-                if let _ = error {
-                    completion(.failure(App.String.alertFailedToConnectAPI))
-                } else {
-                    do {
-                        // Parse dữ liệu JSON thành mảng Meal
-                        let listMealFeaturePartners = try JSONDecoder().decode([Meal].self, from: data!)
-                        let result = FeaturePartnesResult(featurePartnes: listMealFeaturePartners)
+                switch response.result {
+                case .success(let value):
+                    if let json = value as? JSON {
+                        let listFeaturePartnersMeal = json["Meal"] as! [JSON]
+                        
+                        // Chuyển đổi từ JSON sang đối tượng Meal
+                        let nationMeal = listFeaturePartnersMeal.compactMap { Meal(json: $0) }
+                        let result = FeaturePartnesResult(featurePartnes: nationMeal)
                         completion(.success(result))
-                    } catch {
+                    } else {
                         completion(.failure(App.String.alertFailedToDataAPI))
                     }
-                    //                    if let data = data, let arrayJson = data.toArrayJSON() {
-                    //                        for json in arrayJson {
-                    //                            let featurePartners = json["featurePartners"] as! [JSON]
-                    //                            var listMealFeaturePartners: [Meal] = []
-                    //                            for item in featurePartners {
-                    //                                let mealFeaturePartner = Meal(json: item)
-                    //                                listMealFeaturePartners.append(mealFeaturePartner)
-                    //                                let result = FeaturePartnesResult(featurePartnes: listMealFeaturePartners)
-                    //                                completion(.success(result))
-                    //                            }
-                    //                        }
-                    //                        completion(.success(FeaturePartnesResult(featurePartnes: [])))
-                    //                    }
-                    //                    else {
-                    //                        completion(.failure(App.String.alertFailedToDataAPI))
-                    //                    }
+                case .failure(_):
+                    completion(.failure(App.String.alertFailedToConnectAPI))
                 }
             }
         }
-        task.resume()
     }
     
     // MARK: - Public Functions Call Data
@@ -119,55 +106,40 @@ final class Networking {
             completion(.failure(App.String.alertFailedAPI))
             return
         }
-        let config = URLSessionConfiguration.ephemeral
-        config.waitsForConnectivity = true
-        let session = URLSession(configuration: config)
-        let task = session.dataTask(with: url) { (data, respone, error) in
+        AF.request(url).validate().responseDecodable(of: NationFoodResult.self) { response in
             DispatchQueue.main.async {
-                if let _ = error {
+                switch response.result {
+                case .success(let result):
+                    completion(.success(result))
+                case .failure(_):
+                    if let data = response.data,
+                       let jsonString = String(data: data, encoding: .utf8) {
+                        print("JSON Response: \(jsonString)")
+                    }
                     completion(.failure(App.String.alertFailedToConnectAPI))
-                } else {
-                    if let data = data, let json = data.toJSON() {
-                        let listNationMeal = json["Meal"] as! [JSON]
-                        var nationMeal: [Meal] = []
-                        for item in listNationMeal {
-                            let mealFeaturePartner = Meal(json: item)
-                            nationMeal.append(mealFeaturePartner)
-                        }
-                        let result = NationFoodResult(nationFood: nationMeal)
-                        completion(.success(result))
-                    }
-                    else {
-                        completion(.failure(App.String.alertFailedToDataAPI))
-                    }                }
-            }
-        }
-        task.resume()
-    }
-    
-    //MARK: - downloader
-    func downloadImage(url: String, completion: @escaping (UIImage?) -> Void) {
-        guard let url = URL(string: url) else {
-            completion(nil)
-            return
-        }
-        let config = URLSessionConfiguration.default
-        config.waitsForConnectivity = true
-        let session = URLSession(configuration: config)
-        let task = session.dataTask(with: url) { (data, response, error) in
-            DispatchQueue.main.async {
-                if let _ = error {
-                    completion(nil)
-                } else {
-                    if let data = data {
-                        let image = UIImage(data: data)
-                        completion(image)
-                    } else {
-                        completion(nil)
-                    }
                 }
             }
         }
-        task.resume()
+    }
+    
+    //MARK: - downloader
+    func loadImage(from url: String, completion: @escaping (UIImage?) -> Void) {
+        guard let imageUrl = URL(string: url) else {
+            completion(nil)
+            return
+        }
+        AF.request(imageUrl).responseData { response in
+            switch response.result {
+            case .success(let data):
+                if let image = UIImage(data: data) {
+                    completion(image)
+                } else {
+                    completion(nil)
+                }
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
+                completion(nil)
+            }
+        }
     }
 }

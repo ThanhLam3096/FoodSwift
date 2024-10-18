@@ -8,6 +8,16 @@ target 'FoodSwift' do
   # Pods for FoodSwift
 pod 'Alamofire' 
 pod 'Kingfisher'
+pod 'AlamofireNetworkActivityIndicator', '~> 2.3' # Controls the visibility of the network activity indicator on iOS using Alamofire.
+    pod 'ObjectMapper'
+
+    # Utils
+    pod 'SwiftLint' # A tool to enforce Swift style and conventions.
+    pod 'SwifterSwift'
+    pod 'SDWebImage'
+    pod 'SVProgressHUD'
+    pod 'RealmSwift'
+    pod 'IQKeyboardManagerSwift'
 
   target 'FoodSwiftTests' do
     inherit! :search_paths
