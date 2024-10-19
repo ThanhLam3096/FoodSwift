@@ -55,13 +55,32 @@ class HomeViewController: BaseViewController {
         
         setUpTitleLabel(label: allRestaurantLabel, title: "All Restaurants")
         setUpSeeAllButton(seeAllButton: allRestaurantSeeAllButton)
-        heightContentViewConstraint.constant = CGFloat(1500 + (282 * (viewModel.numberOfRowsInSectionListRestaurants() - 1)))
     }
     
     override func setUpData() {
         loadAPIListFeaturePartners()
         loadAPIListNationFood()
+        loadAPIListRestaurants()
     }
+    
+    private func loadAPIListRestaurants() {
+        viewModel.getAPIListRestaurant { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                this.updateViewTableView()
+            } else {
+                this.showAlert(message: msg)
+            }
+        }
+    }
+    
+    private func updateViewTableView() {
+        guard isViewLoaded else { return }
+        heightContentViewConstraint.constant = CGFloat(1500 + (282 * (viewModel.numberOfRowsInSectionListRestaurants() - 1)))
+        heightListTableView.constant = CGFloat(282 * viewModel.numberOfRowsInSectionListRestaurants())
+        allRestaurantTableView.reloadData()
+    }
+
     
     private func loadAPIListFeaturePartners() {
         viewModel.getAPIListFeaturePartners { [weak self] (done, msg) in
@@ -115,7 +134,6 @@ class HomeViewController: BaseViewController {
         allRestaurantTableView.delegate = self
         allRestaurantTableView.dataSource = self
         allRestaurantTableView.isScrollEnabled = false
-        heightListTableView.constant = CGFloat(282 * viewModel.numberOfRowsInSectionListRestaurants())
     }
     
     private func setUpRandomImageCollectionView() {
@@ -211,7 +229,7 @@ extension HomeViewController: UITableViewDataSource {
             headerHomeView.viewModel = HeaderHomeVM(location: location)
             locationListTableView.isHidden = true
         } else {
-            let item = dummyRestaurant.listAllRes[indexPath.row]
+            let item = viewModel.listRestaurants[indexPath.row]
             print("Check Info Restaurant : \(item.name)")
         }
     }

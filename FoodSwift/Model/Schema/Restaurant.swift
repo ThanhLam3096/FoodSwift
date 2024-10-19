@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Restaurant {
+struct Restaurant: Codable {
     let image: String
     let name: String
     let branch1: String
