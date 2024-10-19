@@ -16,6 +16,7 @@ final class HomeViewVM {
     
     var listMealFeaturePartners: [Meal] = []
     var listNationFood: [Meal] = []
+    var listRestaurants: [Restaurant] = []
     
     // MARK: - Enum
     enum CollectionType: Int {
@@ -84,11 +85,13 @@ final class HomeViewVM {
     
     // MARK: - TableView List Res Data
     func numberOfRowsInSectionListRestaurants() -> Int {
-        return dummyRestaurant.listAllRes.count
+//        return dummyRestaurant.listAllRes.count
+        return listRestaurants.count
     }
     
     func cellForRowAtListRestaurants(indexPath: IndexPath) -> ListAllResTableViewCellVM {
-        let item = dummyRestaurant.listAllRes[indexPath.row]
+//        let item = dummyRestaurant.listAllRes[indexPath.row]
+        let item = listRestaurants[indexPath.row]
         let model = ListAllResTableViewCellVM(restaurant: item)
         return model
     }
@@ -127,5 +130,21 @@ final class HomeViewVM {
             }
         }
     }
+    
+    func getAPIListRestaurant(listRestaurantCompletion: @escaping (Bool, String) -> Void) {
+        Networking.shared().getListRestaurant { [weak self] (restaurantResult) in
+            guard let this = self else { return }
+            switch restaurantResult {
+            case .failure(let error):
+                listRestaurantCompletion(false, error)
+            case .success(let result):
+                for item in result.restaurants {
+                    this.listRestaurants.append(item)
+                }
+                listRestaurantCompletion(true, App.String.loadSuccess)
+            }
+        }
+    }
+
 
 }

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Alamofire
 
 final class Meal: Codable {
     var image: String

@@ -21,6 +21,14 @@ struct NationFoodResult: Decodable {
     }
 }
 
+struct RestaurantResult: Codable {
+    var restaurants: [Restaurant]
+    
+    enum CodingKeys: String, CodingKey {
+        case restaurants = "Restaurant"
+    }
+}
+
 //MARK: Enum
 enum APIResult<T> {
     case failure(String)
@@ -44,14 +52,13 @@ final class Networking {
     //MARK: - init
     private init() { }
     
-    //MARK: - request
+    //MARK: - request URLSession
     func request(with urlString: String, completion: @escaping (Data?, APIError?) -> Void) {
         guard let url = URL(string: urlString) else {
             let error = APIError.error("URL lỗi")
             completion(nil, error)
             return
         }
-        
         let config = URLSessionConfiguration.ephemeral
         config.waitsForConnectivity = true
         
@@ -122,7 +129,25 @@ final class Networking {
         }
     }
     
-    //MARK: - downloader
+    // MARK: - Public Functions Call Data
+    func getListRestaurant(completion: @escaping APICompletion<RestaurantResult>) {
+        guard let url = URL(string: Api.Path.apiListRestaurant) else {
+            completion(.failure(App.String.alertFailedAPI))
+            return
+        }
+        AF.request(url).validate().responseDecodable(of: RestaurantResult.self) { response in
+            DispatchQueue.main.async {
+                switch response.result {
+                case .success(let result):
+                    completion(.success(result))
+                case .failure(_):
+                    completion(.failure(App.String.alertFailedToConnectAPI))
+                }
+            }
+        }
+    }
+    
+    //MARK: - Load Image
     func loadImage(from url: String, completion: @escaping (UIImage?) -> Void) {
         guard let imageUrl = URL(string: url) else {
             completion(nil)
