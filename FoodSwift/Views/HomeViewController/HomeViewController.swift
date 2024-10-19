@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class HomeViewController: BaseViewController {
     
@@ -35,8 +36,6 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-        
-        // Do any additional setup after loading the view.
     }
     
     override func setUpUI() {
@@ -59,14 +58,13 @@ class HomeViewController: BaseViewController {
     
     override func setUpData() {
         loadAPIListFeaturePartners()
-        loadAPIListNationFood()
-        loadAPIListRestaurants()
     }
     
     private func loadAPIListRestaurants() {
         viewModel.getAPIListRestaurant { [weak self] (done, msg) in
             guard let this = self else { return }
             if done {
+                HUD.dismiss()
                 this.updateViewTableView()
             } else {
                 this.showAlert(message: msg)
@@ -83,10 +81,11 @@ class HomeViewController: BaseViewController {
 
     
     private func loadAPIListFeaturePartners() {
+        HUD.show()
         viewModel.getAPIListFeaturePartners { [weak self] (done, msg) in
             guard let this = self else { return }
             if done {
-                this.updateCollectionView()
+                this.loadAPIListNationFood()
             } else {
                 this.showAlert(message: msg)
             }
@@ -98,6 +97,7 @@ class HomeViewController: BaseViewController {
             guard let this = self else { return }
             if done {
                 this.updateCollectionView()
+                this.loadAPIListRestaurants()
             } else {
                 this.showAlert(message: msg)
             }

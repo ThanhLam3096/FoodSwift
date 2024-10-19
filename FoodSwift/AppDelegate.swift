@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import SVProgressHUD
+
+typealias HUD = SVProgressHUD
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        HUD.setDefaultStyle(.light)
+        HUD.setDefaultMaskType(.custom)
+        HUD.setBackgroundLayerColor(.gray.withAlphaComponent(0.5))
+        HUD.setOffsetFromCenter(UIOffset(horizontal: 0, vertical: 0))
         return true
     }
     

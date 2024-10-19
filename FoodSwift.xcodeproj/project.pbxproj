@@ -27,6 +27,8 @@
 		04156AA92CBEA4C6000A1B0F /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04156AA82CBEA4C6000A1B0F /* App.swift */; };
 		04156AAD2CBEA6EB000A1B0F /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04156AAC2CBEA6EB000A1B0F /* UIViewControllerExt.swift */; };
 		04156AAF2CBEA759000A1B0F /* DataEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04156AAE2CBEA759000A1B0F /* DataEXT.swift */; };
+		042FCE2E2CC3D8D600144702 /* FeaturePartnersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FCE2C2CC3D8D600144702 /* FeaturePartnersViewController.swift */; };
+		042FCE2F2CC3D8D600144702 /* FeaturePartnersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FCE2D2CC3D8D600144702 /* FeaturePartnersViewController.xib */; };
 		042FFBA12CB3E27E004B6D85 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFB9F2CB3E27E004B6D85 /* HomeViewController.swift */; };
 		042FFBA22CB3E27E004B6D85 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FFBA02CB3E27E004B6D85 /* HomeViewController.xib */; };
 		042FFBA62CB3FFBA004B6D85 /* LocationListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFBA42CB3FFBA004B6D85 /* LocationListTableViewCell.swift */; };
@@ -145,6 +147,8 @@
 		04156AA82CBEA4C6000A1B0F /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		04156AAC2CBEA6EB000A1B0F /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		04156AAE2CBEA759000A1B0F /* DataEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEXT.swift; sourceTree = "<group>"; };
+		042FCE2C2CC3D8D600144702 /* FeaturePartnersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturePartnersViewController.swift; sourceTree = "<group>"; };
+		042FCE2D2CC3D8D600144702 /* FeaturePartnersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturePartnersViewController.xib; sourceTree = "<group>"; };
 		042FFB9F2CB3E27E004B6D85 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		042FFBA02CB3E27E004B6D85 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		042FFBA42CB3FFBA004B6D85 /* LocationListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListTableViewCell.swift; sourceTree = "<group>"; };
@@ -319,6 +323,7 @@
 		041529A82BD7598700818A4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				042FCE2B2CC3D8B300144702 /* FeaturedPartnersViewController */,
 				0491EC802CB0072F00157BE7 /* ProfileViewController */,
 				0491EC772CB006FD00157BE7 /* OrdersViewController */,
 				0491EC722CB0068B00157BE7 /* SearchViewController */,
@@ -401,6 +406,15 @@
 			children = (
 			);
 			path = RestaurantListTableView;
+			sourceTree = "<group>";
+		};
+		042FCE2B2CC3D8B300144702 /* FeaturedPartnersViewController */ = {
+			isa = PBXGroup;
+			children = (
+				042FCE2C2CC3D8D600144702 /* FeaturePartnersViewController.swift */,
+				042FCE2D2CC3D8D600144702 /* FeaturePartnersViewController.xib */,
+			);
+			path = FeaturedPartnersViewController;
 			sourceTree = "<group>";
 		};
 		042FFBA32CB3FF8D004B6D85 /* LocationListTableCell */ = {
@@ -840,6 +854,7 @@
 				0491EC892CB12BE200157BE7 /* HeaderHomeView.xib in Resources */,
 				04343B6F2C8AA320007D3331 /* DefinePhoneNumberViewController.xib in Resources */,
 				04343B6B2C8947F7007D3331 /* ForgotPasswordViewController.xib in Resources */,
+				042FCE2F2CC3D8D600144702 /* FeaturePartnersViewController.xib in Resources */,
 				041529822BD7595700818A4A /* Assets.xcassets in Resources */,
 				045578F12C97E1B600EA420B /* VerifylePhoneNumberVC.xib in Resources */,
 				048BECE02C8569650087F446 /* SocialButtonView.xib in Resources */,
@@ -1025,6 +1040,7 @@
 				048D96292CBD1B0E00977AD1 /* Restaurant.swift in Sources */,
 				048C75F62C183221001DB3AD /* PageTwoViewController.swift in Sources */,
 				04156AA72CBEA46B000A1B0F /* String.swift in Sources */,
+				042FCE2E2CC3D8D600144702 /* FeaturePartnersViewController.swift in Sources */,
 				04156AAD2CBEA6EB000A1B0F /* UIViewControllerExt.swift in Sources */,
 				04343B662C86AAB2007D3331 /* TopVericallyTextLabel.swift in Sources */,
 				04343B6C2C8947F7007D3331 /* ForgotPasswordViewController.swift in Sources */,
