@@ -7,8 +7,6 @@
 
 import Foundation
 
-typealias Completion = (Bool, String) -> Void
-
 final class HomeViewVM {
     let listLocation: [String] = ["Ha Noi, Viet Nam", "New York, USA", "Parisn, France", "London, England", "Bac Kinh, China", "Tokyo, Japan", "Malina, India", "Kevin, Australia", "Moccow, Russia", "Munich ,Germany", "Madrid, Spanish", "Buenos Aires, Argentina", "Brasília, Brazil"]
     
@@ -25,9 +23,19 @@ final class HomeViewVM {
         case slider
     }
     
-    // MARK: - TableView HeaderView Data
-    func numberOfRowsInSectionHeaderView() -> Int {
-        return listLocation.count
+    enum TableViewType: Int {
+        case locaition = 0
+        case restaurant
+    }
+    
+    // MARK: - TableView
+    func numberOfRowsInSectionTableView(type: TableViewType) -> Int {
+        switch type {
+        case .locaition:
+            return listLocation.count
+        default:
+            return listRestaurants.count
+        }
     }
     
     func cellForRowAtHeaderView(indexPath: IndexPath) -> LocationListViewModel {
@@ -36,8 +44,20 @@ final class HomeViewVM {
         return model
     }
     
-    func heightForRowAtHeaderView() -> CGFloat {
-        return 36
+    func cellForRowAtListRestaurants(indexPath: IndexPath) -> ListAllResTableViewCellVM {
+        let item = listRestaurants[indexPath.row]
+        let model = ListAllResTableViewCellVM(restaurant: item)
+        return model
+    }
+    
+    func heightForRowAtTableView(type: TableViewType) -> CGFloat {
+        switch type {
+        case .locaition:
+            return 36
+        default:
+            return 282
+        }
+        
     }
     
     // MARK: - CollectionView Featured Partners Data
@@ -83,21 +103,9 @@ final class HomeViewVM {
         
     }
     
-    // MARK: - TableView List Res Data
-    func numberOfRowsInSectionListRestaurants() -> Int {
-//        return dummyRestaurant.listAllRes.count
-        return listRestaurants.count
-    }
-    
-    func cellForRowAtListRestaurants(indexPath: IndexPath) -> ListAllResTableViewCellVM {
-//        let item = dummyRestaurant.listAllRes[indexPath.row]
-        let item = listRestaurants[indexPath.row]
-        let model = ListAllResTableViewCellVM(restaurant: item)
-        return model
-    }
-    
-    func heightForRowAtListRestaurants() -> CGFloat {
-        return 282
+    // MARK: - PassData to Detail Feature Partners
+    func transferListFeaturePartNers() -> FeaturePartnersViewControllerVM {
+        return FeaturePartnersViewControllerVM(listFeatureMeal: listMealFeaturePartners)
     }
     
     // MARK: - Public Function

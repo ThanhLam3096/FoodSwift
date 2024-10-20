@@ -57,15 +57,6 @@ class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
     
     private func updateView() {
         guard let meal = viewModel?.meal else { return }
-        Networking.shared().loadImage(from: meal.image) { image in
-            DispatchQueue.main.async {
-                if let image = image {
-                    self.featuredPartnersImageView.image = image
-                } else {
-                    print("Failed to load image")
-                }
-            }
-        }
         featuredPartnersImageView.sd_setImage(with: URL(string: meal.image))
         nameFoodLabel.text = meal.name
         addressLabel.text = meal.address

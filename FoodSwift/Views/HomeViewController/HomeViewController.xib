@@ -81,6 +81,9 @@
                                     <rect key="frame" x="299" y="286" width="74" height="39"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="See all"/>
+                                    <connections>
+                                        <action selector="seeAllFeaturedPartnersTouchUpInside:" destination="-1" eventType="touchUpInside" id="DUq-uG-zkY"/>
+                                    </connections>
                                 </button>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="HG6-lJ-wxK" userLabel="FeaturedPartnersCollectionView">
                                     <rect key="frame" x="20" y="316" width="373" height="254"/>
