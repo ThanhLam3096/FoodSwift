@@ -64,11 +64,19 @@ class DetailFeaturePartnersCollectionViewCell: UICollectionViewCell {
         guard let meal = viewModel?.meal else { return }
         imageFood.sd_setImage(with: URL(string: meal.image))
         timeShipLabel.text = meal.time
-        feeShipLabel.text = "\(meal.fee)$"
+        feeShipLabel.text = meal.fee == 0 ? "Free" : "\(displayNumber(meal.fee))$"
         ratingLabel.text = meal.rating
         nameFoodLabel.text = meal.name
         firstNationLabel.text = meal.nation1
         secondNationLabel.text = meal.nation2
     }
 
+    private func displayNumber(_ number: Double) -> String {
+        // Kiểm tra nếu phần thập phân không bằng 0 (số lẻ dạng Double)
+        if number.truncatingRemainder(dividingBy: 1) != 0 {
+            return String(number)
+        } else {
+            return String(Int(number))
+        }
+    }
 }

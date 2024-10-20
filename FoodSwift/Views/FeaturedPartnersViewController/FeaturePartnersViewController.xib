@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeaturePartnersViewController" customModule="FoodSwift" customModuleProvider="target">
             <connections>
                 <outlet property="featurePartnersCollectionView" destination="M2W-ND-oLI" id="9Ou-vV-rUu"/>
+                <outlet property="leadingSpaceCollectionConstraint" destination="HAd-Qv-1hl" id="ZJb-7o-zpc"/>
+                <outlet property="trailingSpaceCollectionConstraint" destination="MZx-Mf-QgE" id="Ejs-fZ-dOc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

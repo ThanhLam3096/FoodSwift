@@ -10,7 +10,9 @@ import UIKit
 class FeaturePartnersViewController: BaseViewController {
 
     // MARK: - IBOutlet
-    @IBOutlet weak var featurePartnersCollectionView: UICollectionView!
+    @IBOutlet private weak var featurePartnersCollectionView: UICollectionView!
+    @IBOutlet private weak var leadingSpaceCollectionConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var trailingSpaceCollectionConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     var viewModel: FeaturePartnersViewControllerVM = FeaturePartnersViewControllerVM()
@@ -28,6 +30,8 @@ class FeaturePartnersViewController: BaseViewController {
     override func setUpUI() {
         setUpNavigation()
         setUpCollectionView()
+        leadingSpaceCollectionConstraint.constant = (17 / 375) * ScreenSize.screenWidth
+        trailingSpaceCollectionConstraint.constant = (17 / 375) * ScreenSize.screenWidth
     }
     
     private func setUpNavigation() {
@@ -73,10 +77,10 @@ extension FeaturePartnersViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
+        return (15 / 375) * ScreenSize.screenWidth
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
+        return (21 / 375) * ScreenSize.screenWidth
     }
 }
