@@ -29,6 +29,10 @@
 		04156AAF2CBEA759000A1B0F /* DataEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04156AAE2CBEA759000A1B0F /* DataEXT.swift */; };
 		042FCE2E2CC3D8D600144702 /* FeaturePartnersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FCE2C2CC3D8D600144702 /* FeaturePartnersViewController.swift */; };
 		042FCE2F2CC3D8D600144702 /* FeaturePartnersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FCE2D2CC3D8D600144702 /* FeaturePartnersViewController.xib */; };
+		042FCE332CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FCE312CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.swift */; };
+		042FCE342CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FCE322CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.xib */; };
+		042FCE362CC4FFBB00144702 /* ListCollectionDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FCE352CC4FFBB00144702 /* ListCollectionDetailVM.swift */; };
+		042FCE382CC5225A00144702 /* FeaturePartnersViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FCE372CC5225A00144702 /* FeaturePartnersViewControllerVM.swift */; };
 		042FFBA12CB3E27E004B6D85 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFB9F2CB3E27E004B6D85 /* HomeViewController.swift */; };
 		042FFBA22CB3E27E004B6D85 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FFBA02CB3E27E004B6D85 /* HomeViewController.xib */; };
 		042FFBA62CB3FFBA004B6D85 /* LocationListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFBA42CB3FFBA004B6D85 /* LocationListTableViewCell.swift */; };
@@ -149,6 +153,10 @@
 		04156AAE2CBEA759000A1B0F /* DataEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEXT.swift; sourceTree = "<group>"; };
 		042FCE2C2CC3D8D600144702 /* FeaturePartnersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturePartnersViewController.swift; sourceTree = "<group>"; };
 		042FCE2D2CC3D8D600144702 /* FeaturePartnersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturePartnersViewController.xib; sourceTree = "<group>"; };
+		042FCE312CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFeaturePartnersCollectionViewCell.swift; sourceTree = "<group>"; };
+		042FCE322CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailFeaturePartnersCollectionViewCell.xib; sourceTree = "<group>"; };
+		042FCE352CC4FFBB00144702 /* ListCollectionDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionDetailVM.swift; sourceTree = "<group>"; };
+		042FCE372CC5225A00144702 /* FeaturePartnersViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturePartnersViewControllerVM.swift; sourceTree = "<group>"; };
 		042FFB9F2CB3E27E004B6D85 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		042FFBA02CB3E27E004B6D85 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		042FFBA42CB3FFBA004B6D85 /* LocationListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListTableViewCell.swift; sourceTree = "<group>"; };
@@ -411,10 +419,22 @@
 		042FCE2B2CC3D8B300144702 /* FeaturedPartnersViewController */ = {
 			isa = PBXGroup;
 			children = (
+				042FCE302CC4F8DA00144702 /* DetailFeaturePartnersCollectionCell */,
 				042FCE2C2CC3D8D600144702 /* FeaturePartnersViewController.swift */,
 				042FCE2D2CC3D8D600144702 /* FeaturePartnersViewController.xib */,
+				042FCE372CC5225A00144702 /* FeaturePartnersViewControllerVM.swift */,
 			);
 			path = FeaturedPartnersViewController;
+			sourceTree = "<group>";
+		};
+		042FCE302CC4F8DA00144702 /* DetailFeaturePartnersCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				042FCE312CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.swift */,
+				042FCE322CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.xib */,
+				042FCE352CC4FFBB00144702 /* ListCollectionDetailVM.swift */,
+			);
+			path = DetailFeaturePartnersCollectionCell;
 			sourceTree = "<group>";
 		};
 		042FFBA32CB3FF8D004B6D85 /* LocationListTableCell */ = {
@@ -856,6 +876,7 @@
 				04343B6B2C8947F7007D3331 /* ForgotPasswordViewController.xib in Resources */,
 				042FCE2F2CC3D8D600144702 /* FeaturePartnersViewController.xib in Resources */,
 				041529822BD7595700818A4A /* Assets.xcassets in Resources */,
+				042FCE342CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.xib in Resources */,
 				045578F12C97E1B600EA420B /* VerifylePhoneNumberVC.xib in Resources */,
 				048BECE02C8569650087F446 /* SocialButtonView.xib in Resources */,
 				048BECE92C85BC1B0087F446 /* yugothib.ttf in Resources */,
@@ -1041,6 +1062,7 @@
 				048C75F62C183221001DB3AD /* PageTwoViewController.swift in Sources */,
 				04156AA72CBEA46B000A1B0F /* String.swift in Sources */,
 				042FCE2E2CC3D8D600144702 /* FeaturePartnersViewController.swift in Sources */,
+				042FCE382CC5225A00144702 /* FeaturePartnersViewControllerVM.swift in Sources */,
 				04156AAD2CBEA6EB000A1B0F /* UIViewControllerExt.swift in Sources */,
 				04343B662C86AAB2007D3331 /* TopVericallyTextLabel.swift in Sources */,
 				04343B6C2C8947F7007D3331 /* ForgotPasswordViewController.swift in Sources */,
@@ -1051,6 +1073,7 @@
 				041529AF2BD75C3300818A4A /* BaseViewController.swift in Sources */,
 				048D962D2CBD1E4400977AD1 /* ListAllResTableViewCell.swift in Sources */,
 				0491EC7A2CB0071100157BE7 /* OrdersViewController.swift in Sources */,
+				042FCE362CC4FFBB00144702 /* ListCollectionDetailVM.swift in Sources */,
 				0491EC872CB12BD200157BE7 /* HeaderHomeView.swift in Sources */,
 				048BECE22C8574AD0087F446 /* SocialButtonViewVM.swift in Sources */,
 				048D96302CBD1E5400977AD1 /* ListAllResTableViewCellVM.swift in Sources */,
@@ -1082,6 +1105,7 @@
 				046E777E2C733E6B000F6FD1 /* ScreenName.swift in Sources */,
 				0491EC832CB0073C00157BE7 /* ProfileViewController.swift in Sources */,
 				0415297B2BD7595600818A4A /* SceneDelegate.swift in Sources */,
+				042FCE332CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.swift in Sources */,
 				04788A312BE38729009AB6DD /* IntroducePageViewController.swift in Sources */,
 				04B3CC442CBBF2C800F95E94 /* FeaturedPartnersCollectionViewCell.swift in Sources */,
 			);

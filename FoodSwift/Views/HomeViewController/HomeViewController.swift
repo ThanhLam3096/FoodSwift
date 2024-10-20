@@ -35,6 +35,9 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
     }
     
@@ -74,8 +77,8 @@ class HomeViewController: BaseViewController {
     
     private func updateViewTableView() {
         guard isViewLoaded else { return }
-        heightContentViewConstraint.constant = CGFloat(1500 + (282 * (viewModel.numberOfRowsInSectionListRestaurants() - 1)))
-        heightListTableView.constant = CGFloat(282 * viewModel.numberOfRowsInSectionListRestaurants())
+        heightContentViewConstraint.constant = CGFloat(1500 + (282 * (viewModel.numberOfRowsInSectionTableView(type: .restaurant) - 1)))
+        heightListTableView.constant = CGFloat(282 * viewModel.numberOfRowsInSectionTableView(type: .restaurant))
         allRestaurantTableView.reloadData()
     }
 
@@ -184,6 +187,12 @@ class HomeViewController: BaseViewController {
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(autoScrollImages), userInfo: nil, repeats: true)
     }
     
+    @IBAction func seeAllFeaturedPartnersTouchUpInside(_ sender: Any) {
+        let vc = FeaturePartnersViewController()
+        vc.viewModel = viewModel.transferListFeaturePartNers()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
     @objc func autoScrollImages() {
         currentIndex += 1
         if currentIndex == viewModel.listSliderFoodImage.count {
@@ -204,9 +213,9 @@ extension HomeViewController: UITableViewDelegate {
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == locationListTableView {
-            return viewModel.numberOfRowsInSectionHeaderView()
+            return viewModel.numberOfRowsInSectionTableView(type: .locaition)
         } else {
-            return viewModel.numberOfRowsInSectionListRestaurants()
+            return viewModel.numberOfRowsInSectionTableView(type: .restaurant)
         }
         
     }
@@ -236,9 +245,9 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == locationListTableView {
-            return viewModel.heightForRowAtHeaderView()
+            return viewModel.heightForRowAtTableView(type: .locaition)
         } else {
-            return viewModel.heightForRowAtListRestaurants()
+            return viewModel.heightForRowAtTableView(type: .restaurant)
         }
     }
 }
@@ -290,7 +299,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         else {
             return CGSize(width: 200, height: featuredPartnersCollectionView.frame.height)
         }
-        
     }
     
     // Dừng timer khi người dùng cuộn thủ công
