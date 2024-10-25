@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="FeaturedItemCollectionViewCell" customModule="FoodSwift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="258" height="271"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="258" height="271"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cookie_sandwich" translatesAutoresizingMaskIntoConstraints="NO" id="lJ7-Nc-8TS">
+                        <rect key="frame" x="0.0" y="0.0" width="258" height="140"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="140" id="Xbn-bI-s3g"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cookie Sandwich" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4f-7b-gNy" userLabel="NameMeal">
+                        <rect key="frame" x="0.0" y="150" width="131.33333333333334" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICE-ic-iyG" userLabel="PriceMeal">
+                        <rect key="frame" x="0.0" y="176" width="20.666666666666668" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4iw-kx-Cmi" customClass="CircleGrayView" customModule="FoodSwift" customModuleProvider="target">
+                        <rect key="frame" x="30.666666666666671" y="184" width="5" height="5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="5" id="VZs-HU-RXq"/>
+                            <constraint firstAttribute="height" constant="5" id="y7a-uP-wIu"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="American" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phv-Cv-aX0" userLabel="NationMeal">
+                        <rect key="frame" x="45.666666666666657" y="176" width="72" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="ICE-ic-iyG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2QS-2J-gba"/>
+                <constraint firstItem="4iw-kx-Cmi" firstAttribute="leading" secondItem="ICE-ic-iyG" secondAttribute="trailing" constant="10" id="8br-qL-Tal"/>
+                <constraint firstItem="lJ7-Nc-8TS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="EF8-pE-4wZ"/>
+                <constraint firstItem="ICE-ic-iyG" firstAttribute="top" secondItem="U4f-7b-gNy" secondAttribute="bottom" constant="5" id="MAN-Ji-rWF"/>
+                <constraint firstItem="U4f-7b-gNy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="N5m-By-XIP"/>
+                <constraint firstItem="Phv-Cv-aX0" firstAttribute="leading" secondItem="4iw-kx-Cmi" secondAttribute="trailing" constant="10" id="NgX-rU-P6p"/>
+                <constraint firstItem="4iw-kx-Cmi" firstAttribute="centerY" secondItem="ICE-ic-iyG" secondAttribute="centerY" id="QIH-mI-Tzh"/>
+                <constraint firstAttribute="trailing" secondItem="lJ7-Nc-8TS" secondAttribute="trailing" id="hEX-wp-c0G"/>
+                <constraint firstItem="lJ7-Nc-8TS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="m9z-v5-0vw"/>
+                <constraint firstItem="U4f-7b-gNy" firstAttribute="top" secondItem="lJ7-Nc-8TS" secondAttribute="bottom" constant="10" id="mFl-f2-DKe"/>
+                <constraint firstItem="Phv-Cv-aX0" firstAttribute="centerY" secondItem="ICE-ic-iyG" secondAttribute="centerY" id="ydO-m8-npE"/>
+            </constraints>
+            <size key="customSize" width="258" height="271"/>
+            <connections>
+                <outlet property="imageMealImageView" destination="lJ7-Nc-8TS" id="0r6-mm-9xU"/>
+                <outlet property="nameMealLabel" destination="U4f-7b-gNy" id="LR2-xV-Vjy"/>
+                <outlet property="nationMealLabel" destination="Phv-Cv-aX0" id="dXk-su-25g"/>
+                <outlet property="priceMealLabel" destination="ICE-ic-iyG" id="v9o-Kb-wwa"/>
+            </connections>
+            <point key="canvasLocation" x="134.35114503816794" y="30.633802816901412"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="cookie_sandwich" width="140" height="140"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

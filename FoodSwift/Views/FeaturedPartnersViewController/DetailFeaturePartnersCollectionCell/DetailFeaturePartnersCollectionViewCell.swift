@@ -8,13 +8,19 @@
 import UIKit
 import SDWebImage
 
-class DetailFeaturePartnersCollectionViewCell: UICollectionViewCell {
+protocol DetailFeaturePartnersCollectionCellViewDelegate {
+    func didTapImage(in cell: DetailFeaturePartnersCollectionViewCell)
+}
+
+
+final class DetailFeaturePartnersCollectionViewCell: UICollectionViewCell {
     
     // MARK: - IBOutlet
     @IBOutlet private weak var imageFood: UIImageView!
     @IBOutlet private weak var feeShipImageView: UILabel!
     @IBOutlet private weak var timeShipImageView: UIImageView!
     @IBOutlet private weak var timeShipLabel: UILabel!
+    @IBOutlet private weak var detailButton: UIButton!
     @IBOutlet private weak var feeShipLabel: UILabel!
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var nameFoodLabel: UILabel!
@@ -27,6 +33,7 @@ class DetailFeaturePartnersCollectionViewCell: UICollectionViewCell {
             updateView()
         }
     }
+    var delegate: DetailFeaturePartnersCollectionCellViewDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,6 +60,8 @@ class DetailFeaturePartnersCollectionViewCell: UICollectionViewCell {
         setUpLabel(label: feeShipLabel, font: UIFont.fontYugothicRegular(ofSize: 12) ?? UIFont.systemFont(ofSize: 20), textColor: UIColor(hex: "#FFFFFF"))
         setUpLabel(label: firstNationLabel, font: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 20), textColor: UIColor(hex: "#868686"))
         setUpLabel(label: secondNationLabel, font: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 20), textColor: UIColor(hex: "#868686"))
+        
+        detailButton.setTitle("", for: .normal)
     }
     
     private func setUpLabel(label: UILabel, font: UIFont, textColor: UIColor) {
@@ -64,19 +73,17 @@ class DetailFeaturePartnersCollectionViewCell: UICollectionViewCell {
         guard let meal = viewModel?.meal else { return }
         imageFood.sd_setImage(with: URL(string: meal.image))
         timeShipLabel.text = meal.time
-        feeShipLabel.text = meal.fee == 0 ? "Free" : "\(displayNumber(meal.fee))$"
+        feeShipLabel.text = meal.feeShip == 0 ? "Free" : "\(displayNumber(meal.feeShip))$"
         ratingLabel.text = meal.rating
         nameFoodLabel.text = meal.name
         firstNationLabel.text = meal.nation1
         secondNationLabel.text = meal.nation2
     }
-
-    private func displayNumber(_ number: Double) -> String {
-        // Kiểm tra nếu phần thập phân không bằng 0 (số lẻ dạng Double)
-        if number.truncatingRemainder(dividingBy: 1) != 0 {
-            return String(number)
-        } else {
-            return String(Int(number))
+    
+    @IBAction func moveToDetailScreenTouchUpInside(_ sender: Any) {
+        if let delegate = delegate {
+            delegate.didTapImage(in: self)
         }
     }
+    
 }
