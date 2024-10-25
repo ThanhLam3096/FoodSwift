@@ -66,6 +66,7 @@ extension FeaturePartnersViewController: UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withClass: DetailFeaturePartnersCollectionViewCell.self, for: indexPath)
+        cell.delegate = self
         cell.viewModel = viewModel.cellForRowAtSection(indexPath: indexPath)
         return cell
     }
@@ -82,5 +83,15 @@ extension FeaturePartnersViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return (21 / 375) * ScreenSize.screenWidth
+    }
+}
+
+extension FeaturePartnersViewController: DetailFeaturePartnersCollectionCellViewDelegate {
+    func didTapImage(in cell: DetailFeaturePartnersCollectionViewCell) {
+        if let indexPath = featurePartnersCollectionView.indexPath(for: cell) {
+            ScreenName.detailMeal.viewModel = DetailMealViewModel(meal: viewModel.listFeatureMeal[indexPath.row])
+        }
+        ScreenName.detailMeal.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(ScreenName.detailMeal, animated: true)
     }
 }

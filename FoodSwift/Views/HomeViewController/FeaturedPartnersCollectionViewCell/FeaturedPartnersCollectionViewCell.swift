@@ -62,10 +62,10 @@ class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
         addressLabel.text = meal.address
         ratingFoodLabel.text = meal.rating
         timeShipLabel.text = meal.time
-        if meal.fee == 0 {
+        if meal.feeShip == 0 {
             feeShipLabel.text = "Free delivery"
         } else {
-            feeShipLabel.text = "\(meal.fee)$"
+            feeShipLabel.text = "\(meal.feeShip)$"
         }
     }
 }

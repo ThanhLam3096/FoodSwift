@@ -18,4 +18,5 @@ struct ScreenName {
     static let definePhoneNumber = DefinePhoneNumberViewController()
     static let verifyPhoneNumber = VerifylePhoneNumberVC()
     static let baseTabbar = FoodTabBarViewController()
+    static let detailMeal = DetailMealViewController()
 }
