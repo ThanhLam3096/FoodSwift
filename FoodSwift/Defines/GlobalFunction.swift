@@ -17,3 +17,8 @@ func displayNumber(_ number: Double) -> String {
         return String(Int(number))
     }
 }
+
+struct GlobalVariables {
+    static var indexNumber = 0
+    static var selectedIndexPath: IndexPath? = IndexPath(item: 0, section: 0)
+}

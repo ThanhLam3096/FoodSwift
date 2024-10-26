@@ -12,7 +12,7 @@ final class DetailMealViewModel {
     // MARK: - Properties
     var meal: Meal?
     let typeMeal = ["Beef", "Breakfast", "Chicken", "Dessert", "Goat", "Lamb", "Miscellaneous", "Pasta", "Pork", "Seafood", "Side", "Starter", "Vegan", "Vegetarian"]
-    var selectedIndexPath: IndexPath? = IndexPath(item: 0, section: 0)
+    
     
     var listMealByCategory: [TheMealDB] = []
     
@@ -75,7 +75,6 @@ final class DetailMealViewModel {
                 this.listMealByCategory.removeAll()
                 for item in result.meals {
                     this.listMealByCategory.append(item)
-                    print("Image Meal == \(item.imageMeal)" + "Name Meal ==\(item.nameMeal)")
                 }
                 listMealByCategoryCompletion(true, App.String.loadSuccess)
             }

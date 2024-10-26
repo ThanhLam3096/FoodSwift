@@ -49,10 +49,14 @@ class DetailMealViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
         updateInfoView()
+        if viewModel.listMealByCategory.isEmpty {
+            loadAPIListMealByCategory(categoryName: viewModel.typeMeal[GlobalVariables.indexNumber])
+        }
     }
     
     override func setUpUI() {
         updateUILabel()
+        setUpNavigation()
         
         backButton.setTitle("", for: .normal)
         shapeButton.setTitle("", for: .normal)
@@ -70,7 +74,13 @@ class DetailMealViewController: BaseViewController {
     }
     
     override func setUpData() {
-        loadAPIListMealByCategory(categoryName: viewModel.typeMeal[0])
+        loadAPIListMealByCategory(categoryName: viewModel.typeMeal[GlobalVariables.indexNumber])
+    }
+    
+    private func setUpNavigation() {
+        let backItem = UIBarButtonItem(image: UIImage(named: "back") , style: .plain, target: self, action: nil)
+        navigationItem.leftBarButtonItem = backItem
+        navigationItem.leftBarButtonItem?.tintColor = .black
     }
     
     private func updateInfoView() {
@@ -208,18 +218,18 @@ extension DetailMealViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == typeMealCollectionView {
-            if let previousIndexPath = viewModel.selectedIndexPath {
+            if let previousIndexPath = GlobalVariables.selectedIndexPath {
                 let previousCell = typeMealCollectionView.cellForItem(at: previousIndexPath) as? TypeMealCollectionViewCell
                 previousCell?.typeFoodLabel.textColor = UIColor(hex: "#868686")
             }
             
             // Cập nhật ô được chọn
-            viewModel.selectedIndexPath = indexPath
+            GlobalVariables.selectedIndexPath = indexPath
             
             // Đổi màu ô hiện tại
             let currentCell = typeMealCollectionView.cellForItem(at: indexPath) as? TypeMealCollectionViewCell
             currentCell?.typeFoodLabel.textColor = UIColor(hex: "#FFD15C")
-            
+            GlobalVariables.indexNumber = indexPath.row
             loadAPIListMealByCategory(categoryName: viewModel.typeMeal[indexPath.row])
         } else {
             print("abcd")
