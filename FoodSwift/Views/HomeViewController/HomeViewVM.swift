@@ -153,6 +153,4 @@ final class HomeViewVM {
             }
         }
     }
-
-
 }

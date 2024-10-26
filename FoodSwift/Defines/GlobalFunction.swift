@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIKit
+import SDWebImage
 
 func displayNumber(_ number: Double) -> String {
     // Kiểm tra nếu phần thập phân không bằng 0 (số lẻ dạng Double)

@@ -18,6 +18,7 @@ pod 'AlamofireNetworkActivityIndicator'
     pod 'SVProgressHUD'
     pod 'RealmSwift'
     pod 'IQKeyboardManagerSwift'
+    pod 'SkeletonView'
 
   target 'FoodSwiftTests' do
     inherit! :search_paths

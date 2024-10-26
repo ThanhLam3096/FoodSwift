@@ -11,6 +11,7 @@ class ListMealForTypeTableViewCell: UITableViewCell {
     
     // MARK: - IBOutlet
     @IBOutlet private weak var imageMealImageView: UIImageView!
+    @IBOutlet private weak var lineView: UIView!
     
     @IBOutlet private weak var nameMealLabel: UILabel!
     @IBOutlet private weak var feeShipMealLabel: UILabel!
@@ -41,6 +42,8 @@ class ListMealForTypeTableViewCell: UITableViewCell {
         imageMealImageView.layer.cornerRadius = 6
         imageMealImageView.contentMode = .scaleAspectFit
         
+        lineView.backgroundColor = UIColor(hex: "#C4C4C4")
+        
         setUpLabel(label: nameMealLabel, textFont: UIFont.fontYugothicLight(ofSize: 18) ?? UIFont.systemFont(ofSize: 18), textColor: UIColor(hex: "#010F07"))
         setUpLabel(label: infoLabel, textFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), textColor: UIColor(hex: "#010F07"))
         setUpLabel(label: feeShipMealLabel, textFont: UIFont.fontYugothicRegular(ofSize: 14) ?? UIFont.systemFont(ofSize: 14), textColor: UIColor(hex: "#010F07"))
@@ -54,12 +57,11 @@ class ListMealForTypeTableViewCell: UITableViewCell {
     }
     
     private func updateView() {
-        guard let mealByCategory = viewModel?.mealByCategory else { return }
-        imageMealImageView.sd_setImage(with: URL(string: mealByCategory.imageMeal))
+        guard let mealByCategory = viewModel?.mealByCategory, let urlImage = URL(string: mealByCategory.imageMeal) else { return }
+        ImageLoader.shared().loadImageWithSkeleton(url: urlImage, into: imageMealImageView)
         nameMealLabel.text = mealByCategory.nameMeal
         feeShipMealLabel.text = displayNumber(viewModel?.randomDecimal() ?? 1.0)
         countryMealLabel.text = "American"
         priceMealLabel.text = "AUD$\(displayNumber(viewModel?.randomDecimal() ?? 1.0))"
     }
-    
 }

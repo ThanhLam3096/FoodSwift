@@ -14,6 +14,8 @@ final class DetailMealViewModel {
     let typeMeal = ["Beef", "Breakfast", "Chicken", "Dessert", "Goat", "Lamb", "Miscellaneous", "Pasta", "Pork", "Seafood", "Side", "Starter", "Vegan", "Vegetarian"]
     var selectedIndexPath: IndexPath? = IndexPath(item: 0, section: 0)
     
+    var listMealByCategory: [TheMealDB] = []
+    
     init() {}
     
     init(meal: Meal) {
@@ -50,16 +52,33 @@ final class DetailMealViewModel {
     
     // MARK: - Data TableView
     func numberOfSectionsTableView() -> Int {
-        return dummyMealByCategory.mealByCate.count
+        return listMealByCategory.count
     }
     
     func cellForRowAtSectionMealForCategory(indexPath: IndexPath) -> ListMealForTypeTableViewCellVM {
-        let item = dummyMealByCategory.mealByCate[indexPath.row]
+        let item = listMealByCategory[indexPath.row]
         let model = ListMealForTypeTableViewCellVM(mealByCategory: item)
         return model
     }
     
     func heightForCellTableView() -> CGFloat {
         return 151
+    }
+    
+    func getAPIListMealByCategory(categoryName: String ,listMealByCategoryCompletion: @escaping (Bool, String) -> Void) {
+        Networking.shared().getListMealByCategory(categoryName: categoryName) { [weak self] (mealResult) in
+            guard let this = self else { return }
+            switch mealResult {
+            case .failure(let error):
+                listMealByCategoryCompletion(false, error)
+            case .success(let result):
+                this.listMealByCategory.removeAll()
+                for item in result.meals {
+                    this.listMealByCategory.append(item)
+                    print("Image Meal == \(item.imageMeal)" + "Name Meal ==\(item.nameMeal)")
+                }
+                listMealByCategoryCompletion(true, App.String.loadSuccess)
+            }
+        }
     }
 }
