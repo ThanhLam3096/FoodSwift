@@ -56,8 +56,8 @@ class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
     }
     
     private func updateView() {
-        guard let meal = viewModel?.meal else { return }
-        featuredPartnersImageView.sd_setImage(with: URL(string: meal.image))
+        guard let meal = viewModel?.meal, let urlImage = URL(string: meal.image) else { return }
+        ImageLoader.shared().loadImageWithFadeIn(url: urlImage, imageView: featuredPartnersImageView)
         nameFoodLabel.text = meal.name
         addressLabel.text = meal.address
         ratingFoodLabel.text = meal.rating
