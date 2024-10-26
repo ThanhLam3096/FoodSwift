@@ -42,31 +42,66 @@ class DetailMealViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
         updateInfoView()
+        if viewModel.listMealByCategory.isEmpty {
+            loadAPIListMealByCategory(categoryName: viewModel.typeMeal[GlobalVariables.indexNumber])
+        }
     }
     
     override func setUpUI() {
         updateUILabel()
+        setUpNavigation()
         
         backButton.setTitle("", for: .normal)
         shapeButton.setTitle("", for: .normal)
         searchButton.setTitle("", for: .normal)
         takeAwayButton.setAttributedTitle(NSAttributedString(string: "TAKE AWAY", attributes: [
             .font: UIFont.fontYugothicUISemiBold(ofSize: 12) as Any,
-            .foregroundColor: UIColor(hex: "#EEA734")
+            .foregroundColor: UIColor(hex: "#EEA734"),
+            .backgroundColor: UIColor.white
         ]), for: .normal)
         takeAwayButton.layer.cornerRadius = 6
         takeAwayButton.layer.borderWidth = 1
         takeAwayButton.layer.borderColor = CGColor.hexStringToCGColor(hex: "#EEA734")
+        takeAwayButton.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
+        takeAwayButton.addTarget(self, action: #selector(buttonTouchUp), for: [.touchUpInside, .touchUpOutside])
         
         setUpTableView()
         updateCollectionView()
+    }
+    
+    override func setUpData() {
+        loadAPIListMealByCategory(categoryName: viewModel.typeMeal[GlobalVariables.indexNumber])
+    }
+    
+    // Đổi màu nền khi nhấn giữ
+    @objc func buttonTouchDown() {
+        takeAwayButton.setAttributedTitle(NSAttributedString(string: "TAKE AWAY", attributes: [
+            .font: UIFont.fontYugothicUISemiBold(ofSize: 12) as Any,
+            .foregroundColor: UIColor.white,
+            .backgroundColor: UIColor(hex: "#EEA734")
+        ]), for: .normal)
+        takeAwayButton.backgroundColor = UIColor(hex: "#EEA734")
+    }
+    
+    // Khôi phục màu nền ban đầu khi thả tay
+    @objc func buttonTouchUp() {
+        takeAwayButton.setAttributedTitle(NSAttributedString(string: "TAKE AWAY", attributes: [
+            .font: UIFont.fontYugothicUISemiBold(ofSize: 12) as Any,
+            .foregroundColor: UIColor(hex: "#EEA734"),
+            .backgroundColor: UIColor.white
+        ]), for: .normal)
+        takeAwayButton.backgroundColor = .white
+    }
+    
+    private func setUpNavigation() {
+        let backItem = UIBarButtonItem(image: UIImage(named: "back") , style: .plain, target: self, action: nil)
+        navigationItem.leftBarButtonItem = backItem
+        navigationItem.leftBarButtonItem?.tintColor = .black
     }
     
     private func updateInfoView() {
@@ -130,6 +165,25 @@ class DetailMealViewController: BaseViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+    
+    private func loadAPIListMealByCategory(categoryName: String) {
+        HUD.show()
+        viewModel.getAPIListMealByCategory(categoryName: categoryName) { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                HUD.dismiss()
+                this.reloadDataTableView()
+            } else {
+                HUD.dismiss()
+                this.showAlert(message: msg)
+            }
+        }
+    }
+    
+    private func reloadDataTableView() {
+        guard isViewLoaded else { return }
+        listMealForTypeTableView.reloadData()
+    }
 
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -185,17 +239,19 @@ extension DetailMealViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == typeMealCollectionView {
-            if let previousIndexPath = viewModel.selectedIndexPath {
+            if let previousIndexPath = GlobalVariables.selectedIndexPath {
                 let previousCell = typeMealCollectionView.cellForItem(at: previousIndexPath) as? TypeMealCollectionViewCell
                 previousCell?.typeFoodLabel.textColor = UIColor(hex: "#868686")
             }
             
             // Cập nhật ô được chọn
-            viewModel.selectedIndexPath = indexPath
+            GlobalVariables.selectedIndexPath = indexPath
             
             // Đổi màu ô hiện tại
             let currentCell = typeMealCollectionView.cellForItem(at: indexPath) as? TypeMealCollectionViewCell
             currentCell?.typeFoodLabel.textColor = UIColor(hex: "#FFD15C")
+            GlobalVariables.indexNumber = indexPath.row
+            loadAPIListMealByCategory(categoryName: viewModel.typeMeal[indexPath.row])
         } else {
             print("abcd")
         }

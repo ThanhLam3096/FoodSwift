@@ -29,6 +29,14 @@ struct RestaurantResult: Codable {
     }
 }
 
+struct MealByCategoryResult: Decodable {
+    var meals: [TheMealDB]
+    
+    enum CodingKeys: String, CodingKey {
+        case meals = "meals"
+    }
+}
+
 //MARK: Enum
 enum APIResult<T> {
     case failure(String)
@@ -136,6 +144,24 @@ final class Networking {
             return
         }
         AF.request(url).validate().responseDecodable(of: RestaurantResult.self) { response in
+            DispatchQueue.main.async {
+                switch response.result {
+                case .success(let result):
+                    completion(.success(result))
+                case .failure(_):
+                    completion(.failure(App.String.alertFailedToConnectAPI))
+                }
+            }
+        }
+    }
+    
+    // MARK: - Public Functions Call Data
+    func getListMealByCategory(categoryName: String, completion: @escaping APICompletion<MealByCategoryResult>) {
+        guard let url = URL(string: Api.Path.apiMealCategoryAndArea + "c=\(categoryName)") else {
+            completion(.failure(App.String.alertFailedAPI))
+            return
+        }
+        AF.request(url).validate().responseDecodable(of: MealByCategoryResult.self) { response in
             DispatchQueue.main.async {
                 switch response.result {
                 case .success(let result):

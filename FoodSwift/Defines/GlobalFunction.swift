@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIKit
+import SDWebImage
 
 func displayNumber(_ number: Double) -> String {
     // Kiểm tra nếu phần thập phân không bằng 0 (số lẻ dạng Double)
@@ -14,4 +16,9 @@ func displayNumber(_ number: Double) -> String {
     } else {
         return String(Int(number))
     }
+}
+
+struct GlobalVariables {
+    static var indexNumber = 0
+    static var selectedIndexPath: IndexPath? = IndexPath(item: 0, section: 0)
 }

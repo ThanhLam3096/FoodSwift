@@ -59,7 +59,7 @@ class ListAllResTableViewCell: UITableViewCell {
     }
     
     private func updateView() {
-        guard let restaurant = viewModel?.restaurant else { return }
+        guard let restaurant = viewModel?.restaurant, let urlImage = URL(string: restaurant.image) else { return }
         nameResLabel.text = restaurant.name
         priceLabel.text = "\(Int(restaurant.averagePrice))$"
         branch1Label.text = restaurant.branch1
@@ -69,6 +69,6 @@ class ListAllResTableViewCell: UITableViewCell {
         numberVoteLabel.text = restaurant.numberRating
         timeShipLabel.text = restaurant.time
         feeShipLabel.text = restaurant.feeDelivery
-        restaurantImageView.sd_setImage(with: URL(string: restaurant.image))
+        ImageLoader.shared().loadImageWithFadeIn(url: urlImage, imageView: restaurantImageView)
     }
 }

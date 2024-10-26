@@ -8,9 +8,9 @@
 import Foundation
 
 final class ListMealForTypeTableViewCellVM {
-    let mealByCategory: MealByCategory
+    let mealByCategory: TheMealDB
     
-    init(mealByCategory: MealByCategory) {
+    init(mealByCategory: TheMealDB) {
         self.mealByCategory = mealByCategory
     }
     

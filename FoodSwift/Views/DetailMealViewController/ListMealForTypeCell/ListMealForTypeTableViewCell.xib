@@ -98,6 +98,7 @@
                 <outlet property="feeShipMealLabel" destination="kDS-lH-QEC" id="gig-Ji-ZUs"/>
                 <outlet property="imageMealImageView" destination="2XP-ib-lHj" id="P1l-lj-Jdu"/>
                 <outlet property="infoLabel" destination="a3q-4B-RRd" id="Wum-LD-S8e"/>
+                <outlet property="lineView" destination="euJ-Ck-Kaj" id="Z0e-0d-KYY"/>
                 <outlet property="nameMealLabel" destination="ev8-RG-DrC" id="YVD-pw-ePN"/>
                 <outlet property="priceMealLabel" destination="bck-9H-DSj" id="WiP-W9-dgb"/>
             </connections>
