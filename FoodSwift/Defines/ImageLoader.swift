@@ -46,7 +46,7 @@ class ImageLoader {
         let shimmerLayer = addShimmerEffect(to: imageView)
         
         // Sử dụng SDWebImage để tải ảnh
-        imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "jeanne"), options: .continueInBackground) { [weak shimmerLayer] (image, error, _, _) in
+        imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "backUp"), options: .continueInBackground) { [weak shimmerLayer] (image, error, _, _) in
             // Xóa shimmer khi ảnh đã tải xong
             shimmerLayer?.removeFromSuperlayer()
             
@@ -60,7 +60,7 @@ class ImageLoader {
     }
     
     func loadImageWithFadeIn(url: URL, imageView: UIImageView) {
-        imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "jeanne"), options: .continueInBackground) { image, error, _, _ in
+        imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "backUp"), options: .continueInBackground) { image, error, _, _ in
             if image != nil {
                 UIView.transition(with: imageView, duration: 2, options: .transitionFlipFromTop, animations: {
                     imageView.image = image
@@ -73,7 +73,7 @@ class ImageLoader {
     func loadImageWithSkeleton(url: URL, into imageView: UIImageView) {
         imageView.showAnimatedSkeleton()
         
-        imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "jeanne"), options: .continueInBackground) { image, _, _, _ in
+        imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "backUp"), options: .continueInBackground) { image, _, _, _ in
             imageView.hideSkeleton()
             if image != nil {
                 UIView.transition(with: imageView, duration: 2, options: .transitionFlipFromTop, animations: {
