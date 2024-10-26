@@ -42,8 +42,6 @@ class DetailMealViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,11 +61,14 @@ class DetailMealViewController: BaseViewController {
         searchButton.setTitle("", for: .normal)
         takeAwayButton.setAttributedTitle(NSAttributedString(string: "TAKE AWAY", attributes: [
             .font: UIFont.fontYugothicUISemiBold(ofSize: 12) as Any,
-            .foregroundColor: UIColor(hex: "#EEA734")
+            .foregroundColor: UIColor(hex: "#EEA734"),
+            .backgroundColor: UIColor.white
         ]), for: .normal)
         takeAwayButton.layer.cornerRadius = 6
         takeAwayButton.layer.borderWidth = 1
         takeAwayButton.layer.borderColor = CGColor.hexStringToCGColor(hex: "#EEA734")
+        takeAwayButton.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
+        takeAwayButton.addTarget(self, action: #selector(buttonTouchUp), for: [.touchUpInside, .touchUpOutside])
         
         setUpTableView()
         updateCollectionView()
@@ -75,6 +76,26 @@ class DetailMealViewController: BaseViewController {
     
     override func setUpData() {
         loadAPIListMealByCategory(categoryName: viewModel.typeMeal[GlobalVariables.indexNumber])
+    }
+    
+    // Đổi màu nền khi nhấn giữ
+    @objc func buttonTouchDown() {
+        takeAwayButton.setAttributedTitle(NSAttributedString(string: "TAKE AWAY", attributes: [
+            .font: UIFont.fontYugothicUISemiBold(ofSize: 12) as Any,
+            .foregroundColor: UIColor.white,
+            .backgroundColor: UIColor(hex: "#EEA734")
+        ]), for: .normal)
+        takeAwayButton.backgroundColor = UIColor(hex: "#EEA734")
+    }
+    
+    // Khôi phục màu nền ban đầu khi thả tay
+    @objc func buttonTouchUp() {
+        takeAwayButton.setAttributedTitle(NSAttributedString(string: "TAKE AWAY", attributes: [
+            .font: UIFont.fontYugothicUISemiBold(ofSize: 12) as Any,
+            .foregroundColor: UIColor(hex: "#EEA734"),
+            .backgroundColor: UIColor.white
+        ]), for: .normal)
+        takeAwayButton.backgroundColor = .white
     }
     
     private func setUpNavigation() {
