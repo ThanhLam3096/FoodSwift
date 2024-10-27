@@ -166,6 +166,13 @@ class DetailMealViewController: BaseViewController {
         collectionView.dataSource = self
     }
     
+    private func updateDataWhenTappingMealByCategory() {
+        guard let meal = viewModel.mealDetail else { return }
+        imageMealImageView.sd_setImage(with: URL(string: meal.imageMeal))
+        nameMealLabel.text = meal.nameMeal
+        typeFoodLabel.text = meal.category
+    }
+    
     private func loadAPIListMealByCategory(categoryName: String) {
         HUD.show()
         viewModel.getAPIListMealByCategory(categoryName: categoryName) { [weak self] (done, msg) in
@@ -173,6 +180,20 @@ class DetailMealViewController: BaseViewController {
             if done {
                 HUD.dismiss()
                 this.reloadDataTableView()
+            } else {
+                HUD.dismiss()
+                this.showAlert(message: msg)
+            }
+        }
+    }
+    
+    private func loadAPIDetailMeal(idMeal: String) {
+        HUD.show()
+        viewModel.getAPIDetailMealDB(idMeal: idMeal) { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                HUD.dismiss()
+                this.updateDataWhenTappingMealByCategory()
             } else {
                 HUD.dismiss()
                 this.showAlert(message: msg)
@@ -203,6 +224,10 @@ extension DetailMealViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withClass: ListMealForTypeTableViewCell.self, for: indexPath)
         cell.viewModel = viewModel.cellForRowAtSectionMealForCategory(indexPath: indexPath)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        loadAPIDetailMeal(idMeal: viewModel.listMealByCategory[indexPath.row].idMeal)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
