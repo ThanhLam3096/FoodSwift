@@ -92,7 +92,6 @@ final class DetailMealViewModel {
                 for item in items{
                     this.mealDetail = item
                 }
-                print("Check ID MEAL DETAIL ====>>>> \(String(describing: this.mealDetail?.idMeal))")
                 detailMealCompletion(true, App.String.loadSuccess)
             }
         }

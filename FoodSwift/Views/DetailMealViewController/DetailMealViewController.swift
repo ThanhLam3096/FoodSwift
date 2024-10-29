@@ -9,6 +9,9 @@ import UIKit
 
 class DetailMealViewController: BaseViewController {
 
+    @IBOutlet private weak var contentScrollView: UIScrollView!
+    @IBOutlet private weak var navigationBarView: UIView!
+    
     // MARK: - IBOutlet Label
     @IBOutlet private weak var nameMealLabel: UILabel!
     @IBOutlet private weak var priceMealLabel: UILabel!
@@ -36,6 +39,7 @@ class DetailMealViewController: BaseViewController {
     
     // MARK: - IBOutlet ImageView
     @IBOutlet private weak var imageMealImageView: UIImageView!
+    private var lastContentOffset: CGFloat = 0
     
     // MARK: - Properties
     var viewModel: DetailMealViewModel = DetailMealViewModel()
@@ -70,8 +74,11 @@ class DetailMealViewController: BaseViewController {
         takeAwayButton.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
         takeAwayButton.addTarget(self, action: #selector(buttonTouchUp), for: [.touchUpInside, .touchUpOutside])
         
+        contentScrollView.delegate = self
         setUpTableView()
         updateCollectionView()
+        
+        backButton.frame = CGRect(x: 20, y: 20, width: 100, height: 50)
     }
     
     override func setUpData() {
@@ -102,6 +109,9 @@ class DetailMealViewController: BaseViewController {
         let backItem = UIBarButtonItem(image: UIImage(named: "back") , style: .plain, target: self, action: nil)
         navigationItem.leftBarButtonItem = backItem
         navigationItem.leftBarButtonItem?.tintColor = .black
+        
+        navigationBarView.layer.cornerRadius = 6
+        navigationBarView.backgroundColor = Color.activeColor.withAlphaComponent(0.8)
     }
     
     private func updateInfoView() {
@@ -194,6 +204,7 @@ class DetailMealViewController: BaseViewController {
             if done {
                 HUD.dismiss()
                 this.updateDataWhenTappingMealByCategory()
+                this.contentScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             } else {
                 HUD.dismiss()
                 this.showAlert(message: msg)
@@ -308,5 +319,33 @@ extension DetailMealViewController: UICollectionViewDelegateFlowLayout {
         } else {
             return (23 / 375) * ScreenSize.screenWidth
         }
+    }
+}
+
+extension DetailMealViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let currentOffset = scrollView.contentOffset.y
+        
+        if currentOffset <= 0 {
+            // View at top - hiện view
+            UIView.animate(withDuration: 0.3) {
+                self.navigationBarView.layer.transform = CATransform3DIdentity
+                self.navigationBarView.alpha = 1
+            }
+        } else if currentOffset > lastContentOffset {
+            // Scroll Down - hide view
+            UIView.animate(withDuration: 0.3) {
+                self.navigationBarView.layer.transform = CATransform3DIdentity
+                self.navigationBarView.alpha = 0
+            }
+        } else if currentOffset < lastContentOffset {
+            // Scroll Up - Show view
+            UIView.animate(withDuration: 0.3) {
+                self.navigationBarView.layer.transform = CATransform3DIdentity
+                self.navigationBarView.alpha = 1
+            }
+        }
+        // Cập nhật lại lastContentOffset
+        lastContentOffset = currentOffset
     }
 }

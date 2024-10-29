@@ -9,11 +9,13 @@ import Foundation
 
 final class FeaturePartnersViewControllerVM {
     var listFeatureMeal: [Meal] = []
+    var title: String = ""
     
     init() {}
     
-    init(listFeatureMeal: [Meal]) {
+    init(listFeatureMeal: [Meal], title: String) {
         self.listFeatureMeal = listFeatureMeal
+        self.title = title
     }
     
     // MARK: - Data CollectionView

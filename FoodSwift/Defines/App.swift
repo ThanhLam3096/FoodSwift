@@ -16,3 +16,8 @@ extension App.Key { }
 struct Google { }
 
 struct Facebook { }
+
+enum TypeList {
+    case featurePartners
+    case nation
+}

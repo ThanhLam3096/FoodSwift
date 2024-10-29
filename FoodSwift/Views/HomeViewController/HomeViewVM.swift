@@ -77,11 +77,11 @@ final class HomeViewVM {
         switch type {
         case .featurePartner:
             let item = listMealFeaturePartners[indexPath.row]
-            let model = FeaturedPartnersCollectionViewCellViewModel(meal: item)
+            let model = FeaturedPartnersCollectionViewCellViewModel(meal: item, typeList: .featurePartners)
             return model
         default:
             let item = listNationFood[indexPath.row]
-            let model = FeaturedPartnersCollectionViewCellViewModel(meal: item)
+            let model = FeaturedPartnersCollectionViewCellViewModel(meal: item, typeList: .nation)
             return model
         }
         
@@ -103,9 +103,14 @@ final class HomeViewVM {
         
     }
     
-    // MARK: - PassData to Detail Feature Partners
+    // MARK: - PassData to List All Feature Partners
     func transferListFeaturePartNers() -> FeaturePartnersViewControllerVM {
-        return FeaturePartnersViewControllerVM(listFeatureMeal: listMealFeaturePartners)
+        return FeaturePartnersViewControllerVM(listFeatureMeal: listMealFeaturePartners,title: "Feature Partners")
+    }
+    
+    // MARK: - PassData to List All NationMeal
+    func transferListNationMeal() -> FeaturePartnersViewControllerVM {
+        return FeaturePartnersViewControllerVM(listFeatureMeal: listNationFood, title: "Nation Food")
     }
     
     // MARK: - Public Function

@@ -192,6 +192,12 @@ class HomeViewController: BaseViewController {
         vc.viewModel = viewModel.transferListFeaturePartNers()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func seeAllNationMealTouchUpInside(_ sender: Any) {
+        let vc = FeaturePartnersViewController()
+        vc.viewModel = viewModel.transferListNationMeal()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
     @objc func autoScrollImages() {
         currentIndex += 1
@@ -281,10 +287,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         } else if collectionView == featuredPartnersCollectionView {
             let cell = collectionView.dequeueReusableCell(withClass: FeaturedPartnersCollectionViewCell.self, for: indexPath)
+            cell.delegate = self
             cell.viewModel = viewModel.cellForRowAtCollectionMeal(indexPath: indexPath, type: .featurePartner)
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withClass: FeaturedPartnersCollectionViewCell.self, for: indexPath)
+            cell.delegate = self
             cell.viewModel = viewModel.cellForRowAtCollectionMeal(indexPath: indexPath, type: .nationFood)
             return cell
         }
@@ -325,3 +333,21 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension HomeViewController: FeaturedPartnersCollectionViewCellViewDelegate {
+    func didTapImage(in cell: FeaturedPartnersCollectionViewCell, typeList: TypeList) {
+        switch typeList {
+        case .featurePartners:
+            if let indexPath = featuredPartnersCollectionView.indexPath(for: cell) {
+                ScreenName.detailMeal.viewModel = DetailMealViewModel(meal: viewModel.listMealFeaturePartners[indexPath.row])
+            }
+            ScreenName.detailMeal.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(ScreenName.detailMeal, animated: true)
+        case .nation:
+            if let indexPath = bestFoodOfRestaurntsCollectionView.indexPath(for: cell) {
+                ScreenName.detailMeal.viewModel = DetailMealViewModel(meal: viewModel.listNationFood[indexPath.row])
+            }
+            ScreenName.detailMeal.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(ScreenName.detailMeal, animated: true)
+        }
+    }
+}

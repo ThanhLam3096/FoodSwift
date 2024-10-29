@@ -43,7 +43,7 @@ final class DetailFeaturePartnersCollectionViewCell: UICollectionViewCell {
     
     private func setUpViewCell() {
         imageFood.layer.cornerRadius = 4
-        imageFood.contentMode = .scaleToFill
+        imageFood.contentMode = .scaleAspectFill
         imageFood.clipsToBounds = true
         imageFood.frame = contentView.bounds
 

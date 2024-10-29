@@ -120,6 +120,7 @@
 		04E6962F2CC67F9C00DD4B8B /* DetailMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E6962D2CC67F9C00DD4B8B /* DetailMealViewController.swift */; };
 		04E696302CC67F9C00DD4B8B /* DetailMealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E6962E2CC67F9C00DD4B8B /* DetailMealViewController.xib */; };
 		04E696322CC698DD00DD4B8B /* DetailMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E696312CC698DD00DD4B8B /* DetailMealViewModel.swift */; };
+		04F823A82CD1150000BE2181 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F823A72CD1150000BE2181 /* Color.swift */; };
 		2DB17B68DAF952076C24A289 /* Pods_FoodSwift_FoodSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C608F830BBCA2B7ED7A6B4 /* Pods_FoodSwift_FoodSwiftUITests.framework */; };
 		4E99FC81BADB8F7D91FB3FB9 /* Pods_FoodSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B18CB6170BAD7026C750892 /* Pods_FoodSwiftTests.framework */; };
 		FC224CF68D3D3647EDC0607C /* Pods_FoodSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204E678F8896E7D2312F8501 /* Pods_FoodSwift.framework */; };
@@ -260,6 +261,7 @@
 		04E6962D2CC67F9C00DD4B8B /* DetailMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewController.swift; sourceTree = "<group>"; };
 		04E6962E2CC67F9C00DD4B8B /* DetailMealViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMealViewController.xib; sourceTree = "<group>"; };
 		04E696312CC698DD00DD4B8B /* DetailMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewModel.swift; sourceTree = "<group>"; };
+		04F823A72CD1150000BE2181 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		0B18CB6170BAD7026C750892 /* Pods_FoodSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A21DB61104EDED1D7500A2B /* Pods-FoodSwift-FoodSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodSwift-FoodSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-FoodSwift-FoodSwiftUITests/Pods-FoodSwift-FoodSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		204E678F8896E7D2312F8501 /* Pods_FoodSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -398,6 +400,7 @@
 				04156AA82CBEA4C6000A1B0F /* App.swift */,
 				047DB2E52CC93DF5006B3E5D /* GlobalFunction.swift */,
 				04D05FDF2CCD296F00675B9A /* ImageLoader.swift */,
+				04F823A72CD1150000BE2181 /* Color.swift */,
 			);
 			path = Defines;
 			sourceTree = "<group>";
@@ -1170,6 +1173,7 @@
 				044244FD2CC8A59900309971 /* FeaturedItemCollectionCellVM.swift in Sources */,
 				04156AAF2CBEA759000A1B0F /* DataEXT.swift in Sources */,
 				042FFBA12CB3E27E004B6D85 /* HomeViewController.swift in Sources */,
+				04F823A82CD1150000BE2181 /* Color.swift in Sources */,
 				046E777A2C6F547A000F6FD1 /* PageStackView.swift in Sources */,
 				047DB2ED2CC94643006B3E5D /* TypeMealCollectionCellVM.swift in Sources */,
 				04156AA52CBE9865000A1B0F /* API.swift in Sources */,
