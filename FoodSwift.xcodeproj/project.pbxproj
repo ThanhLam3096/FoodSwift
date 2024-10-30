@@ -101,6 +101,7 @@
 		04B3CC442CBBF2C800F95E94 /* FeaturedPartnersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CC422CBBF2C800F95E94 /* FeaturedPartnersCollectionViewCell.swift */; };
 		04B3CC452CBBF2C800F95E94 /* FeaturedPartnersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B3CC432CBBF2C800F95E94 /* FeaturedPartnersCollectionViewCell.xib */; };
 		04B3CC482CBBF5B600F95E94 /* CircleGrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CC472CBBF5B600F95E94 /* CircleGrayView.swift */; };
+		04B4A7ED2CD22BC9008A50ED /* FoodTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4A7EB2CD22BC9008A50ED /* FoodTabBarViewController.swift */; };
 		04C03E382C74786B00DB9B0D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C03E372C74786B00DB9B0D /* UIColor.swift */; };
 		04C03E3C2C75818500DB9B0D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C03E3A2C75818500DB9B0D /* SignInViewController.swift */; };
 		04C03E3D2C75818500DB9B0D /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C03E3B2C75818500DB9B0D /* SignInViewController.xib */; };
@@ -120,7 +121,6 @@
 		04E696302CC67F9C00DD4B8B /* DetailMealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E6962E2CC67F9C00DD4B8B /* DetailMealViewController.xib */; };
 		04E696322CC698DD00DD4B8B /* DetailMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E696312CC698DD00DD4B8B /* DetailMealViewModel.swift */; };
 		04F823A82CD1150000BE2181 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F823A72CD1150000BE2181 /* Color.swift */; };
-		04F823AA2CD143F800BE2181 /* FoodTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F823A92CD143F800BE2181 /* FoodTabBarViewController.swift */; };
 		2DB17B68DAF952076C24A289 /* Pods_FoodSwift_FoodSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C608F830BBCA2B7ED7A6B4 /* Pods_FoodSwift_FoodSwiftUITests.framework */; };
 		4E99FC81BADB8F7D91FB3FB9 /* Pods_FoodSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B18CB6170BAD7026C750892 /* Pods_FoodSwiftTests.framework */; };
 		FC224CF68D3D3647EDC0607C /* Pods_FoodSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204E678F8896E7D2312F8501 /* Pods_FoodSwift.framework */; };
@@ -242,6 +242,7 @@
 		04B3CC422CBBF2C800F95E94 /* FeaturedPartnersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPartnersCollectionViewCell.swift; sourceTree = "<group>"; };
 		04B3CC432CBBF2C800F95E94 /* FeaturedPartnersCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturedPartnersCollectionViewCell.xib; sourceTree = "<group>"; };
 		04B3CC472CBBF5B600F95E94 /* CircleGrayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleGrayView.swift; sourceTree = "<group>"; };
+		04B4A7EB2CD22BC9008A50ED /* FoodTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTabBarViewController.swift; sourceTree = "<group>"; };
 		04C03E372C74786B00DB9B0D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		04C03E3A2C75818500DB9B0D /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		04C03E3B2C75818500DB9B0D /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
@@ -261,7 +262,6 @@
 		04E6962E2CC67F9C00DD4B8B /* DetailMealViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMealViewController.xib; sourceTree = "<group>"; };
 		04E696312CC698DD00DD4B8B /* DetailMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewModel.swift; sourceTree = "<group>"; };
 		04F823A72CD1150000BE2181 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		04F823A92CD143F800BE2181 /* FoodTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoodTabBarViewController.swift; path = FoodSwift/Views/FoodTabBarViewController/FoodTabBarViewController.swift; sourceTree = SOURCE_ROOT; };
 		0B18CB6170BAD7026C750892 /* Pods_FoodSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A21DB61104EDED1D7500A2B /* Pods-FoodSwift-FoodSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodSwift-FoodSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-FoodSwift-FoodSwiftUITests/Pods-FoodSwift-FoodSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		204E678F8896E7D2312F8501 /* Pods_FoodSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -365,20 +365,20 @@
 		041529A82BD7598700818A4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				048BECEE2C85F82E0087F446 /* CreateAccount */,
+				04343B712C8AA326007D3331 /* DefinePhoneNumber */,
 				04E6962C2CC67F8200DD4B8B /* DetailMealViewController */,
 				042FCE2B2CC3D8B300144702 /* FeaturedPartnersViewController */,
-				0491EC802CB0072F00157BE7 /* ProfileViewController */,
-				0491EC772CB006FD00157BE7 /* OrdersViewController */,
-				0491EC722CB0068B00157BE7 /* SearchViewController */,
-				0491EC6F2CB005FF00157BE7 /* FoodTabBarViewController */,
-				0491EC6A2CAFEB2700157BE7 /* HomeViewController */,
-				045578EE2C97E18C00EA420B /* VerifyPhoneNumber */,
-				04343B712C8AA326007D3331 /* DefinePhoneNumber */,
+				04B4A7EC2CD22BC9008A50ED /* FoodTabBarViewController */,
 				04343B682C8947DE007D3331 /* ForgotPassword */,
-				048BECEE2C85F82E0087F446 /* CreateAccount */,
-				04C03E392C75815400DB9B0D /* Signin */,
-				04788A2D2BE3814F009AB6DD /* Welcome */,
+				0491EC6A2CAFEB2700157BE7 /* HomeViewController */,
 				04788A2C2BE38138009AB6DD /* Introduce */,
+				0491EC772CB006FD00157BE7 /* OrdersViewController */,
+				0491EC802CB0072F00157BE7 /* ProfileViewController */,
+				0491EC722CB0068B00157BE7 /* SearchViewController */,
+				04C03E392C75815400DB9B0D /* Signin */,
+				045578EE2C97E18C00EA420B /* VerifyPhoneNumber */,
+				04788A2D2BE3814F009AB6DD /* Welcome */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -638,15 +638,6 @@
 			path = HomeViewController;
 			sourceTree = "<group>";
 		};
-		0491EC6F2CB005FF00157BE7 /* FoodTabBarViewController */ = {
-			isa = PBXGroup;
-			children = (
-				04F823A92CD143F800BE2181 /* FoodTabBarViewController.swift */,
-			);
-			name = FoodTabBarViewController;
-			path = "FoodTabBarViewControllẻ";
-			sourceTree = "<group>";
-		};
 		0491EC722CB0068B00157BE7 /* SearchViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -744,6 +735,14 @@
 				04B3CC472CBBF5B600F95E94 /* CircleGrayView.swift */,
 			);
 			path = Cirlcle;
+			sourceTree = "<group>";
+		};
+		04B4A7EC2CD22BC9008A50ED /* FoodTabBarViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04B4A7EB2CD22BC9008A50ED /* FoodTabBarViewController.swift */,
+			);
+			path = FoodTabBarViewController;
 			sourceTree = "<group>";
 		};
 		04C03E362C74785100DB9B0D /* Extension */ = {
@@ -1152,7 +1151,6 @@
 				0491EC752CB006D000157BE7 /* SearchViewController.swift in Sources */,
 				04D05FD82CCBDCFE00675B9A /* TheMealDB.swift in Sources */,
 				042FFBAB2CB40127004B6D85 /* HomeViewVM.swift in Sources */,
-				04F823AA2CD143F800BE2181 /* FoodTabBarViewController.swift in Sources */,
 				041529AF2BD75C3300818A4A /* BaseViewController.swift in Sources */,
 				048D962D2CBD1E4400977AD1 /* ListAllResTableViewCell.swift in Sources */,
 				0491EC7A2CB0071100157BE7 /* OrdersViewController.swift in Sources */,
@@ -1165,6 +1163,7 @@
 				04B3CC3D2CB9105F00F95E94 /* Networking.swift in Sources */,
 				041529B62BE0D5D500818A4A /* OrangeButtonView.swift in Sources */,
 				0415297D2BD7595600818A4A /* ViewController.swift in Sources */,
+				04B4A7ED2CD22BC9008A50ED /* FoodTabBarViewController.swift in Sources */,
 				042FFBB12CB7DEB9004B6D85 /* SliderImageCollectionViewCell.swift in Sources */,
 				04C03E3C2C75818500DB9B0D /* SignInViewController.swift in Sources */,
 				048BECDE2C85695A0087F446 /* SocialButtonView.swift in Sources */,
