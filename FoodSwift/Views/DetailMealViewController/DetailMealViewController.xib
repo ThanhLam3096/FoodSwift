@@ -17,6 +17,13 @@
                 <outlet property="firstDeliveryLabel" destination="F6t-kX-729" id="JOI-oG-GEP"/>
                 <outlet property="firstNationLabel" destination="0kL-Cm-CMa" id="XFe-RG-rPy"/>
                 <outlet property="firstTimeDeliveryLabel" destination="bmd-pT-SSY" id="Dhx-1K-BFz"/>
+                <outlet property="heightOfCollectionViewCategoryConstraint" destination="RLI-Gc-iuo" id="TRx-Rv-czf"/>
+                <outlet property="heightOfCollectionViewFeaturedItemConstraint" destination="W1R-BE-XGA" id="5j3-Ec-jmC"/>
+                <outlet property="heightOfContentViewConstraint" destination="gdy-cv-N5B" id="iWJ-yg-P3Z"/>
+                <outlet property="heightOfTableViewViewMealConstraint" destination="t4I-V3-l4e" id="wHZ-dS-27f"/>
+                <outlet property="heightOfViewFeaturedItemConstraint" destination="WTA-Bj-GkU" id="mKb-4R-82y"/>
+                <outlet property="heightOfViewImageConstraint" destination="Z47-Eu-0Q4" id="fKH-uO-BYD"/>
+                <outlet property="heightOfViewInfoConstraint" destination="f7B-s2-Nf5" id="qRr-XO-YEN"/>
                 <outlet property="imageMealImageView" destination="ANi-VL-zpI" id="kGM-Ge-ldR"/>
                 <outlet property="listFeatureLabel" destination="pqC-eQ-sqA" id="I0j-7d-Ljh"/>
                 <outlet property="listMealForTypeTableView" destination="GpM-jh-zvA" id="EDQ-7Y-NOl"/>
@@ -45,7 +52,7 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fx3-cc-mho" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="2000"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="1268"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYr-BH-gZV">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="280"/>
@@ -307,7 +314,7 @@
                                 <constraint firstItem="wqA-li-Io0" firstAttribute="leading" secondItem="UYh-HH-UX9" secondAttribute="leading" id="XJW-6F-WTW"/>
                                 <constraint firstItem="tYr-BH-gZV" firstAttribute="top" secondItem="fx3-cc-mho" secondAttribute="top" id="cbx-LC-yCL"/>
                                 <constraint firstAttribute="trailing" secondItem="huR-0v-2el" secondAttribute="trailing" id="cqK-DN-5Dq"/>
-                                <constraint firstAttribute="height" constant="2000" id="gdy-cv-N5B"/>
+                                <constraint firstAttribute="height" constant="1268" id="gdy-cv-N5B"/>
                                 <constraint firstAttribute="trailing" secondItem="tYr-BH-gZV" secondAttribute="trailing" id="hQ9-I9-XRG"/>
                                 <constraint firstItem="wqA-li-Io0" firstAttribute="top" secondItem="UYh-HH-UX9" secondAttribute="bottom" constant="34" id="iLL-xb-U4x"/>
                                 <constraint firstItem="huR-0v-2el" firstAttribute="top" secondItem="wqA-li-Io0" secondAttribute="bottom" constant="15" id="ovm-hx-NkI"/>

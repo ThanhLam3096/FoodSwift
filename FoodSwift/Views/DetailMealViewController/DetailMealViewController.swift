@@ -39,10 +39,19 @@ class DetailMealViewController: BaseViewController {
     
     // MARK: - IBOutlet ImageView
     @IBOutlet private weak var imageMealImageView: UIImageView!
-    private var lastContentOffset: CGFloat = 0
+    
+    // MARK: - IBOutlet Constraint
+    @IBOutlet private weak var heightOfContentViewConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightOfViewImageConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightOfViewInfoConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightOfViewFeaturedItemConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightOfCollectionViewFeaturedItemConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightOfCollectionViewCategoryConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightOfTableViewViewMealConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     var viewModel: DetailMealViewModel = DetailMealViewModel()
+    private var lastContentOffset: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,10 +88,22 @@ class DetailMealViewController: BaseViewController {
         updateCollectionView()
         
         backButton.frame = CGRect(x: 20, y: 20, width: 100, height: 50)
+        setUpFrame()
     }
     
     override func setUpData() {
         loadAPIListMealByCategory(categoryName: viewModel.typeMeal[GlobalVariables.indexNumber])
+    }
+    
+    private func setUpFrame() {
+        heightOfViewImageConstraint.constant = ScreenSize.scaleHeight(280)
+        heightOfViewInfoConstraint.constant = ScreenSize.scaleHeight(165)
+        heightOfViewFeaturedItemConstraint.constant = ScreenSize.scaleHeight(230)
+        heightOfCollectionViewFeaturedItemConstraint.constant = ScreenSize.scaleHeight(198)
+        heightOfCollectionViewCategoryConstraint.constant = ScreenSize.scaleHeight(32)
+        heightOfTableViewViewMealConstraint.constant = ScreenSize.scaleHeight(500)
+        
+        heightOfContentViewConstraint.constant = heightOfViewImageConstraint.constant + heightOfViewInfoConstraint.constant + heightOfViewFeaturedItemConstraint.constant + heightOfCollectionViewCategoryConstraint.constant + heightOfTableViewViewMealConstraint.constant + 80
     }
     
     // Đổi màu nền khi nhấn giữ
@@ -125,7 +146,7 @@ class DetailMealViewController: BaseViewController {
         ratingLabel.text = meal.rating
         numberVoteLabel.text = "\(meal.totalVote)+"
         firstDeliveryLabel.text = meal.feeShip == 0 ? "Free" : "\(displayNumber(meal.feeShip))"
-        secondDeliveryLabel.text = meal.feeShip == 0 ? "" : "Dollars"
+        secondDeliveryLabel.text = meal.feeShip == 0 ? "Delivery" : "Dollars"
         firstTimeDeliveryLabel.text = meal.time.replacingOccurrences(of: "min", with: "")
         secondTimeDeliveryLabel.text = "Minutes"
     }
