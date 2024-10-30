@@ -43,12 +43,12 @@ final class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
         imageButton.setTitle("", for: .normal)
         
         nameFoodLabel.font = UIFont.fontYugothicLight(ofSize: 20)
-        nameFoodLabel.textColor = UIColor(hex: "#010F07")
+        nameFoodLabel.textColor = Color.mainColor
         
         addressLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
-        addressLabel.textColor = UIColor(hex: "#868686")
+        addressLabel.textColor = Color.bodyTextColor
         
-        ratingFoodLabel.backgroundColor = UIColor(hex: "#EEA734")
+        ratingFoodLabel.backgroundColor = Color.activeColor
         ratingFoodLabel.layer.cornerRadius = 4
         ratingFoodLabel.layer.masksToBounds = true
         ratingFoodLabel.textAlignment = .center
@@ -56,10 +56,10 @@ final class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
         ratingFoodLabel.textColor = UIColor.white
         
         timeShipLabel.font = UIFont.fontYugothicLight(ofSize: 14)
-        timeShipLabel.textColor = UIColor(hex: "#010F07")
+        timeShipLabel.textColor = Color.mainColor
         
         feeShipLabel.font = UIFont.fontYugothicLight(ofSize: 14)
-        feeShipLabel.textColor = UIColor(hex: "#010F07")
+        feeShipLabel.textColor = Color.mainColor
     }
     
     private func updateView() {

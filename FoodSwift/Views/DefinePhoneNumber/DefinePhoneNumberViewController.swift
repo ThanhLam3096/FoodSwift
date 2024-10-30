@@ -32,18 +32,18 @@ final class DefinePhoneNumberViewController: BaseViewController {
         setUpNavigation()
         titleLabel.text = "Get started with Foodly"
         titleLabel.font = UIFont.fontYugothicUISemiBold(ofSize: 24)
-        titleLabel.textColor = UIColor(hex: "#010F07")
+        titleLabel.textColor = Color.mainColor
         
         title2Label.text = "Enter your phone number to use foodly and enjoy your food :)"
         title2Label.font = UIFont.fontYugothicRegular(ofSize: 16)
-        title2Label.textColor = UIColor(hex: "#868686")
+        title2Label.textColor = Color.bodyTextColor
         title2Label.numberOfLines = 0
         
         phoneNumberLabel.text = "PHONE NUMBER"
         phoneNumberLabel.font = UIFont.fontYugothicLight(ofSize: 12)
-        phoneNumberLabel.textColor = UIColor(hex: "#868686")
+        phoneNumberLabel.textColor = Color.bodyTextColor
         
-        dropDownMenu.tintColor = UIColor(hex: "#868686")
+        dropDownMenu.tintColor = Color.bodyTextColor
         setUPTableView()
         setUpTextField()
         setUpSignUPButton()
@@ -99,7 +99,7 @@ final class DefinePhoneNumberViewController: BaseViewController {
         let attributedStringTextTitle = NSMutableAttributedString(string: (codePhoneNumber + "123456789"))
         attributedStringTextTitle.addAttribute(.font, value: UIFont.fontYugothicRegular(ofSize: 16) as Any, range: NSRange(location: 0, length: attributedStringTextTitle.length))
         attributedStringTextTitle.addAttribute(.foregroundColor, value: UIColor.black as Any, range: NSRange(location: 0, length: codePhoneNumber.count - 1))
-        attributedStringTextTitle.addAttribute(.foregroundColor, value: UIColor(hex: "#868686") as Any, range: NSRange(location: codePhoneNumber.count, length: 9))
+        attributedStringTextTitle.addAttribute(.foregroundColor, value: Color.bodyTextColor as Any, range: NSRange(location: codePhoneNumber.count, length: 9))
         return attributedStringTextTitle
     }
     

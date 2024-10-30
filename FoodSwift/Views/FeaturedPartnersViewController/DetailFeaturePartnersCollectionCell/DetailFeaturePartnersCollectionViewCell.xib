@@ -25,36 +25,36 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F8X-Yc-M4r">
-                        <rect key="frame" x="0.0" y="0.0" width="160" height="280"/>
+                        <rect key="frame" x="0.0" y="225" width="160" height="55"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fee_ship" translatesAutoresizingMaskIntoConstraints="NO" id="ZsS-qf-Cvy">
-                                <rect key="frame" x="10" y="257" width="13" height="13"/>
+                                <rect key="frame" x="10" y="32" width="13" height="13"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="13" id="Aor-Fr-ElR"/>
                                     <constraint firstAttribute="height" constant="13" id="bSV-Ua-kxI"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3h-MI-037" userLabel="Fee Ship">
-                                <rect key="frame" x="27.999999999999996" y="253" width="33.666666666666657" height="21"/>
+                                <rect key="frame" x="27.999999999999996" y="28" width="33.666666666666657" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fast-clock" translatesAutoresizingMaskIntoConstraints="NO" id="brI-JM-kpQ">
-                                <rect key="frame" x="10" y="227" width="16" height="16"/>
+                                <rect key="frame" x="10" y="2" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="16" id="C7F-XA-xwc"/>
                                     <constraint firstAttribute="height" constant="16" id="typ-3P-0Xd"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wj8-uL-ocq" userLabel="Time Ship">
-                                <rect key="frame" x="27.999999999999996" y="224.66666666666666" width="47.666666666666657" height="21"/>
+                                <rect key="frame" x="27.999999999999996" y="-0.33333333333334281" width="47.666666666666657" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAm-EX-yUB">
-                                <rect key="frame" x="114" y="253.66666666666663" width="36" height="20"/>
+                                <rect key="frame" x="114" y="28.666666666666657" width="36" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="AiW-0S-sCc"/>
                                     <constraint firstAttribute="width" constant="36" id="SeZ-cV-u3I"/>
@@ -76,7 +76,7 @@
                             <constraint firstItem="A3h-MI-037" firstAttribute="centerY" secondItem="ZsS-qf-Cvy" secondAttribute="centerY" id="cnc-Ir-gMU"/>
                             <constraint firstItem="HAm-EX-yUB" firstAttribute="centerY" secondItem="ZsS-qf-Cvy" secondAttribute="centerY" id="eZL-yl-th9"/>
                             <constraint firstItem="Wj8-uL-ocq" firstAttribute="leading" secondItem="A3h-MI-037" secondAttribute="leading" id="gZA-nm-q41"/>
-                            <constraint firstAttribute="height" constant="280" id="h4d-mh-IsR"/>
+                            <constraint firstAttribute="height" constant="55" id="h4d-mh-IsR"/>
                             <constraint firstItem="brI-JM-kpQ" firstAttribute="leading" secondItem="F8X-Yc-M4r" secondAttribute="leading" constant="10" id="mXc-Co-Xoo"/>
                             <constraint firstItem="ZsS-qf-Cvy" firstAttribute="leading" secondItem="F8X-Yc-M4r" secondAttribute="leading" constant="10" id="oyw-N2-XmM"/>
                         </constraints>
@@ -130,11 +130,11 @@
                 <constraint firstItem="g8o-K3-dX5" firstAttribute="top" secondItem="BQt-mO-K9U" secondAttribute="bottom" constant="10" id="Zre-U5-BGS"/>
                 <constraint firstItem="57e-km-BhR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="c1l-2c-e1u"/>
                 <constraint firstAttribute="trailing" secondItem="BQt-mO-K9U" secondAttribute="trailing" id="dNH-qc-UrH"/>
+                <constraint firstItem="g8o-K3-dX5" firstAttribute="top" secondItem="F8X-Yc-M4r" secondAttribute="bottom" constant="10" id="hO8-ij-9yE"/>
                 <constraint firstItem="BQt-mO-K9U" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="koV-vU-yBy"/>
                 <constraint firstItem="BQt-mO-K9U" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="n4H-qG-Cdp"/>
                 <constraint firstItem="fvr-MX-XXB" firstAttribute="centerY" secondItem="zuK-og-J7i" secondAttribute="centerY" id="nYw-Dv-uTJ"/>
                 <constraint firstAttribute="trailing" secondItem="57e-km-BhR" secondAttribute="trailing" id="poc-gP-WMQ"/>
-                <constraint firstItem="F8X-Yc-M4r" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="rei-iN-2hV"/>
                 <constraint firstItem="fvr-MX-XXB" firstAttribute="leading" secondItem="zuK-og-J7i" secondAttribute="trailing" constant="5" id="wbk-Xk-6aF"/>
                 <constraint firstItem="fL7-iS-U0F" firstAttribute="leading" secondItem="fvr-MX-XXB" secondAttribute="trailing" constant="5" id="yqR-Wy-U4U"/>
             </constraints>
@@ -145,6 +145,7 @@
                 <outlet property="feeShipLabel" destination="A3h-MI-037" id="vbE-dQ-qEY"/>
                 <outlet property="firstNationLabel" destination="zuK-og-J7i" id="gEJ-F4-lVZ"/>
                 <outlet property="imageFood" destination="BQt-mO-K9U" id="ZxX-os-DyO"/>
+                <outlet property="listFeaturedPartnersView" destination="F8X-Yc-M4r" id="Oh3-OC-E8E"/>
                 <outlet property="nameFoodLabel" destination="g8o-K3-dX5" id="5vb-Jd-Wst"/>
                 <outlet property="ratingLabel" destination="HAm-EX-yUB" id="8ix-Mi-UXM"/>
                 <outlet property="secondNationLabel" destination="fL7-iS-U0F" id="Uga-wA-IXr"/>

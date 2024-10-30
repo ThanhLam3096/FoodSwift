@@ -23,7 +23,7 @@ class LocationListTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         locationLabel.font = UIFont.fontYugothicLight(ofSize: 20)
-        locationLabel.textColor = UIColor(hex: "#010F07")
+        locationLabel.textColor = Color.mainColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -116,14 +116,14 @@ class HomeViewController: BaseViewController {
     private func setUpTitleLabel(label: UILabel, title: String) {
         label.text = title
         label.font = UIFont.fontYugothicUISemiBold(ofSize: 24)
-        label.textColor = UIColor(hex: "#010F07")
+        label.textColor = Color.mainColor
         label.numberOfLines = 0
         label.widthAnchor.constraint(equalToConstant: ScreenSize.screenWidth / 2).isActive = true
     }
     
     private func setUpSeeAllButton(seeAllButton: UIButton) {
         seeAllButton.setAttributedTitle(NSAttributedString(string: "See all", attributes: [
-            .font: UIFont.fontYugothicRegular(ofSize: 16) as Any, .foregroundColor: UIColor(hex: "#F8B64C")
+            .font: UIFont.fontYugothicRegular(ofSize: 16) as Any, .foregroundColor: Color.accentColor
         ]), for: .normal)
     }
     

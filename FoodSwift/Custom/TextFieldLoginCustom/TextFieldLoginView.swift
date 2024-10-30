@@ -43,7 +43,7 @@ class TextFieldLoginView: UIView {
         loginFormTextView.frame = self.bounds
         loginFormTextView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         titleTextFieldLabel.font = UIFont.fontYugothicLight(ofSize: 12)
-        titleTextFieldLabel.textColor = UIColor(hex: "#868686")
+        titleTextFieldLabel.textColor = Color.bodyTextColor
         eyeButton.tintColor = UIColor(hex: "#979797")
         lineView.backgroundColor = UIColor(hex: "#F3F2F2")
         infoTextField.borderStyle = .none

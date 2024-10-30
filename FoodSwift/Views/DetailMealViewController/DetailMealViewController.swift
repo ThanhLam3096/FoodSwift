@@ -65,8 +65,8 @@ class DetailMealViewController: BaseViewController {
         searchButton.setTitle("", for: .normal)
         takeAwayButton.setAttributedTitle(NSAttributedString(string: "TAKE AWAY", attributes: [
             .font: UIFont.fontYugothicUISemiBold(ofSize: 12) as Any,
-            .foregroundColor: UIColor(hex: "#EEA734"),
-            .backgroundColor: UIColor.white
+            .foregroundColor: Color.activeColor,
+            .backgroundColor: Color.bgColor
         ]), for: .normal)
         takeAwayButton.layer.cornerRadius = 6
         takeAwayButton.layer.borderWidth = 1
@@ -90,16 +90,16 @@ class DetailMealViewController: BaseViewController {
         takeAwayButton.setAttributedTitle(NSAttributedString(string: "TAKE AWAY", attributes: [
             .font: UIFont.fontYugothicUISemiBold(ofSize: 12) as Any,
             .foregroundColor: UIColor.white,
-            .backgroundColor: UIColor(hex: "#EEA734")
+            .backgroundColor: Color.activeColor
         ]), for: .normal)
-        takeAwayButton.backgroundColor = UIColor(hex: "#EEA734")
+        takeAwayButton.backgroundColor = Color.activeColor
     }
     
     // Khôi phục màu nền ban đầu khi thả tay
     @objc func buttonTouchUp() {
         takeAwayButton.setAttributedTitle(NSAttributedString(string: "TAKE AWAY", attributes: [
             .font: UIFont.fontYugothicUISemiBold(ofSize: 12) as Any,
-            .foregroundColor: UIColor(hex: "#EEA734"),
+            .foregroundColor: Color.activeColor,
             .backgroundColor: UIColor.white
         ]), for: .normal)
         takeAwayButton.backgroundColor = .white
@@ -132,17 +132,17 @@ class DetailMealViewController: BaseViewController {
     
     private func updateUILabel() {
         setUpLabel(label: nameMealLabel, labelFont: UIFont.fontYugothicUISemiBold(ofSize: 24) ?? UIFont.systemFont(ofSize: 24), labelColor: UIColor(hex: "#000000"))
-        setUpLabel(label: priceMealLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: UIColor(hex: "#868686"))
-        setUpLabel(label: firstNationLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: UIColor(hex: "#868686"))
-        setUpLabel(label: secondNationLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: UIColor(hex: "#868686"))
-        setUpLabel(label: typeFoodLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: UIColor(hex: "#868686"))
-        setUpLabel(label: ratingLabel, labelFont: UIFont.fontYugothicLight(ofSize: 12) ?? UIFont.systemFont(ofSize: 12), labelColor: UIColor(hex: "#010F07"))
-        setUpLabel(label: numberVoteLabel, labelFont: UIFont.fontYugothicLight(ofSize: 12) ?? UIFont.systemFont(ofSize: 12), labelColor: UIColor(hex: "#010F07"))
-        setUpLabel(label: firstDeliveryLabel, labelFont: UIFont.fontYugothicLight(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: UIColor(hex: "#010F07"))
-        setUpLabel(label: firstTimeDeliveryLabel, labelFont: UIFont.fontYugothicLight(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: UIColor(hex: "#010F07"))
-        setUpLabel(label: secondDeliveryLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 12) ?? UIFont.systemFont(ofSize: 12), labelColor: UIColor(hex: "#010F07"))
-        setUpLabel(label: secondTimeDeliveryLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 12) ?? UIFont.systemFont(ofSize: 12), labelColor: UIColor(hex: "#010F07"))
-        setUpLabel(label: listFeatureLabel, labelFont: UIFont.fontYugothicLight(ofSize: 20) ?? UIFont.systemFont(ofSize: 20), labelColor: UIColor(hex: "#010F07"))
+        setUpLabel(label: priceMealLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.bodyTextColor)
+        setUpLabel(label: firstNationLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.bodyTextColor)
+        setUpLabel(label: secondNationLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.bodyTextColor)
+        setUpLabel(label: typeFoodLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.bodyTextColor)
+        setUpLabel(label: ratingLabel, labelFont: UIFont.fontYugothicLight(ofSize: 12) ?? UIFont.systemFont(ofSize: 12), labelColor: Color.mainColor)
+        setUpLabel(label: numberVoteLabel, labelFont: UIFont.fontYugothicLight(ofSize: 12) ?? UIFont.systemFont(ofSize: 12), labelColor: Color.mainColor)
+        setUpLabel(label: firstDeliveryLabel, labelFont: UIFont.fontYugothicLight(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.mainColor)
+        setUpLabel(label: firstTimeDeliveryLabel, labelFont: UIFont.fontYugothicLight(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.mainColor)
+        setUpLabel(label: secondDeliveryLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 12) ?? UIFont.systemFont(ofSize: 12), labelColor: Color.mainColor)
+        setUpLabel(label: secondTimeDeliveryLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 12) ?? UIFont.systemFont(ofSize: 12), labelColor: Color.mainColor)
+        setUpLabel(label: listFeatureLabel, labelFont: UIFont.fontYugothicLight(ofSize: 20) ?? UIFont.systemFont(ofSize: 20), labelColor: Color.mainColor)
     }
     
     private func setUpLabel(label: UILabel, labelFont: UIFont, labelColor: UIColor) {
@@ -277,7 +277,7 @@ extension DetailMealViewController: UICollectionViewDataSource {
         if collectionView == typeMealCollectionView {
             if let previousIndexPath = GlobalVariables.selectedIndexPath {
                 let previousCell = typeMealCollectionView.cellForItem(at: previousIndexPath) as? TypeMealCollectionViewCell
-                previousCell?.typeFoodLabel.textColor = UIColor(hex: "#868686")
+                previousCell?.typeFoodLabel.textColor = Color.bodyTextColor
             }
             
             // Cập nhật ô được chọn
@@ -285,7 +285,7 @@ extension DetailMealViewController: UICollectionViewDataSource {
             
             // Đổi màu ô hiện tại
             let currentCell = typeMealCollectionView.cellForItem(at: indexPath) as? TypeMealCollectionViewCell
-            currentCell?.typeFoodLabel.textColor = UIColor(hex: "#FFD15C")
+            currentCell?.typeFoodLabel.textColor = Color.yellowColor
             GlobalVariables.indexNumber = indexPath.row
             loadAPIListMealByCategory(categoryName: viewModel.typeMeal[indexPath.row])
         } else {
@@ -304,7 +304,7 @@ extension DetailMealViewController: UICollectionViewDelegateFlowLayout {
             label.text = text
             label.numberOfLines = 1
             label.font = UIFont.fontYugothicUISemiBold(ofSize: 28)
-            label.textColor = UIColor(hex: "#868686")
+            label.textColor = Color.bodyTextColor
             
             // Calculate the size that fits the label's text
             let size = label.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: collectionView.frame.height))

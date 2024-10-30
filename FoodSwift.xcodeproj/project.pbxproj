@@ -87,7 +87,6 @@
 		048D962D2CBD1E4400977AD1 /* ListAllResTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D962B2CBD1E4400977AD1 /* ListAllResTableViewCell.swift */; };
 		048D962E2CBD1E4400977AD1 /* ListAllResTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048D962C2CBD1E4400977AD1 /* ListAllResTableViewCell.xib */; };
 		048D96302CBD1E5400977AD1 /* ListAllResTableViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D962F2CBD1E5400977AD1 /* ListAllResTableViewCellVM.swift */; };
-		0491EC712CB0064F00157BE7 /* FoodTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491EC702CB0064F00157BE7 /* FoodTabBarViewController.swift */; };
 		0491EC752CB006D000157BE7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491EC732CB006D000157BE7 /* SearchViewController.swift */; };
 		0491EC762CB006D000157BE7 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0491EC742CB006D000157BE7 /* SearchViewController.xib */; };
 		0491EC7A2CB0071100157BE7 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491EC782CB0071100157BE7 /* OrdersViewController.swift */; };
@@ -121,6 +120,7 @@
 		04E696302CC67F9C00DD4B8B /* DetailMealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E6962E2CC67F9C00DD4B8B /* DetailMealViewController.xib */; };
 		04E696322CC698DD00DD4B8B /* DetailMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E696312CC698DD00DD4B8B /* DetailMealViewModel.swift */; };
 		04F823A82CD1150000BE2181 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F823A72CD1150000BE2181 /* Color.swift */; };
+		04F823AA2CD143F800BE2181 /* FoodTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F823A92CD143F800BE2181 /* FoodTabBarViewController.swift */; };
 		2DB17B68DAF952076C24A289 /* Pods_FoodSwift_FoodSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C608F830BBCA2B7ED7A6B4 /* Pods_FoodSwift_FoodSwiftUITests.framework */; };
 		4E99FC81BADB8F7D91FB3FB9 /* Pods_FoodSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B18CB6170BAD7026C750892 /* Pods_FoodSwiftTests.framework */; };
 		FC224CF68D3D3647EDC0607C /* Pods_FoodSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204E678F8896E7D2312F8501 /* Pods_FoodSwift.framework */; };
@@ -228,7 +228,6 @@
 		048D962B2CBD1E4400977AD1 /* ListAllResTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAllResTableViewCell.swift; sourceTree = "<group>"; };
 		048D962C2CBD1E4400977AD1 /* ListAllResTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListAllResTableViewCell.xib; sourceTree = "<group>"; };
 		048D962F2CBD1E5400977AD1 /* ListAllResTableViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAllResTableViewCellVM.swift; sourceTree = "<group>"; };
-		0491EC702CB0064F00157BE7 /* FoodTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTabBarViewController.swift; sourceTree = "<group>"; };
 		0491EC732CB006D000157BE7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0491EC742CB006D000157BE7 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		0491EC782CB0071100157BE7 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
@@ -262,6 +261,7 @@
 		04E6962E2CC67F9C00DD4B8B /* DetailMealViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMealViewController.xib; sourceTree = "<group>"; };
 		04E696312CC698DD00DD4B8B /* DetailMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewModel.swift; sourceTree = "<group>"; };
 		04F823A72CD1150000BE2181 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		04F823A92CD143F800BE2181 /* FoodTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoodTabBarViewController.swift; path = FoodSwift/Views/FoodTabBarViewController/FoodTabBarViewController.swift; sourceTree = SOURCE_ROOT; };
 		0B18CB6170BAD7026C750892 /* Pods_FoodSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A21DB61104EDED1D7500A2B /* Pods-FoodSwift-FoodSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodSwift-FoodSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-FoodSwift-FoodSwiftUITests/Pods-FoodSwift-FoodSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		204E678F8896E7D2312F8501 /* Pods_FoodSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -641,7 +641,7 @@
 		0491EC6F2CB005FF00157BE7 /* FoodTabBarViewController */ = {
 			isa = PBXGroup;
 			children = (
-				0491EC702CB0064F00157BE7 /* FoodTabBarViewController.swift */,
+				04F823A92CD143F800BE2181 /* FoodTabBarViewController.swift */,
 			);
 			name = FoodTabBarViewController;
 			path = "FoodTabBarViewControllẻ";
@@ -1152,7 +1152,7 @@
 				0491EC752CB006D000157BE7 /* SearchViewController.swift in Sources */,
 				04D05FD82CCBDCFE00675B9A /* TheMealDB.swift in Sources */,
 				042FFBAB2CB40127004B6D85 /* HomeViewVM.swift in Sources */,
-				0491EC712CB0064F00157BE7 /* FoodTabBarViewController.swift in Sources */,
+				04F823AA2CD143F800BE2181 /* FoodTabBarViewController.swift in Sources */,
 				041529AF2BD75C3300818A4A /* BaseViewController.swift in Sources */,
 				048D962D2CBD1E4400977AD1 /* ListAllResTableViewCell.swift in Sources */,
 				0491EC7A2CB0071100157BE7 /* OrdersViewController.swift in Sources */,

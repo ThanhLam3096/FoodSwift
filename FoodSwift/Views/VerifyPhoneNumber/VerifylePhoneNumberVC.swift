@@ -28,18 +28,18 @@ final class VerifylePhoneNumberVC: BaseViewController {
     }
     
     override func setUpUI() {
-        view.backgroundColor = UIColor(hex: "#FBFBFB")
+        view.backgroundColor = Color.inputColor
         setUpNavigation()
         setUpLabel()
         setUpTextField()
         
 //        sendAgainButton.setTitle("Resend Again", for: .normal)
-//        sendAgainButton.setTitleColor(UIColor(hex: "#EEA734"), for: .normal)
-//        sendAgainButton.titleLabel?.textColor = UIColor(hex: "#EEA734")
+//        sendAgainButton.setTitleColor(Color.activeColor, for: .normal)
+//        sendAgainButton.titleLabel?.textColor = Color.activeColor
 //        sendAgainButton.titleLabel?.font = UIFont.fontYugothicLight(ofSize: 12)
         let attributedSendAgainButton = NSAttributedString(string: "Resend Again", attributes: [
             .font: UIFont.fontYugothicLight(ofSize: 12) as Any,
-            .foregroundColor: UIColor(hex: "#EEA734")
+            .foregroundColor: Color.activeColor
         ])
         sendAgainButton.titleLabel?.numberOfLines = 1
         sendAgainButton.titleLabel?.lineBreakMode = .byTruncatingTail
@@ -70,22 +70,22 @@ final class VerifylePhoneNumberVC: BaseViewController {
     private func setUpLabel() {
         descriptionTitleLabel.text = "Verify phone number"
         descriptionTitleLabel.font = UIFont.fontYugothicUISemiBold(ofSize: 24)
-        descriptionTextLabel.textColor = UIColor(hex: "#010F07")
+        descriptionTextLabel.textColor = Color.mainColor
 //        Enter the 4-Digit code sent to you at +610489632578
         descriptionTextLabel.text = "Enter the 4-Digit code sent to you at \n+610489632578"
         descriptionTextLabel.textAlignment = .center
         descriptionTextLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
-        descriptionTextLabel.textColor = UIColor(hex: "#010F07")
+        descriptionTextLabel.textColor = Color.mainColor
         descriptionTextLabel.numberOfLines = 0
         
         didntRecevieCodeLabel.text = "Didn’t receive code?"
         didntRecevieCodeLabel.font = UIFont.fontYugothicLight(ofSize: 12)
-        didntRecevieCodeLabel.textColor = UIColor(hex: "#868686")
+        didntRecevieCodeLabel.textColor = Color.bodyTextColor
         
         policyLabel.text = "By Signing up you agree to our Terms\nConditions & Privacy Policy."
         policyLabel.numberOfLines = 0
         policyLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
-        policyLabel.textColor = UIColor(hex: "#868686")
+        policyLabel.textColor = Color.bodyTextColor
         policyLabel.textAlignment = .center
     }
     
@@ -106,8 +106,8 @@ final class VerifylePhoneNumberVC: BaseViewController {
             }
             textField.keyboardType = .numberPad
             textField.font = UIFont.fontYugothicLight(ofSize: 16)
-            textField.textColor = UIColor(hex: "#010F07")
-            textField.tintColor = UIColor(hex: "#22A45D")
+            textField.textColor = Color.mainColor
+            textField.tintColor = Color.greenColor
             textField.delegate = self
             textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         }

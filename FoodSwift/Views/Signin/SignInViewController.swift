@@ -32,7 +32,7 @@ class SignInViewController: BaseViewController {
         titleIntroLabel.font = UIFont.fontYugothicLight(ofSize: 33)
         title2IntroLabel.text = "Enter your Phone number or Email\naddress for sign in. Enjoy your food :)"
         title2IntroLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
-        title2IntroLabel.textColor = UIColor(hex: "#868686")
+        title2IntroLabel.textColor = Color.bodyTextColor
         title2IntroLabel.numberOfLines = 0
         title2IntroLabel.textAlignment = NSTextAlignment.left
         setUpNavigation()
@@ -41,15 +41,15 @@ class SignInViewController: BaseViewController {
         forgotPasswordButton.setAttributedTitle(NSAttributedString(string: "Forget Password?", attributes: [
             .font: UIFont.fontYugothicLight(ofSize: 12) as Any
         ]), for: .normal)
-        forgotPasswordButton.titleLabel?.tintColor = UIColor(hex: "#868686")
+        forgotPasswordButton.titleLabel?.tintColor = Color.bodyTextColor
         dontHaveAccountButton.setAttributedTitle(NSAttributedString(string: "Don't have account?", attributes: [
             .font: UIFont.fontYugothicLight(ofSize: 12) as Any
         ]), for: .normal)
-        dontHaveAccountButton.titleLabel?.tintColor = UIColor(hex: "#868686")
+        dontHaveAccountButton.titleLabel?.tintColor = Color.bodyTextColor
         createNewAccountButton.setAttributedTitle(NSAttributedString(string: "Create new account", attributes: [
             .font: UIFont.fontYugothicLight(ofSize: 12) as Any
         ]), for: .normal)
-        createNewAccountButton.titleLabel?.tintColor = UIColor(hex: "#EEA734")
+        createNewAccountButton.titleLabel?.tintColor = Color.activeColor
         orLabel.text = "Or"
         orLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
         orLabel.textColor = UIColor.black.withAlphaComponent(0.8)

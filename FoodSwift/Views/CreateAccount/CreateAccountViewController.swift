@@ -31,7 +31,7 @@ class CreateAccountViewController: BaseViewController {
         titleLabel.textAlignment = NSTextAlignment.left
         titleLabel.numberOfLines = 0
         titleLabel.font = UIFont.fontYugothicLight(ofSize: 34)
-        titleLabel.textColor = UIColor(hex: "#010F07")
+        titleLabel.textColor = Color.mainColor
         
         title2CreateAccountLabel.numberOfLines = 0
 //        title2CreateAccountLabel.textAlignment = NSTextAlignment.left
@@ -43,8 +43,8 @@ class CreateAccountViewController: BaseViewController {
         title2CreateAccountLabel.isUserInteractionEnabled = true
         let attributedStringTextTitle = NSMutableAttributedString(string: textTitle)
         attributedStringTextTitle.addAttribute(.font, value: UIFont.fontYugothicRegular(ofSize: 16) as Any, range: NSRange(location: 0, length: attributedStringTextTitle.length))
-        attributedStringTextTitle.addAttribute(.foregroundColor, value: UIColor(hex: "#868686") as Any, range: NSRange(location: 0, length: 48))
-        attributedStringTextTitle.addAttribute(.foregroundColor, value: UIColor(hex: "#EEA734") as Any, range: NSRange(location: 50, length: 21))
+        attributedStringTextTitle.addAttribute(.foregroundColor, value: Color.bodyTextColor as Any, range: NSRange(location: 0, length: 48))
+        attributedStringTextTitle.addAttribute(.foregroundColor, value: Color.activeColor as Any, range: NSRange(location: 50, length: 21))
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOnLabel))
 //        attributedStringTextTitle.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedStringTextTitle.length))
         title2CreateAccountLabel.addGestureRecognizer(tapGesture)
@@ -59,7 +59,7 @@ class CreateAccountViewController: BaseViewController {
         privacyLabel.textAlignment = .center
         privacyLabel.numberOfLines = 0
         privacyLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
-        privacyLabel.textColor = UIColor(hex: "#868686")
+        privacyLabel.textColor = Color.bodyTextColor
         
         orLabel.text = "Or"
         orLabel.font = UIFont.fontYugothicRegular(ofSize: 16)

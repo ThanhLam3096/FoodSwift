@@ -22,7 +22,7 @@ class CircleGrayView: UIView {
     
     private func setupView() {
         self.frame.size = CGSize(width: 5, height: 5)
-        self.backgroundColor = UIColor(hex: "#868686")
+        self.backgroundColor = Color.bodyTextColor
         self.layer.cornerRadius = 2.5
         self.layer.masksToBounds = true
     }
