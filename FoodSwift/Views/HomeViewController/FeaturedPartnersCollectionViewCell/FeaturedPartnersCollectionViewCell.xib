@@ -24,13 +24,16 @@
                             <constraint firstAttribute="height" constant="160" id="ZGr-ma-i3m"/>
                         </constraints>
                     </imageView>
-                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4o-E0-kVK">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4o-E0-kVK">
                         <rect key="frame" x="0.0" y="0.0" width="350" height="160"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="160" id="X7j-ja-0BJ"/>
                         </constraints>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain"/>
+                        <connections>
+                            <action selector="moveToDetailScreenTouchUpInside:" destination="gTV-IL-0wX" eventType="touchUpInside" id="XPZ-bl-9Na"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azd-F6-tOW" userLabel="Name Food">
                         <rect key="frame" x="0.0" y="170" width="87.666666666666671" height="21"/>
@@ -103,6 +106,7 @@
                 <outlet property="cricleView" destination="hTf-3K-Msn" id="1Lw-nt-eF7"/>
                 <outlet property="featuredPartnersImageView" destination="NaL-eD-K5U" id="iHR-w1-Hao"/>
                 <outlet property="feeShipLabel" destination="752-TF-az2" id="RC6-5U-4WZ"/>
+                <outlet property="imageButton" destination="h4o-E0-kVK" id="ajo-uV-kW3"/>
                 <outlet property="nameFoodLabel" destination="azd-F6-tOW" id="biA-6q-Tbc"/>
                 <outlet property="ratingFoodLabel" destination="md2-MH-cxx" id="NGg-XR-O5e"/>
                 <outlet property="timeShipLabel" destination="jqQ-b6-Pdq" id="w20-oA-Xj2"/>

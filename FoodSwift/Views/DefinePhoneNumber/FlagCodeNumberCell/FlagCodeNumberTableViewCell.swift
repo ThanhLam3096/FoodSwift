@@ -24,7 +24,7 @@ final class FlagCodeNumberTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         textNation.font = UIFont.fontYugothicUIBold(ofSize: 14)
-        textNation.textColor = UIColor(hex: "#010F07")
+        textNation.textColor = Color.mainColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

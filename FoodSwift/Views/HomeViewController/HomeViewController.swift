@@ -116,14 +116,14 @@ class HomeViewController: BaseViewController {
     private func setUpTitleLabel(label: UILabel, title: String) {
         label.text = title
         label.font = UIFont.fontYugothicUISemiBold(ofSize: 24)
-        label.textColor = UIColor(hex: "#010F07")
+        label.textColor = Color.mainColor
         label.numberOfLines = 0
         label.widthAnchor.constraint(equalToConstant: ScreenSize.screenWidth / 2).isActive = true
     }
     
     private func setUpSeeAllButton(seeAllButton: UIButton) {
         seeAllButton.setAttributedTitle(NSAttributedString(string: "See all", attributes: [
-            .font: UIFont.fontYugothicRegular(ofSize: 16) as Any, .foregroundColor: UIColor(hex: "#F8B64C")
+            .font: UIFont.fontYugothicRegular(ofSize: 16) as Any, .foregroundColor: Color.accentColor
         ]), for: .normal)
     }
     
@@ -190,6 +190,12 @@ class HomeViewController: BaseViewController {
     @IBAction func seeAllFeaturedPartnersTouchUpInside(_ sender: Any) {
         let vc = FeaturePartnersViewController()
         vc.viewModel = viewModel.transferListFeaturePartNers()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func seeAllNationMealTouchUpInside(_ sender: Any) {
+        let vc = FeaturePartnersViewController()
+        vc.viewModel = viewModel.transferListNationMeal()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -281,10 +287,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         } else if collectionView == featuredPartnersCollectionView {
             let cell = collectionView.dequeueReusableCell(withClass: FeaturedPartnersCollectionViewCell.self, for: indexPath)
+            cell.delegate = self
             cell.viewModel = viewModel.cellForRowAtCollectionMeal(indexPath: indexPath, type: .featurePartner)
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withClass: FeaturedPartnersCollectionViewCell.self, for: indexPath)
+            cell.delegate = self
             cell.viewModel = viewModel.cellForRowAtCollectionMeal(indexPath: indexPath, type: .nationFood)
             return cell
         }
@@ -325,3 +333,21 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension HomeViewController: FeaturedPartnersCollectionViewCellViewDelegate {
+    func didTapImage(in cell: FeaturedPartnersCollectionViewCell, typeList: TypeList) {
+        switch typeList {
+        case .featurePartners:
+            if let indexPath = featuredPartnersCollectionView.indexPath(for: cell) {
+                ScreenName.detailMeal.viewModel = DetailMealViewModel(meal: viewModel.listMealFeaturePartners[indexPath.row])
+            }
+            ScreenName.detailMeal.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(ScreenName.detailMeal, animated: true)
+        case .nation:
+            if let indexPath = bestFoodOfRestaurntsCollectionView.indexPath(for: cell) {
+                ScreenName.detailMeal.viewModel = DetailMealViewModel(meal: viewModel.listNationFood[indexPath.row])
+            }
+            ScreenName.detailMeal.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(ScreenName.detailMeal, animated: true)
+        }
+    }
+}

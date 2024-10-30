@@ -9,8 +9,10 @@ import Foundation
 
 final class FeaturedPartnersCollectionViewCellViewModel {
     var meal: Meal
+    var typeList: TypeList
     
-    init(meal: Meal) {
+    init(meal: Meal, typeList: TypeList) {
         self.meal = meal
+        self.typeList = typeList
     }
 }

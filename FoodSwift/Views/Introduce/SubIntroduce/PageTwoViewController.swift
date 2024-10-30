@@ -33,7 +33,7 @@ class PageTwoViewController: BaseViewController {
         sologanTitleLabel.widthAnchor.constraint(equalToConstant: 312 / 375 * ScreenSize.screenWidth).isActive = true
         sologanTitleLabel.heightAnchor.constraint(equalToConstant: 40 / 812 * ScreenSize.screenHeight).isActive = true
         sologanTitleLabel.numberOfLines = 0
-        sologanTitleLabel.textColor = UIColor(hex: "#868686")
+        sologanTitleLabel.textColor = Color.bodyTextColor
         setUpPageView()
         setUpUIWelcomeButtonView() 
     }

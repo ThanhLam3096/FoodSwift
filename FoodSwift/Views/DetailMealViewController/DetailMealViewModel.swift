@@ -14,6 +14,7 @@ final class DetailMealViewModel {
     let typeMeal = ["Beef", "Breakfast", "Chicken", "Dessert", "Goat", "Lamb", "Miscellaneous", "Pasta", "Pork", "Seafood", "Side", "Starter", "Vegan", "Vegetarian"]
     
     var listMealByCategory: [TheMealDB] = []
+    var mealDetail: TheMealDB?
     
     init() {}
     
@@ -61,10 +62,10 @@ final class DetailMealViewModel {
     }
     
     func heightForCellTableView() -> CGFloat {
-        return 151
+        return 151 / 812 * ScreenSize.screenHeight
     }
     
-    func getAPIListMealByCategory(categoryName: String ,listMealByCategoryCompletion: @escaping (Bool, String) -> Void) {
+    func getAPIListMealByCategory(categoryName: String, listMealByCategoryCompletion: @escaping (Bool, String) -> Void) {
         Networking.shared().getListMealByCategory(categoryName: categoryName) { [weak self] (mealResult) in
             guard let this = self else { return }
             switch mealResult {
@@ -76,6 +77,22 @@ final class DetailMealViewModel {
                     this.listMealByCategory.append(item)
                 }
                 listMealByCategoryCompletion(true, App.String.loadSuccess)
+            }
+        }
+    }
+    
+    func getAPIDetailMealDB(idMeal: String, detailMealCompletion: @escaping (Bool, String) -> Void) {
+        Networking.shared().getDetailMeal(idMeal: idMeal) { [weak self] (mealDetailResult) in
+            guard let this = self else { return }
+            switch mealDetailResult {
+            case .failure(let error):
+                detailMealCompletion(false, error)
+            case .success(let result):
+                let items = result.meals
+                for item in items{
+                    this.mealDetail = item
+                }
+                detailMealCompletion(true, App.String.loadSuccess)
             }
         }
     }

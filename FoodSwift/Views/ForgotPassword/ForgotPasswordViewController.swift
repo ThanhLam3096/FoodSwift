@@ -30,11 +30,11 @@ class ForgotPasswordViewController: BaseViewController {
         forgotPassTitleLabel.textAlignment = NSTextAlignment.left
         forgotPassTitleLabel.numberOfLines = 0
         forgotPassTitleLabel.font = UIFont.fontYugothicLight(ofSize: 34)
-        forgotPassTitleLabel.textColor = UIColor(hex: "#010F07")
+        forgotPassTitleLabel.textColor = Color.mainColor
         
         descriptionLabel.text = "Enter your email address and we will\nsend you a reset instructions."
         descriptionLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
-        descriptionLabel.textColor = UIColor(hex: "#868686")
+        descriptionLabel.textColor = Color.bodyTextColor
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = NSTextAlignment.left
         
@@ -42,15 +42,15 @@ class ForgotPasswordViewController: BaseViewController {
         resendEmailTitleLabel.textAlignment = NSTextAlignment.left
         resendEmailTitleLabel.numberOfLines = 0
         resendEmailTitleLabel.font = UIFont.fontYugothicLight(ofSize: 34)
-        resendEmailTitleLabel.textColor = UIColor(hex: "#010F07")
+        resendEmailTitleLabel.textColor = Color.mainColor
         
         descriptionResendEmailLabel.numberOfLines = 0
         let textTitle = "We have sent a instructions email\nto sajin tamang@figma.com.  Having problem?"
         descriptionResendEmailLabel.isUserInteractionEnabled = true
         let attributedStringTextTitle = NSMutableAttributedString(string: textTitle)
         attributedStringTextTitle.addAttribute(.font, value: UIFont.fontYugothicRegular(ofSize: 16) as Any, range: NSRange(location: 0, length: attributedStringTextTitle.length))
-        attributedStringTextTitle.addAttribute(.foregroundColor, value: UIColor(hex: "#868686") as Any, range: NSRange(location: 0, length: 60))
-        attributedStringTextTitle.addAttribute(.foregroundColor, value: UIColor(hex: "#EEA734") as Any, range: NSRange(location: 62, length: 15))
+        attributedStringTextTitle.addAttribute(.foregroundColor, value: Color.bodyTextColor as Any, range: NSRange(location: 0, length: 60))
+        attributedStringTextTitle.addAttribute(.foregroundColor, value: Color.activeColor as Any, range: NSRange(location: 62, length: 15))
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOnLabel))
         descriptionResendEmailLabel.addGestureRecognizer(tapGesture)
         descriptionResendEmailLabel.attributedText = attributedStringTextTitle

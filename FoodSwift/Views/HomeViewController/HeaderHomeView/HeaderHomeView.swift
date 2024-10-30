@@ -46,13 +46,13 @@ final class HeaderHomeView: UIView {
         headerHomeView.frame = self.bounds
         headerHomeView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         deliveryLabel.text = "Delivery to"
-        deliveryLabel.textColor = UIColor(hex: "#EEA734")
+        deliveryLabel.textColor = Color.activeColor
         deliveryLabel.font = UIFont.fontYugothicLight(ofSize: 12)
         filterLabel.text = "Filter"
         filterLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
         filterButton.setImage(UIImage(named: "back_down"), for: .normal)
         filterButton.setAttributedTitle(NSAttributedString(string: "New York, USA", attributes: [
-            .font: UIFont.fontYugothicLight(ofSize: 20) as Any, .foregroundColor: UIColor(hex: "#010F07")
+            .font: UIFont.fontYugothicLight(ofSize: 20) as Any, .foregroundColor: Color.mainColor
         ]), for: .normal)
         filterButton.semanticContentAttribute = .forceRightToLeft
     }
@@ -60,7 +60,7 @@ final class HeaderHomeView: UIView {
     private func updateView() {
         guard let viewModel = viewModel else { return }
         filterButton.setAttributedTitle(NSAttributedString(string: viewModel.location, attributes: [
-            .font: UIFont.fontYugothicLight(ofSize: 20) as Any, .foregroundColor: UIColor(hex: "#010F07")
+            .font: UIFont.fontYugothicLight(ofSize: 20) as Any, .foregroundColor: Color.mainColor
         ]), for: .normal)
     }
     

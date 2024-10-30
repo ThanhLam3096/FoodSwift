@@ -37,7 +37,7 @@ class FeaturePartnersViewController: BaseViewController {
     private func setUpNavigation() {
         let titleLabel = UILabel()
         titleLabel.numberOfLines = 0
-        titleLabel.text = "Featured Partners"
+        titleLabel.text = viewModel.title
         titleLabel.font = UIFont.fontYugothicUISemiBold(ofSize: 16)
         titleLabel.textColor = .black
         titleLabel.textAlignment = .center

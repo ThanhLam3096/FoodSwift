@@ -8,10 +8,15 @@
 import UIKit
 import SDWebImage
 
-class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
+protocol FeaturedPartnersCollectionViewCellViewDelegate {
+    func didTapImage(in cell: FeaturedPartnersCollectionViewCell, typeList: TypeList)
+}
+
+final class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
 
     //MARK: - IBOulet
     @IBOutlet private weak var featuredPartnersImageView: UIImageView!
+    @IBOutlet private weak var imageButton: UIButton!
     @IBOutlet private weak var nameFoodLabel: UILabel!
     @IBOutlet private weak var addressLabel: UILabel!
     @IBOutlet private weak var ratingFoodLabel: UILabel!
@@ -25,6 +30,7 @@ class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
             updateView()
         }
     }
+    var delegate: FeaturedPartnersCollectionViewCellViewDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,14 +40,15 @@ class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
     
     private func setUpViewCell() {
         featuredPartnersImageView.layer.cornerRadius = 4
+        imageButton.setTitle("", for: .normal)
         
         nameFoodLabel.font = UIFont.fontYugothicLight(ofSize: 20)
-        nameFoodLabel.textColor = UIColor(hex: "#010F07")
+        nameFoodLabel.textColor = Color.mainColor
         
         addressLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
-        addressLabel.textColor = UIColor(hex: "#868686")
+        addressLabel.textColor = Color.bodyTextColor
         
-        ratingFoodLabel.backgroundColor = UIColor(hex: "#EEA734")
+        ratingFoodLabel.backgroundColor = Color.activeColor
         ratingFoodLabel.layer.cornerRadius = 4
         ratingFoodLabel.layer.masksToBounds = true
         ratingFoodLabel.textAlignment = .center
@@ -49,10 +56,10 @@ class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
         ratingFoodLabel.textColor = UIColor.white
         
         timeShipLabel.font = UIFont.fontYugothicLight(ofSize: 14)
-        timeShipLabel.textColor = UIColor(hex: "#010F07")
+        timeShipLabel.textColor = Color.mainColor
         
         feeShipLabel.font = UIFont.fontYugothicLight(ofSize: 14)
-        feeShipLabel.textColor = UIColor(hex: "#010F07")
+        feeShipLabel.textColor = Color.mainColor
     }
     
     private func updateView() {
@@ -66,6 +73,12 @@ class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
             feeShipLabel.text = "Free delivery"
         } else {
             feeShipLabel.text = "\(meal.feeShip)$"
+        }
+    }
+    
+    @IBAction func moveToDetailScreenTouchUpInside(_ sender: Any) {
+        if let delegate = delegate, let typeList = viewModel?.typeList {
+            delegate.didTapImage(in: self, typeList: typeList)
         }
     }
 }

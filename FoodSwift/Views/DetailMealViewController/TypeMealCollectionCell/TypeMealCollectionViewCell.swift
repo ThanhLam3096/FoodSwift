@@ -27,7 +27,7 @@ class TypeMealCollectionViewCell: UICollectionViewCell {
     
     private func setUpUI() {
         typeFoodLabel.font = UIFont.fontYugothicUISemiBold(ofSize: 24)
-        typeFoodLabel.textColor = UIColor(hex: "#868686")
+        typeFoodLabel.textColor = Color.bodyTextColor
         typeFoodLabel.translatesAutoresizingMaskIntoConstraints = false
     }
 
@@ -35,9 +35,9 @@ class TypeMealCollectionViewCell: UICollectionViewCell {
         guard let vm = viewModel else { return }
         typeFoodLabel.text = vm.typeMealTitle
         if vm.indexPath == 0 {
-            typeFoodLabel.textColor = UIColor(hex: "#FFD15C")
+            typeFoodLabel.textColor = Color.yellowColor
         } else {
-            typeFoodLabel.textColor = UIColor(hex: "#868686")
+            typeFoodLabel.textColor = Color.bodyTextColor
         }
     }
 }

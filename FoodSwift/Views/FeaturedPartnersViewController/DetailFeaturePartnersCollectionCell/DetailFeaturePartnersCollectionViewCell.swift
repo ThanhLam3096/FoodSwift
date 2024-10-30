@@ -17,6 +17,7 @@ final class DetailFeaturePartnersCollectionViewCell: UICollectionViewCell {
     
     // MARK: - IBOutlet
     @IBOutlet private weak var imageFood: UIImageView!
+    @IBOutlet private weak var listFeaturedPartnersView: UIView!
     @IBOutlet private weak var feeShipImageView: UILabel!
     @IBOutlet private weak var timeShipImageView: UIImageView!
     @IBOutlet private weak var timeShipLabel: UILabel!
@@ -43,23 +44,26 @@ final class DetailFeaturePartnersCollectionViewCell: UICollectionViewCell {
     
     private func setUpViewCell() {
         imageFood.layer.cornerRadius = 4
-        imageFood.contentMode = .scaleToFill
+        imageFood.contentMode = .scaleAspectFill
         imageFood.clipsToBounds = true
         imageFood.frame = contentView.bounds
+        
+        listFeaturedPartnersView.layer.cornerRadius = 4
+        listFeaturedPartnersView.backgroundColor = Color.accentColor.withAlphaComponent(0.5)
 
         
-        ratingLabel.backgroundColor = UIColor(hex: "#EEA734")
+        ratingLabel.backgroundColor = Color.activeColor
         ratingLabel.layer.cornerRadius = 4
         ratingLabel.layer.masksToBounds = true
         ratingLabel.textAlignment = .center
         ratingLabel.font = UIFont.fontYugothicUISemiBold(ofSize: 12)
         ratingLabel.textColor = UIColor.white
         
-        setUpLabel(label: nameFoodLabel, font: UIFont.fontYugothicLight(ofSize: 20) ?? UIFont.systemFont(ofSize: 20), textColor: UIColor(hex: "#010F07"))
-        setUpLabel(label: timeShipLabel, font: UIFont.fontYugothicRegular(ofSize: 12) ?? UIFont.systemFont(ofSize: 20), textColor: UIColor(hex: "#FFFFFF"))
-        setUpLabel(label: feeShipLabel, font: UIFont.fontYugothicRegular(ofSize: 12) ?? UIFont.systemFont(ofSize: 20), textColor: UIColor(hex: "#FFFFFF"))
-        setUpLabel(label: firstNationLabel, font: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 20), textColor: UIColor(hex: "#868686"))
-        setUpLabel(label: secondNationLabel, font: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 20), textColor: UIColor(hex: "#868686"))
+        setUpLabel(label: nameFoodLabel, font: UIFont.fontYugothicLight(ofSize: 20) ?? UIFont.systemFont(ofSize: 20), textColor: Color.mainColor)
+        setUpLabel(label: timeShipLabel, font: UIFont.fontYugothicRegular(ofSize: 12) ?? UIFont.systemFont(ofSize: 20), textColor: Color.bgColor)
+        setUpLabel(label: feeShipLabel, font: UIFont.fontYugothicRegular(ofSize: 12) ?? UIFont.systemFont(ofSize: 20), textColor: Color.bgColor)
+        setUpLabel(label: firstNationLabel, font: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 20), textColor: Color.bodyTextColor)
+        setUpLabel(label: secondNationLabel, font: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 20), textColor: Color.bodyTextColor)
         
         detailButton.setTitle("", for: .normal)
     }
