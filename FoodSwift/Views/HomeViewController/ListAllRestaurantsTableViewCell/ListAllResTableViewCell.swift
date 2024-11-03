@@ -43,10 +43,10 @@ class ListAllResTableViewCell: UITableViewCell {
         restaurantImageView.layer.cornerRadius = 6
         
         setUpLabel(label: nameResLabel, labelFont: UIFont.fontYugothicLight(ofSize: 20) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.mainColor)
-        setUpLabel(label: priceLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.bodyTextColor)
-        setUpLabel(label: branch1Label, labelFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.bodyTextColor)
-        setUpLabel(label: branch2Label, labelFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.bodyTextColor)
-        setUpLabel(label: typeFoodLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.bodyTextColor)
+        setUpLabel(label: priceLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.bodyTextColor)
+        setUpLabel(label: branch1Label, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.bodyTextColor)
+        setUpLabel(label: branch2Label, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.bodyTextColor)
+        setUpLabel(label: typeFoodLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.bodyTextColor)
         setUpLabel(label: ratingLabel, labelFont: UIFont.fontYugothicLight(ofSize: 12) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.mainColor)
         setUpLabel(label: numberVoteLabel, labelFont: UIFont.fontYugothicLight(ofSize: 12) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.mainColor)
         setUpLabel(label: timeShipLabel, labelFont: UIFont.fontYugothicLight(ofSize: 12) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.mainColor)

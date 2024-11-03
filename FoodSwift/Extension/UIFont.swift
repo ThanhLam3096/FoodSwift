@@ -22,12 +22,28 @@ extension UIFont {
             return UIFont(name: "HiraginoSans-W6", size: size)
     }
     
+    static func fontYugothic(ofSize size: CGFloat) -> UIFont? {
+        return UIFont(name: "YuGothic", size: size)
+    }
+    
+    static func fontYugothicMedium(ofSize size: CGFloat) -> UIFont? {
+        return UIFont(name: "YuGothic-Medium", size: size)
+    }
+    
+    static func fontYugothicBold(ofSize size: CGFloat) -> UIFont? {
+        return UIFont(name: "YuGothic-Bold", size: size)
+    }
+    
     static func fontYugothicLight(ofSize size: CGFloat) -> UIFont? {
         return UIFont(name: "YuGothic-Light", size: size)
     }
     
-    static func fontYugothicRegular(ofSize size: CGFloat) -> UIFont? {
-        return UIFont(name: "YuGothic", size: size)
+    static func fontYugothicUILight(ofSize size: CGFloat) -> UIFont? {
+        return UIFont(name: "YuGothicUI-Light", size: size)
+    }
+    
+    static func fontYugothicUIRegular(ofSize size: CGFloat) -> UIFont? {
+        return UIFont(name: "YuGothicUI-Regular", size: size)
     }
     
     static func fontYugothicUISemiBold(ofSize size: CGFloat) -> UIFont? {

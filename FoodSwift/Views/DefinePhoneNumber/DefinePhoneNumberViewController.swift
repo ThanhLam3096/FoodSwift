@@ -35,7 +35,7 @@ final class DefinePhoneNumberViewController: BaseViewController {
         titleLabel.textColor = Color.mainColor
         
         title2Label.text = "Enter your phone number to use foodly and enjoy your food :)"
-        title2Label.font = UIFont.fontYugothicRegular(ofSize: 16)
+        title2Label.font = UIFont.fontYugothicUIRegular(ofSize: 16)
         title2Label.textColor = Color.bodyTextColor
         title2Label.numberOfLines = 0
         
@@ -97,7 +97,7 @@ final class DefinePhoneNumberViewController: BaseViewController {
     
     private func updateStringTextField(codePhoneNumber: String) -> NSAttributedString {
         let attributedStringTextTitle = NSMutableAttributedString(string: (codePhoneNumber + "123456789"))
-        attributedStringTextTitle.addAttribute(.font, value: UIFont.fontYugothicRegular(ofSize: 16) as Any, range: NSRange(location: 0, length: attributedStringTextTitle.length))
+        attributedStringTextTitle.addAttribute(.font, value: UIFont.fontYugothicUIRegular(ofSize: 16) as Any, range: NSRange(location: 0, length: attributedStringTextTitle.length))
         attributedStringTextTitle.addAttribute(.foregroundColor, value: UIColor.black as Any, range: NSRange(location: 0, length: codePhoneNumber.count - 1))
         attributedStringTextTitle.addAttribute(.foregroundColor, value: Color.bodyTextColor as Any, range: NSRange(location: codePhoneNumber.count, length: 9))
         return attributedStringTextTitle
@@ -152,7 +152,7 @@ extension DefinePhoneNumberViewController: UITextFieldDelegate {
         if let text = textField.text, text.count >= 9  {
             let newText = String(text.dropLast(9))
             let result = NSMutableAttributedString(string: newText)
-            result.addAttribute(.font, value: UIFont.fontYugothicRegular(ofSize: 16) as Any, range: NSRange(location: 0, length: result.length))
+            result.addAttribute(.font, value: UIFont.fontYugothicUIRegular(ofSize: 16) as Any, range: NSRange(location: 0, length: result.length))
             result.addAttribute(.foregroundColor, value: UIColor.black as Any, range: NSRange(location: 0, length: result.length))
             phoneNumberTextField.attributedText = result
         }

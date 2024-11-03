@@ -35,8 +35,8 @@ class FeaturedItemCollectionViewCell: UICollectionViewCell {
         imageMealImageView.contentMode = .scaleAspectFill
         imageMealImageView.layer.cornerRadius = 6
         setUpLabel(label: nameMealLabel, textFont: UIFont.fontYugothicLight(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), textColor: Color.mainColor)
-        setUpLabel(label: priceMealLabel, textFont: UIFont.fontYugothicRegular(ofSize: 14) ?? UIFont.systemFont(ofSize: 14), textColor: Color.mainColor)
-        setUpLabel(label: nationMealLabel, textFont: UIFont.fontYugothicRegular(ofSize: 14) ?? UIFont.systemFont(ofSize: 14), textColor: Color.mainColor)
+        setUpLabel(label: priceMealLabel, textFont: UIFont.fontYugothicUIRegular(ofSize: 14) ?? UIFont.systemFont(ofSize: 14), textColor: Color.mainColor)
+        setUpLabel(label: nationMealLabel, textFont: UIFont.fontYugothicUIRegular(ofSize: 14) ?? UIFont.systemFont(ofSize: 14), textColor: Color.mainColor)
     }
     
     private func setUpLabel(label: UILabel, textFont: UIFont, textColor: UIColor) {

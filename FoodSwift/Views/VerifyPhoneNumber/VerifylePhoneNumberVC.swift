@@ -74,7 +74,7 @@ final class VerifylePhoneNumberVC: BaseViewController {
 //        Enter the 4-Digit code sent to you at +610489632578
         descriptionTextLabel.text = "Enter the 4-Digit code sent to you at \n+610489632578"
         descriptionTextLabel.textAlignment = .center
-        descriptionTextLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
+        descriptionTextLabel.font = UIFont.fontYugothicUIRegular(ofSize: 16)
         descriptionTextLabel.textColor = Color.mainColor
         descriptionTextLabel.numberOfLines = 0
         
@@ -84,7 +84,7 @@ final class VerifylePhoneNumberVC: BaseViewController {
         
         policyLabel.text = "By Signing up you agree to our Terms\nConditions & Privacy Policy."
         policyLabel.numberOfLines = 0
-        policyLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
+        policyLabel.font = UIFont.fontYugothicUIRegular(ofSize: 16)
         policyLabel.textColor = Color.bodyTextColor
         policyLabel.textAlignment = .center
     }
