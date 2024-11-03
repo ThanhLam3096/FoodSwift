@@ -18,4 +18,7 @@ struct Color {
     static let greenColor = UIColor(hex: "#22A45D")
     static let redColor = UIColor(hex: "#FF7058")
     static let yellowColor = UIColor(hex: "#FFD15C")
+    static let tabBarColor = UIColor(hex: "#979797")
+    static let blackColor = UIColor(hex: "#000000")
+    static let cacuColor = UIColor(hex: "#F8F8F8")
 }

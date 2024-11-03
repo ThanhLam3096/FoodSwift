@@ -45,7 +45,7 @@ final class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
         nameFoodLabel.font = UIFont.fontYugothicLight(ofSize: 20)
         nameFoodLabel.textColor = Color.mainColor
         
-        addressLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
+        addressLabel.font = UIFont.fontYugothicUIRegular(ofSize: 16)
         addressLabel.textColor = Color.bodyTextColor
         
         ratingFoodLabel.backgroundColor = Color.activeColor

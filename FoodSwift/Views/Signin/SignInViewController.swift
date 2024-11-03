@@ -31,7 +31,7 @@ class SignInViewController: BaseViewController {
         titleIntroLabel.textAlignment = NSTextAlignment.left
         titleIntroLabel.font = UIFont.fontYugothicLight(ofSize: 33)
         title2IntroLabel.text = "Enter your Phone number or Email\naddress for sign in. Enjoy your food :)"
-        title2IntroLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
+        title2IntroLabel.font = UIFont.fontYugothicUIRegular(ofSize: 16)
         title2IntroLabel.textColor = Color.bodyTextColor
         title2IntroLabel.numberOfLines = 0
         title2IntroLabel.textAlignment = NSTextAlignment.left
@@ -51,7 +51,7 @@ class SignInViewController: BaseViewController {
         ]), for: .normal)
         createNewAccountButton.titleLabel?.tintColor = Color.activeColor
         orLabel.text = "Or"
-        orLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
+        orLabel.font = UIFont.fontYugothicUIRegular(ofSize: 16)
         orLabel.textColor = UIColor.black.withAlphaComponent(0.8)
         setUpSocialLoginButton()
         signInButtonView.setButtonTitle("SIGN IN")

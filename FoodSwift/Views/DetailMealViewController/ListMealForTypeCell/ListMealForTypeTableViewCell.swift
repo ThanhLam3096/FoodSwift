@@ -45,9 +45,9 @@ class ListMealForTypeTableViewCell: UITableViewCell {
         lineView.backgroundColor = UIColor(hex: "#C4C4C4")
         
         setUpLabel(label: nameMealLabel, textFont: UIFont.fontYugothicLight(ofSize: 18) ?? UIFont.systemFont(ofSize: 18), textColor: Color.mainColor)
-        setUpLabel(label: infoLabel, textFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), textColor: Color.mainColor)
-        setUpLabel(label: feeShipMealLabel, textFont: UIFont.fontYugothicRegular(ofSize: 14) ?? UIFont.systemFont(ofSize: 14), textColor: Color.mainColor)
-        setUpLabel(label: countryMealLabel, textFont: UIFont.fontYugothicRegular(ofSize: 14) ?? UIFont.systemFont(ofSize: 14), textColor: Color.mainColor)
+        setUpLabel(label: infoLabel, textFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), textColor: Color.mainColor)
+        setUpLabel(label: feeShipMealLabel, textFont: UIFont.fontYugothicUIRegular(ofSize: 14) ?? UIFont.systemFont(ofSize: 14), textColor: Color.mainColor)
+        setUpLabel(label: countryMealLabel, textFont: UIFont.fontYugothicUIRegular(ofSize: 14) ?? UIFont.systemFont(ofSize: 14), textColor: Color.mainColor)
         setUpLabel(label: priceMealLabel, textFont: UIFont.fontYugothicUISemiBold(ofSize: 14) ?? UIFont.systemFont(ofSize: 14), textColor: Color.activeColor)
     }
     

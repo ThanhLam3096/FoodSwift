@@ -42,7 +42,7 @@ class CreateAccountViewController: BaseViewController {
 //        paragraphStyle.alignment = .left
         title2CreateAccountLabel.isUserInteractionEnabled = true
         let attributedStringTextTitle = NSMutableAttributedString(string: textTitle)
-        attributedStringTextTitle.addAttribute(.font, value: UIFont.fontYugothicRegular(ofSize: 16) as Any, range: NSRange(location: 0, length: attributedStringTextTitle.length))
+        attributedStringTextTitle.addAttribute(.font, value: UIFont.fontYugothicUIRegular(ofSize: 16) as Any, range: NSRange(location: 0, length: attributedStringTextTitle.length))
         attributedStringTextTitle.addAttribute(.foregroundColor, value: Color.bodyTextColor as Any, range: NSRange(location: 0, length: 48))
         attributedStringTextTitle.addAttribute(.foregroundColor, value: Color.activeColor as Any, range: NSRange(location: 50, length: 21))
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOnLabel))
@@ -58,11 +58,11 @@ class CreateAccountViewController: BaseViewController {
         privacyLabel.text = "By Signing up you agree to our Terms\nConditions & Privacy Policy."
         privacyLabel.textAlignment = .center
         privacyLabel.numberOfLines = 0
-        privacyLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
+        privacyLabel.font = UIFont.fontYugothicUIRegular(ofSize: 16)
         privacyLabel.textColor = Color.bodyTextColor
         
         orLabel.text = "Or"
-        orLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
+        orLabel.font = UIFont.fontYugothicUIRegular(ofSize: 16)
         orLabel.textColor = UIColor.black.withAlphaComponent(0.8)
         setUpSocialLoginButton()
         signUpButtonView.delegate = self

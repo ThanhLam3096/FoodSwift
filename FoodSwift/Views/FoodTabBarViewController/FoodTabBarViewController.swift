@@ -42,11 +42,11 @@ class FoodTabBarViewController: UITabBarController {
 //        self.tabBar.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         self.tabBar.tintColor = Color.activeColor
 //        self.tabBar.barTintColor = #colorLiteral(red: 0.9921568627, green: 0.8117648363, blue: 0.1843136251, alpha: 1)
-        self.tabBar.unselectedItemTintColor = UIColor(hex: "#979797")
+        self.tabBar.unselectedItemTintColor = Color.tabBarColor
         
         let unselectedAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.fontYugothicLight(ofSize: 12) as Any,
-            .foregroundColor: UIColor(hex: "#979797")
+            .foregroundColor: Color.tabBarColor
         ]
         
         // Tùy chỉnh font chữ và kích thước cho tab đã được chọn (selected)

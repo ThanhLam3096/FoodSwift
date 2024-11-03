@@ -49,7 +49,7 @@ final class HeaderHomeView: UIView {
         deliveryLabel.textColor = Color.activeColor
         deliveryLabel.font = UIFont.fontYugothicLight(ofSize: 12)
         filterLabel.text = "Filter"
-        filterLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
+        filterLabel.font = UIFont.fontYugothicUIRegular(ofSize: 16)
         filterButton.setImage(UIImage(named: "back_down"), for: .normal)
         filterButton.setAttributedTitle(NSAttributedString(string: "New York, USA", attributes: [
             .font: UIFont.fontYugothicLight(ofSize: 20) as Any, .foregroundColor: Color.mainColor

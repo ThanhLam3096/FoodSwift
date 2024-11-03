@@ -123,7 +123,7 @@ class HomeViewController: BaseViewController {
     
     private func setUpSeeAllButton(seeAllButton: UIButton) {
         seeAllButton.setAttributedTitle(NSAttributedString(string: "See all", attributes: [
-            .font: UIFont.fontYugothicRegular(ofSize: 16) as Any, .foregroundColor: Color.accentColor
+            .font: UIFont.fontYugothicUIRegular(ofSize: 16) as Any, .foregroundColor: Color.accentColor
         ]), for: .normal)
     }
     
@@ -171,8 +171,8 @@ class HomeViewController: BaseViewController {
         sliderImagePageControl.numberOfPages = viewModel.listSliderFoodImage.count
         sliderImagePageControl.currentPage = 0
         sliderImagePageControl.addTarget(self, action: #selector(pageControlTapped), for: .valueChanged)
-        sliderImagePageControl.tintColor = UIColor(hex: "#979797")
-        sliderImagePageControl.pageIndicatorTintColor = UIColor(hex: "#979797")
+        sliderImagePageControl.tintColor = Color.tabBarColor
+        sliderImagePageControl.pageIndicatorTintColor = Color.tabBarColor
         sliderImagePageControl.currentPageIndicatorTintColor = UIColor.white
     }
     

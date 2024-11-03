@@ -4,6 +4,8 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>YuGothL.ttc</string>
+		<string>YuGothM.ttc</string>
 		<string>YuGothB.ttc</string>
 		<string>yugothib.ttf</string>
 		<string>yu-gothic-regular.ttf</string>

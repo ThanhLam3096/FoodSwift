@@ -153,16 +153,16 @@ class DetailMealViewController: BaseViewController {
     
     private func updateUILabel() {
         setUpLabel(label: nameMealLabel, labelFont: UIFont.fontYugothicUISemiBold(ofSize: 24) ?? UIFont.systemFont(ofSize: 24), labelColor: UIColor(hex: "#000000"))
-        setUpLabel(label: priceMealLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.bodyTextColor)
-        setUpLabel(label: firstNationLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.bodyTextColor)
-        setUpLabel(label: secondNationLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.bodyTextColor)
-        setUpLabel(label: typeFoodLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.bodyTextColor)
+        setUpLabel(label: priceMealLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.bodyTextColor)
+        setUpLabel(label: firstNationLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.bodyTextColor)
+        setUpLabel(label: secondNationLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.bodyTextColor)
+        setUpLabel(label: typeFoodLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.bodyTextColor)
         setUpLabel(label: ratingLabel, labelFont: UIFont.fontYugothicLight(ofSize: 12) ?? UIFont.systemFont(ofSize: 12), labelColor: Color.mainColor)
         setUpLabel(label: numberVoteLabel, labelFont: UIFont.fontYugothicLight(ofSize: 12) ?? UIFont.systemFont(ofSize: 12), labelColor: Color.mainColor)
         setUpLabel(label: firstDeliveryLabel, labelFont: UIFont.fontYugothicLight(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.mainColor)
         setUpLabel(label: firstTimeDeliveryLabel, labelFont: UIFont.fontYugothicLight(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.mainColor)
-        setUpLabel(label: secondDeliveryLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 12) ?? UIFont.systemFont(ofSize: 12), labelColor: Color.mainColor)
-        setUpLabel(label: secondTimeDeliveryLabel, labelFont: UIFont.fontYugothicRegular(ofSize: 12) ?? UIFont.systemFont(ofSize: 12), labelColor: Color.mainColor)
+        setUpLabel(label: secondDeliveryLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: 12) ?? UIFont.systemFont(ofSize: 12), labelColor: Color.mainColor)
+        setUpLabel(label: secondTimeDeliveryLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: 12) ?? UIFont.systemFont(ofSize: 12), labelColor: Color.mainColor)
         setUpLabel(label: listFeatureLabel, labelFont: UIFont.fontYugothicLight(ofSize: 20) ?? UIFont.systemFont(ofSize: 20), labelColor: Color.mainColor)
     }
     

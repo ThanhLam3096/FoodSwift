@@ -33,7 +33,7 @@ class ForgotPasswordViewController: BaseViewController {
         forgotPassTitleLabel.textColor = Color.mainColor
         
         descriptionLabel.text = "Enter your email address and we will\nsend you a reset instructions."
-        descriptionLabel.font = UIFont.fontYugothicRegular(ofSize: 16)
+        descriptionLabel.font = UIFont.fontYugothicUIRegular(ofSize: 16)
         descriptionLabel.textColor = Color.bodyTextColor
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = NSTextAlignment.left
@@ -48,7 +48,7 @@ class ForgotPasswordViewController: BaseViewController {
         let textTitle = "We have sent a instructions email\nto sajin tamang@figma.com.  Having problem?"
         descriptionResendEmailLabel.isUserInteractionEnabled = true
         let attributedStringTextTitle = NSMutableAttributedString(string: textTitle)
-        attributedStringTextTitle.addAttribute(.font, value: UIFont.fontYugothicRegular(ofSize: 16) as Any, range: NSRange(location: 0, length: attributedStringTextTitle.length))
+        attributedStringTextTitle.addAttribute(.font, value: UIFont.fontYugothicUIRegular(ofSize: 16) as Any, range: NSRange(location: 0, length: attributedStringTextTitle.length))
         attributedStringTextTitle.addAttribute(.foregroundColor, value: Color.bodyTextColor as Any, range: NSRange(location: 0, length: 60))
         attributedStringTextTitle.addAttribute(.foregroundColor, value: Color.activeColor as Any, range: NSRange(location: 62, length: 15))
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOnLabel))

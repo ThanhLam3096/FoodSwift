@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041330FB2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041330F92CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.swift */; };
+		041330FC2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041330FA2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.xib */; };
+		041331012CD6637F00F43D93 /* ChoiceCustomMealTableViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041331002CD6637F00F43D93 /* ChoiceCustomMealTableViewCellVM.swift */; };
 		041529792BD7595600818A4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041529782BD7595600818A4A /* AppDelegate.swift */; };
 		0415297B2BD7595600818A4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415297A2BD7595600818A4A /* SceneDelegate.swift */; };
 		0415297D2BD7595600818A4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415297C2BD7595600818A4A /* ViewController.swift */; };
@@ -70,6 +73,11 @@
 		047DB2EA2CC94539006B3E5D /* TypeMealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DB2E82CC94539006B3E5D /* TypeMealCollectionViewCell.swift */; };
 		047DB2EB2CC94539006B3E5D /* TypeMealCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047DB2E92CC94539006B3E5D /* TypeMealCollectionViewCell.xib */; };
 		047DB2ED2CC94643006B3E5D /* TypeMealCollectionCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DB2EC2CC94643006B3E5D /* TypeMealCollectionCellVM.swift */; };
+		048829FC2CD7283B00EC0930 /* AddToOrderViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048829FB2CD7283B00EC0930 /* AddToOrderViewControllerViewModel.swift */; };
+		048829FE2CD76CAF00EC0930 /* YuGothM.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 048829FD2CD76CAE00EC0930 /* YuGothM.ttc */; };
+		04882A012CD7705E00EC0930 /* HeaderChoiceMealTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04882A002CD7705E00EC0930 /* HeaderChoiceMealTableView.swift */; };
+		04882A032CD7709200EC0930 /* HeaderChoiceMealTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04882A022CD7709200EC0930 /* HeaderChoiceMealTableView.xib */; };
+		04882A052CD773F100EC0930 /* YuGothL.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 04882A042CD773F100EC0930 /* YuGothL.ttc */; };
 		048BECDE2C85695A0087F446 /* SocialButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048BECDD2C85695A0087F446 /* SocialButtonView.swift */; };
 		048BECE02C8569650087F446 /* SocialButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048BECDF2C8569650087F446 /* SocialButtonView.xib */; };
 		048BECE22C8574AD0087F446 /* SocialButtonViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048BECE12C8574AD0087F446 /* SocialButtonViewVM.swift */; };
@@ -102,6 +110,8 @@
 		04B3CC452CBBF2C800F95E94 /* FeaturedPartnersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B3CC432CBBF2C800F95E94 /* FeaturedPartnersCollectionViewCell.xib */; };
 		04B3CC482CBBF5B600F95E94 /* CircleGrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CC472CBBF5B600F95E94 /* CircleGrayView.swift */; };
 		04B4A7ED2CD22BC9008A50ED /* FoodTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4A7EB2CD22BC9008A50ED /* FoodTabBarViewController.swift */; };
+		04B4A7F12CD3B7E0008A50ED /* AddToOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4A7EF2CD3B7E0008A50ED /* AddToOrderViewController.swift */; };
+		04B4A7F22CD3B7E0008A50ED /* AddToOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B4A7F02CD3B7E0008A50ED /* AddToOrderViewController.xib */; };
 		04C03E382C74786B00DB9B0D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C03E372C74786B00DB9B0D /* UIColor.swift */; };
 		04C03E3C2C75818500DB9B0D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C03E3A2C75818500DB9B0D /* SignInViewController.swift */; };
 		04C03E3D2C75818500DB9B0D /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C03E3B2C75818500DB9B0D /* SignInViewController.xib */; };
@@ -144,6 +154,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041330F92CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCustomMeaTableViewCell.swift; sourceTree = "<group>"; };
+		041330FA2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceCustomMeaTableViewCell.xib; sourceTree = "<group>"; };
+		041331002CD6637F00F43D93 /* ChoiceCustomMealTableViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCustomMealTableViewCellVM.swift; sourceTree = "<group>"; };
 		041529752BD7595600818A4A /* FoodSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		041529782BD7595600818A4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0415297A2BD7595600818A4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +224,11 @@
 		047DB2E82CC94539006B3E5D /* TypeMealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeMealCollectionViewCell.swift; sourceTree = "<group>"; };
 		047DB2E92CC94539006B3E5D /* TypeMealCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeMealCollectionViewCell.xib; sourceTree = "<group>"; };
 		047DB2EC2CC94643006B3E5D /* TypeMealCollectionCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeMealCollectionCellVM.swift; sourceTree = "<group>"; };
+		048829FB2CD7283B00EC0930 /* AddToOrderViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToOrderViewControllerViewModel.swift; sourceTree = "<group>"; };
+		048829FD2CD76CAE00EC0930 /* YuGothM.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = YuGothM.ttc; sourceTree = "<group>"; };
+		04882A002CD7705E00EC0930 /* HeaderChoiceMealTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderChoiceMealTableView.swift; sourceTree = "<group>"; };
+		04882A022CD7709200EC0930 /* HeaderChoiceMealTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderChoiceMealTableView.xib; sourceTree = "<group>"; };
+		04882A042CD773F100EC0930 /* YuGothL.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = YuGothL.ttc; sourceTree = "<group>"; };
 		048BECDD2C85695A0087F446 /* SocialButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButtonView.swift; sourceTree = "<group>"; };
 		048BECDF2C8569650087F446 /* SocialButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialButtonView.xib; sourceTree = "<group>"; };
 		048BECE12C8574AD0087F446 /* SocialButtonViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButtonViewVM.swift; sourceTree = "<group>"; };
@@ -243,6 +261,8 @@
 		04B3CC432CBBF2C800F95E94 /* FeaturedPartnersCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturedPartnersCollectionViewCell.xib; sourceTree = "<group>"; };
 		04B3CC472CBBF5B600F95E94 /* CircleGrayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleGrayView.swift; sourceTree = "<group>"; };
 		04B4A7EB2CD22BC9008A50ED /* FoodTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTabBarViewController.swift; sourceTree = "<group>"; };
+		04B4A7EF2CD3B7E0008A50ED /* AddToOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToOrderViewController.swift; sourceTree = "<group>"; };
+		04B4A7F02CD3B7E0008A50ED /* AddToOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddToOrderViewController.xib; sourceTree = "<group>"; };
 		04C03E372C74786B00DB9B0D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		04C03E3A2C75818500DB9B0D /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		04C03E3B2C75818500DB9B0D /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
@@ -301,6 +321,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		041330FD2CD6532B00F43D93 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				041330F92CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.swift */,
+				041330FA2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.xib */,
+				041331002CD6637F00F43D93 /* ChoiceCustomMealTableViewCellVM.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		0415296C2BD7595600818A4A = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +395,7 @@
 		041529A82BD7598700818A4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				04B4A7EE2CD3B7C6008A50ED /* AddToOrder */,
 				048BECEE2C85F82E0087F446 /* CreateAccount */,
 				04343B712C8AA326007D3331 /* DefinePhoneNumber */,
 				04E6962C2CC67F8200DD4B8B /* DetailMealViewController */,
@@ -581,6 +612,15 @@
 			path = TypeMealCollectionCell;
 			sourceTree = "<group>";
 		};
+		048829FF2CD7703700EC0930 /* Header TableView */ = {
+			isa = PBXGroup;
+			children = (
+				04882A002CD7705E00EC0930 /* HeaderChoiceMealTableView.swift */,
+				04882A022CD7709200EC0930 /* HeaderChoiceMealTableView.xib */,
+			);
+			path = "Header TableView";
+			sourceTree = "<group>";
+		};
 		048BECDC2C8569420087F446 /* SocialButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -745,6 +785,18 @@
 			path = FoodTabBarViewController;
 			sourceTree = "<group>";
 		};
+		04B4A7EE2CD3B7C6008A50ED /* AddToOrder */ = {
+			isa = PBXGroup;
+			children = (
+				048829FF2CD7703700EC0930 /* Header TableView */,
+				041330FD2CD6532B00F43D93 /* Cell */,
+				04B4A7EF2CD3B7E0008A50ED /* AddToOrderViewController.swift */,
+				04B4A7F02CD3B7E0008A50ED /* AddToOrderViewController.xib */,
+				048829FB2CD7283B00EC0930 /* AddToOrderViewControllerViewModel.swift */,
+			);
+			path = AddToOrder;
+			sourceTree = "<group>";
+		};
 		04C03E362C74785100DB9B0D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -770,6 +822,8 @@
 		04C03E432C81633A00DB9B0D /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				04882A042CD773F100EC0930 /* YuGothL.ttc */,
+				048829FD2CD76CAE00EC0930 /* YuGothM.ttc */,
 				04C03E462C81655500DB9B0D /* yugothil.ttf */,
 				048BECE82C85BC1B0087F446 /* yugothib.ttf */,
 				04C03E482C81772800DB9B0D /* yu-gothic-regular.ttf */,
@@ -944,6 +998,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04882A052CD773F100EC0930 /* YuGothL.ttc in Resources */,
 				048C75F72C183221001DB3AD /* PageTwoViewController.xib in Resources */,
 				0491EC892CB12BE200157BE7 /* HeaderHomeView.xib in Resources */,
 				044245002CC8A5B700309971 /* FeaturedItemCollectionViewCell.xib in Resources */,
@@ -951,6 +1006,7 @@
 				04343B6B2C8947F7007D3331 /* ForgotPasswordViewController.xib in Resources */,
 				042FCE2F2CC3D8D600144702 /* FeaturePartnersViewController.xib in Resources */,
 				041529822BD7595700818A4A /* Assets.xcassets in Resources */,
+				04882A032CD7709200EC0930 /* HeaderChoiceMealTableView.xib in Resources */,
 				042FCE342CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.xib in Resources */,
 				045578F12C97E1B600EA420B /* VerifylePhoneNumberVC.xib in Resources */,
 				048BECE02C8569650087F446 /* SocialButtonView.xib in Resources */,
@@ -962,6 +1018,7 @@
 				04C03E472C81655500DB9B0D /* yugothil.ttf in Resources */,
 				048BECF22C85F8480087F446 /* CreateAccountViewController.xib in Resources */,
 				04C03E492C81772900DB9B0D /* yu-gothic-regular.ttf in Resources */,
+				04B4A7F22CD3B7E0008A50ED /* AddToOrderViewController.xib in Resources */,
 				04343B772C8B12D8007D3331 /* FlagCodeNumberTableViewCell.xib in Resources */,
 				0491EC762CB006D000157BE7 /* SearchViewController.xib in Resources */,
 				048C75FB2C18324E001DB3AD /* PageThreeViewController.xib in Resources */,
@@ -976,7 +1033,9 @@
 				04C03E3D2C75818500DB9B0D /* SignInViewController.xib in Resources */,
 				04B3CC452CBBF2C800F95E94 /* FeaturedPartnersCollectionViewCell.xib in Resources */,
 				048D962E2CBD1E4400977AD1 /* ListAllResTableViewCell.xib in Resources */,
+				048829FE2CD76CAF00EC0930 /* YuGothM.ttc in Resources */,
 				046E777C2C6F5563000F6FD1 /* PageStackView.xib in Resources */,
+				041330FC2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.xib in Resources */,
 				048C75F32C18320E001DB3AD /* PageOneViewController.xib in Resources */,
 				04D05FD52CCA80A600675B9A /* ListMealForTypeTableViewCell.xib in Resources */,
 				042FFBB22CB7DEB9004B6D85 /* SliderImageCollectionViewCell.xib in Resources */,
@@ -1125,8 +1184,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041331012CD6637F00F43D93 /* ChoiceCustomMealTableViewCellVM.swift in Sources */,
 				042FFBA62CB3FFBA004B6D85 /* LocationListTableViewCell.swift in Sources */,
 				042FFBA92CB400A5004B6D85 /* LocationListViewModel.swift in Sources */,
+				04B4A7F12CD3B7E0008A50ED /* AddToOrderViewController.swift in Sources */,
 				042FFBB62CB7E78F004B6D85 /* UICollectionViewEXT.swift in Sources */,
 				04343B782C8B12D8007D3331 /* FlagCodeNumberTableViewCell.swift in Sources */,
 				047DB2E62CC93DF5006B3E5D /* GlobalFunction.swift in Sources */,
@@ -1134,6 +1195,7 @@
 				04156AA92CBEA4C6000A1B0F /* App.swift in Sources */,
 				048C75F22C18320E001DB3AD /* PageOneViewController.swift in Sources */,
 				047DB2EA2CC94539006B3E5D /* TypeMealCollectionViewCell.swift in Sources */,
+				04882A012CD7705E00EC0930 /* HeaderChoiceMealTableView.swift in Sources */,
 				04C03E382C74786B00DB9B0D /* UIColor.swift in Sources */,
 				048C75FA2C18324E001DB3AD /* PageThreeViewController.swift in Sources */,
 				041529B22BD7AB7800818A4A /* ScreenSize.swift in Sources */,
@@ -1167,6 +1229,7 @@
 				042FFBB12CB7DEB9004B6D85 /* SliderImageCollectionViewCell.swift in Sources */,
 				04C03E3C2C75818500DB9B0D /* SignInViewController.swift in Sources */,
 				048BECDE2C85695A0087F446 /* SocialButtonView.swift in Sources */,
+				041330FB2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.swift in Sources */,
 				041529AB2BD759A300818A4A /* WelcomeViewController.swift in Sources */,
 				048BECF12C85F8480087F446 /* CreateAccountViewController.swift in Sources */,
 				044244FD2CC8A59900309971 /* FeaturedItemCollectionCellVM.swift in Sources */,
@@ -1174,6 +1237,7 @@
 				042FFBA12CB3E27E004B6D85 /* HomeViewController.swift in Sources */,
 				04F823A82CD1150000BE2181 /* Color.swift in Sources */,
 				046E777A2C6F547A000F6FD1 /* PageStackView.swift in Sources */,
+				048829FC2CD7283B00EC0930 /* AddToOrderViewControllerViewModel.swift in Sources */,
 				047DB2ED2CC94643006B3E5D /* TypeMealCollectionCellVM.swift in Sources */,
 				04156AA52CBE9865000A1B0F /* API.swift in Sources */,
 				04B3CC482CBBF5B600F95E94 /* CircleGrayView.swift in Sources */,
