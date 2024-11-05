@@ -157,13 +157,12 @@ extension AddToOrderViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let section = AddToOrderViewControllerViewModel.SectionType(rawValue: indexPath.section)
         else { return UITableViewCell() }
-        let selectedBackgroundView = UIView()
-        selectedBackgroundView.backgroundColor = Color.accentColor.withAlphaComponent(0.5)
         
         switch section {
         case .top, .bottom:
             let cell = tableView.dequeueReusableCell(withClass: ChoiceCustomMeaTableViewCell.self, for: indexPath)
-           
+            let selectedBackgroundView = UIView()
+            selectedBackgroundView.backgroundColor = Color.accentColor.withAlphaComponent(0.5)
             cell.selectedBackgroundView = selectedBackgroundView
             cell.viewModel = viewModel.cellForRowAtSection(indexPath: indexPath)
             if section == .top {
@@ -182,6 +181,8 @@ extension AddToOrderViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withClass: AddInstructionTableViewCell.self, for: indexPath)
+            let selectedBackgroundView = UIView()
+            selectedBackgroundView.backgroundColor = .clear
             cell.selectedBackgroundView = selectedBackgroundView
             return cell
         }
