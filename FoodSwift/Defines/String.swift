@@ -25,5 +25,9 @@ extension App {
         static let fetchData = "Fetch Data Success"
         static let failedFetchData = "Failed Fetch Data"
         static let Source = "No Has Source"
+        static let okString = "OK"
+        static let cancelString = "Cancel"
+        static let titleAddInstructions = "Add Special Instructions"
+        static let messageAddInstructions = "Add Info Meal Do You Want More Here"
     }
 }

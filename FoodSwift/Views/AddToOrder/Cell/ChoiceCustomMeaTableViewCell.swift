@@ -11,10 +11,13 @@ class ChoiceCustomMeaTableViewCell: UITableViewCell {
     
     //MARK: - @IBOutlet
     @IBOutlet private weak var outSideCircleView: UIView!
-    @IBOutlet private weak var inSideCircleView: UIView!
-    @IBOutlet private weak var selectedButton: UIButton!
+    @IBOutlet weak var inSideCircleView: UIView!
     @IBOutlet private weak var customMealLabel: UILabel!
     @IBOutlet private weak var lineView: UIView!
+    @IBOutlet private weak var widthInSideViewConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var widthOutSideViewConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var spaceOfTopOutSideViewConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var spaceOfBottomOutSideViewConstraint: NSLayoutConstraint!
     
     //MARK: - Properties
     var viewModel: ChoiceCustomMealTableViewCellVM? {
@@ -30,19 +33,22 @@ class ChoiceCustomMeaTableViewCell: UITableViewCell {
     }
     
     private func setUpUICell() {
-        outSideCircleView.frame.size = CGSize(width: ScreenSize.scaleWidth(24), height: ScreenSize.scaleWidth(24))
+        widthOutSideViewConstraint.constant = ScreenSize.scaleWidth(24)
         outSideCircleView.layer.borderColor = CGColor.hexStringToCGColor(hex: "#868686")
         outSideCircleView.layer.borderWidth = 0.5
-        outSideCircleView.layer.cornerRadius = 12
+        outSideCircleView.layer.cornerRadius = ScreenSize.scaleWidth(12)
         outSideCircleView.clipsToBounds = true
-        inSideCircleView.frame.size = CGSize(width: ScreenSize.scaleWidth(18), height: ScreenSize.scaleWidth(18))
-        inSideCircleView.layer.cornerRadius = 9
+        widthInSideViewConstraint.constant = ScreenSize.scaleWidth(18)
+        inSideCircleView.layer.cornerRadius = ScreenSize.scaleWidth(9)
         inSideCircleView.clipsToBounds = true
         inSideCircleView.backgroundColor = Color.activeColor
-        selectedButton.setTitle("", for: .normal)
+        inSideCircleView.isHidden = true
         customMealLabel.font = UIFont.fontYugothicUIRegular(ofSize: 16)
         customMealLabel.textColor = Color.mainColor
         lineView.backgroundColor = Color.bodyTextColor.withAlphaComponent(0.3)
+        
+        spaceOfTopOutSideViewConstraint.constant = ScreenSize.scaleHeight(14)
+        spaceOfBottomOutSideViewConstraint.constant = ScreenSize.scaleHeight(14)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

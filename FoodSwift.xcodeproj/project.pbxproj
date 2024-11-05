@@ -67,6 +67,8 @@
 		046E777C2C6F5563000F6FD1 /* PageStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046E777B2C6F5563000F6FD1 /* PageStackView.xib */; };
 		046E777E2C733E6B000F6FD1 /* ScreenName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E777D2C733E6B000F6FD1 /* ScreenName.swift */; };
 		0470AC6F2CBC023D00D68477 /* FeaturedPartnersCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470AC6E2CBC023D00D68477 /* FeaturedPartnersCollectionViewCellViewModel.swift */; };
+		0474D2EF2CD8F8EE002F4C36 /* AddInstructionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0474D2EE2CD8F8EE002F4C36 /* AddInstructionTableViewCell.xib */; };
+		0474D2F02CD8F8EE002F4C36 /* AddInstructionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474D2ED2CD8F8EE002F4C36 /* AddInstructionTableViewCell.swift */; };
 		04788A302BE38729009AB6DD /* IntroducePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04788A2F2BE38729009AB6DD /* IntroducePageViewController.xib */; };
 		04788A312BE38729009AB6DD /* IntroducePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04788A2E2BE38729009AB6DD /* IntroducePageViewController.swift */; };
 		047DB2E62CC93DF5006B3E5D /* GlobalFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DB2E52CC93DF5006B3E5D /* GlobalFunction.swift */; };
@@ -130,6 +132,7 @@
 		04E6962F2CC67F9C00DD4B8B /* DetailMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E6962D2CC67F9C00DD4B8B /* DetailMealViewController.swift */; };
 		04E696302CC67F9C00DD4B8B /* DetailMealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E6962E2CC67F9C00DD4B8B /* DetailMealViewController.xib */; };
 		04E696322CC698DD00DD4B8B /* DetailMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E696312CC698DD00DD4B8B /* DetailMealViewModel.swift */; };
+		04E8DF262CD7D966008DB97D /* HeaderChoiceMealTableViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8DF252CD7D966008DB97D /* HeaderChoiceMealTableViewVM.swift */; };
 		04F823A82CD1150000BE2181 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F823A72CD1150000BE2181 /* Color.swift */; };
 		2DB17B68DAF952076C24A289 /* Pods_FoodSwift_FoodSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C608F830BBCA2B7ED7A6B4 /* Pods_FoodSwift_FoodSwiftUITests.framework */; };
 		4E99FC81BADB8F7D91FB3FB9 /* Pods_FoodSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B18CB6170BAD7026C750892 /* Pods_FoodSwiftTests.framework */; };
@@ -218,6 +221,8 @@
 		046E777B2C6F5563000F6FD1 /* PageStackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageStackView.xib; sourceTree = "<group>"; };
 		046E777D2C733E6B000F6FD1 /* ScreenName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenName.swift; sourceTree = "<group>"; };
 		0470AC6E2CBC023D00D68477 /* FeaturedPartnersCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPartnersCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		0474D2ED2CD8F8EE002F4C36 /* AddInstructionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInstructionTableViewCell.swift; sourceTree = "<group>"; };
+		0474D2EE2CD8F8EE002F4C36 /* AddInstructionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddInstructionTableViewCell.xib; sourceTree = "<group>"; };
 		04788A2E2BE38729009AB6DD /* IntroducePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroducePageViewController.swift; sourceTree = "<group>"; };
 		04788A2F2BE38729009AB6DD /* IntroducePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroducePageViewController.xib; sourceTree = "<group>"; };
 		047DB2E52CC93DF5006B3E5D /* GlobalFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunction.swift; sourceTree = "<group>"; };
@@ -281,6 +286,7 @@
 		04E6962D2CC67F9C00DD4B8B /* DetailMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewController.swift; sourceTree = "<group>"; };
 		04E6962E2CC67F9C00DD4B8B /* DetailMealViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMealViewController.xib; sourceTree = "<group>"; };
 		04E696312CC698DD00DD4B8B /* DetailMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewModel.swift; sourceTree = "<group>"; };
+		04E8DF252CD7D966008DB97D /* HeaderChoiceMealTableViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderChoiceMealTableViewVM.swift; sourceTree = "<group>"; };
 		04F823A72CD1150000BE2181 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		0B18CB6170BAD7026C750892 /* Pods_FoodSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A21DB61104EDED1D7500A2B /* Pods-FoodSwift-FoodSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodSwift-FoodSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-FoodSwift-FoodSwiftUITests/Pods-FoodSwift-FoodSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -583,6 +589,15 @@
 			path = PageViewCustom;
 			sourceTree = "<group>";
 		};
+		0474D2EC2CD8F8B5002F4C36 /* AddInstructionCell */ = {
+			isa = PBXGroup;
+			children = (
+				0474D2ED2CD8F8EE002F4C36 /* AddInstructionTableViewCell.swift */,
+				0474D2EE2CD8F8EE002F4C36 /* AddInstructionTableViewCell.xib */,
+			);
+			path = AddInstructionCell;
+			sourceTree = "<group>";
+		};
 		04788A2C2BE38138009AB6DD /* Introduce */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,6 +632,7 @@
 			children = (
 				04882A002CD7705E00EC0930 /* HeaderChoiceMealTableView.swift */,
 				04882A022CD7709200EC0930 /* HeaderChoiceMealTableView.xib */,
+				04E8DF252CD7D966008DB97D /* HeaderChoiceMealTableViewVM.swift */,
 			);
 			path = "Header TableView";
 			sourceTree = "<group>";
@@ -788,6 +804,7 @@
 		04B4A7EE2CD3B7C6008A50ED /* AddToOrder */ = {
 			isa = PBXGroup;
 			children = (
+				0474D2EC2CD8F8B5002F4C36 /* AddInstructionCell */,
 				048829FF2CD7703700EC0930 /* Header TableView */,
 				041330FD2CD6532B00F43D93 /* Cell */,
 				04B4A7EF2CD3B7E0008A50ED /* AddToOrderViewController.swift */,
@@ -1023,6 +1040,7 @@
 				0491EC762CB006D000157BE7 /* SearchViewController.xib in Resources */,
 				048C75FB2C18324E001DB3AD /* PageThreeViewController.xib in Resources */,
 				042FFBA22CB3E27E004B6D85 /* HomeViewController.xib in Resources */,
+				0474D2EF2CD8F8EE002F4C36 /* AddInstructionTableViewCell.xib in Resources */,
 				0491EC842CB0073C00157BE7 /* ProfileViewController.xib in Resources */,
 				047DB2EB2CC94539006B3E5D /* TypeMealCollectionViewCell.xib in Resources */,
 				04E696302CC67F9C00DD4B8B /* DetailMealViewController.xib in Resources */,
@@ -1199,6 +1217,7 @@
 				04C03E382C74786B00DB9B0D /* UIColor.swift in Sources */,
 				048C75FA2C18324E001DB3AD /* PageThreeViewController.swift in Sources */,
 				041529B22BD7AB7800818A4A /* ScreenSize.swift in Sources */,
+				04E8DF262CD7D966008DB97D /* HeaderChoiceMealTableViewVM.swift in Sources */,
 				04D05FDA2CCBE9B600675B9A /* ListMealForTypeTableViewCellVM.swift in Sources */,
 				048D96292CBD1B0E00977AD1 /* Restaurant.swift in Sources */,
 				048C75F62C183221001DB3AD /* PageTwoViewController.swift in Sources */,
@@ -1262,6 +1281,7 @@
 				042FCE332CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.swift in Sources */,
 				04788A312BE38729009AB6DD /* IntroducePageViewController.swift in Sources */,
 				04E6962F2CC67F9C00DD4B8B /* DetailMealViewController.swift in Sources */,
+				0474D2F02CD8F8EE002F4C36 /* AddInstructionTableViewCell.swift in Sources */,
 				04B3CC442CBBF2C800F95E94 /* FeaturedPartnersCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
