@@ -98,15 +98,19 @@ class AddToOrderViewController: BaseViewController {
         setUpFontAndTextColorLabel(label: nameMealLabel, textFont: UIFont.fontYugothicUISemiBold(ofSize: 24) ?? UIFont.systemFont(ofSize: 24), textColor: Color.mainColor)
         setUpFontAndTextColorLabel(label: customInfoLabel, textFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), textColor: Color.mainColor)
         setUpFontAndTextColorLabel(label: priceMealLabel, textFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), textColor: Color.bodyTextColor)
-        priceMealLabel.text = "\(viewModel.priceMeal)$"
+        priceMealLabel.text = "\(displayNumber(viewModel.priceMeal))$"
         setUpFontAndTextColorLabel(label: firstNationMealLabel, textFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), textColor: Color.bodyTextColor)
         setUpFontAndTextColorLabel(label: secondNationLabel, textFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), textColor: Color.bodyTextColor)
         setUpFontAndTextColorLabel(label: categoryMealLabel, textFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), textColor: Color.bodyTextColor)
         setUpFontAndTextColorLabel(label: numberOfMealLabel, textFont: UIFont.fontYugothicUILight(ofSize: 20) ?? UIFont.systemFont(ofSize: 20), textColor: Color.mainColor)
         numberOfMealLabel.text = viewModel.updateNumberOfMeals(numberOfMeals: viewModel.numberOfMeals)
-        addToOrderButtonView.setButtonTitle("ADD TO ORDER")
+        updatePriceOrangeButton(price: viewModel.totalOfPriceMeal())
         customInfoLabel.sizeToFit()
         customInfoLabel.text = viewModel.updateOrderInfoMeal()
+    }
+    
+    private func updatePriceOrangeButton(price: Double) {
+        addToOrderButtonView.viewModel = OrangeButtonViewModel(title: "ADD TO ORDER", totalPriceMeal: price)
     }
     
     private func setUpFontAndTextColorLabel(label: UILabel, textFont: UIFont, textColor: UIColor) {
@@ -130,11 +134,13 @@ class AddToOrderViewController: BaseViewController {
     @IBAction func minusButtonTouchUpInside(_ sender: Any) {
         viewModel.minusAction()
         numberOfMealLabel.text = viewModel.updateNumberOfMeals(numberOfMeals: viewModel.numberOfMeals)
+        updatePriceOrangeButton(price: viewModel.totalOfPriceMeal())
     }
     
     @IBAction func plusButtonTouchUpInside(_ sender: Any) {
         viewModel.plusAction()
         numberOfMealLabel.text = viewModel.updateNumberOfMeals(numberOfMeals: viewModel.numberOfMeals)
+        updatePriceOrangeButton(price: viewModel.totalOfPriceMeal())
     }
 }
 

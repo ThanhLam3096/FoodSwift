@@ -13,6 +13,13 @@ class OrangeButtonView: UIView {
     @IBOutlet private weak var startButton: UIButton!
     var delegate: OrangeButtonViewViewDelegate?
     
+    //MARK: - Properties
+    var viewModel: OrangeButtonViewModel? {
+        didSet {
+            updateView()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpUIView()
@@ -45,6 +52,20 @@ class OrangeButtonView: UIView {
         startButton.setAttributedTitle(NSAttributedString(string: title, attributes: [
             .font: UIFont.fontYugothicUIBold(ofSize: 14) as Any
         ]), for: .normal)
+    }
+    
+    private func updateView() {
+        guard let viewModel = viewModel else { return }
+        var price: String = ""
+        if let totalPriceMeal = viewModel.totalPriceMeal {
+            price = "($\(displayNumber(totalPriceMeal)))"
+        } else {
+            price = ""
+        }
+        startButton.setAttributedTitle(NSAttributedString(string: "\(viewModel.title) " + price, attributes: [
+            .font: UIFont.fontYugothicUIBold(ofSize: 14) as Any
+        ]), for: .normal)
+
     }
     
 }

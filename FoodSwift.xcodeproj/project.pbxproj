@@ -133,6 +133,7 @@
 		04E696302CC67F9C00DD4B8B /* DetailMealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E6962E2CC67F9C00DD4B8B /* DetailMealViewController.xib */; };
 		04E696322CC698DD00DD4B8B /* DetailMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E696312CC698DD00DD4B8B /* DetailMealViewModel.swift */; };
 		04E8DF262CD7D966008DB97D /* HeaderChoiceMealTableViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8DF252CD7D966008DB97D /* HeaderChoiceMealTableViewVM.swift */; };
+		04F7E2A32CDA0AC800A1F39E /* OrangeButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7E2A22CDA0AC800A1F39E /* OrangeButtonViewModel.swift */; };
 		04F823A82CD1150000BE2181 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F823A72CD1150000BE2181 /* Color.swift */; };
 		2DB17B68DAF952076C24A289 /* Pods_FoodSwift_FoodSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C608F830BBCA2B7ED7A6B4 /* Pods_FoodSwift_FoodSwiftUITests.framework */; };
 		4E99FC81BADB8F7D91FB3FB9 /* Pods_FoodSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B18CB6170BAD7026C750892 /* Pods_FoodSwiftTests.framework */; };
@@ -287,6 +288,7 @@
 		04E6962E2CC67F9C00DD4B8B /* DetailMealViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMealViewController.xib; sourceTree = "<group>"; };
 		04E696312CC698DD00DD4B8B /* DetailMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewModel.swift; sourceTree = "<group>"; };
 		04E8DF252CD7D966008DB97D /* HeaderChoiceMealTableViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderChoiceMealTableViewVM.swift; sourceTree = "<group>"; };
+		04F7E2A22CDA0AC800A1F39E /* OrangeButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButtonViewModel.swift; sourceTree = "<group>"; };
 		04F823A72CD1150000BE2181 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		0B18CB6170BAD7026C750892 /* Pods_FoodSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A21DB61104EDED1D7500A2B /* Pods-FoodSwift-FoodSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodSwift-FoodSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-FoodSwift-FoodSwiftUITests/Pods-FoodSwift-FoodSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -461,6 +463,7 @@
 			children = (
 				041529B52BE0D5D500818A4A /* OrangeButtonView.swift */,
 				041529B72BE0D5EC00818A4A /* OrangeButtonView.xib */,
+				04F7E2A22CDA0AC800A1F39E /* OrangeButtonViewModel.swift */,
 			);
 			path = ButtonWelcome;
 			sourceTree = "<group>";
@@ -1268,6 +1271,7 @@
 				0433CA642CC7F19000576C37 /* CGColor.swift in Sources */,
 				04D05FDC2CCBED9E00675B9A /* NumberDouble.swift in Sources */,
 				0470AC6F2CBC023D00D68477 /* FeaturedPartnersCollectionViewCellViewModel.swift in Sources */,
+				04F7E2A32CDA0AC800A1F39E /* OrangeButtonViewModel.swift in Sources */,
 				04B3CC382CB80BC600F95E94 /* CustomPageControl.swift in Sources */,
 				04343B7A2C8B12EF007D3331 /* FlagCodeNumberCellVM.swift in Sources */,
 				04343B702C8AA320007D3331 /* DefinePhoneNumberViewController.swift in Sources */,
