@@ -14,4 +14,27 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: App.String.alertAction, style: .default, handler: nil))
         self.present(alert, animated: true)
     }
+    
+    func alertAddIntructions(completion: @escaping(String) -> Void) {
+        if self.presentedViewController == nil {
+            let alert = UIAlertController(title: App.String.titleAddInstructions, message: nil, preferredStyle: .alert)
+            
+            alert.addTextField { (textField) in
+                textField.placeholder = "Add Here"
+                textField.keyboardType = .default
+            }
+            
+            let okAction = UIAlertAction(title: App.String.okString, style: .default) { _ in
+                let addIntructionsString = alert.textFields?.first?.text
+                guard let addIntructionsString = addIntructionsString else { return }
+                completion(addIntructionsString)
+            }
+            
+            alert.addAction(okAction)
+            alert.addAction(UIAlertAction(title: App.String.cancelString, style: .destructive, handler: nil))
+            self.present(alert, animated: true)
+        } else {
+            print("Alert is Already Show")
+        }
+    }
 }

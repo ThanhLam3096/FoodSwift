@@ -14,6 +14,15 @@ final class HeaderChoiceMealTableView: UIView {
     @IBOutlet private weak var headerCustomChoiceMealTableView: UIView!
     @IBOutlet private weak var titleHeaderLabel: UILabel!
     @IBOutlet private weak var requiredButton: UIButton!
+    @IBOutlet private weak var widthRequiredButtonConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightRequiredButtonConstraint: NSLayoutConstraint!
+    
+    // MARK: Propertiers
+    var viewModel: HeaderChoiceMealTableViewVM? {
+        didSet {
+            updateView()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,11 +41,8 @@ final class HeaderChoiceMealTableView: UIView {
         headerCustomChoiceMealTableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         titleHeaderLabel.font = UIFont.fontYugothicUILight(ofSize: 20)
         titleHeaderLabel.textColor = Color.mainColor
-        
-        NSLayoutConstraint.activate([
-            requiredButton.widthAnchor.constraint(equalToConstant: ScreenSize.scaleWidth(90)),
-            requiredButton.heightAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(32))
-        ])
+        widthRequiredButtonConstraint.constant = ScreenSize.scaleWidth(90)
+        heightRequiredButtonConstraint.constant = ScreenSize.scaleHeight(32)
         requiredButton.layer.cornerRadius = 4
         requiredButton.backgroundColor = Color.activeColor.withAlphaComponent(0.3)
         requiredButton.setAttributedTitle(NSAttributedString(string: "REQUIRED", attributes: [
@@ -47,5 +53,24 @@ final class HeaderChoiceMealTableView: UIView {
     
     func updateTitleHeaderTableView(title: String) {
         titleHeaderLabel.text = title
+    }
+    
+    private func updateView() {
+        guard let vm = viewModel else { return }
+        titleHeaderLabel.text = vm.title
+        
+        if vm.data.isEmpty {
+            requiredButton.backgroundColor = Color.activeColor
+            requiredButton.setAttributedTitle(NSAttributedString(string: "REQUIRED", attributes: [
+                .font: UIFont.fontYugothicUILight(ofSize: 12) as Any,
+                .foregroundColor: Color.bgColor
+            ]), for: .normal)
+        } else {
+            requiredButton.backgroundColor = Color.activeColor.withAlphaComponent(0.3)
+            requiredButton.setAttributedTitle(NSAttributedString(string: "REQUIRED", attributes: [
+                .font: UIFont.fontYugothicUILight(ofSize: 12) as Any,
+                .foregroundColor: Color.accentColor
+            ]), for: .normal)
+        }
     }
 }
