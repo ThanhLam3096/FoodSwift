@@ -61,7 +61,7 @@ class AddToOrderViewController: BaseViewController {
     }
     
     private func setFrameForView() {
-        heightOfContentViewConstraint.constant = ScreenSize.scaleHeight(1750)
+        heightOfContentViewConstraint.constant = ScreenSize.scaleHeight(1700)
         heightImageMealConstraint.constant = ScreenSize.scaleHeight(280)
         widthOfCloseButtonConstraint.constant = ScreenSize.scaleWidth(34)
         closeButton.layer.cornerRadius = ScreenSize.scaleWidth(17)
@@ -110,6 +110,7 @@ class AddToOrderViewController: BaseViewController {
     }
     
     private func updatePriceOrangeButton(price: Double) {
+        addToOrderButtonView.delegate = self
         addToOrderButtonView.viewModel = OrangeButtonViewModel(title: "ADD TO ORDER", totalPriceMeal: price)
     }
     
@@ -242,5 +243,11 @@ extension AddToOrderViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             return ScreenSize.scaleHeight(0)
         }
+    }
+}
+
+extension AddToOrderViewController: OrangeButtonViewViewDelegate {
+    func tappingInsideButton(view: OrangeButtonView) {
+        pushFromBottom(to: ScreenName.yourOrder, from: self)
     }
 }

@@ -129,11 +129,18 @@
 		04D05FDA2CCBE9B600675B9A /* ListMealForTypeTableViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D05FD92CCBE9B600675B9A /* ListMealForTypeTableViewCellVM.swift */; };
 		04D05FDC2CCBED9E00675B9A /* NumberDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D05FDB2CCBED9E00675B9A /* NumberDouble.swift */; };
 		04D05FE02CCD296F00675B9A /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D05FDF2CCD296F00675B9A /* ImageLoader.swift */; };
+		04DA26912CDA6C790055CD9E /* ListTableOrderMealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA268F2CDA6C790055CD9E /* ListTableOrderMealTableViewCell.swift */; };
+		04DA26922CDA6C790055CD9E /* ListTableOrderMealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DA26902CDA6C790055CD9E /* ListTableOrderMealTableViewCell.xib */; };
+		04DA26942CDA6C820055CD9E /* ListTableOrderMealTableViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA26932CDA6C820055CD9E /* ListTableOrderMealTableViewCellVM.swift */; };
 		04E6962F2CC67F9C00DD4B8B /* DetailMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E6962D2CC67F9C00DD4B8B /* DetailMealViewController.swift */; };
 		04E696302CC67F9C00DD4B8B /* DetailMealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E6962E2CC67F9C00DD4B8B /* DetailMealViewController.xib */; };
 		04E696322CC698DD00DD4B8B /* DetailMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E696312CC698DD00DD4B8B /* DetailMealViewModel.swift */; };
 		04E8DF262CD7D966008DB97D /* HeaderChoiceMealTableViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8DF252CD7D966008DB97D /* HeaderChoiceMealTableViewVM.swift */; };
 		04F7E2A32CDA0AC800A1F39E /* OrangeButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7E2A22CDA0AC800A1F39E /* OrangeButtonViewModel.swift */; };
+		04F7E2A72CDA497D00A1F39E /* YourOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7E2A52CDA497D00A1F39E /* YourOrderViewController.swift */; };
+		04F7E2A82CDA497D00A1F39E /* YourOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F7E2A62CDA497D00A1F39E /* YourOrderViewController.xib */; };
+		04F7E2AA2CDA49D000A1F39E /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7E2A92CDA49D000A1F39E /* Order.swift */; };
+		04F7E2AC2CDA4E8000A1F39E /* YourOrderViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7E2AB2CDA4E8000A1F39E /* YourOrderViewControllerVM.swift */; };
 		04F823A82CD1150000BE2181 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F823A72CD1150000BE2181 /* Color.swift */; };
 		2DB17B68DAF952076C24A289 /* Pods_FoodSwift_FoodSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C608F830BBCA2B7ED7A6B4 /* Pods_FoodSwift_FoodSwiftUITests.framework */; };
 		4E99FC81BADB8F7D91FB3FB9 /* Pods_FoodSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B18CB6170BAD7026C750892 /* Pods_FoodSwiftTests.framework */; };
@@ -284,11 +291,18 @@
 		04D05FD92CCBE9B600675B9A /* ListMealForTypeTableViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMealForTypeTableViewCellVM.swift; sourceTree = "<group>"; };
 		04D05FDB2CCBED9E00675B9A /* NumberDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberDouble.swift; sourceTree = "<group>"; };
 		04D05FDF2CCD296F00675B9A /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		04DA268F2CDA6C790055CD9E /* ListTableOrderMealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableOrderMealTableViewCell.swift; sourceTree = "<group>"; };
+		04DA26902CDA6C790055CD9E /* ListTableOrderMealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableOrderMealTableViewCell.xib; sourceTree = "<group>"; };
+		04DA26932CDA6C820055CD9E /* ListTableOrderMealTableViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableOrderMealTableViewCellVM.swift; sourceTree = "<group>"; };
 		04E6962D2CC67F9C00DD4B8B /* DetailMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewController.swift; sourceTree = "<group>"; };
 		04E6962E2CC67F9C00DD4B8B /* DetailMealViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMealViewController.xib; sourceTree = "<group>"; };
 		04E696312CC698DD00DD4B8B /* DetailMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewModel.swift; sourceTree = "<group>"; };
 		04E8DF252CD7D966008DB97D /* HeaderChoiceMealTableViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderChoiceMealTableViewVM.swift; sourceTree = "<group>"; };
 		04F7E2A22CDA0AC800A1F39E /* OrangeButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButtonViewModel.swift; sourceTree = "<group>"; };
+		04F7E2A52CDA497D00A1F39E /* YourOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourOrderViewController.swift; sourceTree = "<group>"; };
+		04F7E2A62CDA497D00A1F39E /* YourOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YourOrderViewController.xib; sourceTree = "<group>"; };
+		04F7E2A92CDA49D000A1F39E /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		04F7E2AB2CDA4E8000A1F39E /* YourOrderViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourOrderViewControllerVM.swift; sourceTree = "<group>"; };
 		04F823A72CD1150000BE2181 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		0B18CB6170BAD7026C750892 /* Pods_FoodSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A21DB61104EDED1D7500A2B /* Pods-FoodSwift-FoodSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodSwift-FoodSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-FoodSwift-FoodSwiftUITests/Pods-FoodSwift-FoodSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -367,7 +381,6 @@
 				04156AAA2CBEA6D1000A1B0F /* Library */,
 				04B3CC392CB9102E00F95E94 /* Model */,
 				04C03E432C81633A00DB9B0D /* Font */,
-				04C03E362C74785100DB9B0D /* Extension */,
 				041529B32BE0D54400818A4A /* Custom */,
 				041529B02BD7AB1500818A4A /* Defines */,
 				041529AD2BD75C2300818A4A /* Base */,
@@ -403,6 +416,7 @@
 		041529A82BD7598700818A4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				04F7E2A42CDA496600A1F39E /* YourOrder */,
 				04B4A7EE2CD3B7C6008A50ED /* AddToOrder */,
 				048BECEE2C85F82E0087F446 /* CreateAccount */,
 				04343B712C8AA326007D3331 /* DefinePhoneNumber */,
@@ -471,6 +485,7 @@
 		04156AAA2CBEA6D1000A1B0F /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				04C03E362C74785100DB9B0D /* Extension */,
 				04156AAB2CBEA6E0000A1B0F /* EXT */,
 			);
 			path = Library;
@@ -774,6 +789,7 @@
 				04B3CC3F2CB94F0000F95E94 /* Meal.swift */,
 				048D96282CBD1B0E00977AD1 /* Restaurant.swift */,
 				04D05FD72CCBDCFE00675B9A /* TheMealDB.swift */,
+				04F7E2A92CDA49D000A1F39E /* Order.swift */,
 			);
 			path = Schema;
 			sourceTree = "<group>";
@@ -872,6 +888,16 @@
 			path = ListMealForTypeCell;
 			sourceTree = "<group>";
 		};
+		04DA268E2CDA6C3E0055CD9E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				04DA268F2CDA6C790055CD9E /* ListTableOrderMealTableViewCell.swift */,
+				04DA26902CDA6C790055CD9E /* ListTableOrderMealTableViewCell.xib */,
+				04DA26932CDA6C820055CD9E /* ListTableOrderMealTableViewCellVM.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		04E6962C2CC67F8200DD4B8B /* DetailMealViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -883,6 +909,17 @@
 				04E696312CC698DD00DD4B8B /* DetailMealViewModel.swift */,
 			);
 			path = DetailMealViewController;
+			sourceTree = "<group>";
+		};
+		04F7E2A42CDA496600A1F39E /* YourOrder */ = {
+			isa = PBXGroup;
+			children = (
+				04DA268E2CDA6C3E0055CD9E /* Cell */,
+				04F7E2A52CDA497D00A1F39E /* YourOrderViewController.swift */,
+				04F7E2A62CDA497D00A1F39E /* YourOrderViewController.xib */,
+				04F7E2AB2CDA4E8000A1F39E /* YourOrderViewControllerVM.swift */,
+			);
+			path = YourOrder;
 			sourceTree = "<group>";
 		};
 		C46DB39EDA3F285AD649D95E /* Pods */ = {
@@ -1039,6 +1076,7 @@
 				048BECF22C85F8480087F446 /* CreateAccountViewController.xib in Resources */,
 				04C03E492C81772900DB9B0D /* yu-gothic-regular.ttf in Resources */,
 				04B4A7F22CD3B7E0008A50ED /* AddToOrderViewController.xib in Resources */,
+				04DA26922CDA6C790055CD9E /* ListTableOrderMealTableViewCell.xib in Resources */,
 				04343B772C8B12D8007D3331 /* FlagCodeNumberTableViewCell.xib in Resources */,
 				0491EC762CB006D000157BE7 /* SearchViewController.xib in Resources */,
 				048C75FB2C18324E001DB3AD /* PageThreeViewController.xib in Resources */,
@@ -1060,6 +1098,7 @@
 				048C75F32C18320E001DB3AD /* PageOneViewController.xib in Resources */,
 				04D05FD52CCA80A600675B9A /* ListMealForTypeTableViewCell.xib in Resources */,
 				042FFBB22CB7DEB9004B6D85 /* SliderImageCollectionViewCell.xib in Resources */,
+				04F7E2A82CDA497D00A1F39E /* YourOrderViewController.xib in Resources */,
 				0491EC7B2CB0071100157BE7 /* OrdersViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1211,13 +1250,16 @@
 				04B4A7F12CD3B7E0008A50ED /* AddToOrderViewController.swift in Sources */,
 				042FFBB62CB7E78F004B6D85 /* UICollectionViewEXT.swift in Sources */,
 				04343B782C8B12D8007D3331 /* FlagCodeNumberTableViewCell.swift in Sources */,
+				04F7E2AA2CDA49D000A1F39E /* Order.swift in Sources */,
 				047DB2E62CC93DF5006B3E5D /* GlobalFunction.swift in Sources */,
 				04C03E502C84114E00DB9B0D /* TextFieldLoginViewVM.swift in Sources */,
 				04156AA92CBEA4C6000A1B0F /* App.swift in Sources */,
 				048C75F22C18320E001DB3AD /* PageOneViewController.swift in Sources */,
+				04DA26942CDA6C820055CD9E /* ListTableOrderMealTableViewCellVM.swift in Sources */,
 				047DB2EA2CC94539006B3E5D /* TypeMealCollectionViewCell.swift in Sources */,
 				04882A012CD7705E00EC0930 /* HeaderChoiceMealTableView.swift in Sources */,
 				04C03E382C74786B00DB9B0D /* UIColor.swift in Sources */,
+				04DA26912CDA6C790055CD9E /* ListTableOrderMealTableViewCell.swift in Sources */,
 				048C75FA2C18324E001DB3AD /* PageThreeViewController.swift in Sources */,
 				041529B22BD7AB7800818A4A /* ScreenSize.swift in Sources */,
 				04E8DF262CD7D966008DB97D /* HeaderChoiceMealTableViewVM.swift in Sources */,
@@ -1244,6 +1286,7 @@
 				04E696322CC698DD00DD4B8B /* DetailMealViewModel.swift in Sources */,
 				048D96302CBD1E5400977AD1 /* ListAllResTableViewCellVM.swift in Sources */,
 				04D05FD62CCA80A600675B9A /* ListMealForTypeTableViewCell.swift in Sources */,
+				04F7E2A72CDA497D00A1F39E /* YourOrderViewController.swift in Sources */,
 				04B3CC3D2CB9105F00F95E94 /* Networking.swift in Sources */,
 				041529B62BE0D5D500818A4A /* OrangeButtonView.swift in Sources */,
 				0415297D2BD7595600818A4A /* ViewController.swift in Sources */,
@@ -1261,6 +1304,7 @@
 				046E777A2C6F547A000F6FD1 /* PageStackView.swift in Sources */,
 				048829FC2CD7283B00EC0930 /* AddToOrderViewControllerViewModel.swift in Sources */,
 				047DB2ED2CC94643006B3E5D /* TypeMealCollectionCellVM.swift in Sources */,
+				04F7E2AC2CDA4E8000A1F39E /* YourOrderViewControllerVM.swift in Sources */,
 				04156AA52CBE9865000A1B0F /* API.swift in Sources */,
 				04B3CC482CBBF5B600F95E94 /* CircleGrayView.swift in Sources */,
 				045578F22C97E1B600EA420B /* VerifylePhoneNumberVC.swift in Sources */,

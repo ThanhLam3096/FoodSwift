@@ -20,4 +20,5 @@ struct ScreenName {
     static let baseTabbar = FoodTabBarViewController()
     static let detailMeal = DetailMealViewController()
     static let addToOrder = AddToOrderViewController()
+    static let yourOrder = YourOrderViewController()
 }
