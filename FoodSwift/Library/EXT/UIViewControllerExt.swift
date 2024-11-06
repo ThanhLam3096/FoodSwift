@@ -37,4 +37,23 @@ extension UIViewController {
             print("Alert is Already Show")
         }
     }
+    
+    func pushFromBottom(to viewController: UIViewController, from currentViewController: UIViewController) {
+        // Tạo CATransition
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = .push
+        transition.subtype = .fromTop
+        currentViewController.navigationController?.view.layer.add(transition, forKey: kCATransition)
+        currentViewController.navigationController?.pushViewController(viewController, animated: false)
+    }
+    
+    func popToPreviousScreen(from currentViewController: UIViewController) {
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = .push
+        transition.subtype = .fromBottom
+        currentViewController.navigationController?.view.layer.add(transition, forKey: kCATransition)
+        currentViewController.navigationController?.popViewController(animated: false)
+    }
 }
