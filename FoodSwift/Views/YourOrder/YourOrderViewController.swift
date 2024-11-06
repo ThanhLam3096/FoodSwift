@@ -63,7 +63,11 @@ final class YourOrderViewController: BaseViewController {
         setUpFrameView()
         firstLineView.backgroundColor = Color.bodyTextColor.withAlphaComponent(0.3)
         secondLineView.backgroundColor = Color.bodyTextColor.withAlphaComponent(0.3)
-        continueButtonView.viewModel = OrangeButtonViewModel(title: "CONTINUE", totalPriceMeal: viewModel.yourOrderTotalPrice(isHaveFeeShip: true))
+        continueButtonView.viewModel = OrangeButtonViewModel(title: "CONTINUE", totalPriceMeal: viewModel.yourOrderTotalPrice)
+    }
+    
+    override func setUpData() {
+        viewModel.updateYourOrderTotalPrice()
     }
 
     private func setUpNavigation() {
@@ -92,10 +96,11 @@ final class YourOrderViewController: BaseViewController {
         setLabelFontAndTextColor(label: feeDeliveryLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.mainColor)
         setLabelFontAndTextColor(label: totalPriceLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.accentColor)
         setLabelFontAndTextColor(label: addMoreItemsLabel, labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.accentColor)
-        setLabelFontAndTextColor(label: promoCodeLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.mainColor)
+        setLabelFontAndTextColor(label: promoCodeLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.mainColor)  
         
-        valueSubTotalLabel.text = "Dollars$\(displayNumber(viewModel.yourOrderTotalPrice(isHaveFeeShip: false)))"
+        valueSubTotalLabel.text = "Dollars$\(displayNumber(viewModel.totalPrice))"
         feeDeliveryLabel.text = "$\(displayNumber(viewModel.feeShip))"
+        totalPriceLabel.text = "Dollars$\(displayNumber(viewModel.yourOrderTotalPrice))"
     }
     
     private func setLabelFontAndTextColor(label: UILabel, labelFont: UIFont, labelTextColor: UIColor) {

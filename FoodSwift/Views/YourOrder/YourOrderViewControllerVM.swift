@@ -10,6 +10,7 @@ import Foundation
 final class YourOrderViewControllerVM {
     let listMealOrder: [Order] = dummyOrderMeal.orderMeal
     var yourOrderTotalPrice: Double = 0
+    var totalPrice: Double = 0
     var feeShip: Double = 0
     
     func numberOfItemsInSection() -> Int {
@@ -22,10 +23,10 @@ final class YourOrderViewControllerVM {
         return model
     }
     
-    func yourOrderTotalPrice(isHaveFeeShip: Bool) -> Double {
+    func updateYourOrderTotalPrice() {
         listMealOrder.forEach { order in
-            yourOrderTotalPrice = yourOrderTotalPrice + (order.priceMeal * Double(order.totalNumberMeal))
+            totalPrice = totalPrice + (order.priceMeal * Double(order.totalNumberMeal))
         }
-        return isHaveFeeShip == true ? yourOrderTotalPrice + feeShip : yourOrderTotalPrice
+        yourOrderTotalPrice = totalPrice + feeShip
     }
 }
