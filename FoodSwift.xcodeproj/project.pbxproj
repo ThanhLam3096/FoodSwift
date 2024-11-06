@@ -416,6 +416,7 @@
 		041529A82BD7598700818A4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				046C49C12CDBB3E40078E514 /* AddPaymentMethods */,
 				04F7E2A42CDA496600A1F39E /* YourOrder */,
 				04B4A7EE2CD3B7C6008A50ED /* AddToOrder */,
 				048BECEE2C85F82E0087F446 /* CreateAccount */,
@@ -596,6 +597,13 @@
 				045578F02C97E1B600EA420B /* VerifylePhoneNumberVC.xib */,
 			);
 			path = VerifyPhoneNumber;
+			sourceTree = "<group>";
+		};
+		046C49C12CDBB3E40078E514 /* AddPaymentMethods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddPaymentMethods;
 			sourceTree = "<group>";
 		};
 		046E77782C6F4419000F6FD1 /* PageViewCustom */ = {
