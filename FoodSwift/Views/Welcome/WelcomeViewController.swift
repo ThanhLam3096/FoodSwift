@@ -62,6 +62,7 @@ class WelcomeViewController: BaseViewController {
         logoImageFoodImageView.image = UIImage(named: "icon-tamago")
         widthOfLogoConstraint.constant = ScreenSize.scaleWidth(65)
         spaceTopOfLogoConstraint.constant = ScreenSize.scaleHeight(95)
+        spaceLeftOfLogoConstraint.constant = ScreenSize.scaleWidth(20)
         
         let image = UIImage(named: "Welcome-image")
         welcomeImageView.image = image
@@ -71,11 +72,9 @@ class WelcomeViewController: BaseViewController {
     }
     
     private func setUpLabel() {
-        setLabelFontAndTextColor(label: titleLabel, text: "Tamang \nFoodService", labelFont: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(37)) ?? UIFont.boldSystemFont(ofSize: 37), labelTextColor: Color.bodyTextColor)
+        setLabelFontAndTextColor(label: titleLabel, text: "Tamang \nFoodService", labelFont: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleWidth(37)) ?? UIFont.boldSystemFont(ofSize: 37), labelTextColor: Color.bodyTextColor)
         setLabelFontAndTextColor(label: welcomeLabel, text: "Welcome", labelFont: UIFont.boldSystemFont(ofSize: ScreenSize.scaleHeight(28)), labelTextColor: Color.mainColor)
         setLabelFontAndTextColor(label: contentLabel, text: "It’s a pleasure to meet you. We are excited that you’re here so let’s get started!", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: UIColor(hex: "#3A3A3A"))
-        
-        contentLabel.text = "It’s a pleasure to meet you. We are excited that you’re here so let’s get started!"
         leadingContentConstraint.constant = ScreenSize.scaleWidth(40)
         trailingContentConstraint.constant = ScreenSize.scaleWidth(40)
     }
