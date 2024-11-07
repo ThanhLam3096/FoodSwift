@@ -78,17 +78,17 @@ public extension UITableView {
     /// SwifterSwift: Scroll to bottom of TableView.
     ///
     /// - Parameter animated: set true to animate scroll (default is true).
-//    public func scrollToBottom(animated: Bool = true) {
-//        let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height)
-//        setContentOffset(bottomOffset, animated: animated)
-//    }
+    public func scrollToBottom(animated: Bool = true) {
+        let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height)
+        setContentOffset(bottomOffset, animated: animated)
+    }
 
     /// SwifterSwift: Scroll to top of TableView.
     ///
     /// - Parameter animated: set true to animate scroll (default is true).
-//    public func scrollToTop(animated: Bool = true) {
-//        setContentOffset(CGPoint.zero, animated: animated)
-//    }
+    public func scrollToTop(animated: Bool = true) {
+        setContentOffset(CGPoint.zero, animated: animated)
+    }
 
     /// SwifterSwift: Dequeue reusable UITableViewCell using class name
     ///

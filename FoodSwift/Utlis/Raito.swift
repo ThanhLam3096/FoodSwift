@@ -6,7 +6,8 @@
 //
 
 import Foundation
-import SwifterSwift
+import UIKit
+//import SwifterSwift
 
 let ratio = Ratio.horizontal
 let screenSize = UIScreen.main.bounds.size
@@ -47,7 +48,7 @@ public enum DeviceType {
     ///
     /// - Returns: Name of the current screen
     static func currentDevice() -> DeviceType {
-        switch kScreenSize {
+        switch screenSize {
         case DeviceType.iPhone4.size: return .iPhone4
         case DeviceType.iPhone5.size: return .iPhone5
         case DeviceType.iPhone6.size: return .iPhone6
