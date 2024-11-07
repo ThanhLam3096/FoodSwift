@@ -9,42 +9,88 @@ import UIKit
 
 class WelcomeViewController: BaseViewController {
 
+    // MARK: IBOutlet
     @IBOutlet private weak var circleTopView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet weak var heightImageView: NSLayoutConstraint!
-    @IBOutlet weak var widthImageView: NSLayoutConstraint!
     @IBOutlet private weak var welcomeImageView: UIImageView!
     @IBOutlet private weak var logoImageFoodImageView: UIImageView!
     @IBOutlet private weak var welcomeLabel: UILabel!
-    @IBOutlet weak var spaceWelcomeImageConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var titleWelcomeLabel: UILabel!
+    @IBOutlet private weak var contentLabel: UILabel!
     @IBOutlet weak var welcomeButtonView: OrangeButtonView!
+    
+    // MARK: Constraint
+    @IBOutlet private weak var widthOfCircleTopViewConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var spaceTopOutSideCircleTopView: NSLayoutConstraint!
+    @IBOutlet private weak var spaceLeftOutSideCircleTopView: NSLayoutConstraint!
+    
+    @IBOutlet private weak var widthOfLogoConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var spaceTopOfLogoConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var spaceLeftOfLogoConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var heightImageView: NSLayoutConstraint!
+    @IBOutlet private weak var widthImageView: NSLayoutConstraint!
+    @IBOutlet private weak var spaceWelcomeImageConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var leadingContentConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var trailingContentConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var widthOfGetStartButtonConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightOfGetStartButtonConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var topSpaceOfGetStartButtonConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUIWelcomeButtonView()
+        
     }
     
     override func setUpUI() {
+        setUpCirCleTopView()
+        setUpImageView()
+        setUpLabel()
+    }
+    
+    private func setUpCirCleTopView() {
+        widthOfCircleTopViewConstraint.constant = ScreenSize.scaleHeight(437)
+        circleTopView.layer.cornerRadius = ScreenSize.scaleHeight(437 / 2)
+        circleTopView.backgroundColor = UIColor(hex: "##FCF7ED")
+        spaceTopOutSideCircleTopView.constant = -ScreenSize.scaleHeight(49)
+        spaceLeftOutSideCircleTopView.constant = -ScreenSize.scaleWidth(101)
+    }
+    
+    private func setUpImageView() {
         logoImageFoodImageView.image = UIImage(named: "icon-tamago")
-        circleTopView.layer.cornerRadius = 437 / 2
-        circleTopView.backgroundColor = UIColor(red: 252/255, green: 247/255, blue: 237/255, alpha: 1.0)
-        titleLabel.text = "Tamang \nFoodService"
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 37.0)
-        titleLabel.textColor = UIColor(red: 138/255, green: 164/255, blue: 189/255, alpha: 1.0)
+        widthOfLogoConstraint.constant = ScreenSize.scaleWidth(65)
+        spaceTopOfLogoConstraint.constant = ScreenSize.scaleHeight(95)
+        
         let image = UIImage(named: "Welcome-image")
-        spaceWelcomeImageConstraint.constant = 212 / 812 * ScreenSize.screenHeight
         welcomeImageView.image = image
-        heightImageView.constant = (243 / 812) * ScreenSize.screenHeight
-        widthImageView.constant = (213 / 375) * ScreenSize.screenWidth
-        welcomeLabel.text = "Welcome"
-        titleWelcomeLabel.text = "It’s a pleasure to meet you. We are excited that you’re here so let’s get started!"
-        titleWelcomeLabel.widthAnchor.constraint(equalToConstant: 327 / 375 * ScreenSize.screenWidth).isActive = true
-        titleWelcomeLabel.heightAnchor.constraint(equalToConstant: 72 / 812 * ScreenSize.screenHeight).isActive = true
+        spaceWelcomeImageConstraint.constant = ScreenSize.scaleHeight(212)
+        heightImageView.constant = ScreenSize.scaleHeight(243)
+        widthImageView.constant = ScreenSize.scaleWidth(213)
+    }
+    
+    private func setUpLabel() {
+        setLabelFontAndTextColor(label: titleLabel, text: "Tamang \nFoodService", labelFont: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(37)) ?? UIFont.boldSystemFont(ofSize: 37), labelTextColor: Color.bodyTextColor)
+        setLabelFontAndTextColor(label: welcomeLabel, text: "Welcome", labelFont: UIFont.boldSystemFont(ofSize: ScreenSize.scaleHeight(28)), labelTextColor: Color.mainColor)
+        setLabelFontAndTextColor(label: contentLabel, text: "It’s a pleasure to meet you. We are excited that you’re here so let’s get started!", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: UIColor(hex: "#3A3A3A"))
+        
+        contentLabel.text = "It’s a pleasure to meet you. We are excited that you’re here so let’s get started!"
+        leadingContentConstraint.constant = ScreenSize.scaleWidth(40)
+        trailingContentConstraint.constant = ScreenSize.scaleWidth(40)
+    }
+    
+    private func setLabelFontAndTextColor(label: UILabel,text: String , labelFont: UIFont, labelTextColor: UIColor) {
+        label.text = text
+        label.font = labelFont
+        label.textColor = labelTextColor
     }
     
     private func setUpUIWelcomeButtonView() {
         welcomeButtonView.delegate = self
+        widthOfGetStartButtonConstraint.constant = ScreenSize.scaleWidth(335)
+        heightOfGetStartButtonConstraint.constant = ScreenSize.scaleHeight(48)
+        topSpaceOfGetStartButtonConstraint.constant = ScreenSize.scaleHeight(60)
     }
 }
 
