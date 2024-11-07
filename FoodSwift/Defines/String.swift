@@ -29,5 +29,6 @@ extension App {
         static let cancelString = "Cancel"
         static let titleAddInstructions = "Add Special Instructions"
         static let messageAddInstructions = "Add Info Meal Do You Want More Here"
+        static let subjectMethodsPayment = "This card will only be charged when\n you place an order."
     }
 }

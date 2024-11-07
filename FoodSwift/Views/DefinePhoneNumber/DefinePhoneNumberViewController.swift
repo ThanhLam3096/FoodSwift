@@ -10,7 +10,6 @@ import UIKit
 final class DefinePhoneNumberViewController: BaseViewController {
     
     // MARK: - @IBOutlet
-    @IBOutlet var DefinePhoneNumberView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var title2Label: UILabel!
     @IBOutlet private weak var dropDownMenu: UIButton!
@@ -78,7 +77,7 @@ final class DefinePhoneNumberViewController: BaseViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture.cancelsTouchesInView = false
-        DefinePhoneNumberView.addGestureRecognizer(tapGesture)
+        view.addGestureRecognizer(tapGesture)
     }
     
     private func setUpSignUPButton() {

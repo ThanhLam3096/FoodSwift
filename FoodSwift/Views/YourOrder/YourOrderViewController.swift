@@ -64,6 +64,7 @@ final class YourOrderViewController: BaseViewController {
         firstLineView.backgroundColor = Color.bodyTextColor.withAlphaComponent(0.3)
         secondLineView.backgroundColor = Color.bodyTextColor.withAlphaComponent(0.3)
         continueButtonView.viewModel = OrangeButtonViewModel(title: "CONTINUE", totalPriceMeal: viewModel.yourOrderTotalPrice)
+        continueButtonView.delegate = self
     }
     
     override func setUpData() {
@@ -164,5 +165,11 @@ extension YourOrderViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return ScreenSize.scaleHeight(140)
+    }
+}
+
+extension YourOrderViewController: OrangeButtonViewViewDelegate {
+    func tappingInsideButton(view: OrangeButtonView) {
+        navigationController?.pushViewController(ScreenName.addYourPaymentMethos, animated: true)
     }
 }

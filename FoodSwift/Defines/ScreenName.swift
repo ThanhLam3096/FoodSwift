@@ -21,4 +21,5 @@ struct ScreenName {
     static let detailMeal = DetailMealViewController()
     static let addToOrder = AddToOrderViewController()
     static let yourOrder = YourOrderViewController()
+    static let addYourPaymentMethos = AddYourPaymentMethodViewController()
 }
