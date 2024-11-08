@@ -15,11 +15,13 @@
                 <outlet property="contentFavoriteLabel" destination="KC5-zv-2NW" id="NmB-d7-wfW"/>
                 <outlet property="favoriteLabel" destination="JOK-TA-F7m" id="v0y-WG-3th"/>
                 <outlet property="favoriteMealImageView" destination="klA-cc-rqW" id="8e1-gp-LX7"/>
+                <outlet property="heightOfPageControlConstraint" destination="wP2-4u-IgQ" id="rbb-pk-NaB"/>
                 <outlet property="heightStartButtonView" destination="YAQ-af-wbe" id="I2P-L0-6RB"/>
                 <outlet property="leadingContentFavoriteLabelConstraint" destination="geI-D9-HyU" id="Mmo-xB-Z86"/>
                 <outlet property="leftSpaceOfLogoConstraint" destination="R5p-28-tLn" id="dhJ-ip-RRK"/>
                 <outlet property="logoFoodImageView" destination="0lQ-rA-euc" id="1gN-2N-Y9W"/>
                 <outlet property="pageView" destination="FUp-9E-Izw" id="pJj-Up-84H"/>
+                <outlet property="spaceBottomFavoriteImageConstraint" destination="0ac-Y8-Xil" id="oMK-Se-vNB"/>
                 <outlet property="spaceTopFavoriteImageConstraint" destination="MEQ-fB-Js0" id="qf9-hJ-hxI"/>
                 <outlet property="titleLabel" destination="hkm-gf-66E" id="Mpy-pP-L3B"/>
                 <outlet property="topSpaceContentFavoriteLabelConstraint" destination="AzK-dM-LTs" id="TmU-IO-roj"/>
@@ -30,6 +32,7 @@
                 <outlet property="welcomeButtonView" destination="iYR-1N-hDn" id="QYe-uD-ZBT"/>
                 <outlet property="widthOfFavoriteImageConstraint" destination="WkR-UR-niK" id="d1h-Ct-z9o"/>
                 <outlet property="widthOfLogoConstraint" destination="WAM-3E-DaT" id="JPS-Nn-GSf"/>
+                <outlet property="widthOfPageControlConstraint" destination="yXj-gZ-oPX" id="WjB-iJ-QYs"/>
                 <outlet property="widthStartButtonView" destination="kqc-j2-8AX" id="aQf-ND-a5B"/>
             </connections>
         </placeholder>
@@ -65,8 +68,8 @@
                         <constraint firstAttribute="width" constant="299" id="WkR-UR-niK"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOK-TA-F7m">
-                    <rect key="frame" x="122.5" y="434" width="75.5" height="26"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOK-TA-F7m">
+                    <rect key="frame" x="103" y="434" width="114.5" height="26"/>
                     <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="26"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>

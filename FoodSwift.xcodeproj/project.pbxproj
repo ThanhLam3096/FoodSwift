@@ -30,6 +30,7 @@
 		04156AA92CBEA4C6000A1B0F /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04156AA82CBEA4C6000A1B0F /* App.swift */; };
 		04156AAD2CBEA6EB000A1B0F /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04156AAC2CBEA6EB000A1B0F /* UIViewControllerExt.swift */; };
 		04156AAF2CBEA759000A1B0F /* DataEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04156AAE2CBEA759000A1B0F /* DataEXT.swift */; };
+		041C96BE2CDDC121002CEC50 /* ting_ting.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 041C96BD2CDDC121002CEC50 /* ting_ting.mp3 */; };
 		042FCE2E2CC3D8D600144702 /* FeaturePartnersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FCE2C2CC3D8D600144702 /* FeaturePartnersViewController.swift */; };
 		042FCE2F2CC3D8D600144702 /* FeaturePartnersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FCE2D2CC3D8D600144702 /* FeaturePartnersViewController.xib */; };
 		042FCE332CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FCE312CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.swift */; };
@@ -63,6 +64,7 @@
 		04448B1F2CDC9C3300351D26 /* KeyBoardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04448B1E2CDC9C3300351D26 /* KeyBoardObserver.swift */; };
 		045578F12C97E1B600EA420B /* VerifylePhoneNumberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045578F02C97E1B600EA420B /* VerifylePhoneNumberVC.xib */; };
 		045578F22C97E1B600EA420B /* VerifylePhoneNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045578EF2C97E1B600EA420B /* VerifylePhoneNumberVC.swift */; };
+		045B35472CDDBE3000D879C7 /* gun_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 045B35462CDDBE3000D879C7 /* gun_sound.mp3 */; };
 		0463F9A92C8B2CC900DFA5E7 /* UITableViewEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463F9A82C8B2CC900DFA5E7 /* UITableViewEXT.swift */; };
 		046C49C42CDBB4CA0078E514 /* AddYourPaymentMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C49C22CDBB4CA0078E514 /* AddYourPaymentMethodViewController.swift */; };
 		046C49C52CDBB4CA0078E514 /* AddYourPaymentMethodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046C49C32CDBB4CA0078E514 /* AddYourPaymentMethodViewController.xib */; };
@@ -197,6 +199,7 @@
 		04156AA82CBEA4C6000A1B0F /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		04156AAC2CBEA6EB000A1B0F /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		04156AAE2CBEA759000A1B0F /* DataEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEXT.swift; sourceTree = "<group>"; };
+		041C96BD2CDDC121002CEC50 /* ting_ting.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ting_ting.mp3; sourceTree = "<group>"; };
 		042FCE2C2CC3D8D600144702 /* FeaturePartnersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturePartnersViewController.swift; sourceTree = "<group>"; };
 		042FCE2D2CC3D8D600144702 /* FeaturePartnersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturePartnersViewController.xib; sourceTree = "<group>"; };
 		042FCE312CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFeaturePartnersCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -230,6 +233,7 @@
 		04448B1E2CDC9C3300351D26 /* KeyBoardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardObserver.swift; sourceTree = "<group>"; };
 		045578EF2C97E1B600EA420B /* VerifylePhoneNumberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifylePhoneNumberVC.swift; sourceTree = "<group>"; };
 		045578F02C97E1B600EA420B /* VerifylePhoneNumberVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerifylePhoneNumberVC.xib; sourceTree = "<group>"; };
+		045B35462CDDBE3000D879C7 /* gun_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gun_sound.mp3; sourceTree = "<group>"; };
 		0463F9A82C8B2CC900DFA5E7 /* UITableViewEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewEXT.swift; sourceTree = "<group>"; };
 		046C49C22CDBB4CA0078E514 /* AddYourPaymentMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddYourPaymentMethodViewController.swift; sourceTree = "<group>"; };
 		046C49C32CDBB4CA0078E514 /* AddYourPaymentMethodViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddYourPaymentMethodViewController.xib; sourceTree = "<group>"; };
@@ -388,6 +392,7 @@
 		041529772BD7595600818A4A /* FoodSwift */ = {
 			isa = PBXGroup;
 			children = (
+				045B35482CDDBE3A00D879C7 /* Sound */,
 				0470D9712CDCC9980063E520 /* Utlis */,
 				04156AAA2CBEA6D1000A1B0F /* Library */,
 				04B3CC392CB9102E00F95E94 /* Model */,
@@ -599,6 +604,15 @@
 				045578F02C97E1B600EA420B /* VerifylePhoneNumberVC.xib */,
 			);
 			path = VerifyPhoneNumber;
+			sourceTree = "<group>";
+		};
+		045B35482CDDBE3A00D879C7 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				041C96BD2CDDC121002CEC50 /* ting_ting.mp3 */,
+				045B35462CDDBE3000D879C7 /* gun_sound.mp3 */,
+			);
+			path = Sound;
 			sourceTree = "<group>";
 		};
 		046C49C12CDBB3E40078E514 /* AddPaymentMethods */ = {
@@ -1078,6 +1092,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045B35472CDDBE3000D879C7 /* gun_sound.mp3 in Resources */,
 				04882A052CD773F100EC0930 /* YuGothL.ttc in Resources */,
 				048C75F72C183221001DB3AD /* PageTwoViewController.xib in Resources */,
 				0491EC892CB12BE200157BE7 /* HeaderHomeView.xib in Resources */,
@@ -1123,6 +1138,7 @@
 				04D05FD52CCA80A600675B9A /* ListMealForTypeTableViewCell.xib in Resources */,
 				042FFBB22CB7DEB9004B6D85 /* SliderImageCollectionViewCell.xib in Resources */,
 				04F7E2A82CDA497D00A1F39E /* YourOrderViewController.xib in Resources */,
+				041C96BE2CDDC121002CEC50 /* ting_ting.mp3 in Resources */,
 				0491EC7B2CB0071100157BE7 /* OrdersViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
