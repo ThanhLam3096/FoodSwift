@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -10,14 +11,28 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PageThreeViewController" customModule="FoodSwift" customModuleProvider="target">
             <connections>
+                <outlet property="botSpaceSologanOrderLabelConstraint" destination="NDE-VX-Rz5" id="ayz-vk-MTa"/>
                 <outlet property="chooseFoodLabel" destination="1LV-zQ-viK" id="IqX-lU-Ya3"/>
+                <outlet property="heightOfPageControlConstraint" destination="LfW-KR-I8S" id="sxP-wx-VHs"/>
                 <outlet property="heightStartButtonView" destination="l6C-IK-VYA" id="mGk-5n-mYy"/>
+                <outlet property="leadingSologanOrderLabelConstraint" destination="d6G-EN-h5v" id="gOF-Z2-yFn"/>
+                <outlet property="leftSpaceOfLogoConstraint" destination="l7z-b4-uAv" id="kai-R6-08c"/>
                 <outlet property="logoFoodImageView" destination="gMu-3N-CZD" id="LcM-hy-Dya"/>
+                <outlet property="orderMealImageView" destination="sZR-9K-8Z3" id="mRL-hv-yBO"/>
                 <outlet property="pageView" destination="gPx-sx-06Q" id="TVg-r2-b8M"/>
-                <outlet property="sologanTitleLabel" destination="AgH-i8-Ym1" id="Ngv-GP-aLE"/>
+                <outlet property="sologanOrderLabel" destination="AgH-i8-Ym1" id="Ngv-GP-aLE"/>
+                <outlet property="spaceBottomOrderImageConstraint" destination="Izw-gg-qkF" id="8Kr-Qe-5Bw"/>
+                <outlet property="spaceTopOrderImageConstraint" destination="kZI-8r-1AZ" id="ApD-ki-4v2"/>
                 <outlet property="titleLabel" destination="Cn2-iG-oZT" id="w9n-26-hgs"/>
+                <outlet property="topSpaceOfLogoConstraint" destination="aLI-fo-3qP" id="1rc-Dz-j5o"/>
+                <outlet property="topSpaceOfStartButtonView" destination="pZh-Xw-N53" id="ooM-r0-UIA"/>
+                <outlet property="topSpaceSologanOrderLabelConstraint" destination="Ns9-uf-r2x" id="03i-eZ-Y36"/>
+                <outlet property="trailingSologanOrderLabelConstraint" destination="gjA-um-di5" id="YT2-lp-KIh"/>
                 <outlet property="view" destination="x4x-Oz-I5x" id="FBi-Ly-qEa"/>
                 <outlet property="welcomeButtonView" destination="5QM-g2-sf3" id="A8M-mw-IP9"/>
+                <outlet property="widthOfLogoConstraint" destination="0nL-N8-7ke" id="YLu-yE-t0d"/>
+                <outlet property="widthOfOrderImageConstraint" destination="SjX-eV-X1z" id="bis-WC-pCu"/>
+                <outlet property="widthOfPageControlConstraint" destination="Vyl-Af-Nxh" id="XpS-eE-2JR"/>
                 <outlet property="widthStartButtonView" destination="OCL-jC-b6L" id="KHS-lX-OFe"/>
             </connections>
         </placeholder>
@@ -30,7 +45,7 @@
                     <rect key="frame" x="30" y="110" width="65" height="65"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="65" id="0nL-N8-7ke"/>
-                        <constraint firstAttribute="height" constant="65" id="Xhi-C6-Kb8"/>
+                        <constraint firstAttribute="width" secondItem="gMu-3N-CZD" secondAttribute="height" multiplier="1:1" id="YCs-U1-eav"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cn2-iG-oZT">
@@ -43,7 +58,7 @@
                     <rect key="frame" x="47" y="215" width="299" height="299"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="299" id="SjX-eV-X1z"/>
-                        <constraint firstAttribute="height" constant="299" id="X9b-py-tra"/>
+                        <constraint firstAttribute="width" secondItem="sZR-9K-8Z3" secondAttribute="height" multiplier="1:1" id="ndN-aj-8VP"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1LV-zQ-viK">
@@ -57,7 +72,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgH-i8-Ym1">
-                    <rect key="frame" x="175.33333333333334" y="584" width="42.333333333333343" height="16"/>
+                    <rect key="frame" x="30" y="584" width="333" height="16"/>
                     <attributedString key="attributedText">
                         <fragment content="Label">
                             <attributes>
@@ -96,6 +111,8 @@
                 <constraint firstItem="AgH-i8-Ym1" firstAttribute="top" secondItem="1LV-zQ-viK" secondAttribute="bottom" constant="20" id="Ns9-uf-r2x"/>
                 <constraint firstItem="gMu-3N-CZD" firstAttribute="top" secondItem="x4x-Oz-I5x" secondAttribute="top" constant="110" id="aLI-fo-3qP"/>
                 <constraint firstItem="Cn2-iG-oZT" firstAttribute="top" secondItem="gMu-3N-CZD" secondAttribute="top" id="ciV-VC-f5G"/>
+                <constraint firstItem="AgH-i8-Ym1" firstAttribute="leading" secondItem="a8U-yC-EyY" secondAttribute="leading" constant="30" id="d6G-EN-h5v"/>
+                <constraint firstItem="a8U-yC-EyY" firstAttribute="trailing" secondItem="AgH-i8-Ym1" secondAttribute="trailing" constant="30" id="gjA-um-di5"/>
                 <constraint firstItem="sZR-9K-8Z3" firstAttribute="top" secondItem="gMu-3N-CZD" secondAttribute="bottom" constant="40" id="kZI-8r-1AZ"/>
                 <constraint firstItem="gMu-3N-CZD" firstAttribute="leading" secondItem="a8U-yC-EyY" secondAttribute="leading" constant="30" id="l7z-b4-uAv"/>
                 <constraint firstItem="5QM-g2-sf3" firstAttribute="top" secondItem="gPx-sx-06Q" secondAttribute="bottom" constant="35" id="pZh-Xw-N53"/>

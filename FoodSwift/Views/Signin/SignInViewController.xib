@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,9 +17,11 @@
                 <outlet property="facebookLoginButton" destination="c1o-xR-wlf" id="lSd-Cc-Ad4"/>
                 <outlet property="forgotPasswordButton" destination="Ewr-eb-CFJ" id="qap-yk-aBh"/>
                 <outlet property="googleLoginButton" destination="6MT-25-LyN" id="ukn-Q1-Q0e"/>
+                <outlet property="leadingOfTitleSuperViewConstrain" destination="UHt-Ot-TNd" id="qcH-FQ-rFE"/>
                 <outlet property="orLabel" destination="MZE-xc-Rm5" id="Ag8-M2-dI0"/>
                 <outlet property="passwordFormView" destination="IHX-8F-SBN" id="B8i-Sg-7S3"/>
                 <outlet property="signInButtonView" destination="ShR-iq-KcU" id="uWR-DT-PNW"/>
+                <outlet property="spaceOfBetweenTitleConstraint" destination="ij6-GV-fe6" id="eC5-a8-cQM"/>
                 <outlet property="title2IntroLabel" destination="u8w-uv-Y8q" id="kuU-QY-pmO"/>
                 <outlet property="titleIntroLabel" destination="nfF-PO-sLK" id="Ggb-X7-ycX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="JQD-Hj-cBc"/>
@@ -35,52 +38,48 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jp7-Jl-AFi">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfF-PO-sLK">
-                                    <rect key="frame" x="20" y="0.0" width="74.666666666666671" height="100"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="100" id="YdR-ES-vpu"/>
-                                    </constraints>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfF-PO-sLK">
+                                    <rect key="frame" x="20" y="0.0" width="74.666666666666671" height="17"/>
                                     <attributedString key="attributedText">
                                         <fragment content="TextIntro">
                                             <attributes>
+                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <font key="NSFont" size="17" name="HiraginoSans-W3"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="10" tighteningFactorForTruncation="0.0"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8w-uv-Y8q">
-                                    <rect key="frame" x="20.000000000000004" y="100" width="41.333333333333343" height="74"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="74" id="wQB-ur-vP5"/>
-                                    </constraints>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8w-uv-Y8q">
+                                    <rect key="frame" x="20.000000000000004" y="59.000000000000007" width="41.333333333333343" height="20.333333333333336"/>
                                     <attributedString key="attributedText">
                                         <fragment content="Label">
                                             <attributes>
+                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <font key="NSFont" metaFont="system" size="17"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ej-as-0wG" userLabel="EmailForm" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="174" width="353" height="65"/>
+                                    <rect key="frame" x="20" y="79.333333333333343" width="353" height="65"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="65" id="q6B-Yt-96t"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IHX-8F-SBN" userLabel="PasswordForm" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="249" width="353" height="65"/>
+                                    <rect key="frame" x="20" y="154.33333333333334" width="353" height="65"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="65" id="CpP-bj-dsM"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ewr-eb-CFJ" userLabel="ForgotPassword">
-                                    <rect key="frame" x="159" y="324" width="75" height="38.333333333333314"/>
+                                    <rect key="frame" x="159" y="229.33333333333331" width="75" height="38.333333333333314"/>
                                     <color key="tintColor" systemColor="systemBrownColor"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
@@ -89,14 +88,14 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ShR-iq-KcU" userLabel="SignInButton" customClass="OrangeButtonView" customModule="FoodSwift" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="382.33333333333331" width="353" height="48"/>
+                                    <rect key="frame" x="20" y="287.66666666666669" width="353" height="48"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="nBM-W1-gQ2"/>
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCe-7b-UdE">
-                                    <rect key="frame" x="40" y="450.33333333333331" width="313" height="12"/>
+                                    <rect key="frame" x="40" y="355.66666666666669" width="313" height="12"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XjK-CT-xIJ">
                                             <rect key="frame" x="0.0" y="0.0" width="156.66666666666666" height="12"/>
@@ -135,20 +134,20 @@
                                     </constraints>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZE-xc-Rm5">
-                                    <rect key="frame" x="187" y="482.33333333333337" width="19" height="20.333333333333314"/>
+                                    <rect key="frame" x="187" y="387.66666666666669" width="19" height="20.333333333333314"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1o-xR-wlf" userLabel="Facebook" customClass="SocialButtonView" customModule="FoodSwift" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="522.66666666666663" width="353" height="44"/>
+                                    <rect key="frame" x="20" y="428" width="353" height="44"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="MD5-zS-lOU"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6MT-25-LyN" userLabel="Google" customClass="SocialButtonView" customModule="FoodSwift" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="586.66666666666663" width="353" height="44"/>
+                                    <rect key="frame" x="20" y="492" width="353" height="44"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="EVP-lj-RCB"/>
@@ -163,6 +162,7 @@
                                 <constraint firstItem="3ej-as-0wG" firstAttribute="leading" secondItem="jp7-Jl-AFi" secondAttribute="leading" constant="20" id="6Zw-WB-QDq"/>
                                 <constraint firstAttribute="trailing" secondItem="IHX-8F-SBN" secondAttribute="trailing" constant="20" id="FI1-9B-gsa"/>
                                 <constraint firstAttribute="trailing" secondItem="3ej-as-0wG" secondAttribute="trailing" constant="20" id="Foz-ms-vyT"/>
+                                <constraint firstItem="u8w-uv-Y8q" firstAttribute="leading" secondItem="nfF-PO-sLK" secondAttribute="leading" id="LLk-LI-F8S"/>
                                 <constraint firstItem="ShR-iq-KcU" firstAttribute="leading" secondItem="jp7-Jl-AFi" secondAttribute="leading" constant="20" id="MGh-r9-C6v"/>
                                 <constraint firstItem="ShR-iq-KcU" firstAttribute="top" secondItem="Ewr-eb-CFJ" secondAttribute="bottom" constant="20" id="MqQ-8u-jSL"/>
                                 <constraint firstItem="IHX-8F-SBN" firstAttribute="top" secondItem="3ej-as-0wG" secondAttribute="bottom" constant="10" id="NoR-hn-6qb"/>
@@ -177,14 +177,13 @@
                                 <constraint firstItem="3ej-as-0wG" firstAttribute="top" secondItem="u8w-uv-Y8q" secondAttribute="bottom" id="fqj-ev-ntB"/>
                                 <constraint firstItem="DCe-7b-UdE" firstAttribute="centerX" secondItem="jp7-Jl-AFi" secondAttribute="centerX" id="gWr-H8-Bm0"/>
                                 <constraint firstItem="DCe-7b-UdE" firstAttribute="top" secondItem="ShR-iq-KcU" secondAttribute="bottom" constant="20" id="hmn-bZ-eCp"/>
+                                <constraint firstItem="u8w-uv-Y8q" firstAttribute="top" secondItem="nfF-PO-sLK" secondAttribute="bottom" constant="42" id="ij6-GV-fe6"/>
                                 <constraint firstItem="Ewr-eb-CFJ" firstAttribute="top" secondItem="IHX-8F-SBN" secondAttribute="bottom" constant="10" id="jpk-wo-WIi"/>
                                 <constraint firstAttribute="trailing" secondItem="DCe-7b-UdE" secondAttribute="trailing" constant="40" id="o4r-kG-FzB"/>
                                 <constraint firstItem="c1o-xR-wlf" firstAttribute="leading" secondItem="jp7-Jl-AFi" secondAttribute="leading" constant="20" id="sL9-tm-bhp"/>
-                                <constraint firstItem="u8w-uv-Y8q" firstAttribute="top" secondItem="nfF-PO-sLK" secondAttribute="bottom" id="sQd-yq-19C"/>
                                 <constraint firstItem="Ewr-eb-CFJ" firstAttribute="centerX" secondItem="jp7-Jl-AFi" secondAttribute="centerX" id="tUp-BC-kh5"/>
                                 <constraint firstItem="IHX-8F-SBN" firstAttribute="leading" secondItem="jp7-Jl-AFi" secondAttribute="leading" constant="20" id="uno-Su-dz3"/>
                                 <constraint firstAttribute="trailing" secondItem="6MT-25-LyN" secondAttribute="trailing" constant="20" id="x0K-Rf-Oag"/>
-                                <constraint firstItem="u8w-uv-Y8q" firstAttribute="leading" secondItem="jp7-Jl-AFi" secondAttribute="leading" constant="20" id="xQ3-oa-ENB"/>
                             </constraints>
                         </view>
                     </subviews>

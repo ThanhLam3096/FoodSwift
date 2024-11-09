@@ -9,6 +9,7 @@ import UIKit
 
 class SignInViewController: BaseViewController {
     
+    // MARK: IBOutlet
     @IBOutlet private weak var titleIntroLabel: UILabel!
     @IBOutlet private weak var title2IntroLabel: UILabel!
     @IBOutlet private weak var emailFormView: TextFieldLoginView!
@@ -21,21 +22,18 @@ class SignInViewController: BaseViewController {
     @IBOutlet private weak var googleLoginButton: SocialButtonView!
     @IBOutlet private weak var facebookLoginButton: SocialButtonView!
 
+    // MARK: Constraint
+    @IBOutlet weak var leadingOfTitleSuperViewConstrain: NSLayoutConstraint!
+    @IBOutlet private weak var spaceOfBetweenTitleConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func setUpUI() {
-        titleIntroLabel.text = "Welcome to Tamang\nFood Services"
-        titleIntroLabel.numberOfLines = 0
-        titleIntroLabel.textAlignment = NSTextAlignment.left
-        titleIntroLabel.font = UIFont.fontYugothicLight(ofSize: 33)
-        title2IntroLabel.text = "Enter your Phone number or Email\naddress for sign in. Enjoy your food :)"
-        title2IntroLabel.font = UIFont.fontYugothicUIRegular(ofSize: 16)
-        title2IntroLabel.textColor = Color.bodyTextColor
-        title2IntroLabel.numberOfLines = 0
-        title2IntroLabel.textAlignment = NSTextAlignment.left
+        setUpLabel()
         setUpNavigation()
+        
         setUpEmailForm()
         setUpPasswordForm()
         forgotPasswordButton.setAttributedTitle(NSAttributedString(string: "Forget Password?", attributes: [
@@ -74,6 +72,20 @@ class SignInViewController: BaseViewController {
         let backItem = UIBarButtonItem(image: UIImage(named: "back") , style: .plain, target: self, action: #selector(leftAction))
         navigationItem.leftBarButtonItem = backItem
         navigationItem.leftBarButtonItem?.tintColor = .black
+    }
+    
+    private func setUpLabel() {
+        setLabelFontAndTextColor(label: titleIntroLabel, text: "Welcome to Tamang\nFood Services", labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(33)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(33)), labelTextColor: Color.mainColor)
+        leadingOfTitleSuperViewConstrain.constant = ScreenSize.scaleHeight(20)
+        spaceOfBetweenTitleConstraint.constant = ScreenSize.scaleHeight(20)
+        
+        setLabelFontAndTextColor(label: title2IntroLabel, text: "Enter your Phone number or Email\naddress for sign in. Enjoy your food :)", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(16)), labelTextColor: Color.bodyTextColor)
+    }
+    
+    private func setLabelFontAndTextColor(label: UILabel,text: String , labelFont: UIFont, labelTextColor: UIColor) {
+        label.text = text
+        label.font = labelFont
+        label.textColor = labelTextColor
     }
     
     private func setUpEmailForm() {
