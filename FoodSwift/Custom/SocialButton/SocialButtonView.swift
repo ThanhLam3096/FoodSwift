@@ -34,7 +34,8 @@ class SocialButtonView: UIView {
         guard let viewModel = viewModel else { return }
         socialIcon.image = UIImage(named: viewModel.nameIcon)
         socialButton.setAttributedTitle(NSAttributedString(string: viewModel.titleSocialButton, attributes: [
-            .font: UIFont.fontYugothicUISemiBold(ofSize: 12) as Any
+            .font: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(12)) as Any,
+            .foregroundColor: UIColor.white,
         ]), for: .normal)
         
         if viewModel.socialTitle == "google" {
@@ -50,7 +51,17 @@ class SocialButtonView: UIView {
         socialView.frame = self.bounds
         socialView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         socialView.layer.cornerRadius = 8
-        socialButton.titleLabel?.tintColor = UIColor.white
+        setUpIcon()
+    }
+    
+    private func setUpIcon() {
+        NSLayoutConstraint.activate([
+            socialIcon.widthAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(28)),
+            socialIcon.heightAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(28))
+        ])
+    }
+    
+    private func setUpSocialButton() {
         socialButton.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
         socialButton.addTarget(self, action: #selector(buttonTouchUp), for: [.touchUpInside, .touchUpOutside])
     }
