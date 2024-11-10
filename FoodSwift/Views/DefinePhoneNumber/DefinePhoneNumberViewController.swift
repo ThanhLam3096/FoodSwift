@@ -133,7 +133,8 @@ final class DefinePhoneNumberViewController: BaseViewController {
         } else if text.count <= 3 {
             phoneNumberTextField.attributedText = updateStringTextField(codePhoneNumber: text)
         }
-        view.endEditing(true)     }
+        view.endEditing(true)
+    }
     
     private func updateStringTextField(codePhoneNumber: String) -> NSAttributedString {
         let attributedStringTextTitle = NSMutableAttributedString(string: (codePhoneNumber + "123456789"))
