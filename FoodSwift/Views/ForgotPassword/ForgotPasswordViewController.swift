@@ -62,7 +62,7 @@ class ForgotPasswordViewController: BaseViewController {
         let titleLabel = UILabel()
         titleLabel.numberOfLines = 0
         titleLabel.text = "Forgot Password"
-        titleLabel.font = UIFont.fontYugothicUISemiBold(ofSize: 16)
+        titleLabel.font = UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(16))
         titleLabel.textColor = .black
         navigationItem.titleView = titleLabel
         let backItem = UIBarButtonItem(image: UIImage(named: "back") , style: .plain, target: self, action: #selector(leftAction))

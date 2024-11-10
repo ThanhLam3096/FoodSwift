@@ -10,6 +10,7 @@ import UIKit
 final class SignInViewController: BaseViewController {
     
     // MARK: IBOutlet
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet private weak var titleIntroLabel: UILabel!
     @IBOutlet private weak var title2IntroLabel: UILabel!
     @IBOutlet private weak var emailFormView: TextFieldLoginView!
@@ -23,6 +24,8 @@ final class SignInViewController: BaseViewController {
     @IBOutlet private weak var facebookLoginButton: SocialButtonView!
 
     // MARK: Constraint
+    @IBOutlet private weak var heightOfContentView: NSLayoutConstraint!
+    
     @IBOutlet private weak var leadingOfTitleSuperViewConstrain: NSLayoutConstraint!
     @IBOutlet private weak var spaceOfBetweenTitleConstraint: NSLayoutConstraint!
     
@@ -46,6 +49,9 @@ final class SignInViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        actionWhenShowKeyboard()
+        actionWhenHideKeyboard()
+        
     }
     
     override func setUpUI() {
@@ -56,6 +62,9 @@ final class SignInViewController: BaseViewController {
         setUpSignInOrangeButtonView()
         setUpCreateAccountButton()
         setUpSocialLoginButton()
+        addActionHideKeyBoard()
+        heightOfContentView.constant = ScreenSize.screenHeight
+        scrollView.isScrollEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +77,7 @@ final class SignInViewController: BaseViewController {
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = NSTextAlignment.center
         titleLabel.text = "Sign In"
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: ScreenSize.scaleHeight(16))
         titleLabel.textColor = .black
         navigationItem.titleView = titleLabel
         let backItem = UIBarButtonItem(image: UIImage(named: "back") , style: .plain, target: self, action: #selector(leftAction))
@@ -77,15 +86,15 @@ final class SignInViewController: BaseViewController {
     }
     
     private func setUpLabel() {
-        setLabelFontAndTextColor(label: titleIntroLabel, text: "Welcome to Tamang\nFood Services", labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(33)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(33)), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: titleIntroLabel, text: "Welcome to Tamang\nFood Services", labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(33)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(33)), labelTextColor: Color.mainColor)
         leadingOfTitleSuperViewConstrain.constant = ScreenSize.scaleHeight(20)
         spaceOfBetweenTitleConstraint.constant = ScreenSize.scaleHeight(20)
         
-        setLabelFontAndTextColor(label: title2IntroLabel, text: "Enter your Phone number or Email\naddress for sign in. Enjoy your food :)", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(16)), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: title2IntroLabel, text: "Enter your Phone number or Email\naddress for sign in. Enjoy your food :)", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(16)), labelTextColor: Color.bodyTextColor)
         
-        setLabelFontAndTextColor(label: dontHaveAccountLabel, text: "Don't have account?", labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: 12), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: dontHaveAccountLabel, text: "Don't have account?", labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: 12), labelTextColor: Color.mainColor)
         
-        setLabelFontAndTextColor(label: orLabel, text: "Or", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 12), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: orLabel, text: "Or", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 12), labelTextColor: Color.mainColor)
         topSpaceOrLabelConstraint.constant = ScreenSize.scaleHeight(20)
         bottomSpaceOrLabelConstraint.constant = ScreenSize.scaleHeight(20)
     }
@@ -139,6 +148,16 @@ final class SignInViewController: BaseViewController {
         self.navigationController?.pushViewController(ScreenName.forgotPassword, animated: true)
     }
     
+    private func addActionHideKeyBoard() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     @objc func leftAction() {
 //        self.navigationController?.popViewController(animated: true)
         print("abcd1234")
@@ -148,5 +167,34 @@ final class SignInViewController: BaseViewController {
 extension SignInViewController: OrangeButtonViewViewDelegate {
     func tappingInsideButton(view: OrangeButtonView) {
         self.navigationController?.pushViewController(ScreenName.baseTabbar, animated: true)
+    }
+}
+
+extension SignInViewController {
+    private func actionWhenShowKeyboard() {
+        keyboardObserver = KeyboardObserver()
+        keyboardObserver?.onKeyboardWillShow = { [weak self] heightOfKeyBoard in
+            guard let self = self else { return }
+            self.heightOfContentView.constant = heightOfContentView.constant + heightOfKeyBoard
+            let scrollOffsetY = ScreenSize.scaleHeight(190)
+            scrollView.isScrollEnabled = true
+            UIView.animate(withDuration: 0.3) {
+                self.scrollView.setContentOffset(CGPoint(x: 0, y: scrollOffsetY), animated: false)
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    private func actionWhenHideKeyboard() {
+        keyboardObserver?.onKeyboardWillHide = { [weak self] in
+            guard let self = self else { return }
+            self.heightOfContentView.constant = ScreenSize.screenHeight
+            let scrollOffsetY = 0
+            scrollView.isScrollEnabled = false
+            UIView.animate(withDuration: 0.3) {
+                self.scrollView.setContentOffset(CGPoint(x: 0, y: scrollOffsetY), animated: true)
+                self.view.layoutIfNeeded()
+            }
+        }
     }
 }

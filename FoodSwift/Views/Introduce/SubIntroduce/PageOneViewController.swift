@@ -69,9 +69,9 @@ class PageOneViewController: BaseViewController {
     }
     
     private func setUpLabel() {
-        setLabelFontAndTextColor(label: titleLabel, text: "Tamang \nFoodService", labelFont: UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleWidth(37)) ?? UIFont.systemFont(ofSize: 37), labelTextColor: Color.mainColor)
-        setLabelFontAndTextColor(label: favoriteLabel, text: "All your favorites", labelFont: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(32)) ?? UIFont.systemFont(ofSize: 32), labelTextColor: Color.mainColor)
-        setLabelFontAndTextColor(label: contentFavoriteLabel, text: "Order from the best local restaurants with easy, on-demand delivery.", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(16)), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: titleLabel, text: "Tamang \nFoodService", labelFont: UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleWidth(37)) ?? UIFont.systemFont(ofSize: 37), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: favoriteLabel, text: "All your favorites", labelFont: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(32)) ?? UIFont.systemFont(ofSize: 32), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: contentFavoriteLabel, text: "Order from the best local restaurants with easy, on-demand delivery.", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(16)), labelTextColor: Color.bodyTextColor)
         topSpaceContentFavoriteLabelConstraint.constant = ScreenSize.scaleHeight(20)
         botSpaceContentFavoriteLabelConstraint.constant = ScreenSize.scaleHeight(27.5)
         leadingContentFavoriteLabelConstraint.constant = ScreenSize.scaleWidth(30)

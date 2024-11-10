@@ -42,9 +42,6 @@ class AddYourPaymentMethodViewController: BaseViewController {
     @IBOutlet weak var widthOfExpiryCardTextFieldConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthOfCVCCardTextFieldConstraint: NSLayoutConstraint!
     
-    // MARK: Properties
-    var keyboardObserver: KeyboardObserver?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         actionWhenShowKeyboard()

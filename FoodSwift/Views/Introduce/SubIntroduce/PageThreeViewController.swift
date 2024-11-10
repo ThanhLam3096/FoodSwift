@@ -56,11 +56,11 @@ class PageThreeViewController: BaseViewController {
     }
     
     private func setUpLabel() {
-        setLabelFontAndTextColor(label: titleLabel, text: "Tamang \nFoodService", labelFont: UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleWidth(37)) ?? UIFont.systemFont(ofSize: 37), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: titleLabel, text: "Tamang \nFoodService", labelFont: UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleWidth(37)) ?? UIFont.systemFont(ofSize: 37), labelTextColor: Color.mainColor)
         
-        setLabelFontAndTextColor(label: chooseFoodLabel, text: "Choose your food", labelFont: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(32)) ?? UIFont.systemFont(ofSize: 32), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: chooseFoodLabel, text: "Choose your food", labelFont: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(32)) ?? UIFont.systemFont(ofSize: 32), labelTextColor: Color.mainColor)
         
-        setLabelFontAndTextColor(label: sologanOrderLabel, text: "Easily find your type of food craving and you’ll get delivery in wide range.", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(16)), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: sologanOrderLabel, text: "Easily find your type of food craving and you’ll get delivery in wide range.", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(16)), labelTextColor: Color.bodyTextColor)
         topSpaceSologanOrderLabelConstraint.constant = ScreenSize.scaleHeight(20)
         botSpaceSologanOrderLabelConstraint.constant = ScreenSize.scaleHeight(27.5)
         leadingSologanOrderLabelConstraint.constant = ScreenSize.scaleWidth(30)

@@ -75,10 +75,10 @@ class WelcomeViewController: BaseViewController {
     }
     
     private func setUpLabel() {
-        setLabelFontAndTextColor(label: titleLabel, text: "Tamang \nFoodService", labelFont: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleWidth(37)) ?? UIFont.boldSystemFont(ofSize: 37), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: titleLabel, text: "Tamang \nFoodService", labelFont: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleWidth(37)) ?? UIFont.boldSystemFont(ofSize: 37), labelTextColor: Color.bodyTextColor)
         topSpaceTitleConstraint.constant = ScreenSize.scaleHeight(41)
-        setLabelFontAndTextColor(label: welcomeLabel, text: "Welcome", labelFont: UIFont.boldSystemFont(ofSize: ScreenSize.scaleHeight(28)), labelTextColor: Color.mainColor)
-        setLabelFontAndTextColor(label: contentLabel, text: "It’s a pleasure to meet you. We are excited that you’re here so let’s get started!", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(16)), labelTextColor: UIColor(hex: "#3A3A3A"))
+        setUpTextTitleFontTextColorOfLabel(label: welcomeLabel, text: "Welcome", labelFont: UIFont.boldSystemFont(ofSize: ScreenSize.scaleHeight(28)), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: contentLabel, text: "It’s a pleasure to meet you. We are excited that you’re here so let’s get started!", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(16)), labelTextColor: UIColor(hex: "#3A3A3A"))
         topSpaceContentConstraint.constant = ScreenSize.scaleWidth(20)
         leadingContentConstraint.constant = ScreenSize.scaleWidth(30)
         trailingContentConstraint.constant = ScreenSize.scaleWidth(30)

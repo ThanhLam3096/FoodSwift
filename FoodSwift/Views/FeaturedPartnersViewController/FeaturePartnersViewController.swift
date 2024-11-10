@@ -38,7 +38,7 @@ class FeaturePartnersViewController: BaseViewController {
         let titleLabel = UILabel()
         titleLabel.numberOfLines = 0
         titleLabel.text = viewModel.title
-        titleLabel.font = UIFont.fontYugothicUISemiBold(ofSize: 16)
+        titleLabel.font = UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(16))
         titleLabel.textColor = .black
         titleLabel.textAlignment = .center
         navigationItem.titleView = titleLabel

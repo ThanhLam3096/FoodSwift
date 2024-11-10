@@ -21,12 +21,14 @@
                 <outlet property="facebookLoginButton" destination="c1o-xR-wlf" id="lSd-Cc-Ad4"/>
                 <outlet property="forgotPasswordButton" destination="Ewr-eb-CFJ" id="qap-yk-aBh"/>
                 <outlet property="googleLoginButton" destination="6MT-25-LyN" id="ukn-Q1-Q0e"/>
+                <outlet property="heightOfContentView" destination="Vs1-Qc-96x" id="SZS-yf-flB"/>
                 <outlet property="heightOfFormSignInConstraint" destination="q6B-Yt-96t" id="Ao8-xB-W2Y"/>
                 <outlet property="heightOfSignInButtonViewConstraint" destination="nBM-W1-gQ2" id="lNS-yr-V6d"/>
                 <outlet property="heightOfSocialButtonViewConstraint" destination="MD5-zS-lOU" id="a3d-TI-7DA"/>
                 <outlet property="leadingOfTitleSuperViewConstrain" destination="UHt-Ot-TNd" id="qcH-FQ-rFE"/>
                 <outlet property="orLabel" destination="MZE-xc-Rm5" id="Ag8-M2-dI0"/>
                 <outlet property="passwordFormView" destination="IHX-8F-SBN" id="B8i-Sg-7S3"/>
+                <outlet property="scrollView" destination="68X-qc-7Le" id="cm8-rj-oWa"/>
                 <outlet property="signInButtonView" destination="ShR-iq-KcU" id="uWR-DT-PNW"/>
                 <outlet property="spaceOfBetweenTitleConstraint" destination="ij6-GV-fe6" id="eC5-a8-cQM"/>
                 <outlet property="spaceOfEmailPasswordFormConstraint" destination="NoR-hn-6qb" id="lx7-em-KjG"/>
@@ -48,7 +50,7 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jp7-Jl-AFi" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="1500"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfF-PO-sLK">
                                     <rect key="frame" x="20" y="0.0" width="74.666666666666671" height="17"/>
@@ -166,7 +168,7 @@
                                 <constraint firstItem="MZE-xc-Rm5" firstAttribute="top" secondItem="DCe-7b-UdE" secondAttribute="bottom" constant="20" id="SNG-yz-NdN"/>
                                 <constraint firstItem="6MT-25-LyN" firstAttribute="height" secondItem="c1o-xR-wlf" secondAttribute="height" id="TlJ-kI-FQO"/>
                                 <constraint firstItem="nfF-PO-sLK" firstAttribute="leading" secondItem="jp7-Jl-AFi" secondAttribute="leading" constant="20" id="UHt-Ot-TNd"/>
-                                <constraint firstAttribute="height" priority="250" constant="1500" id="Vs1-Qc-96x"/>
+                                <constraint firstAttribute="height" constant="1500" id="Vs1-Qc-96x"/>
                                 <constraint firstItem="6MT-25-LyN" firstAttribute="leading" secondItem="3ej-as-0wG" secondAttribute="leading" id="WDY-KM-Uef"/>
                                 <constraint firstItem="3ej-as-0wG" firstAttribute="leading" secondItem="nfF-PO-sLK" secondAttribute="leading" id="aiL-ct-5kK"/>
                                 <constraint firstItem="c1o-xR-wlf" firstAttribute="trailing" secondItem="3ej-as-0wG" secondAttribute="trailing" id="cMY-pl-aeo"/>
@@ -188,7 +190,7 @@
                         <constraint firstAttribute="trailing" secondItem="jp7-Jl-AFi" secondAttribute="trailing" id="cfP-ro-rj9"/>
                         <constraint firstItem="jp7-Jl-AFi" firstAttribute="width" secondItem="68X-qc-7Le" secondAttribute="width" id="grS-kX-KN2"/>
                         <constraint firstItem="jp7-Jl-AFi" firstAttribute="leading" secondItem="68X-qc-7Le" secondAttribute="leading" id="iu6-f2-fxI"/>
-                        <constraint firstItem="jp7-Jl-AFi" firstAttribute="height" secondItem="68X-qc-7Le" secondAttribute="height" id="ygN-I7-Rfm"/>
+                        <constraint firstItem="jp7-Jl-AFi" firstAttribute="height" secondItem="68X-qc-7Le" secondAttribute="height" priority="250" id="ygN-I7-Rfm"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="0bl-AB-mLI"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="w8R-Tv-KtH"/>

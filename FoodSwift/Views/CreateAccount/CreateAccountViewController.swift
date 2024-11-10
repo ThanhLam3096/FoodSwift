@@ -10,6 +10,7 @@ import UIKit
 final class CreateAccountViewController: BaseViewController {
     
     // MARK: IBOutlet
+    @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var title2CreateAccountLabel: TopAlignedLabel!
     @IBOutlet private weak var emailFormView: TextFieldLoginView!
@@ -60,7 +61,7 @@ final class CreateAccountViewController: BaseViewController {
         let titleLabel = UILabel()
         titleLabel.numberOfLines = 0
         titleLabel.text = "Create Account"
-        titleLabel.font = UIFont.fontYugothicUISemiBold(ofSize: 16)
+        titleLabel.font = UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(16))
         titleLabel.textColor = .black
         navigationItem.titleView = titleLabel
         let backItem = UIBarButtonItem(image: UIImage(named: "back") , style: .plain, target: self, action: #selector(leftAction))
@@ -71,7 +72,7 @@ final class CreateAccountViewController: BaseViewController {
     private func setUpLabel() {
         titleLabel.textAlignment = NSTextAlignment.left
         titleLabel.numberOfLines = 0
-        setLabelFontAndTextColor(label: titleLabel, text: "Create Account", labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(34)) ?? UIFont.systemFont(ofSize: 34), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: titleLabel, text: "Create Account", labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(34)) ?? UIFont.systemFont(ofSize: 34), labelTextColor: Color.mainColor)
         leadingSpaceOfTitle.constant = ScreenSize.scaleWidth(20)
         trailingSpaceOfTitle.constant = ScreenSize.scaleWidth(20)
         
@@ -93,11 +94,11 @@ final class CreateAccountViewController: BaseViewController {
 
         privacyLabel.textAlignment = .center
         privacyLabel.numberOfLines = 0
-        setLabelFontAndTextColor(label: privacyLabel, text: "By Signing up you agree to our Terms\nConditions & Privacy Policy.", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(16)), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: privacyLabel, text: "By Signing up you agree to our Terms\nConditions & Privacy Policy.", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(16)), labelTextColor: Color.bodyTextColor)
         
         topSpaceOrLabelConstraint.constant = ScreenSize.scaleHeight(20)
         botSpaceOrLabelConstraint.constant = ScreenSize.scaleHeight(20)
-        setLabelFontAndTextColor(label: orLabel, text: "Or", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(16)), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: orLabel, text: "Or", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(16)), labelTextColor: Color.mainColor)
     }
     
     private func setUpSignUPButton() {
@@ -170,5 +171,34 @@ final class CreateAccountViewController: BaseViewController {
 extension CreateAccountViewController: OrangeButtonViewViewDelegate {
     func tappingInsideButton(view: OrangeButtonView) {
         self.navigationController?.pushViewController(ScreenName.definePhoneNumber, animated: true)
+    }
+}
+
+extension CreateAccountViewController {
+    private func actionWhenShowKeyboard() {
+        keyboardObserver = KeyboardObserver()
+        keyboardObserver?.onKeyboardWillShow = { [weak self] heightOfKeyBoard in
+            guard let self = self else { return }
+            self.heightOfContentViewConstraint.constant = heightOfContentViewConstraint.constant + heightOfKeyBoard
+            let scrollOffsetY = ScreenSize.scaleHeight(190)
+            scrollView.isScrollEnabled = true
+            UIView.animate(withDuration: 0.3) {
+                self.scrollView.setContentOffset(CGPoint(x: 0, y: scrollOffsetY), animated: false)
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    private func actionWhenHideKeyboard() {
+        keyboardObserver?.onKeyboardWillHide = { [weak self] in
+            guard let self = self else { return }
+            self.heightOfContentViewConstraint.constant = ScreenSize.screenHeight
+            let scrollOffsetY = 0
+            scrollView.isScrollEnabled = false
+            UIView.animate(withDuration: 0.3) {
+                self.scrollView.setContentOffset(CGPoint(x: 0, y: scrollOffsetY), animated: true)
+                self.view.layoutIfNeeded()
+            }
+        }
     }
 }

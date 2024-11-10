@@ -26,6 +26,7 @@
                 <outlet property="orLabel" destination="wg0-Cr-mgb" id="mYt-uB-4J5"/>
                 <outlet property="passwordFormView" destination="yaC-F2-kZH" id="wb1-x1-mTn"/>
                 <outlet property="privacyLabel" destination="fLl-Xu-Vhr" id="aPP-RI-OMN"/>
+                <outlet property="scrollView" destination="lqD-xE-qi9" id="NSn-dV-H2S"/>
                 <outlet property="signUpButtonView" destination="ceL-YB-bxe" id="wXq-Ff-4je"/>
                 <outlet property="title2CreateAccountLabel" destination="00Q-re-sAU" id="NhW-N8-kaW"/>
                 <outlet property="titleLabel" destination="dr9-5o-PTT" id="mz4-P5-3KP"/>

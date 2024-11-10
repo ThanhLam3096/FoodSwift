@@ -43,7 +43,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="flagUIImageView" destination="dSH-o4-gxb" id="FdX-AS-ufa"/>
+                <outlet property="heightNationFlagImageConstraint" destination="F7F-6v-b7x" id="BJd-Qu-JYt"/>
                 <outlet property="textNation" destination="PBv-We-BVv" id="FWi-a8-rSX"/>
+                <outlet property="widthNationFlagImageConstraint" destination="Ho5-jm-rIP" id="Com-Sg-fvr"/>
             </connections>
             <point key="canvasLocation" x="-106.87022900763358" y="15.140845070422536"/>
         </tableViewCell>

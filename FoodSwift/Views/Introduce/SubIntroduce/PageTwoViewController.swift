@@ -54,11 +54,11 @@ class PageTwoViewController: BaseViewController {
     }
     
     private func setUpLabel() {
-        setLabelFontAndTextColor(label: titleLabel, text: "Tamang \nFoodService", labelFont: UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleWidth(37)) ?? UIFont.systemFont(ofSize: 37), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: titleLabel, text: "Tamang \nFoodService", labelFont: UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleWidth(37)) ?? UIFont.systemFont(ofSize: 37), labelTextColor: Color.mainColor)
         
-        setLabelFontAndTextColor(label: deliveryLabel, text: "Free delivery offers", labelFont: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(32)) ?? UIFont.systemFont(ofSize: 32), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: deliveryLabel, text: "Free delivery offers", labelFont: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(32)) ?? UIFont.systemFont(ofSize: 32), labelTextColor: Color.mainColor)
         
-        setLabelFontAndTextColor(label: sologanTitleLabel, text: "Free delivery for new customers via Apple Pay and others payment methods.", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(16)), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: sologanTitleLabel, text: "Free delivery for new customers via Apple Pay and others payment methods.", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(16)), labelTextColor: Color.bodyTextColor)
         topSpaceSologanTitleLabelConstraint.constant = ScreenSize.scaleHeight(20)
         botSpaceSologanTitleLabelConstraint.constant = ScreenSize.scaleHeight(27.5)
         leadingSologanTitleLabelConstraint.constant = ScreenSize.scaleWidth(30)

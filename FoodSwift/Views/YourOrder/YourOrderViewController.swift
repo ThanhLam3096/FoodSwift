@@ -75,7 +75,7 @@ final class YourOrderViewController: BaseViewController {
         let titleLabel = UILabel()
         titleLabel.numberOfLines = 0
         titleLabel.text = "Your Order"
-        titleLabel.font = UIFont.fontYugothicUISemiBold(ofSize: 16)
+        titleLabel.font = UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(16))
         titleLabel.textColor = .black
         navigationItem.titleView = titleLabel
         let leftImage = UIImageView(image: UIImage(named: "black_close"))
