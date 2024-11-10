@@ -7,7 +7,9 @@
 
 import UIKit
 
-class CreateAccountViewController: BaseViewController {
+final class CreateAccountViewController: BaseViewController {
+    
+    // MARK: IBOutlet
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var title2CreateAccountLabel: TopAlignedLabel!
     @IBOutlet private weak var emailFormView: TextFieldLoginView!
@@ -19,6 +21,26 @@ class CreateAccountViewController: BaseViewController {
     @IBOutlet private weak var googleLoginButton: SocialButtonView!
     @IBOutlet private weak var facebookLoginButton: SocialButtonView!
     
+    // MARK: Constraint
+    @IBOutlet private weak var heightOfContentViewConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var leadingSpaceOfTitle: NSLayoutConstraint!
+    @IBOutlet private weak var trailingSpaceOfTitle: NSLayoutConstraint!
+    
+    @IBOutlet private weak var heightOfFormTextFieldConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var topSpaceFullNameTextFieldConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var topSpaceEmailFormConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceEmailFormConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var heightOfSignUpConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var topSpaceOfSignUpButtonConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var topSpaceOrLabelConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceOrLabelConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var betweenSpaceOfSocialButtonConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightOfSocialButtonConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,56 +49,11 @@ class CreateAccountViewController: BaseViewController {
 
     override func setUpUI() {
         setUpNavigation()
-        titleLabel.text = "Create Account"
-        titleLabel.textAlignment = NSTextAlignment.left
-        titleLabel.numberOfLines = 0
-        titleLabel.font = UIFont.fontYugothicLight(ofSize: 34)
-        titleLabel.textColor = Color.mainColor
-        
-        title2CreateAccountLabel.numberOfLines = 0
-//        title2CreateAccountLabel.textAlignment = NSTextAlignment.left
-//        title2CreateAccountLabel.backgroundColor = .green
-        let textTitle = "Enter your Name, Email and Password\nfor sign up.  Already have account?"
-//        let paragraphStyle = NSMutableParagraphStyle()
-//        paragraphStyle.lineSpacing = 5
-//        paragraphStyle.alignment = .left
-        title2CreateAccountLabel.isUserInteractionEnabled = true
-        let attributedStringTextTitle = NSMutableAttributedString(string: textTitle)
-        attributedStringTextTitle.addAttribute(.font, value: UIFont.fontYugothicUIRegular(ofSize: 16) as Any, range: NSRange(location: 0, length: attributedStringTextTitle.length))
-        attributedStringTextTitle.addAttribute(.foregroundColor, value: Color.bodyTextColor as Any, range: NSRange(location: 0, length: 48))
-        attributedStringTextTitle.addAttribute(.foregroundColor, value: Color.activeColor as Any, range: NSRange(location: 50, length: 21))
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOnLabel))
-//        attributedStringTextTitle.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedStringTextTitle.length))
-        title2CreateAccountLabel.addGestureRecognizer(tapGesture)
-        title2CreateAccountLabel.attributedText = attributedStringTextTitle
-        title2CreateAccountLabel.sizeToFit()
-
+        setUpLabel()
         setUpTextField()
-        
-        signUpButtonView.setButtonTitle("SIGN UP")
-        
-        privacyLabel.text = "By Signing up you agree to our Terms\nConditions & Privacy Policy."
-        privacyLabel.textAlignment = .center
-        privacyLabel.numberOfLines = 0
-        privacyLabel.font = UIFont.fontYugothicUIRegular(ofSize: 16)
-        privacyLabel.textColor = Color.bodyTextColor
-        
-        orLabel.text = "Or"
-        orLabel.font = UIFont.fontYugothicUIRegular(ofSize: 16)
-        orLabel.textColor = UIColor.black.withAlphaComponent(0.8)
+        setUpSignUPButton()
         setUpSocialLoginButton()
-        signUpButtonView.delegate = self
-    }
-    
-    private func setUpTextField() {
-        fullNameFormView.viewModel = TextFieldLoginViewVM(infoTextField: "FULL NAME", isPasswordTextField: false)
-        emailFormView.viewModel = TextFieldLoginViewVM(infoTextField: "EMAIL ADDRESS", isPasswordTextField: false)
-        passwordFormView.viewModel = TextFieldLoginViewVM(infoTextField: "PASSWORD", isPasswordTextField: true)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        heightOfContentViewConstraint.constant = ScreenSize.screenHeight
     }
     
     private func setUpNavigation() {
@@ -91,9 +68,68 @@ class CreateAccountViewController: BaseViewController {
         navigationItem.leftBarButtonItem?.tintColor = .black
     }
     
+    private func setUpLabel() {
+        titleLabel.textAlignment = NSTextAlignment.left
+        titleLabel.numberOfLines = 0
+        setLabelFontAndTextColor(label: titleLabel, text: "Create Account", labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(34)) ?? UIFont.systemFont(ofSize: 34), labelTextColor: Color.mainColor)
+        leadingSpaceOfTitle.constant = ScreenSize.scaleWidth(20)
+        trailingSpaceOfTitle.constant = ScreenSize.scaleWidth(20)
+        
+        title2CreateAccountLabel.numberOfLines = 0
+        let textTitle = "Enter your Name, Email and Password\nfor sign up.  Already have account?"
+//        let paragraphStyle = NSMutableParagraphStyle()
+//        paragraphStyle.lineSpacing = ScreenSize.scaleHeight(5)
+//        paragraphStyle.alignment = .left
+        title2CreateAccountLabel.isUserInteractionEnabled = true
+        let attributedStringTextTitle = NSMutableAttributedString(string: textTitle)
+        attributedStringTextTitle.addAttribute(.font, value: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) as Any, range: NSRange(location: 0, length: attributedStringTextTitle.length))
+        attributedStringTextTitle.addAttribute(.foregroundColor, value: Color.bodyTextColor as Any, range: NSRange(location: 0, length: 48))
+        attributedStringTextTitle.addAttribute(.foregroundColor, value: Color.activeColor as Any, range: NSRange(location: 50, length: 21))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOnLabel))
+//        attributedStringTextTitle.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedStringTextTitle.length))
+        title2CreateAccountLabel.addGestureRecognizer(tapGesture)
+        title2CreateAccountLabel.attributedText = attributedStringTextTitle
+        title2CreateAccountLabel.sizeToFit()
+
+        privacyLabel.textAlignment = .center
+        privacyLabel.numberOfLines = 0
+        setLabelFontAndTextColor(label: privacyLabel, text: "By Signing up you agree to our Terms\nConditions & Privacy Policy.", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(16)), labelTextColor: Color.bodyTextColor)
+        
+        topSpaceOrLabelConstraint.constant = ScreenSize.scaleHeight(20)
+        botSpaceOrLabelConstraint.constant = ScreenSize.scaleHeight(20)
+        setLabelFontAndTextColor(label: orLabel, text: "Or", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(16)), labelTextColor: Color.mainColor)
+    }
+    
+    private func setUpSignUPButton() {
+        signUpButtonView.viewModel = OrangeButtonViewModel(title: "SIGN UP")
+        topSpaceOfSignUpButtonConstraint.constant = ScreenSize.scaleHeight(24)
+        heightOfSignUpConstraint.constant = ScreenSize.scaleHeight(48)
+        signUpButtonView.delegate = self
+    }
+    
+    private func setUpTextField() {
+        fullNameFormView.viewModel = TextFieldLoginViewVM(infoTextField: "FULL NAME", isPasswordTextField: false)
+        topSpaceFullNameTextFieldConstraint.constant = ScreenSize.scaleHeight(20)
+        heightOfFormTextFieldConstraint.constant = ScreenSize.scaleHeight(65)
+        
+        emailFormView.viewModel = TextFieldLoginViewVM(infoTextField: "EMAIL ADDRESS", isPasswordTextField: false)
+        topSpaceEmailFormConstraint.constant = ScreenSize.scaleHeight(18)
+        botSpaceEmailFormConstraint.constant = ScreenSize.scaleHeight(18)
+        
+        passwordFormView.viewModel = TextFieldLoginViewVM(infoTextField: "PASSWORD", isPasswordTextField: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     private func setUpSocialLoginButton() {
         facebookLoginButton.viewModel = SocialButtonViewVM(socialTitle: "facebook", nameIcon: "facebook", titleSocialButton: "CONNECT WITH FACEBOOK")
         googleLoginButton.viewModel = SocialButtonViewVM(socialTitle: "google", nameIcon: "google", titleSocialButton: "CONNECT WITH GOOGLE")
+        
+        heightOfSocialButtonConstraint.constant = ScreenSize.scaleHeight(44)
+        betweenSpaceOfSocialButtonConstraint.constant = ScreenSize.scaleHeight(20)
     }
 
     @objc func leftAction() {

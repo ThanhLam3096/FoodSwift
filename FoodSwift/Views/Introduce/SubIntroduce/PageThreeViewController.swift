@@ -68,12 +68,6 @@ class PageThreeViewController: BaseViewController {
         sologanOrderLabel.numberOfLines = 0
     }
     
-    private func setLabelFontAndTextColor(label: UILabel,text: String , labelFont: UIFont, labelTextColor: UIColor) {
-        label.text = text
-        label.font = labelFont
-        label.textColor = labelTextColor
-    }
-    
     private func setUpImageView() {
         logoFoodImageView.image = UIImage(named: "logo_tamano")
         widthOfLogoConstraint.constant = ScreenSize.scaleWidth(65)

@@ -79,12 +79,6 @@ class PageOneViewController: BaseViewController {
         contentFavoriteLabel.numberOfLines = 0
     }
     
-    private func setLabelFontAndTextColor(label: UILabel,text: String , labelFont: UIFont, labelTextColor: UIColor) {
-        label.text = text
-        label.font = labelFont
-        label.textColor = labelTextColor
-    }
-    
     private func setUpPageView() {
         widthOfPageControlConstraint.constant = ScreenSize.scaleWidth(40)
         heightOfPageControlConstraint.constant = ScreenSize.scaleHeight(5)

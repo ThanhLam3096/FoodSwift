@@ -84,12 +84,6 @@ class WelcomeViewController: BaseViewController {
         trailingContentConstraint.constant = ScreenSize.scaleWidth(30)
     }
     
-    private func setLabelFontAndTextColor(label: UILabel,text: String , labelFont: UIFont, labelTextColor: UIColor) {
-        label.text = text
-        label.font = labelFont
-        label.textColor = labelTextColor
-    }
-    
     private func setUpUIWelcomeButtonView() {
         welcomeButtonView.delegate = self
         widthOfGetStartButtonConstraint.constant = ScreenSize.scaleWidth(335)

@@ -18,4 +18,10 @@ class BaseViewController: UIViewController {
     func setUpUI() { }
     
     func setUpData() { }
+    
+    func setLabelFontAndTextColor(label: UILabel,text: String , labelFont: UIFont, labelTextColor: UIColor) {
+        label.text = text
+        label.font = labelFont
+        label.textColor = labelTextColor
+    }
 }

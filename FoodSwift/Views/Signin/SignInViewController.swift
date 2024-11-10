@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignInViewController: BaseViewController {
+final class SignInViewController: BaseViewController {
     
     // MARK: IBOutlet
     @IBOutlet private weak var titleIntroLabel: UILabel!
@@ -89,13 +89,7 @@ class SignInViewController: BaseViewController {
         topSpaceOrLabelConstraint.constant = ScreenSize.scaleHeight(20)
         bottomSpaceOrLabelConstraint.constant = ScreenSize.scaleHeight(20)
     }
-    
-    private func setLabelFontAndTextColor(label: UILabel,text: String , labelFont: UIFont, labelTextColor: UIColor) {
-        label.text = text
-        label.font = labelFont
-        label.textColor = labelTextColor
-    }
-    
+        
     private func setUpFormSignIn() {
         emailFormView.viewModel = TextFieldLoginViewVM(infoTextField: "EMAIL ADDRESS", isPasswordTextField: false)
         traillingSpaceOfEmailFormConstraint.constant = ScreenSize.scaleWidth(20)
