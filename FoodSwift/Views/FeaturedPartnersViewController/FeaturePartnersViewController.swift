@@ -30,8 +30,8 @@ class FeaturePartnersViewController: BaseViewController {
     override func setUpUI() {
         setUpNavigation()
         setUpCollectionView()
-        leadingSpaceCollectionConstraint.constant = (17 / 375) * ScreenSize.screenWidth
-        trailingSpaceCollectionConstraint.constant = (17 / 375) * ScreenSize.screenWidth
+        leadingSpaceCollectionConstraint.constant = ScreenSize.scaleWidth(17)
+        trailingSpaceCollectionConstraint.constant = ScreenSize.scaleWidth(17)
     }
     
     private func setUpNavigation() {
