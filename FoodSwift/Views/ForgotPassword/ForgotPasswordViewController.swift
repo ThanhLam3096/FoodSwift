@@ -9,6 +9,7 @@ import UIKit
 
 class ForgotPasswordViewController: BaseViewController {
 
+    // MARK: -IBOutlet
     @IBOutlet private weak var forgotPassTitleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var emailFormView: TextFieldLoginView!
@@ -19,6 +20,22 @@ class ForgotPasswordViewController: BaseViewController {
     @IBOutlet private weak var descriptionResendEmailLabel: UILabel!
     @IBOutlet private weak var sendAgainButtonView: OrangeButtonView!
     
+    // MARK: Constraint
+    @IBOutlet private weak var topSpaceTitleConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceTitleConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var leadingSpaceTitleConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var trailingSpaceTitleConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var topSpaceEmailResetFormConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceEmailResetFormConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightOfEmailResetFormConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var heightOfResetPasswordButtonConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var widthOfImageConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightOfImageConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var topSpaceOfImageConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,36 +43,40 @@ class ForgotPasswordViewController: BaseViewController {
 
     override func setUpUI() {
         setUpNavigation()
-        forgotPassTitleLabel.text = "Forgot Password"
+        setUpLabel()
+        setUpUIWelcomeButtonView()
+        setUpImage()
+        actionOfTappingOutSideHideOfKeyBoard()
+    }
+    
+    private func setUpLabel() {
+        setUpTextTitleFontTextColorOfLabel(label: forgotPassTitleLabel, text: "Forgot Password", labelFont: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(34)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(34)), labelTextColor: Color.mainColor)
         forgotPassTitleLabel.textAlignment = NSTextAlignment.left
         forgotPassTitleLabel.numberOfLines = 0
-        forgotPassTitleLabel.font = UIFont.fontYugothicLight(ofSize: 34)
-        forgotPassTitleLabel.textColor = Color.mainColor
+        topSpaceTitleConstraint.constant = ScreenSize.scaleHeight(20)
+        botSpaceTitleConstraint.constant = ScreenSize.scaleHeight(20)
+        leadingSpaceTitleConstraint.constant = ScreenSize.scaleHeight(20)
+        trailingSpaceTitleConstraint.constant = ScreenSize.scaleHeight(20)
         
-        descriptionLabel.text = "Enter your email address and we will\nsend you a reset instructions."
-        descriptionLabel.font = UIFont.fontYugothicUIRegular(ofSize: 16)
-        descriptionLabel.textColor = Color.bodyTextColor
+        setUpTextTitleFontTextColorOfLabel(label: descriptionLabel, text: "Enter your email address and we will\nsend you a reset instructions.", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(16)), labelTextColor: Color.bodyTextColor)
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = NSTextAlignment.left
         
-        resendEmailTitleLabel.text = "Reset email sent"
+        setUpTextTitleFontTextColorOfLabel(label: resendEmailTitleLabel, text: "Reset email sent", labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(34)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(34)), labelTextColor: Color.mainColor)
         resendEmailTitleLabel.textAlignment = NSTextAlignment.left
         resendEmailTitleLabel.numberOfLines = 0
-        resendEmailTitleLabel.font = UIFont.fontYugothicLight(ofSize: 34)
-        resendEmailTitleLabel.textColor = Color.mainColor
         
         descriptionResendEmailLabel.numberOfLines = 0
         let textTitle = "We have sent a instructions email\nto sajin tamang@figma.com.  Having problem?"
         descriptionResendEmailLabel.isUserInteractionEnabled = true
         let attributedStringTextTitle = NSMutableAttributedString(string: textTitle)
-        attributedStringTextTitle.addAttribute(.font, value: UIFont.fontYugothicUIRegular(ofSize: 16) as Any, range: NSRange(location: 0, length: attributedStringTextTitle.length))
+        attributedStringTextTitle.addAttribute(.font, value: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) as Any, range: NSRange(location: 0, length: attributedStringTextTitle.length))
         attributedStringTextTitle.addAttribute(.foregroundColor, value: Color.bodyTextColor as Any, range: NSRange(location: 0, length: 60))
         attributedStringTextTitle.addAttribute(.foregroundColor, value: Color.activeColor as Any, range: NSRange(location: 62, length: 15))
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOnLabel))
         descriptionResendEmailLabel.addGestureRecognizer(tapGesture)
         descriptionResendEmailLabel.attributedText = attributedStringTextTitle
         descriptionResendEmailLabel.sizeToFit()
-        setUpUIWelcomeButtonView()
     }
     
     private func setUpNavigation() {
@@ -70,14 +91,29 @@ class ForgotPasswordViewController: BaseViewController {
         navigationItem.leftBarButtonItem?.tintColor = .black
     }
     
-    override func setUpData() {
-        setUpTextField()
-        resetPasswordButtonView.setButtonTitle("RESET PASSWORD")
-        sendAgainButtonView.setButtonTitle("SEND AGAIN")
-    }
-    
     private func setUpTextField() {
         emailFormView.viewModel = TextFieldLoginViewVM(infoTextField: "EMAIL ADDRESS", isPasswordTextField: false)
+        topSpaceEmailResetFormConstraint.constant = ScreenSize.scaleHeight(34)
+        botSpaceEmailResetFormConstraint.constant = ScreenSize.scaleHeight(24)
+        heightOfEmailResetFormConstraint.constant = ScreenSize.scaleHeight(65)
+    }
+    
+    private func setUpUIWelcomeButtonView() {
+        resetPasswordButtonView.delegate = self
+        sendAgainButtonView.delegate = self
+        resetPasswordButtonView.viewModel = OrangeButtonViewModel(title: "RESET PASSWORD")
+        sendAgainButtonView.viewModel = OrangeButtonViewModel(title: "SEND AGAIN")
+        heightOfResetPasswordButtonConstraint.constant = ScreenSize.scaleHeight(48)
+    }
+    
+    private func setUpImage() {
+        widthOfImageConstraint.constant = ScreenSize.scaleWidth(307)
+        heightOfImageConstraint.constant = ScreenSize.scaleHeight(237.03)
+        topSpaceOfImageConstraint.constant = ScreenSize.scaleHeight(150)
+    }
+    
+    override func setUpData() {
+        setUpTextField()
     }
     
     @objc func handleTapOnLabel(gesture: UITapGestureRecognizer) {
@@ -107,15 +143,20 @@ class ForgotPasswordViewController: BaseViewController {
         }
     }
     
+    private func actionOfTappingOutSideHideOfKeyBoard() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     func navigateToAnotherScreen() {
         // Code to navigate to another screen
         print("Open Some Screen Web link")
         // You can use navigationController?.pushViewController or present() method here
-    }
-    
-    private func setUpUIWelcomeButtonView() {
-        resetPasswordButtonView.delegate = self
-        sendAgainButtonView.delegate = self
     }
     
     @objc func leftAction() {

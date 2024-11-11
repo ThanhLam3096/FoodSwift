@@ -38,7 +38,7 @@ class OrangeButtonView: UIView {
         orangeButtonView.frame = self.bounds
         orangeButtonView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         startButton.setAttributedTitle(NSAttributedString(string: "GET STARTED", attributes: [
-            .font: UIFont.fontYugothicUIBold(ofSize: 14) as Any
+            .font: UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleHeight(14)) as Any
         ]), for: .normal)
         startButton.backgroundColor = UIColor(red: 238/255, green: 167/255, blue: 52/255, alpha: 1.0)
         startButton.layer.cornerRadius = 8
@@ -53,7 +53,7 @@ class OrangeButtonView: UIView {
     
     func setButtonTitle(_ title: String) {
         startButton.setAttributedTitle(NSAttributedString(string: title, attributes: [
-            .font: UIFont.fontYugothicUIBold(ofSize: 14) as Any
+            .font: UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleHeight(14)) as Any
         ]), for: .normal)
     }
     
@@ -66,7 +66,7 @@ class OrangeButtonView: UIView {
             price = ""
         }
         startButton.setAttributedTitle(NSAttributedString(string: "\(viewModel.title) " + price, attributes: [
-            .font: UIFont.fontYugothicUIBold(ofSize: 14) as Any
+            .font: UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleHeight(14)) as Any
         ]), for: .normal)
 
     }

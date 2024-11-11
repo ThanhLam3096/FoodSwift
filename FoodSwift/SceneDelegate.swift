@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowSence = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowSence)
         self.window = window
-        let navi = UINavigationController(rootViewController: ScreenName.verifyPhoneNumber)
+        let navi = UINavigationController(rootViewController: ScreenName.forgotPassword)
         window.rootViewController = navi
         window.backgroundColor = .white
         window.makeKeyAndVisible()
