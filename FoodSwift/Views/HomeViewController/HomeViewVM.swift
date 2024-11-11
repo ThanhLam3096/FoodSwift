@@ -53,11 +53,10 @@ final class HomeViewVM {
     func heightForRowAtTableView(type: TableViewType) -> CGFloat {
         switch type {
         case .locaition:
-            return 36
+            return ScreenSize.scaleHeight(36)
         default:
-            return 282
+            return ScreenSize.scaleHeight(292)
         }
-        
     }
     
     // MARK: - CollectionView Featured Partners Data
@@ -91,16 +90,6 @@ final class HomeViewVM {
         let item = listSliderFoodImage[indexPath.row]
         let model = SliderImageCollectionViewCellViewModel(image: item)
         return model
-    }
-    
-    func heightForRowAtCollectionView(type: CollectionType) -> CGFloat {
-        switch type {
-        case .slider:
-            return 36
-        default:
-            return 254
-        }
-        
     }
     
     // MARK: - PassData to List All Feature Partners

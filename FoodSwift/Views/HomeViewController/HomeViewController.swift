@@ -18,14 +18,41 @@ class HomeViewController: BaseViewController {
     @IBOutlet private weak var featuredPartnersLabel: UILabel!
     @IBOutlet private weak var featuredPartnersSeeAllButton: UIButton!
     @IBOutlet private weak var featuredPartnersCollectionView: UICollectionView!
+    @IBOutlet private weak var bannerImageView: UIImageView!
     @IBOutlet private weak var restaurantLabel: UILabel!
     @IBOutlet private weak var restaurantSeeAllButton: UIButton!
     @IBOutlet private weak var bestFoodOfRestaurntsCollectionView: UICollectionView!
     @IBOutlet private weak var allRestaurantLabel: UILabel!
     @IBOutlet private weak var allRestaurantSeeAllButton: UIButton!
     @IBOutlet private weak var allRestaurantTableView: UITableView!
+    
+    // MARK: - @NSLayoutConstraint
+    @IBOutlet private weak var heightOfHeaderViewConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var leadingSpaceSliderImageConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var trailingSpaceSliderImageConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceSliderImageConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var widthOfListNationFilterConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightOfListNationFilterConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var heightOfFeaturedPartnersCollectionViewConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightOfNationMealCollectionViewConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var heightOfBannerConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var topSpaceOfBannerConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var topSpaceOfPickRestaurantLabelConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var topSpaceOfAllRestaurantLabelConstraint: NSLayoutConstraint!
+    
     @IBOutlet private weak var heightListTableView: NSLayoutConstraint!
     @IBOutlet private weak var heightContentViewConstraint: NSLayoutConstraint!
+    
+    private func heightOfContentView() {
+        let totalHeightOfCollectionView = ScreenSize.scaleHeight(185) + botSpaceSliderImageConstraint.constant + heightOfFeaturedPartnersCollectionViewConstraint.constant + heightOfNationMealCollectionViewConstraint.constant
+        let spaceOfLabel = topSpaceOfPickRestaurantLabelConstraint.constant + topSpaceOfAllRestaurantLabelConstraint.constant
+        heightContentViewConstraint.constant = heightOfHeaderViewConstraint.constant + totalHeightOfCollectionView + heightOfBannerConstraint.constant + topSpaceOfBannerConstraint.constant
+    }
     
     // MARK: - Properties
     var viewModel: HomeViewVM = HomeViewVM()
@@ -42,80 +69,39 @@ class HomeViewController: BaseViewController {
     }
     
     override func setUpUI() {
+        setUpHeaderView()
+        setUpTitleLabelAndTitleButton()
         setUpTableView()
-        setUpRandomImageCollectionView()
-        setUpFeaturedPartnersCollectionView(collectionView: featuredPartnersCollectionView)
-        setUpFeaturedPartnersCollectionView(collectionView: bestFoodOfRestaurntsCollectionView)
+        setUpCollectionView()
         setUpPageControl()
-        headerHomeView.delegate = self
-        
-        setUpTitleLabel(label: featuredPartnersLabel, title: "Featured Partners")
-        setUpSeeAllButton(seeAllButton: featuredPartnersSeeAllButton)
-        
-        setUpTitleLabel(label: restaurantLabel, title: "Best Picks Restaurants by team")
-        setUpSeeAllButton(seeAllButton: restaurantSeeAllButton)
-        
-        setUpTitleLabel(label: allRestaurantLabel, title: "All Restaurants")
-        setUpSeeAllButton(seeAllButton: allRestaurantSeeAllButton)
+        setUpBannerImage()
     }
     
     override func setUpData() {
         loadAPIListFeaturePartners()
     }
     
-    private func loadAPIListRestaurants() {
-        viewModel.getAPIListRestaurant { [weak self] (done, msg) in
-            guard let this = self else { return }
-            if done {
-                HUD.dismiss()
-                this.updateViewTableView()
-            } else {
-                this.showAlert(message: msg)
-            }
-        }
+    private func setUpHeaderView() {
+        headerHomeView.delegate = self
+        heightOfHeaderViewConstraint.constant = ScreenSize.scaleHeight(100)
     }
     
-    private func updateViewTableView() {
-        guard isViewLoaded else { return }
-        heightContentViewConstraint.constant = CGFloat(1500 + (282 * (viewModel.numberOfRowsInSectionTableView(type: .restaurant) - 1)))
-        heightListTableView.constant = CGFloat(282 * viewModel.numberOfRowsInSectionTableView(type: .restaurant))
-        allRestaurantTableView.reloadData()
-    }
-
-    
-    private func loadAPIListFeaturePartners() {
-        HUD.show()
-        viewModel.getAPIListFeaturePartners { [weak self] (done, msg) in
-            guard let this = self else { return }
-            if done {
-                this.loadAPIListNationFood()
-            } else {
-                this.showAlert(message: msg)
-            }
-        }
-    }
-    
-    private func loadAPIListNationFood() {
-        viewModel.getAPIListNationFood { [weak self] (done, msg) in
-            guard let this = self else { return }
-            if done {
-                this.updateCollectionView()
-                this.loadAPIListRestaurants()
-            } else {
-                this.showAlert(message: msg)
-            }
-        }
-    }
-    
-    private func updateCollectionView() {
-        guard isViewLoaded else { return }
-        featuredPartnersCollectionView.reloadData()
-        bestFoodOfRestaurntsCollectionView.reloadData()
+    private func setUpTitleLabelAndTitleButton() {
+        setUpTitleLabel(label: featuredPartnersLabel, title: "Featured Partners")
+        setUpSeeAllButton(seeAllButton: featuredPartnersSeeAllButton)
+        
+        setUpTitleLabel(label: restaurantLabel, title: "Best Picks Restaurants by team")
+        setUpSeeAllButton(seeAllButton: restaurantSeeAllButton)
+        topSpaceOfPickRestaurantLabelConstraint.constant = ScreenSize.scaleHeight(20)
+        
+        setUpTitleLabel(label: allRestaurantLabel, title: "All Restaurants")
+        topSpaceOfAllRestaurantLabelConstraint.constant = ScreenSize.scaleHeight(34)
+        setUpSeeAllButton(seeAllButton: allRestaurantSeeAllButton)
     }
     
     private func setUpTitleLabel(label: UILabel, title: String) {
         label.text = title
-        label.font = UIFont.fontYugothicUISemiBold(ofSize: 24)
+        label.font = UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(24))
         label.textColor = Color.mainColor
         label.numberOfLines = 0
         label.widthAnchor.constraint(equalToConstant: ScreenSize.screenWidth / 2).isActive = true
@@ -123,8 +109,14 @@ class HomeViewController: BaseViewController {
     
     private func setUpSeeAllButton(seeAllButton: UIButton) {
         seeAllButton.setAttributedTitle(NSAttributedString(string: "See all", attributes: [
-            .font: UIFont.fontYugothicUIRegular(ofSize: 16) as Any, .foregroundColor: Color.accentColor
+            .font: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) as Any, .foregroundColor: Color.accentColor
         ]), for: .normal)
+    }
+    
+    private func setUpBannerImage() {
+        bannerImageView.layer.cornerRadius = 8
+        heightOfBannerConstraint.constant = ScreenSize.scaleHeight(210)
+        topSpaceOfBannerConstraint.constant = ScreenSize.scaleHeight(34)
     }
     
     private func setUpTableView() {
@@ -132,11 +124,22 @@ class HomeViewController: BaseViewController {
         locationListTableView.isHidden = true
         locationListTableView.delegate = self
         locationListTableView.dataSource = self
+        widthOfListNationFilterConstraint.constant = ScreenSize.scaleWidth(200)
+        heightOfListNationFilterConstraint.constant = ScreenSize.scaleHeight(150)
         
         allRestaurantTableView.register(nibWithCellClass: ListAllResTableViewCell.self)
+        allRestaurantTableView.separatorStyle = .none
         allRestaurantTableView.delegate = self
         allRestaurantTableView.dataSource = self
         allRestaurantTableView.isScrollEnabled = false
+    }
+    
+    private func setUpCollectionView() {
+        setUpRandomImageCollectionView()
+        setUpFeaturedPartnersCollectionView(collectionView: featuredPartnersCollectionView)
+        heightOfFeaturedPartnersCollectionViewConstraint.constant = ScreenSize.scaleHeight(254)
+        setUpFeaturedPartnersCollectionView(collectionView: bestFoodOfRestaurntsCollectionView)
+        heightOfNationMealCollectionViewConstraint.constant = ScreenSize.scaleHeight(254)
     }
     
     private func setUpRandomImageCollectionView() {
@@ -149,6 +152,11 @@ class HomeViewController: BaseViewController {
         randomImageCollectionView.showsHorizontalScrollIndicator = false
         randomImageCollectionView.delegate = self
         randomImageCollectionView.dataSource = self
+        randomImageCollectionView.layer.cornerRadius = 8
+        randomImageCollectionView.heightAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(185)).isActive = true
+        botSpaceSliderImageConstraint.constant = ScreenSize.scaleHeight(20)
+        leadingSpaceSliderImageConstraint.constant = ScreenSize.scaleWidth(20)
+        trailingSpaceSliderImageConstraint.constant = ScreenSize.scaleWidth(20)
         randomImageCollectionView.register(nibWithCellClass: SliderImageCollectionViewCell.self)
     }
     
@@ -207,6 +215,57 @@ class HomeViewController: BaseViewController {
         let indexPath = IndexPath(item: currentIndex, section: 0)
         randomImageCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         sliderImagePageControl.currentPage = currentIndex
+    }
+    
+    private func loadAPIListRestaurants() {
+        viewModel.getAPIListRestaurant { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                HUD.dismiss()
+                this.updateViewTableView()
+            } else {
+                this.showAlert(message: msg)
+            }
+        }
+    }
+    
+    private func updateViewTableView() {
+        guard isViewLoaded else { return }
+        heightListTableView.constant = CGFloat(ScreenSize.scaleHeight(292) * CGFloat(viewModel.numberOfRowsInSectionTableView(type: .restaurant)))
+        let totalHeightOfCollectionView = ScreenSize.scaleHeight(185) + botSpaceSliderImageConstraint.constant + heightOfFeaturedPartnersCollectionViewConstraint.constant + heightOfNationMealCollectionViewConstraint.constant
+        let spaceOfItem = topSpaceOfPickRestaurantLabelConstraint.constant + topSpaceOfAllRestaurantLabelConstraint.constant + ScreenSize.scaleHeight(200)
+        heightContentViewConstraint.constant = heightOfHeaderViewConstraint.constant + totalHeightOfCollectionView + heightOfBannerConstraint.constant + topSpaceOfBannerConstraint.constant + spaceOfItem + heightListTableView.constant
+        allRestaurantTableView.reloadData()
+    }
+    
+    private func loadAPIListFeaturePartners() {
+        HUD.show()
+        viewModel.getAPIListFeaturePartners { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                this.loadAPIListNationFood()
+            } else {
+                this.showAlert(message: msg)
+            }
+        }
+    }
+    
+    private func loadAPIListNationFood() {
+        viewModel.getAPIListNationFood { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                this.updateCollectionView()
+                this.loadAPIListRestaurants()
+            } else {
+                this.showAlert(message: msg)
+            }
+        }
+    }
+    
+    private func updateCollectionView() {
+        guard isViewLoaded else { return }
+        featuredPartnersCollectionView.reloadData()
+        bestFoodOfRestaurntsCollectionView.reloadData()
     }
 }
 
@@ -305,7 +364,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: randomImageCollectionView.frame.width, height: randomImageCollectionView.frame.height)
         }
         else {
-            return CGSize(width: 200, height: featuredPartnersCollectionView.frame.height)
+            return CGSize(width: ScreenSize.scaleWidth(200), height: ScreenSize.scaleHeight(254))
         }
     }
     

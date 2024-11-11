@@ -172,9 +172,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="botSpaceOfNameRestaurantLabelConstraint" destination="y9Y-V7-fzz" id="0Xi-Az-k4b"/>
+                <outlet property="botSpaceOfRestaurantImageConstraint" destination="MfP-CM-Wmk" id="8gd-mJ-k7A"/>
+                <outlet property="botSpaceOfpriceLabelConstraint" destination="vd3-0g-5yX" id="3JI-Xz-xWO"/>
                 <outlet property="branch1Label" destination="iTG-Ff-XCb" id="rqA-IH-bWk"/>
                 <outlet property="branch2Label" destination="Ea9-aO-qWG" id="B0f-EJ-QtT"/>
                 <outlet property="feeShipLabel" destination="vPB-OU-bNd" id="7H1-uT-4Ac"/>
+                <outlet property="heightOfRestaurantImageConstraint" destination="zqH-0i-HIl" id="8mJ-9a-y82"/>
                 <outlet property="nameResLabel" destination="guT-Yn-S7q" id="uV7-YP-izs"/>
                 <outlet property="numberVoteLabel" destination="5L8-be-XAw" id="hUw-D9-rtd"/>
                 <outlet property="priceLabel" destination="bJ3-ga-Par" id="Sce-Q9-dQR"/>

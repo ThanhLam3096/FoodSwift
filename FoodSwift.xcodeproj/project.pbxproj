@@ -65,6 +65,7 @@
 		045578F12C97E1B600EA420B /* VerifylePhoneNumberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045578F02C97E1B600EA420B /* VerifylePhoneNumberVC.xib */; };
 		045578F22C97E1B600EA420B /* VerifylePhoneNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045578EF2C97E1B600EA420B /* VerifylePhoneNumberVC.swift */; };
 		045B35472CDDBE3000D879C7 /* gun_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 045B35462CDDBE3000D879C7 /* gun_sound.mp3 */; };
+		04624EFA2CE1B85B0092C32F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04624EF92CE1B85B0092C32F /* UIView.swift */; };
 		0463F9A92C8B2CC900DFA5E7 /* UITableViewEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463F9A82C8B2CC900DFA5E7 /* UITableViewEXT.swift */; };
 		046C49C42CDBB4CA0078E514 /* AddYourPaymentMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C49C22CDBB4CA0078E514 /* AddYourPaymentMethodViewController.swift */; };
 		046C49C52CDBB4CA0078E514 /* AddYourPaymentMethodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046C49C32CDBB4CA0078E514 /* AddYourPaymentMethodViewController.xib */; };
@@ -234,6 +235,7 @@
 		045578EF2C97E1B600EA420B /* VerifylePhoneNumberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifylePhoneNumberVC.swift; sourceTree = "<group>"; };
 		045578F02C97E1B600EA420B /* VerifylePhoneNumberVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerifylePhoneNumberVC.xib; sourceTree = "<group>"; };
 		045B35462CDDBE3000D879C7 /* gun_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gun_sound.mp3; sourceTree = "<group>"; };
+		04624EF92CE1B85B0092C32F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0463F9A82C8B2CC900DFA5E7 /* UITableViewEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewEXT.swift; sourceTree = "<group>"; };
 		046C49C22CDBB4CA0078E514 /* AddYourPaymentMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddYourPaymentMethodViewController.swift; sourceTree = "<group>"; };
 		046C49C32CDBB4CA0078E514 /* AddYourPaymentMethodViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddYourPaymentMethodViewController.xib; sourceTree = "<group>"; };
@@ -879,6 +881,7 @@
 				04D05FDB2CCBED9E00675B9A /* NumberDouble.swift */,
 				04156AAC2CBEA6EB000A1B0F /* UIViewControllerExt.swift */,
 				04156AAE2CBEA759000A1B0F /* DataEXT.swift */,
+				04624EF92CE1B85B0092C32F /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1360,6 +1363,7 @@
 				04B3CC382CB80BC600F95E94 /* CustomPageControl.swift in Sources */,
 				04343B7A2C8B12EF007D3331 /* FlagCodeNumberCellVM.swift in Sources */,
 				04343B702C8AA320007D3331 /* DefinePhoneNumberViewController.swift in Sources */,
+				04624EFA2CE1B85B0092C32F /* UIView.swift in Sources */,
 				0470D9732CDCC9A40063E520 /* Raito.swift in Sources */,
 				04448B1F2CDC9C3300351D26 /* KeyBoardObserver.swift in Sources */,
 				042FFBAD2CB4051C004B6D85 /* HeaderHomeVM.swift in Sources */,

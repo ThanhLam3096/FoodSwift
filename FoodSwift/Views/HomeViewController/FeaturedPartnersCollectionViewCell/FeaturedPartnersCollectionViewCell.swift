@@ -14,7 +14,7 @@ protocol FeaturedPartnersCollectionViewCellViewDelegate {
 
 final class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
 
-    //MARK: - IBOulet
+    //MARK: - @IBOutlet
     @IBOutlet private weak var featuredPartnersImageView: UIImageView!
     @IBOutlet private weak var imageButton: UIButton!
     @IBOutlet private weak var nameFoodLabel: UILabel!
@@ -23,6 +23,15 @@ final class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var timeShipLabel: UILabel!
     @IBOutlet private weak var feeShipLabel: UILabel!
     @IBOutlet private weak var cricleView: CircleGrayView!
+    
+    //MARK: - NSLayoutConstraint
+    @IBOutlet private weak var heightOfImageMealConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceImageMealConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceNameMealLabelConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceAddressMealLabelConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var widthRatingLabelConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightRatingLabelConstraint: NSLayoutConstraint!
     
     //MARK: - Properties
     var viewModel: FeaturedPartnersCollectionViewCellViewModel? {
@@ -40,26 +49,35 @@ final class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
     
     private func setUpViewCell() {
         featuredPartnersImageView.layer.cornerRadius = 4
+        
         imageButton.setTitle("", for: .normal)
+        setUpLabel()
+        setUpImageMeal()
+    }
+    
+    private func setUpImageMeal() {
+        heightOfImageMealConstraint.constant = ScreenSize.scaleHeight(160)
+        botSpaceImageMealConstraint.constant = ScreenSize.scaleHeight(10)
+    }
+    
+    private func setUpLabel() {
+        setUpTextTitleFontTextColorOfLabel(label: nameFoodLabel, text: "", labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(20)) ?? UIFont.systemFont(ofSize: 20), labelTextColor: Color.mainColor)
+        botSpaceNameMealLabelConstraint.constant = ScreenSize.scaleHeight(5)
         
-        nameFoodLabel.font = UIFont.fontYugothicLight(ofSize: 20)
-        nameFoodLabel.textColor = Color.mainColor
+        setUpTextTitleFontTextColorOfLabel(label: addressLabel, text: "", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
+        botSpaceAddressMealLabelConstraint.constant = ScreenSize.scaleHeight(5)
         
-        addressLabel.font = UIFont.fontYugothicUIRegular(ofSize: 16)
-        addressLabel.textColor = Color.bodyTextColor
-        
+        setUpTextTitleFontTextColorOfLabel(label: ratingFoodLabel, text: "", labelFont: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: 12), labelTextColor: Color.bgColor)
         ratingFoodLabel.backgroundColor = Color.activeColor
         ratingFoodLabel.layer.cornerRadius = 4
         ratingFoodLabel.layer.masksToBounds = true
         ratingFoodLabel.textAlignment = .center
-        ratingFoodLabel.font = UIFont.fontYugothicUISemiBold(ofSize: 12)
-        ratingFoodLabel.textColor = UIColor.white
+        widthRatingLabelConstraint.constant = ScreenSize.scaleWidth(36)
+        heightRatingLabelConstraint.constant = ScreenSize.scaleHeight(20)
         
-        timeShipLabel.font = UIFont.fontYugothicLight(ofSize: 14)
-        timeShipLabel.textColor = Color.mainColor
+        setUpTextTitleFontTextColorOfLabel(label: timeShipLabel, text: "", labelFont: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(14)) ?? UIFont.systemFont(ofSize: 14), labelTextColor: Color.mainColor)
         
-        feeShipLabel.font = UIFont.fontYugothicLight(ofSize: 14)
-        feeShipLabel.textColor = Color.mainColor
+        setUpTextTitleFontTextColorOfLabel(label: feeShipLabel, text: "", labelFont: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(14)) ?? UIFont.systemFont(ofSize: 14), labelTextColor: Color.mainColor)
     }
     
     private func updateView() {
