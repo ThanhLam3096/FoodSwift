@@ -26,7 +26,7 @@ class TypeMealCollectionViewCell: UICollectionViewCell {
     }
     
     private func setUpUI() {
-        typeFoodLabel.font = UIFont.fontYugothicUISemiBold(ofSize: 24)
+        typeFoodLabel.font = UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(24))
         typeFoodLabel.textColor = Color.bodyTextColor
         typeFoodLabel.translatesAutoresizingMaskIntoConstraints = false
     }

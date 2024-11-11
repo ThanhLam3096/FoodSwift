@@ -68,10 +68,13 @@
             </constraints>
             <size key="customSize" width="258" height="271"/>
             <connections>
+                <outlet property="botSpaceOfImageMealConstarint" destination="MAN-Ji-rWF" id="5tU-24-x19"/>
+                <outlet property="heightOfImageMealConstarint" destination="Xbn-bI-s3g" id="2xg-Nj-aet"/>
                 <outlet property="imageMealImageView" destination="lJ7-Nc-8TS" id="0r6-mm-9xU"/>
                 <outlet property="nameMealLabel" destination="U4f-7b-gNy" id="LR2-xV-Vjy"/>
                 <outlet property="nationMealLabel" destination="Phv-Cv-aX0" id="dXk-su-25g"/>
                 <outlet property="priceMealLabel" destination="ICE-ic-iyG" id="v9o-Kb-wwa"/>
+                <outlet property="topSpaceOfNameMealConstarint" destination="mFl-f2-DKe" id="bNr-fN-ybd"/>
             </connections>
             <point key="canvasLocation" x="134.35114503816794" y="30.633802816901412"/>
         </collectionViewCell>

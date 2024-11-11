@@ -31,8 +31,8 @@ final class Api {
         static let apiRandomMeal = "\(pathURL)random.php"
         static let apiSearchFirstLetter = "\(pathURL)search.php?f="
         static let apiSearchByName = "\(pathURL)search.php?s="
-        static let apiFeaturedParners = "https://api.mockfly.dev/mocks/536bedbb-b5d1-4150-b09b-02c5d0b13d18/featurePartners"
-        static let apiNationFoodVietNam = "https://api.mockfly.dev/mocks/536bedbb-b5d1-4150-b09b-02c5d0b13d18/listFoodVietNam"
-        static let apiListRestaurant = "https://api.mockfly.dev/mocks/536bedbb-b5d1-4150-b09b-02c5d0b13d18/listRestaurant"
+        static let apiFeaturedParners = "https://api.mockfly.dev/mocks/aa0c8076-dde6-4033-9b08-d650fb314417/featuredPartnersMeal"
+        static let apiNationFoodVietNam = "https://api.mockfly.dev/mocks/aa0c8076-dde6-4033-9b08-d650fb314417/VietNamMeal"
+        static let apiListRestaurant = "https://api.mockfly.dev/mocks/aa0c8076-dde6-4033-9b08-d650fb314417/famousRestaurant"
     }
 }

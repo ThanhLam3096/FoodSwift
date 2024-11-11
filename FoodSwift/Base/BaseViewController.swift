@@ -22,7 +22,7 @@ class BaseViewController: UIViewController {
     
     func setUpData() { }
     
-    func setUpTextTitleFontTextColorOfLabel(label: UILabel,text: String , labelFont: UIFont, labelTextColor: UIColor) {
+    func setUpTextTitleFontTextColorOfLabel(label: UILabel,text: String = "" , labelFont: UIFont, labelTextColor: UIColor) {
         label.text = text
         label.font = labelFont
         label.textColor = labelTextColor
