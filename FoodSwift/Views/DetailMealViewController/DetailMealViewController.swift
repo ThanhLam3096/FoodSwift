@@ -234,6 +234,7 @@ class DetailMealViewController: BaseViewController {
     
     private func updateDataWhenTappingMealByCategory() {
         guard let meal = viewModel.mealDetail else { return }
+        viewModel.meal?.image = meal.imageMeal
         imageMealImageView.sd_setImage(with: URL(string: meal.imageMeal))
         nameMealLabel.text = meal.nameMeal
         typeFoodLabel.text = meal.category
