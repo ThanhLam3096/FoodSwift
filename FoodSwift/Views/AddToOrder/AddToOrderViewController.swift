@@ -27,7 +27,8 @@ class AddToOrderViewController: BaseViewController {
     @IBOutlet private weak var heightOfContentViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var heightImageMealConstraint: NSLayoutConstraint!
     @IBOutlet private weak var spaceOfImageMeal: NSLayoutConstraint!
-    @IBOutlet private weak var spaceOfNameMealConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var leadingSpaceOfNameMealConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceOfNameMealConstraint: NSLayoutConstraint!
     @IBOutlet private weak var spaceOfCustomInfoOrderMealConstraint: NSLayoutConstraint!
     @IBOutlet private weak var spaceOfTopTableViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var spaceOfBottomTableViewConstraint: NSLayoutConstraint!
@@ -61,7 +62,9 @@ class AddToOrderViewController: BaseViewController {
     }
     
     private func setFrameForView() {
-        heightOfContentViewConstraint.constant = ScreenSize.scaleHeight(1700)
+        heightOfContentViewConstraint.constant = ScreenSize.scaleHeight(1750)
+        
+        leadingSpaceOfNameMealConstraint.constant = ScreenSize.scaleWidth(20)
         heightImageMealConstraint.constant = ScreenSize.scaleHeight(280)
         widthOfCloseButtonConstraint.constant = ScreenSize.scaleWidth(34)
         closeButton.layer.cornerRadius = ScreenSize.scaleWidth(17)
@@ -82,7 +85,7 @@ class AddToOrderViewController: BaseViewController {
         addToOrderHeightViewConstraint.constant = ScreenSize.scaleHeight(48)
         
         spaceOfImageMeal.constant = ScreenSize.scaleHeight(24)
-        spaceOfNameMealConstraint.constant = ScreenSize.scaleHeight(16)
+        botSpaceOfNameMealConstraint.constant = ScreenSize.scaleHeight(16)
         spaceOfCustomInfoOrderMealConstraint.constant = ScreenSize.scaleHeight(21)
         spaceOfTopTableViewConstraint.constant = ScreenSize.scaleHeight(34)
         spaceOfBottomTableViewConstraint.constant = ScreenSize.scaleHeight(34)
@@ -92,31 +95,28 @@ class AddToOrderViewController: BaseViewController {
     private func updateUIView() {
         closeButton.setTitle("", for: .normal)
         closeButton.addTarget(self, action: #selector(closeScreen), for: .touchUpInside)
-        
+        updateLabel()
         minusButton.setTitle("", for: .normal)
         plusButton.setTitle("", for: .normal)
-        setUpFontAndTextColorLabel(label: nameMealLabel, textFont: UIFont.fontYugothicUISemiBold(ofSize: 24) ?? UIFont.systemFont(ofSize: 24), textColor: Color.mainColor)
-        setUpFontAndTextColorLabel(label: customInfoLabel, textFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), textColor: Color.mainColor)
-        setUpFontAndTextColorLabel(label: priceMealLabel, textFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), textColor: Color.bodyTextColor)
-        priceMealLabel.text = "\(displayNumber(viewModel.priceMeal))$"
-        setUpFontAndTextColorLabel(label: firstNationMealLabel, textFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), textColor: Color.bodyTextColor)
-        setUpFontAndTextColorLabel(label: secondNationLabel, textFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), textColor: Color.bodyTextColor)
-        setUpFontAndTextColorLabel(label: categoryMealLabel, textFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), textColor: Color.bodyTextColor)
-        setUpFontAndTextColorLabel(label: numberOfMealLabel, textFont: UIFont.fontYugothicUILight(ofSize: 20) ?? UIFont.systemFont(ofSize: 20), textColor: Color.mainColor)
-        numberOfMealLabel.text = viewModel.updateNumberOfMeals(numberOfMeals: viewModel.numberOfMeals)
         updatePriceOrangeButton(price: viewModel.totalOfPriceMeal())
         customInfoLabel.sizeToFit()
         customInfoLabel.text = viewModel.updateOrderInfoMeal()
     }
     
+    private func updateLabel() {
+        setUpTextTitleFontTextColorOfLabel(label: nameMealLabel, text: "Pizza" , labelFont: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(24)) ?? UIFont.systemFont(ofSize: 24), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: customInfoLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: priceMealLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
+        priceMealLabel.text = "\(displayNumber(viewModel.priceMeal))$"
+        setUpTextTitleFontTextColorOfLabel(label: firstNationMealLabel, text: "Japanese", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: secondNationLabel, text: "Italian", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: categoryMealLabel, text: "Bread", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: numberOfMealLabel, text: viewModel.updateNumberOfMeals(numberOfMeals: viewModel.numberOfMeals),  labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(20)) ?? UIFont.systemFont(ofSize: 20), labelTextColor: Color.mainColor)
+    }
+    
     private func updatePriceOrangeButton(price: Double) {
         addToOrderButtonView.delegate = self
         addToOrderButtonView.viewModel = OrangeButtonViewModel(title: "ADD TO ORDER", totalPriceMeal: price)
-    }
-    
-    private func setUpFontAndTextColorLabel(label: UILabel, textFont: UIFont, textColor: UIColor) {
-        label.font = textFont
-        label.textColor = textColor
     }
     
     private func setUpTableView() {
@@ -203,7 +203,8 @@ extension AddToOrderViewController: UITableViewDelegate, UITableViewDataSource {
             customInfoLabel.text = viewModel.updateOrderInfoMeal()
             tableView.reloadData()
         default:
-            alertAddIntructions { resultInput in                self.viewModel.addIntructionMealOrder = resultInput
+            alertAddIntructions { resultInput in                
+                self.viewModel.addIntructionMealOrder = resultInput
                 self.customInfoLabel.text = self.viewModel.updateOrderInfoMeal()
             }
         }
