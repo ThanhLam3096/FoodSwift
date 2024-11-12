@@ -47,6 +47,9 @@ class AddYourPaymentMethodViewController: BaseViewController {
     @IBOutlet weak var widthOfIconCardTextFieldConstraint: NSLayoutConstraint!
     @IBOutlet weak var heightOfIconCardTextFieldConstraint: NSLayoutConstraint!
     
+    // MARK: Properties
+    var viewModel: AddYourPaymentMethodViewModel = AddYourPaymentMethodViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         actionWhenShowKeyboard()
@@ -120,6 +123,8 @@ class AddYourPaymentMethodViewController: BaseViewController {
         textField.layer.borderWidth = borderWidth
         textField.layer.borderColor = borderColor
         textField.layer.cornerRadius = cornerRadius
+        textField.keyboardType = .numberPad
+        textField.delegate = self
     }
     
     private func setUpFrame() {
@@ -171,5 +176,22 @@ extension AddYourPaymentMethodViewController: OrangeButtonViewViewDelegate {
 }
 
 extension AddYourPaymentMethodViewController: UITextFieldDelegate {
-    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == idCardTextField {
+            let currentText = textField.text ?? ""
+            let formattedText = viewModel.formatCardNumber(currentText: currentText, range: range, replacementString: string)
+            textField.text = formattedText
+            return false
+        } else if textField == expiryCardTextField {
+            let currentText = textField.text ?? ""
+            let formattedText = viewModel.formatCardExpired(currentText: currentText, range: range, replacementString: string)
+            textField.text = formattedText
+            return false
+        } else {
+            let currentText = textField.text ?? ""
+            let formattedText = viewModel.formatCardCVCNumber(currentText: currentText, range: range, replacementString: string)
+            textField.text = formattedText
+            return false
+        }
+    }
 }

@@ -53,6 +53,7 @@ class AddToOrderViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        updateUIView()
     }
 
     override func setUpUI() {
@@ -93,9 +94,10 @@ class AddToOrderViewController: BaseViewController {
     }
     
     private func updateUIView() {
-        closeButton.setTitle("", for: .normal)
+        guard let meal = viewModel.meal else {return}
+        imageMealImageView.sd_setImage(with: URL(string: meal.image))
         closeButton.addTarget(self, action: #selector(closeScreen), for: .touchUpInside)
-        updateLabel()
+        updateLabel(meal: meal)
         minusButton.setTitle("", for: .normal)
         plusButton.setTitle("", for: .normal)
         updatePriceOrangeButton(price: viewModel.totalOfPriceMeal())
@@ -103,14 +105,14 @@ class AddToOrderViewController: BaseViewController {
         customInfoLabel.text = viewModel.updateOrderInfoMeal()
     }
     
-    private func updateLabel() {
-        setUpTextTitleFontTextColorOfLabel(label: nameMealLabel, text: "Pizza" , labelFont: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(24)) ?? UIFont.systemFont(ofSize: 24), labelTextColor: Color.mainColor)
+    private func updateLabel(meal: Meal) {
+        setUpTextTitleFontTextColorOfLabel(label: nameMealLabel, text: meal.name , labelFont: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(24)) ?? UIFont.systemFont(ofSize: 24), labelTextColor: Color.mainColor)
         setUpTextTitleFontTextColorOfLabel(label: customInfoLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.mainColor)
         setUpTextTitleFontTextColorOfLabel(label: priceMealLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
-        priceMealLabel.text = "\(displayNumber(viewModel.priceMeal))$"
-        setUpTextTitleFontTextColorOfLabel(label: firstNationMealLabel, text: "Japanese", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
-        setUpTextTitleFontTextColorOfLabel(label: secondNationLabel, text: "Italian", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
-        setUpTextTitleFontTextColorOfLabel(label: categoryMealLabel, text: "Bread", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
+        priceMealLabel.text = "\(displayNumber(meal.price))$"
+        setUpTextTitleFontTextColorOfLabel(label: firstNationMealLabel, text: meal.nation1, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: secondNationLabel, text: meal.nation2, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: categoryMealLabel, text: meal.typeFood, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
         setUpTextTitleFontTextColorOfLabel(label: numberOfMealLabel, text: viewModel.updateNumberOfMeals(numberOfMeals: viewModel.numberOfMeals),  labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(20)) ?? UIFont.systemFont(ofSize: 20), labelTextColor: Color.mainColor)
     }
     
@@ -129,7 +131,7 @@ class AddToOrderViewController: BaseViewController {
     }
     
     @objc private func closeScreen() {
-        
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func minusButtonTouchUpInside(_ sender: Any) {
