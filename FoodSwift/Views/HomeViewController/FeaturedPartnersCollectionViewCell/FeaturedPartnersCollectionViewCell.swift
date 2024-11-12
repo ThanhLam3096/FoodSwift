@@ -90,7 +90,7 @@ final class FeaturedPartnersCollectionViewCell: UICollectionViewCell {
         if meal.feeShip == 0 {
             feeShipLabel.text = "Free delivery"
         } else {
-            feeShipLabel.text = "\(meal.feeShip)$"
+            feeShipLabel.text = "\(displayNumber(meal.feeShip))$"
         }
     }
     

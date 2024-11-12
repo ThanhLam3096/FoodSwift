@@ -162,7 +162,7 @@ class DetailMealViewController: BaseViewController {
     // Đổi màu nền khi nhấn giữ
     @objc func buttonTouchDown() {
         takeAwayButton.setAttributedTitle(NSAttributedString(string: "TAKE AWAY", attributes: [
-            .font: UIFont.fontYugothicUISemiBold(ofSize: 12) as Any,
+            .font: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(12)) as Any,
             .foregroundColor: UIColor.white,
             .backgroundColor: Color.activeColor
         ]), for: .normal)
@@ -172,11 +172,16 @@ class DetailMealViewController: BaseViewController {
     // Khôi phục màu nền ban đầu khi thả tay
     @objc func buttonTouchUp() {
         takeAwayButton.setAttributedTitle(NSAttributedString(string: "TAKE AWAY", attributes: [
-            .font: UIFont.fontYugothicUISemiBold(ofSize: 12) as Any,
+            .font: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(12)) as Any,
             .foregroundColor: Color.activeColor,
             .backgroundColor: UIColor.white
         ]), for: .normal)
         takeAwayButton.backgroundColor = .white
+    }
+    
+    
+    @IBAction func takeAwayTouchUpInside(_ sender: Any) {
+        navigationController?.pushViewController(ScreenName.addToOrder, animated: true)
     }
     
     private func setUpNavigation() {
@@ -223,7 +228,7 @@ class DetailMealViewController: BaseViewController {
     private func setUpCollectionView(collectionView: UICollectionView) {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 20
+        layout.minimumLineSpacing = ScreenSize.scaleWidth(20)
         
         collectionView.collectionViewLayout = layout
         collectionView.isPagingEnabled = true

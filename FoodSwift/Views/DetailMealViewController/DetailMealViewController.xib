@@ -208,6 +208,9 @@
                                             <rect key="frame" x="249.66666666666666" y="109.99999999999999" width="103.33333333333334" height="51.333333333333329"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="Take Away"/>
+                                            <connections>
+                                                <action selector="takeAwayTouchUpInside:" destination="-1" eventType="touchUpInside" id="UtO-xG-as4"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWa-qN-HTe" userLabel="SecondCostDelivery">
                                             <rect key="frame" x="29.999999999999996" y="141" width="61.666666666666657" height="20.333333333333343"/>
@@ -432,7 +435,7 @@
         <image name="white_back" width="12" height="21"/>
         <image name="white_search" width="16" height="17"/>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
