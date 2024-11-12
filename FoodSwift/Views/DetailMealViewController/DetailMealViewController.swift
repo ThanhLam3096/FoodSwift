@@ -181,6 +181,9 @@ class DetailMealViewController: BaseViewController {
     
     
     @IBAction func takeAwayTouchUpInside(_ sender: Any) {
+        guard let meal = viewModel.meal else { return }
+        let vcAddToOrder = ScreenName.addToOrder
+        vcAddToOrder.viewModel = AddToOrderViewControllerViewModel(meal: meal)
         navigationController?.pushViewController(ScreenName.addToOrder, animated: true)
     }
     
@@ -238,11 +241,14 @@ class DetailMealViewController: BaseViewController {
     }
     
     private func updateDataWhenTappingMealByCategory() {
-        guard let meal = viewModel.mealDetail else { return }
-        viewModel.meal?.image = meal.imageMeal
-        imageMealImageView.sd_setImage(with: URL(string: meal.imageMeal))
-        nameMealLabel.text = meal.nameMeal
-        typeFoodLabel.text = meal.category
+        guard let mealDB = viewModel.mealDetail else { return }
+        
+        viewModel.meal?.image = mealDB.imageMeal
+        viewModel.meal?.name = mealDB.nameMeal
+        viewModel.meal?.typeFood = mealDB.category
+        imageMealImageView.sd_setImage(with: URL(string: mealDB.imageMeal))
+        nameMealLabel.text = mealDB.nameMeal
+        typeFoodLabel.text = mealDB.category
     }
     
     private func loadAPIListMealByCategory(categoryName: String) {
