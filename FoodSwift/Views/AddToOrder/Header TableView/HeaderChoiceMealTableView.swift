@@ -39,14 +39,14 @@ final class HeaderChoiceMealTableView: UIView {
         self.addSubview(headerCustomChoiceMealTableView)
         headerCustomChoiceMealTableView.frame = self.bounds
         headerCustomChoiceMealTableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        titleHeaderLabel.font = UIFont.fontYugothicUILight(ofSize: 20)
+        titleHeaderLabel.font = UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(20))
         titleHeaderLabel.textColor = Color.mainColor
         widthRequiredButtonConstraint.constant = ScreenSize.scaleWidth(90)
         heightRequiredButtonConstraint.constant = ScreenSize.scaleHeight(32)
         requiredButton.layer.cornerRadius = 4
         requiredButton.backgroundColor = Color.activeColor.withAlphaComponent(0.3)
         requiredButton.setAttributedTitle(NSAttributedString(string: "REQUIRED", attributes: [
-            .font: UIFont.fontYugothicUILight(ofSize: 12) as Any,
+            .font: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(12)) as Any,
             .foregroundColor: Color.accentColor
         ]), for: .normal)
     }
@@ -62,13 +62,13 @@ final class HeaderChoiceMealTableView: UIView {
         if vm.data.isEmpty {
             requiredButton.backgroundColor = Color.activeColor
             requiredButton.setAttributedTitle(NSAttributedString(string: "REQUIRED", attributes: [
-                .font: UIFont.fontYugothicUILight(ofSize: 12) as Any,
+                .font: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(12)) as Any,
                 .foregroundColor: Color.bgColor
             ]), for: .normal)
         } else {
             requiredButton.backgroundColor = Color.activeColor.withAlphaComponent(0.3)
             requiredButton.setAttributedTitle(NSAttributedString(string: "REQUIRED", attributes: [
-                .font: UIFont.fontYugothicUILight(ofSize: 12) as Any,
+                .font: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(12)) as Any,
                 .foregroundColor: Color.accentColor
             ]), for: .normal)
         }

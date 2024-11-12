@@ -8,11 +8,20 @@
 import UIKit
 
 class TextFieldLoginView: UIView {
+    
+    // MARK: - IBOutlet
     @IBOutlet private weak var loginFormTextView: UIView!
     @IBOutlet private weak var eyeButton: UIButton!
+    @IBOutlet private weak var checkMarkButtonImageView: UIImageView!
     @IBOutlet private weak var titleTextFieldLabel: UILabel!
     @IBOutlet private weak var lineView: UIView!
     @IBOutlet private weak var infoTextField: UITextField!
+    
+    // MARK: - Constraint
+    @IBOutlet private weak var spaceOfTitleAndTextFieldConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var widthEyeButtonConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightEyeButtonConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var topSpaceOfLineViewConstraint: NSLayoutConstraint!
     
     //MARK: - Properties
     var viewModel: TextFieldLoginViewVM? {
@@ -42,12 +51,41 @@ class TextFieldLoginView: UIView {
         self.addSubview(loginFormTextView)
         loginFormTextView.frame = self.bounds
         loginFormTextView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        titleTextFieldLabel.font = UIFont.fontYugothicLight(ofSize: 12)
-        titleTextFieldLabel.textColor = Color.bodyTextColor
-        eyeButton.tintColor = Color.tabBarColor
+        setUpLabel()
+        setUpTextField()
+        
+        
+        
         lineView.backgroundColor = UIColor(hex: "#F3F2F2")
-        infoTextField.borderStyle = .none
+        topSpaceOfLineViewConstraint.constant = ScreenSize.scaleHeight(10)
+        
     }
+    
+    private func setUpLabel() {
+        setLabelFontAndTextColor(label: titleTextFieldLabel, labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: 12), labelTextColor: Color.bodyTextColor)
+        spaceOfTitleAndTextFieldConstraint.constant = ScreenSize.scaleHeight(8)
+    }
+    
+    private func setLabelFontAndTextColor(label: UILabel, labelFont: UIFont, labelTextColor: UIColor) {
+        label.font = labelFont
+        label.textColor = labelTextColor
+    }
+    
+    private func setUpTextField() {
+        infoTextField.font = UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16))
+        infoTextField.textColor = Color.mainColor
+        infoTextField.borderStyle = .none
+        NSLayoutConstraint.activate([
+            infoTextField.heightAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(24)),
+            checkMarkButtonImageView.heightAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(24)),
+            checkMarkButtonImageView.widthAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(24))
+        ])
+        
+        eyeButton.tintColor = Color.tabBarColor
+        widthEyeButtonConstraint.constant = ScreenSize.scaleWidth(14)
+        heightEyeButtonConstraint.constant = ScreenSize.scaleHeight(12)
+    }
+    
     @IBAction func eyeShowPasswordTouchUpInside(_ sender: Any) {
         print("ádasdasd")
     }

@@ -18,5 +18,5 @@ final class Restaurant: Codable {
     let time: String
     let feeDelivery: String
     let averagePrice: Double
-    let id: String
+    let id: Int
 }

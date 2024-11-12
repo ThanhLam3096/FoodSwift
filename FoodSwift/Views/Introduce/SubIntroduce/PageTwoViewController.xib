@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -10,14 +11,28 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PageTwoViewController" customModule="FoodSwift" customModuleProvider="target">
             <connections>
+                <outlet property="botSpaceSologanTitleLabelConstraint" destination="3Gn-os-ajd" id="2e5-BF-xuv"/>
+                <outlet property="deliveryImageView" destination="T7G-hp-g3f" id="ygn-fp-bPG"/>
                 <outlet property="deliveryLabel" destination="dy4-d2-2ob" id="rkL-lH-zQL"/>
+                <outlet property="heightOfPageControlConstraint" destination="SS3-ZL-Jbs" id="NxH-PY-WEP"/>
                 <outlet property="heightStartButtonView" destination="Tki-nT-Bus" id="7SF-0F-Mrn"/>
+                <outlet property="leadingSologanTitleLabelConstraint" destination="RmG-VM-mbf" id="fso-6H-xY2"/>
+                <outlet property="leftSpaceOfLogoConstraint" destination="6Gd-Wi-t0d" id="iNM-VG-WSk"/>
                 <outlet property="logoFoodImageView" destination="4Ci-Fz-zXK" id="1Bu-FY-b5W"/>
                 <outlet property="pageView" destination="h1S-fT-fkl" id="RHU-bt-Gy6"/>
                 <outlet property="sologanTitleLabel" destination="fxc-zB-cSG" id="Pa3-ex-05t"/>
+                <outlet property="spaceBottomDeliveryImageConstraint" destination="qj9-ZY-S7P" id="7w0-2e-S0V"/>
+                <outlet property="spaceTopDeliveryImageConstraint" destination="CRO-HV-eRa" id="qJc-LJ-XTQ"/>
                 <outlet property="titleLabel" destination="7Fc-0q-8hz" id="mgg-Mc-wkj"/>
+                <outlet property="topSpaceOfLogoConstraint" destination="3la-W8-NcK" id="Krt-4a-e9F"/>
+                <outlet property="topSpaceOfStartButtonView" destination="Ujf-Pe-74z" id="fqp-73-9LU"/>
+                <outlet property="topSpaceSologanTitleLabelConstraint" destination="RJr-EV-rP4" id="Hri-eZ-aft"/>
+                <outlet property="trailingSologanTitleLabelConstraint" destination="BCG-Ui-npu" id="Nx5-gT-dVU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="welcomeButtonView" destination="bTv-S8-fZO" id="qwa-Wy-4EK"/>
+                <outlet property="widthOfDeliveryImageConstraint" destination="uvN-I5-5xy" id="Ej3-Am-NGp"/>
+                <outlet property="widthOfLogoConstraint" destination="yTz-0E-Lg1" id="5qX-o6-9kr"/>
+                <outlet property="widthOfPageControlConstraint" destination="XLI-vF-NGx" id="bwJ-d5-mtT"/>
                 <outlet property="widthStartButtonView" destination="Hd2-vs-Sqx" id="g8c-cq-q98"/>
             </connections>
         </placeholder>
@@ -29,7 +44,7 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Ci-Fz-zXK">
                     <rect key="frame" x="30" y="110" width="65" height="65"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="65" id="aCf-yG-5Tb"/>
+                        <constraint firstAttribute="width" secondItem="4Ci-Fz-zXK" secondAttribute="height" multiplier="1:1" id="xF5-di-Lsv"/>
                         <constraint firstAttribute="width" constant="65" id="yTz-0E-Lg1"/>
                     </constraints>
                 </imageView>
@@ -42,7 +57,7 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deliveryFood" translatesAutoresizingMaskIntoConstraints="NO" id="T7G-hp-g3f">
                     <rect key="frame" x="47" y="215" width="299" height="299"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="299" id="dlF-ef-fDS"/>
+                        <constraint firstAttribute="width" secondItem="T7G-hp-g3f" secondAttribute="height" multiplier="1:1" id="V5p-dt-s44"/>
                         <constraint firstAttribute="width" constant="299" id="uvN-I5-5xy"/>
                     </constraints>
                 </imageView>
@@ -57,7 +72,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxc-zB-cSG">
-                    <rect key="frame" x="175.33333333333334" y="584" width="42.333333333333343" height="16"/>
+                    <rect key="frame" x="30" y="584" width="333" height="16"/>
                     <attributedString key="attributedText">
                         <fragment content="Label">
                             <attributes>
@@ -93,10 +108,12 @@
                 <constraint firstItem="4Ci-Fz-zXK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="110" id="3la-W8-NcK"/>
                 <constraint firstItem="4Ci-Fz-zXK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="6Gd-Wi-t0d"/>
                 <constraint firstItem="bTv-S8-fZO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6zl-kl-BrR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fxc-zB-cSG" secondAttribute="trailing" constant="30" id="BCG-Ui-npu"/>
                 <constraint firstItem="T7G-hp-g3f" firstAttribute="top" secondItem="4Ci-Fz-zXK" secondAttribute="bottom" constant="40" id="CRO-HV-eRa"/>
                 <constraint firstItem="T7G-hp-g3f" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Nbo-BT-8Lr"/>
                 <constraint firstItem="dy4-d2-2ob" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Pyq-Vj-5Yh"/>
                 <constraint firstItem="fxc-zB-cSG" firstAttribute="top" secondItem="dy4-d2-2ob" secondAttribute="bottom" constant="20" id="RJr-EV-rP4"/>
+                <constraint firstItem="fxc-zB-cSG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="RmG-VM-mbf"/>
                 <constraint firstItem="bTv-S8-fZO" firstAttribute="top" secondItem="h1S-fT-fkl" secondAttribute="bottom" constant="35" id="Ujf-Pe-74z"/>
                 <constraint firstItem="7Fc-0q-8hz" firstAttribute="top" secondItem="4Ci-Fz-zXK" secondAttribute="top" id="ZaZ-ve-IOh"/>
                 <constraint firstItem="h1S-fT-fkl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="lWa-od-8Cm"/>

@@ -11,6 +11,7 @@ class DetailMealViewController: BaseViewController {
 
     @IBOutlet private weak var contentScrollView: UIScrollView!
     @IBOutlet private weak var navigationBarView: UIView!
+    @IBOutlet private weak var infoDetailMealView: UIView!
     
     // MARK: - IBOutlet Label
     @IBOutlet private weak var nameMealLabel: UILabel!
@@ -40,7 +41,21 @@ class DetailMealViewController: BaseViewController {
     // MARK: - IBOutlet ImageView
     @IBOutlet private weak var imageMealImageView: UIImageView!
     
-    // MARK: - IBOutlet Constraint
+    // MARK: - Constraint
+    @IBOutlet private weak var heightOfImageMealConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceOfImageMealConstraint: NSLayoutConstraint!
+    
+    // MARK: - Constraint InfoDetailMealView
+    @IBOutlet private weak var topSpaceOfPriceMealConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceOfPriceMealConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceOfRatingMealConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var widthOfStarIconConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var widthOfActiveIconConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightOfActiveIconConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var widthOfDollarIconConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceOfFeeShipMealConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceOfInfoDetailMealViewConstraint: NSLayoutConstraint!
+    
     @IBOutlet private weak var heightOfContentViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var heightOfViewImageConstraint: NSLayoutConstraint!
     @IBOutlet private weak var heightOfViewInfoConstraint: NSLayoutConstraint!
@@ -48,6 +63,10 @@ class DetailMealViewController: BaseViewController {
     @IBOutlet private weak var heightOfCollectionViewFeaturedItemConstraint: NSLayoutConstraint!
     @IBOutlet private weak var heightOfCollectionViewCategoryConstraint: NSLayoutConstraint!
     @IBOutlet private weak var heightOfTableViewViewMealConstraint: NSLayoutConstraint!
+    
+    // MARK: - Constraint Button Header
+    @IBOutlet private weak var leadingSpaceConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var trailingSpaceConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     var viewModel: DetailMealViewModel = DetailMealViewModel()
@@ -66,14 +85,57 @@ class DetailMealViewController: BaseViewController {
     }
     
     override func setUpUI() {
-        updateUILabel()
         setUpNavigation()
+        setUpImageMeal()
+        setUpFrameInfoDetailMeal()
+        setUpLabel()
+        setUpFrameButton()
+        contentScrollView.delegate = self
+        setUpTableView()
+        updateCollectionView()
+        setUpFrame()
+    }
+    
+    override func setUpData() {
+        loadAPIListMealByCategory(categoryName: viewModel.typeMeal[GlobalVariables.indexNumber])
+    }
+    
+    private func setUpImageMeal() {
+        heightOfImageMealConstraint.constant = ScreenSize.scaleHeight(280)
+        botSpaceOfImageMealConstraint.constant = ScreenSize.scaleHeight(5)
+    }
+    
+    private func setUpFrameInfoDetailMeal() {
+        topSpaceOfPriceMealConstraint.constant = ScreenSize.scaleHeight(10)
+        topSpaceOfPriceMealConstraint.constant = ScreenSize.scaleHeight(10)
+        botSpaceOfRatingMealConstraint.constant = ScreenSize.scaleHeight(5)
+        widthOfStarIconConstraint.constant = ScreenSize.scaleWidth(12)
+        widthOfActiveIconConstraint.constant = ScreenSize.scaleWidth(18)
+        heightOfActiveIconConstraint.constant = ScreenSize.scaleHeight(24)
+        widthOfDollarIconConstraint.constant = ScreenSize.scaleWidth(17)
+        botSpaceOfFeeShipMealConstraint.constant = ScreenSize.scaleHeight(10)
+        botSpaceOfInfoDetailMealViewConstraint.constant = ScreenSize.scaleHeight(10)
+    }
+    
+    private func setUpLabel() {
+        setUpTextTitleFontTextColorOfLabel(label: nameMealLabel, labelFont: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(24)) ?? UIFont.systemFont(ofSize: 24), labelTextColor: UIColor(hex: "#000000"))
+        setUpTextTitleFontTextColorOfLabel(label: priceMealLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: firstNationLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: secondNationLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: typeFoodLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: ratingLabel, labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: 12), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: numberVoteLabel, labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: 12), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: firstDeliveryLabel, labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: firstTimeDeliveryLabel, labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: secondDeliveryLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: 12), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: secondTimeDeliveryLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: 12), labelTextColor: Color.mainColor)
         
-        backButton.setTitle("", for: .normal)
-        shapeButton.setTitle("", for: .normal)
-        searchButton.setTitle("", for: .normal)
+        setUpTextTitleFontTextColorOfLabel(label: listFeatureLabel,text: "Featured Items" ,labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(20)) ?? UIFont.systemFont(ofSize: 20), labelTextColor: Color.mainColor)
+    }
+    
+    private func setUpFrameButton() {
         takeAwayButton.setAttributedTitle(NSAttributedString(string: "TAKE AWAY", attributes: [
-            .font: UIFont.fontYugothicUISemiBold(ofSize: 12) as Any,
+            .font: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(12)) as Any,
             .foregroundColor: Color.activeColor,
             .backgroundColor: Color.bgColor
         ]), for: .normal)
@@ -82,17 +144,8 @@ class DetailMealViewController: BaseViewController {
         takeAwayButton.layer.borderColor = CGColor.hexStringToCGColor(hex: "#EEA734")
         takeAwayButton.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
         takeAwayButton.addTarget(self, action: #selector(buttonTouchUp), for: [.touchUpInside, .touchUpOutside])
-        
-        contentScrollView.delegate = self
-        setUpTableView()
-        updateCollectionView()
-        
-        backButton.frame = CGRect(x: 20, y: 20, width: 100, height: 50)
-        setUpFrame()
-    }
-    
-    override func setUpData() {
-        loadAPIListMealByCategory(categoryName: viewModel.typeMeal[GlobalVariables.indexNumber])
+        takeAwayButton.widthAnchor.constraint(equalToConstant: ScreenSize.scaleWidth(115)).isActive = true
+        takeAwayButton.heightAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(42)).isActive = true
     }
     
     private func setUpFrame() {
@@ -109,7 +162,7 @@ class DetailMealViewController: BaseViewController {
     // Đổi màu nền khi nhấn giữ
     @objc func buttonTouchDown() {
         takeAwayButton.setAttributedTitle(NSAttributedString(string: "TAKE AWAY", attributes: [
-            .font: UIFont.fontYugothicUISemiBold(ofSize: 12) as Any,
+            .font: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(12)) as Any,
             .foregroundColor: UIColor.white,
             .backgroundColor: Color.activeColor
         ]), for: .normal)
@@ -119,11 +172,16 @@ class DetailMealViewController: BaseViewController {
     // Khôi phục màu nền ban đầu khi thả tay
     @objc func buttonTouchUp() {
         takeAwayButton.setAttributedTitle(NSAttributedString(string: "TAKE AWAY", attributes: [
-            .font: UIFont.fontYugothicUISemiBold(ofSize: 12) as Any,
+            .font: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(12)) as Any,
             .foregroundColor: Color.activeColor,
             .backgroundColor: UIColor.white
         ]), for: .normal)
         takeAwayButton.backgroundColor = .white
+    }
+    
+    
+    @IBAction func takeAwayTouchUpInside(_ sender: Any) {
+        navigationController?.pushViewController(ScreenName.addToOrder, animated: true)
     }
     
     private func setUpNavigation() {
@@ -133,6 +191,8 @@ class DetailMealViewController: BaseViewController {
         
         navigationBarView.layer.cornerRadius = 6
         navigationBarView.backgroundColor = Color.activeColor.withAlphaComponent(0.8)
+        leadingSpaceConstraint.constant = ScreenSize.scaleWidth(20)
+        trailingSpaceConstraint.constant = ScreenSize.scaleWidth(20)
     }
     
     private func updateInfoView() {
@@ -149,26 +209,6 @@ class DetailMealViewController: BaseViewController {
         secondDeliveryLabel.text = meal.feeShip == 0 ? "Delivery" : "Dollars"
         firstTimeDeliveryLabel.text = meal.time.replacingOccurrences(of: "min", with: "")
         secondTimeDeliveryLabel.text = "Minutes"
-    }
-    
-    private func updateUILabel() {
-        setUpLabel(label: nameMealLabel, labelFont: UIFont.fontYugothicUISemiBold(ofSize: 24) ?? UIFont.systemFont(ofSize: 24), labelColor: UIColor(hex: "#000000"))
-        setUpLabel(label: priceMealLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.bodyTextColor)
-        setUpLabel(label: firstNationLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.bodyTextColor)
-        setUpLabel(label: secondNationLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.bodyTextColor)
-        setUpLabel(label: typeFoodLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.bodyTextColor)
-        setUpLabel(label: ratingLabel, labelFont: UIFont.fontYugothicLight(ofSize: 12) ?? UIFont.systemFont(ofSize: 12), labelColor: Color.mainColor)
-        setUpLabel(label: numberVoteLabel, labelFont: UIFont.fontYugothicLight(ofSize: 12) ?? UIFont.systemFont(ofSize: 12), labelColor: Color.mainColor)
-        setUpLabel(label: firstDeliveryLabel, labelFont: UIFont.fontYugothicLight(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.mainColor)
-        setUpLabel(label: firstTimeDeliveryLabel, labelFont: UIFont.fontYugothicLight(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelColor: Color.mainColor)
-        setUpLabel(label: secondDeliveryLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: 12) ?? UIFont.systemFont(ofSize: 12), labelColor: Color.mainColor)
-        setUpLabel(label: secondTimeDeliveryLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: 12) ?? UIFont.systemFont(ofSize: 12), labelColor: Color.mainColor)
-        setUpLabel(label: listFeatureLabel, labelFont: UIFont.fontYugothicLight(ofSize: 20) ?? UIFont.systemFont(ofSize: 20), labelColor: Color.mainColor)
-    }
-    
-    private func setUpLabel(label: UILabel, labelFont: UIFont, labelColor: UIColor) {
-        label.font = labelFont
-        label.textColor = labelColor
     }
     
     private func setUpTableView() {
@@ -188,7 +228,7 @@ class DetailMealViewController: BaseViewController {
     private func setUpCollectionView(collectionView: UICollectionView) {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 20
+        layout.minimumLineSpacing = ScreenSize.scaleWidth(20)
         
         collectionView.collectionViewLayout = layout
         collectionView.isPagingEnabled = true
@@ -199,6 +239,7 @@ class DetailMealViewController: BaseViewController {
     
     private func updateDataWhenTappingMealByCategory() {
         guard let meal = viewModel.mealDetail else { return }
+        viewModel.meal?.image = meal.imageMeal
         imageMealImageView.sd_setImage(with: URL(string: meal.imageMeal))
         nameMealLabel.text = meal.nameMeal
         typeFoodLabel.text = meal.category
@@ -240,6 +281,16 @@ class DetailMealViewController: BaseViewController {
 
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    
+    @IBAction func checkImageFullSizeButtonTouchUpInside(_ sender: Any) {
+        guard let urlImage = viewModel.meal?.image else {return}
+        let imageMealModalVC = ImageMealModalViewController(nibName: "ImageMealModalViewController", bundle: nil)
+        imageMealModalVC.modalTransitionStyle = .coverVertical
+        imageMealModalVC.modalPresentationStyle = .pageSheet
+        imageMealModalVC.viewModel = ImageMealModalViewModel(imageString: urlImage)
+        present(imageMealModalVC, animated: true, completion: nil)
     }
 }
 
@@ -318,18 +369,18 @@ extension DetailMealViewController: UICollectionViewDataSource {
 extension DetailMealViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == featureItemCollectionView {
-            return CGSize(width: (140 / 375) * ScreenSize.screenWidth, height: (198 / 812) * ScreenSize.screenHeight)
+            return CGSize(width: ScreenSize.scaleWidth(140), height: ScreenSize.scaleHeight(198))
         } else {
             let text = viewModel.typeMeal[indexPath.item]
             let label = UILabel()
             label.text = text
             label.numberOfLines = 1
-            label.font = UIFont.fontYugothicUISemiBold(ofSize: 28)
+            label.font = UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(24))
             label.textColor = Color.bodyTextColor
             
             // Calculate the size that fits the label's text
             let size = label.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: collectionView.frame.height))
-            return CGSize(width: size.width, height: collectionView.frame.height)
+            return CGSize(width: ScreenSize.scaleWidth(size.width + 20), height: collectionView.frame.height)
         }
         
     }

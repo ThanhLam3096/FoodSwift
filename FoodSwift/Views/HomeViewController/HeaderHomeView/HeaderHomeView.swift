@@ -19,6 +19,14 @@ final class HeaderHomeView: UIView {
     @IBOutlet weak var filterLabel: UILabel!
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var deliveryLabel: UILabel!
+    @IBOutlet private weak var lineView: UIView!
+    
+    // MARK: - @NSLayoutConstraint
+    @IBOutlet private weak var topSpaceOfFilterLabelConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var topSpaceOfButtonConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var trailingSpaceOfButtonConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceOfButtonConstraint: NSLayoutConstraint!
     
     //MARK: - Properties
     var viewModel: HeaderHomeVM? {
@@ -45,22 +53,33 @@ final class HeaderHomeView: UIView {
         self.addSubview(headerHomeView)
         headerHomeView.frame = self.bounds
         headerHomeView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        deliveryLabel.text = "Delivery to"
-        deliveryLabel.textColor = Color.activeColor
-        deliveryLabel.font = UIFont.fontYugothicLight(ofSize: 12)
-        filterLabel.text = "Filter"
-        filterLabel.font = UIFont.fontYugothicUIRegular(ofSize: 16)
+        setUpLabel()
+        setUpButton()
+        lineView.backgroundColor = UIColor(hex: "#C4C4C4")
+    }
+    
+    private func setUpLabel() {
+        setUpTextTitleFontTextColorOfLabel(label: deliveryLabel, text: "Delivery to", labelFont: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: 12), labelTextColor: Color.activeColor)
+        topSpaceOfFilterLabelConstraint.constant = ScreenSize.scaleHeight(20)
+        
+        setUpTextTitleFontTextColorOfLabel(label: filterLabel, text: "Filter", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.mainColor)
+    }
+    
+    private func setUpButton() {
         filterButton.setImage(UIImage(named: "back_down"), for: .normal)
         filterButton.setAttributedTitle(NSAttributedString(string: "New York, USA", attributes: [
-            .font: UIFont.fontYugothicLight(ofSize: 20) as Any, .foregroundColor: Color.mainColor
+            .font: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(20)) as Any, .foregroundColor: Color.mainColor
         ]), for: .normal)
         filterButton.semanticContentAttribute = .forceRightToLeft
+        trailingSpaceOfButtonConstraint.constant = ScreenSize.scaleWidth(50)
+        topSpaceOfButtonConstraint.constant = ScreenSize.scaleHeight(10)
+        botSpaceOfButtonConstraint.constant = ScreenSize.scaleHeight(11)
     }
     
     private func updateView() {
         guard let viewModel = viewModel else { return }
         filterButton.setAttributedTitle(NSAttributedString(string: viewModel.location, attributes: [
-            .font: UIFont.fontYugothicLight(ofSize: 20) as Any, .foregroundColor: Color.mainColor
+            .font: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(20)) as Any, .foregroundColor: Color.mainColor
         ]), for: .normal)
     }
     

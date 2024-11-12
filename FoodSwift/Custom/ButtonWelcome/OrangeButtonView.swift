@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class OrangeButtonView: UIView {
 
@@ -14,6 +15,7 @@ class OrangeButtonView: UIView {
     var delegate: OrangeButtonViewViewDelegate?
     
     //MARK: - Properties
+    var audioPlayer: AVAudioPlayer?
     var viewModel: OrangeButtonViewModel? {
         didSet {
             updateView()
@@ -36,13 +38,14 @@ class OrangeButtonView: UIView {
         orangeButtonView.frame = self.bounds
         orangeButtonView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         startButton.setAttributedTitle(NSAttributedString(string: "GET STARTED", attributes: [
-            .font: UIFont.fontYugothicUIBold(ofSize: 14) as Any
+            .font: UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleHeight(14)) as Any
         ]), for: .normal)
         startButton.backgroundColor = UIColor(red: 238/255, green: 167/255, blue: 52/255, alpha: 1.0)
         startButton.layer.cornerRadius = 8
     }
     
     @IBAction func getStartButtonTouchUpInside(_ sender: Any) {
+        playSound()
         if let delegate = delegate {
             delegate.tappingInsideButton(view: self)
         }
@@ -50,7 +53,7 @@ class OrangeButtonView: UIView {
     
     func setButtonTitle(_ title: String) {
         startButton.setAttributedTitle(NSAttributedString(string: title, attributes: [
-            .font: UIFont.fontYugothicUIBold(ofSize: 14) as Any
+            .font: UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleHeight(14)) as Any
         ]), for: .normal)
     }
     
@@ -63,11 +66,21 @@ class OrangeButtonView: UIView {
             price = ""
         }
         startButton.setAttributedTitle(NSAttributedString(string: "\(viewModel.title) " + price, attributes: [
-            .font: UIFont.fontYugothicUIBold(ofSize: 14) as Any
+            .font: UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleHeight(14)) as Any
         ]), for: .normal)
 
     }
     
+    func playSound() {
+        guard let url = Bundle.main.url(forResource: "ting_ting", withExtension: "mp3") else { return }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        } catch let error {
+            print("Error playing sound: \(error.localizedDescription)")
+        }
+    }
 }
 
 protocol OrangeButtonViewViewDelegate {

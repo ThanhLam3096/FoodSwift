@@ -8,6 +8,9 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    
+    // MARK: Properties
+    var keyboardObserver: KeyboardObserver?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,4 +21,10 @@ class BaseViewController: UIViewController {
     func setUpUI() { }
     
     func setUpData() { }
+    
+    func setUpTextTitleFontTextColorOfLabel(label: UILabel,text: String = "" , labelFont: UIFont, labelTextColor: UIColor) {
+        label.text = text
+        label.font = labelFont
+        label.textColor = labelTextColor
+    }
 }
