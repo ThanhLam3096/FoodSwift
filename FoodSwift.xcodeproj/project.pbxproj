@@ -88,6 +88,9 @@
 		04882A012CD7705E00EC0930 /* HeaderChoiceMealTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04882A002CD7705E00EC0930 /* HeaderChoiceMealTableView.swift */; };
 		04882A032CD7709200EC0930 /* HeaderChoiceMealTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04882A022CD7709200EC0930 /* HeaderChoiceMealTableView.xib */; };
 		04882A052CD773F100EC0930 /* YuGothL.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 04882A042CD773F100EC0930 /* YuGothL.ttc */; };
+		04888EF92CE2630B00C054C6 /* ImageMealModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04888EF82CE2630B00C054C6 /* ImageMealModalViewController.xib */; };
+		04888EFA2CE2630B00C054C6 /* ImageMealModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04888EF72CE2630B00C054C6 /* ImageMealModalViewController.swift */; };
+		04888EFC2CE2636F00C054C6 /* ImageMealModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04888EFB2CE2636F00C054C6 /* ImageMealModalViewModel.swift */; };
 		048BECDE2C85695A0087F446 /* SocialButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048BECDD2C85695A0087F446 /* SocialButtonView.swift */; };
 		048BECE02C8569650087F446 /* SocialButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048BECDF2C8569650087F446 /* SocialButtonView.xib */; };
 		048BECE22C8574AD0087F446 /* SocialButtonViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048BECE12C8574AD0087F446 /* SocialButtonViewVM.swift */; };
@@ -258,6 +261,9 @@
 		04882A002CD7705E00EC0930 /* HeaderChoiceMealTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderChoiceMealTableView.swift; sourceTree = "<group>"; };
 		04882A022CD7709200EC0930 /* HeaderChoiceMealTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderChoiceMealTableView.xib; sourceTree = "<group>"; };
 		04882A042CD773F100EC0930 /* YuGothL.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = YuGothL.ttc; sourceTree = "<group>"; };
+		04888EF72CE2630B00C054C6 /* ImageMealModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMealModalViewController.swift; sourceTree = "<group>"; };
+		04888EF82CE2630B00C054C6 /* ImageMealModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageMealModalViewController.xib; sourceTree = "<group>"; };
+		04888EFB2CE2636F00C054C6 /* ImageMealModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMealModalViewModel.swift; sourceTree = "<group>"; };
 		048BECDD2C85695A0087F446 /* SocialButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButtonView.swift; sourceTree = "<group>"; };
 		048BECDF2C8569650087F446 /* SocialButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialButtonView.xib; sourceTree = "<group>"; };
 		048BECE12C8574AD0087F446 /* SocialButtonViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButtonViewVM.swift; sourceTree = "<group>"; };
@@ -692,6 +698,16 @@
 			path = "Header TableView";
 			sourceTree = "<group>";
 		};
+		04888EF62CE262F300C054C6 /* PresentImageModal */ = {
+			isa = PBXGroup;
+			children = (
+				04888EF72CE2630B00C054C6 /* ImageMealModalViewController.swift */,
+				04888EF82CE2630B00C054C6 /* ImageMealModalViewController.xib */,
+				04888EFB2CE2636F00C054C6 /* ImageMealModalViewModel.swift */,
+			);
+			path = PresentImageModal;
+			sourceTree = "<group>";
+		};
 		048BECDC2C8569420087F446 /* SocialButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -941,6 +957,7 @@
 		04E6962C2CC67F8200DD4B8B /* DetailMealViewController */ = {
 			isa = PBXGroup;
 			children = (
+				04888EF62CE262F300C054C6 /* PresentImageModal */,
 				04D05FD22CCA7DA800675B9A /* ListMealForTypeCell */,
 				047DB2E72CC94519006B3E5D /* TypeMealCollectionCell */,
 				044244FB2CC8A57400309971 /* FeaturedItemCollectionCell */,
@@ -1104,6 +1121,7 @@
 				04343B6B2C8947F7007D3331 /* ForgotPasswordViewController.xib in Resources */,
 				042FCE2F2CC3D8D600144702 /* FeaturePartnersViewController.xib in Resources */,
 				041529822BD7595700818A4A /* Assets.xcassets in Resources */,
+				04888EF92CE2630B00C054C6 /* ImageMealModalViewController.xib in Resources */,
 				04882A032CD7709200EC0930 /* HeaderChoiceMealTableView.xib in Resources */,
 				042FCE342CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.xib in Resources */,
 				045578F12C97E1B600EA420B /* VerifylePhoneNumberVC.xib in Resources */,
@@ -1332,6 +1350,7 @@
 				04D05FD62CCA80A600675B9A /* ListMealForTypeTableViewCell.swift in Sources */,
 				04F7E2A72CDA497D00A1F39E /* YourOrderViewController.swift in Sources */,
 				04B3CC3D2CB9105F00F95E94 /* Networking.swift in Sources */,
+				04888EFC2CE2636F00C054C6 /* ImageMealModalViewModel.swift in Sources */,
 				041529B62BE0D5D500818A4A /* OrangeButtonView.swift in Sources */,
 				0415297D2BD7595600818A4A /* ViewController.swift in Sources */,
 				04B4A7ED2CD22BC9008A50ED /* FoodTabBarViewController.swift in Sources */,
@@ -1358,6 +1377,7 @@
 				0463F9A92C8B2CC900DFA5E7 /* UITableViewEXT.swift in Sources */,
 				0433CA642CC7F19000576C37 /* CGColor.swift in Sources */,
 				04D05FDC2CCBED9E00675B9A /* NumberDouble.swift in Sources */,
+				04888EFA2CE2630B00C054C6 /* ImageMealModalViewController.swift in Sources */,
 				0470AC6F2CBC023D00D68477 /* FeaturedPartnersCollectionViewCellViewModel.swift in Sources */,
 				04F7E2A32CDA0AC800A1F39E /* OrangeButtonViewModel.swift in Sources */,
 				04B3CC382CB80BC600F95E94 /* CustomPageControl.swift in Sources */,

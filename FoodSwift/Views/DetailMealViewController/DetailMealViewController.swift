@@ -276,6 +276,16 @@ class DetailMealViewController: BaseViewController {
     @IBAction func backButtonTouchUpInside(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
+    
+    
+    @IBAction func checkImageFullSizeButtonTouchUpInside(_ sender: Any) {
+        guard let urlImage = viewModel.meal?.image else {return}
+        let imageMealModalVC = ImageMealModalViewController(nibName: "ImageMealModalViewController", bundle: nil)
+        imageMealModalVC.modalTransitionStyle = .coverVertical
+        imageMealModalVC.modalPresentationStyle = .pageSheet
+        imageMealModalVC.viewModel = ImageMealModalViewModel(imageString: urlImage)
+        present(imageMealModalVC, animated: true, completion: nil)
+    }
 }
 
 extension DetailMealViewController: UITableViewDelegate, UITableViewDataSource {

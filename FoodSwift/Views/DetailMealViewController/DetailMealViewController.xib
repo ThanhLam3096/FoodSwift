@@ -74,14 +74,26 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jeanne" translatesAutoresizingMaskIntoConstraints="NO" id="ANi-VL-zpI">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="280"/>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEt-FW-WXX">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="280"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <buttonConfiguration key="configuration" style="plain"/>
+                                            <connections>
+                                                <action selector="checkImageFullSizeButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="5cV-li-xdd"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="ANi-VL-zpI" firstAttribute="leading" secondItem="tYr-BH-gZV" secondAttribute="leading" id="4tL-cq-7Fz"/>
                                         <constraint firstItem="ANi-VL-zpI" firstAttribute="top" secondItem="tYr-BH-gZV" secondAttribute="top" id="6ka-aA-TrV"/>
+                                        <constraint firstAttribute="trailing" secondItem="rEt-FW-WXX" secondAttribute="trailing" id="9XF-KD-Xu1"/>
+                                        <constraint firstItem="rEt-FW-WXX" firstAttribute="top" secondItem="tYr-BH-gZV" secondAttribute="top" id="SCN-Bu-8y9"/>
                                         <constraint firstAttribute="trailing" secondItem="ANi-VL-zpI" secondAttribute="trailing" id="St7-0N-J7B"/>
                                         <constraint firstAttribute="bottom" secondItem="ANi-VL-zpI" secondAttribute="bottom" id="UjN-q9-Rgh"/>
                                         <constraint firstAttribute="height" constant="280" id="Z47-Eu-0Q4"/>
+                                        <constraint firstItem="rEt-FW-WXX" firstAttribute="leading" secondItem="tYr-BH-gZV" secondAttribute="leading" id="eDy-Cy-GTl"/>
+                                        <constraint firstAttribute="bottom" secondItem="rEt-FW-WXX" secondAttribute="bottom" id="fAF-cl-LgL"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UYh-HH-UX9">
