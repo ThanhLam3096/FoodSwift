@@ -12,10 +12,12 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddYourPaymentMethodViewController" customModule="FoodSwift" customModuleProvider="target">
             <connections>
                 <outlet property="addCardButtonView" destination="NSb-66-G5q" id="T1l-ca-eVt"/>
+                <outlet property="backButton" destination="iyV-3n-Och" id="709-Mw-QeG"/>
                 <outlet property="cvcCardTextField" destination="RCk-qj-gR6" id="suK-at-7et"/>
                 <outlet property="expiryCardTextField" destination="C0w-gX-UsO" id="Z0J-Wp-tFv"/>
                 <outlet property="heightOfAddCardViewConstraint" destination="F9A-dT-qns" id="kQR-wt-2jT"/>
                 <outlet property="heightOfContentView" destination="k0L-em-Nyq" id="YIZ-ll-nqJ"/>
+                <outlet property="heightOfIconCardTextFieldConstraint" destination="rPS-UB-s46" id="Iif-W5-2qP"/>
                 <outlet property="heightOfIdCardView" destination="96w-kf-8v2" id="EuE-Y9-v9e"/>
                 <outlet property="iconCameraImageView" destination="jS3-et-D86" id="lbM-zH-4md"/>
                 <outlet property="iconCardImageView" destination="M1V-TZ-WwZ" id="QHf-if-a1U"/>
@@ -27,6 +29,7 @@
                 <outlet property="scanCardLabel" destination="t4m-OA-upV" id="TbR-tE-2B4"/>
                 <outlet property="scanCardView" destination="Hfj-J3-fJ0" id="dov-ce-gUI"/>
                 <outlet property="scrollView" destination="sna-64-WuE" id="zYD-yo-MU3"/>
+                <outlet property="searchButton" destination="cQh-g8-xcs" id="6X3-cK-6Ke"/>
                 <outlet property="spaceBottomOfIdCardViewConstraint" destination="8Ly-BI-PW6" id="Vne-3M-dre"/>
                 <outlet property="spaceOfTopAddCardButtonConstraint" destination="8vg-NO-ZvM" id="ohx-5m-vOM"/>
                 <outlet property="spaceOfTopIdCardViewConstraint" destination="1MX-Pg-2EM" id="aqK-7f-I5y"/>
@@ -37,6 +40,7 @@
                 <outlet property="widthOfCVCCardTextFieldConstraint" destination="6ok-qh-rKi" id="hVR-35-oSA"/>
                 <outlet property="widthOfCameraImageConstraint" destination="ue3-bc-QYU" id="CjM-Vg-bWS"/>
                 <outlet property="widthOfExpiryCardTextFieldConstraint" destination="pSx-JT-5yP" id="LAa-2d-BEr"/>
+                <outlet property="widthOfIconCardTextFieldConstraint" destination="4j5-aZ-Wm6" id="IUI-ZL-8Ui"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -60,7 +64,10 @@
                                     <buttonConfiguration key="configuration" style="plain" image="left_arrow_back"/>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQh-g8-xcs" userLabel="search">
-                                    <rect key="frame" x="354" y="0.0" width="40" height="31"/>
+                                    <rect key="frame" x="354" y="0.0" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="cQh-g8-xcs" secondAttribute="height" multiplier="1:1" id="48e-0t-6ad"/>
+                                    </constraints>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" image="black_search_icon"/>
                                     <buttonConfiguration key="configuration" style="plain" image="black_search_icon"/>

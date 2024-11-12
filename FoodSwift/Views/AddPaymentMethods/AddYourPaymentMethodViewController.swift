@@ -11,6 +11,8 @@ class AddYourPaymentMethodViewController: BaseViewController {
     
     // MARK: IBOutlet
     @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var backButton: UIButton!
+    @IBOutlet private weak var searchButton: UIButton!
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subjectLabel: UILabel!
@@ -42,6 +44,9 @@ class AddYourPaymentMethodViewController: BaseViewController {
     @IBOutlet weak var widthOfExpiryCardTextFieldConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthOfCVCCardTextFieldConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var widthOfIconCardTextFieldConstraint: NSLayoutConstraint!
+    @IBOutlet weak var heightOfIconCardTextFieldConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         actionWhenShowKeyboard()
@@ -64,11 +69,11 @@ class AddYourPaymentMethodViewController: BaseViewController {
     }
     
     private func setUpLabel() {
-        setLabelFontAndTextColor(label: titleLabel, labelFont: UIFont.fontYugothicUISemiBold(ofSize: 24) ?? UIFont.systemFont(ofSize: 24), labelTextColor: Color.mainColor)
-        setLabelFontAndTextColor(label: subjectLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
+        setLabelFontAndTextColor(label: titleLabel, labelFont: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(24)) ?? UIFont.systemFont(ofSize: 24), labelTextColor: Color.mainColor)
+        setLabelFontAndTextColor(label: subjectLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
         subjectLabel.text = App.String.subjectMethodsPayment
         
-        setLabelFontAndTextColor(label: scanCardLabel, labelFont: UIFont.fontYugothicUISemiBold(ofSize: 14) ?? UIFont.systemFont(ofSize: 14), labelTextColor: Color.mainColor)
+        setLabelFontAndTextColor(label: scanCardLabel, labelFont: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(14)) ?? UIFont.systemFont(ofSize: 14), labelTextColor: Color.mainColor)
         scanCardLabel.text = "SCAN CARD"
     }
     
@@ -80,6 +85,8 @@ class AddYourPaymentMethodViewController: BaseViewController {
     private func setUpButton() {
         NSLayoutConstraint.activate([
             addCardButtonView.heightAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(48)),
+            backButton.widthAnchor.constraint(equalToConstant: ScreenSize.scaleWidth(34)),
+            searchButton.widthAnchor.constraint(equalToConstant: ScreenSize.scaleWidth(34))
         ])
         scanCardView.layer.borderWidth = 1
         scanCardView.layer.cornerRadius = 8
@@ -96,12 +103,14 @@ class AddYourPaymentMethodViewController: BaseViewController {
         idCardView.layer.cornerRadius = 8
         idCardView.layer.borderWidth = 1
         idCardView.layer.borderColor = Color.bodyTextColor.withAlphaComponent(0.3).cgColor
-        setTextFieldFontAndTextColor(textField: idCardTextField, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor, backgroupColor: .clear, borderWidth: 0)
+        setTextFieldFontAndTextColor(textField: idCardTextField, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor, backgroupColor: .clear, borderWidth: 0)
+        widthOfIconCardTextFieldConstraint.constant = ScreenSize.scaleWidth(34)
+        heightOfIconCardTextFieldConstraint.constant = ScreenSize.scaleHeight(24)
         idCardTextField.borderStyle = .none
         widthOfExpiryCardTextFieldConstraint.constant = ScreenSize.scaleWidth(170)
         widthOfCVCCardTextFieldConstraint.constant = ScreenSize.scaleWidth(150)
-        setTextFieldFontAndTextColor(textField: expiryCardTextField, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
-        setTextFieldFontAndTextColor(textField: cvcCardTextField, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
+        setTextFieldFontAndTextColor(textField: expiryCardTextField, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
+        setTextFieldFontAndTextColor(textField: cvcCardTextField, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
     }
     
     private func setTextFieldFontAndTextColor(textField: UITextField, labelFont: UIFont, labelTextColor: UIColor, backgroupColor: UIColor = Color.bodyTextColor.withAlphaComponent(0.132), borderWidth: CGFloat = 1, borderColor: CGColor = Color.bodyTextColor.withAlphaComponent(0.3).cgColor, cornerRadius: CGFloat = 8) {
