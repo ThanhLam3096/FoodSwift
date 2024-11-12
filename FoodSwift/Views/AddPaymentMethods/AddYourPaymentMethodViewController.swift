@@ -41,11 +41,12 @@ class AddYourPaymentMethodViewController: BaseViewController {
     @IBOutlet private weak var leadingScanCardViewOfCameraConstraint: NSLayoutConstraint!
     @IBOutlet private weak var heightOfAddCardViewConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var widthOfExpiryCardTextFieldConstraint: NSLayoutConstraint!
-    @IBOutlet weak var widthOfCVCCardTextFieldConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var widthOfExpiryCardTextFieldConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var widthOfCVCCardTextFieldConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var widthOfIconCardTextFieldConstraint: NSLayoutConstraint!
-    @IBOutlet weak var heightOfIconCardTextFieldConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var widthOfIconCardTextFieldConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightOfIconCardTextFieldConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var topSpaceHeaderConstraint: NSLayoutConstraint!
     
     // MARK: Properties
     var viewModel: AddYourPaymentMethodViewModel = AddYourPaymentMethodViewModel()
@@ -91,6 +92,7 @@ class AddYourPaymentMethodViewController: BaseViewController {
             backButton.widthAnchor.constraint(equalToConstant: ScreenSize.scaleWidth(34)),
             searchButton.widthAnchor.constraint(equalToConstant: ScreenSize.scaleWidth(34))
         ])
+        topSpaceHeaderConstraint.constant = ScreenSize.scaleHeight(10)
         scanCardView.layer.borderWidth = 1
         scanCardView.layer.cornerRadius = 8
         scanCardView.layer.borderColor = Color.bodyTextColor.withAlphaComponent(0.3).cgColor
