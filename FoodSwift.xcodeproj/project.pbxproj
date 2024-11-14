@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04053D362CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04053D342CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.swift */; };
+		04053D372CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04053D352CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.xib */; };
+		04053D392CE5E1300027B379 /* NationAndCategoryCollectionCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04053D382CE5E1300027B379 /* NationAndCategoryCollectionCellVM.swift */; };
 		041330FB2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041330F92CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.swift */; };
 		041330FC2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041330FA2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.xib */; };
 		041331012CD6637F00F43D93 /* ChoiceCustomMealTableViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041331002CD6637F00F43D93 /* ChoiceCustomMealTableViewCellVM.swift */; };
@@ -180,6 +183,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04053D342CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationAndCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		04053D352CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NationAndCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		04053D382CE5E1300027B379 /* NationAndCategoryCollectionCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationAndCategoryCollectionCellVM.swift; sourceTree = "<group>"; };
 		041330F92CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCustomMeaTableViewCell.swift; sourceTree = "<group>"; };
 		041330FA2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceCustomMeaTableViewCell.xib; sourceTree = "<group>"; };
 		041331002CD6637F00F43D93 /* ChoiceCustomMealTableViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCustomMealTableViewCellVM.swift; sourceTree = "<group>"; };
@@ -373,6 +379,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04053D332CE5E0130027B379 /* CategoryAndNationCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				04053D342CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.swift */,
+				04053D352CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.xib */,
+				04053D382CE5E1300027B379 /* NationAndCategoryCollectionCellVM.swift */,
+			);
+			path = CategoryAndNationCollectionCell;
+			sourceTree = "<group>";
+		};
 		041330FD2CD6532B00F43D93 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -776,6 +792,7 @@
 		0491EC722CB0068B00157BE7 /* SearchViewController */ = {
 			isa = PBXGroup;
 			children = (
+				04053D332CE5E0130027B379 /* CategoryAndNationCollectionCell */,
 				04A295F82CE4C88400EA6713 /* SearchCollectionViewCell */,
 				0491EC732CB006D000157BE7 /* SearchViewController.swift */,
 				0491EC742CB006D000157BE7 /* SearchViewController.xib */,
@@ -1139,6 +1156,7 @@
 				044245002CC8A5B700309971 /* FeaturedItemCollectionViewCell.xib in Resources */,
 				04343B6F2C8AA320007D3331 /* DefinePhoneNumberViewController.xib in Resources */,
 				04343B6B2C8947F7007D3331 /* ForgotPasswordViewController.xib in Resources */,
+				04053D372CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.xib in Resources */,
 				042FCE2F2CC3D8D600144702 /* FeaturePartnersViewController.xib in Resources */,
 				041529822BD7595700818A4A /* Assets.xcassets in Resources */,
 				04888EF92CE2630B00C054C6 /* ImageMealModalViewController.xib in Resources */,
@@ -1355,6 +1373,7 @@
 				042FCE382CC5225A00144702 /* FeaturePartnersViewControllerVM.swift in Sources */,
 				04156AAD2CBEA6EB000A1B0F /* UIViewControllerExt.swift in Sources */,
 				04343B662C86AAB2007D3331 /* TopVericallyTextLabel.swift in Sources */,
+				04053D392CE5E1300027B379 /* NationAndCategoryCollectionCellVM.swift in Sources */,
 				046C49C72CDC6FA50078E514 /* AddYourPaymentMethodViewModel.swift in Sources */,
 				04343B6C2C8947F7007D3331 /* ForgotPasswordViewController.swift in Sources */,
 				04343B732C8B1034007D3331 /* DefinePhoneNumberVM.swift in Sources */,
@@ -1365,6 +1384,7 @@
 				04A295FE2CE4C9CA00EA6713 /* SearchCollectionCellVM.swift in Sources */,
 				048D962D2CBD1E4400977AD1 /* ListAllResTableViewCell.swift in Sources */,
 				0491EC7A2CB0071100157BE7 /* OrdersViewController.swift in Sources */,
+				04053D362CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.swift in Sources */,
 				042FCE362CC4FFBB00144702 /* ListCollectionDetailVM.swift in Sources */,
 				0491EC872CB12BD200157BE7 /* HeaderHomeView.swift in Sources */,
 				048BECE22C8574AD0087F446 /* SocialButtonViewVM.swift in Sources */,

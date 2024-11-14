@@ -217,6 +217,42 @@ final class Networking {
         }
     }
     
+    // MARK: - Filter Meal By Nation
+    func getNationMeal(completion: @escaping APICompletion<TheMealDetailResult>) {
+        guard let url = URL(string: Api.Path.apiListArea) else {
+            completion(.failure(App.String.alertFailedAPI))
+            return
+        }
+        AF.request(url).validate().responseDecodable(of: TheMealDetailResult.self) { response in
+            DispatchQueue.main.async {
+                switch response.result {
+                case .success(let result):
+                    completion(.success(result))
+                case .failure(_):
+                    completion(.failure(App.String.alertFailedToConnectAPI))
+                }
+            }
+        }
+    }
+    
+    // MARK: - Filter Meal By Category
+    func getCategoryMeal(completion: @escaping APICompletion<TheMealDetailResult>) {
+        guard let url = URL(string: Api.Path.apiCategory) else {
+            completion(.failure(App.String.alertFailedAPI))
+            return
+        }
+        AF.request(url).validate().responseDecodable(of: TheMealDetailResult.self) { response in
+            DispatchQueue.main.async {
+                switch response.result {
+                case .success(let result):
+                    completion(.success(result))
+                case .failure(_):
+                    completion(.failure(App.String.alertFailedToConnectAPI))
+                }
+            }
+        }
+    }
+    
     //MARK: - Load Image
     func loadImage(from url: String, completion: @escaping (UIImage?) -> Void) {
         guard let imageUrl = URL(string: url) else {

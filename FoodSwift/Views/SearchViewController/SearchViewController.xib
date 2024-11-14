@@ -11,18 +11,31 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="FoodSwift" customModuleProvider="target">
             <connections>
+                <outlet property="categoryButton" destination="kzD-yb-c6X" id="VWE-WH-Lb8"/>
                 <outlet property="emptySearchTitleLabel" destination="hZr-I3-TEv" id="Kwg-Xs-fyr"/>
                 <outlet property="filterButton" destination="h6i-vv-3CD" id="5C8-fD-QYP"/>
                 <outlet property="headerView" destination="xUL-i6-Wui" id="JyR-om-3Ih"/>
+                <outlet property="headerView2" destination="413-7u-bvt" id="e7n-gR-U21"/>
                 <outlet property="heightOfFilterButtonConstraint" destination="5T3-ob-6Mu" id="w0M-fw-Vr3"/>
                 <outlet property="heightOfHeaderViewConstraint" destination="XCi-Ik-BnV" id="ASq-fF-Zyv"/>
                 <outlet property="heightOfIconSearchConstraint" destination="ca0-us-rfM" id="WYJ-eQ-P74"/>
+                <outlet property="heightOfSearchHeaderView2ButtonConstraint" destination="fHd-zK-8pt" id="CUn-ox-mL7"/>
+                <outlet property="heightOfSearchHeaderView2Constraint" destination="NLe-tE-y1A" id="piJ-We-dkF"/>
                 <outlet property="heightOfSearchViewConstraint" destination="eo1-Vj-XRi" id="PiS-A2-rJA"/>
                 <outlet property="leadingSpaceHeaderViewConstraint" destination="MEe-Gc-8Xa" id="HhN-UG-FQR"/>
+                <outlet property="nationAndCategoryCollectionView" destination="omD-fw-6Ab" id="vdY-CH-DXd"/>
+                <outlet property="nationButton" destination="78b-vc-jL0" id="hoz-vU-jAG"/>
                 <outlet property="resultSearchCollectionView" destination="GZo-2d-dp7" id="VLI-LY-TgR"/>
+                <outlet property="resultSearchEmptyView" destination="yYn-CQ-6Hu" id="txZ-xn-8oa"/>
+                <outlet property="searchButtonHeaderView2" destination="3b8-nO-1Tz" id="ptZ-fa-Foh"/>
+                <outlet property="searchImageHeaderView2" destination="fOP-yO-BS4" id="pfd-A7-EWd"/>
                 <outlet property="searchTextField" destination="ogt-XA-u4G" id="Eb2-pN-C3m"/>
                 <outlet property="searchTitleLabel" destination="aKR-CJ-Kyr" id="8Bu-DY-nLG"/>
+                <outlet property="searchTitleLabelHeaderView2" destination="nvf-Da-AF1" id="rf4-mL-YTv"/>
+                <outlet property="topSpaceOfFilterButtonWithHeaderView2Constraint" destination="NDs-xB-q59" id="98K-E2-LCY"/>
+                <outlet property="topSpaceOfFilterButtonWithHeaderViewConstraint" destination="MxF-cJ-wFB" id="Y52-rh-6pT"/>
                 <outlet property="topSpaceResultSearchCollectionViewConstraint" destination="M5t-mR-4SN" id="BFw-dX-0OP"/>
+                <outlet property="topSpaceSearchHeaderView2ButtonConstraint" destination="QJd-O8-fJa" id="jXk-Ph-TX8"/>
                 <outlet property="topSpaceSearchTitleLabelConstraint" destination="aAh-dg-7u5" id="DYw-t5-OUf"/>
                 <outlet property="topSpaceSearchViewLabelConstraint" destination="Ylr-Ac-Gjh" id="Pz2-vT-hfM"/>
                 <outlet property="trailingSpaceHeaderViewConstraint" destination="go5-vf-bRV" id="cjD-fP-5Vb"/>
@@ -34,6 +47,14 @@
             <rect key="frame" x="0.0" y="0.0" width="518" height="825"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78b-vc-jL0">
+                    <rect key="frame" x="102" y="166" width="74" height="50"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="tinted" title="Nation"/>
+                    <connections>
+                        <action selector="nationButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="0Ih-hW-s8W"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6i-vv-3CD">
                     <rect key="frame" x="20" y="166" width="62" height="50"/>
                     <constraints>
@@ -41,7 +62,49 @@
                     </constraints>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <buttonConfiguration key="configuration" style="gray" title="Filter"/>
+                    <connections>
+                        <action selector="filterButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="Lrr-qt-ZOq"/>
+                    </connections>
                 </button>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="413-7u-bvt" userLabel="Header View 2">
+                    <rect key="frame" x="20" y="59" width="478" height="54"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="fOP-yO-BS4">
+                            <rect key="frame" x="0.0" y="20" width="34" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="fOP-yO-BS4" secondAttribute="height" multiplier="1:1" id="5sJ-eD-yPE"/>
+                                <constraint firstAttribute="height" constant="34" id="fHd-zK-8pt"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3b8-nO-1Tz">
+                            <rect key="frame" x="0.0" y="20" width="34" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="3b8-nO-1Tz" secondAttribute="height" multiplier="1:1" id="k1M-hn-m93"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <connections>
+                                <action selector="searchNameMealTouchUpInside:" destination="-1" eventType="touchUpInside" id="n2x-Rh-FbT"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvf-Da-AF1">
+                            <rect key="frame" x="54" y="26.666666666666671" width="53.333333333333343" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="3b8-nO-1Tz" firstAttribute="height" secondItem="fOP-yO-BS4" secondAttribute="height" id="2nh-x8-4Xj"/>
+                        <constraint firstAttribute="height" constant="54" id="NLe-tE-y1A"/>
+                        <constraint firstItem="nvf-Da-AF1" firstAttribute="leading" secondItem="fOP-yO-BS4" secondAttribute="trailing" constant="20" id="PaW-sS-Lxn"/>
+                        <constraint firstItem="fOP-yO-BS4" firstAttribute="top" secondItem="413-7u-bvt" secondAttribute="top" constant="20" id="QJd-O8-fJa"/>
+                        <constraint firstItem="nvf-Da-AF1" firstAttribute="centerY" secondItem="fOP-yO-BS4" secondAttribute="centerY" id="YBt-Ft-0fr"/>
+                        <constraint firstItem="3b8-nO-1Tz" firstAttribute="leading" secondItem="fOP-yO-BS4" secondAttribute="leading" id="pY8-OP-Luu"/>
+                        <constraint firstItem="3b8-nO-1Tz" firstAttribute="top" secondItem="fOP-yO-BS4" secondAttribute="top" id="tVK-mv-LaC"/>
+                        <constraint firstItem="fOP-yO-BS4" firstAttribute="leading" secondItem="413-7u-bvt" secondAttribute="leading" id="u6d-WT-2S7"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUL-i6-Wui" userLabel="HeaderView">
                     <rect key="frame" x="20" y="0.0" width="478" height="156"/>
                     <subviews>
@@ -116,6 +179,16 @@
                                 <constraint firstAttribute="trailing" secondItem="hZr-I3-TEv" secondAttribute="trailing" id="zGn-go-3Ts"/>
                             </constraints>
                         </view>
+                        <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="omD-fw-6Ab">
+                            <rect key="frame" x="20" y="0.0" width="478" height="545"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zlO-4C-yDU">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
                         <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="GZo-2d-dp7">
                             <rect key="frame" x="20" y="0.0" width="478" height="545"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -132,26 +205,48 @@
                         <constraint firstAttribute="bottom" secondItem="yYn-CQ-6Hu" secondAttribute="bottom" id="2Jg-By-LS5"/>
                         <constraint firstAttribute="bottom" secondItem="GZo-2d-dp7" secondAttribute="bottom" constant="10" id="81d-fz-1tm"/>
                         <constraint firstAttribute="trailing" secondItem="yYn-CQ-6Hu" secondAttribute="trailing" id="HyK-5u-YyG"/>
+                        <constraint firstItem="omD-fw-6Ab" firstAttribute="leading" secondItem="GZo-2d-dp7" secondAttribute="leading" id="NS5-Oj-loY"/>
                         <constraint firstItem="GZo-2d-dp7" firstAttribute="top" secondItem="HDE-os-v1Z" secondAttribute="top" id="cEB-Up-6z4"/>
                         <constraint firstItem="yYn-CQ-6Hu" firstAttribute="top" secondItem="HDE-os-v1Z" secondAttribute="top" id="dzj-sl-Lg9"/>
+                        <constraint firstItem="omD-fw-6Ab" firstAttribute="bottom" secondItem="GZo-2d-dp7" secondAttribute="bottom" id="gXj-mX-4Q5"/>
+                        <constraint firstItem="omD-fw-6Ab" firstAttribute="trailing" secondItem="GZo-2d-dp7" secondAttribute="trailing" id="hrt-8S-bfr"/>
+                        <constraint firstItem="omD-fw-6Ab" firstAttribute="top" secondItem="GZo-2d-dp7" secondAttribute="top" id="sAF-Re-dMP"/>
                         <constraint firstItem="yYn-CQ-6Hu" firstAttribute="leading" secondItem="HDE-os-v1Z" secondAttribute="leading" id="ulf-HX-7Lp"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kzD-yb-c6X" userLabel="Category">
+                    <rect key="frame" x="196" y="166" width="95" height="50"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="tinted" title="Category"/>
+                    <connections>
+                        <action selector="categoryButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="ay6-be-WCf"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="h6i-vv-3CD" firstAttribute="leading" secondItem="xUL-i6-Wui" secondAttribute="leading" id="0m3-qR-dYV"/>
+                <constraint firstItem="78b-vc-jL0" firstAttribute="centerY" secondItem="h6i-vv-3CD" secondAttribute="centerY" id="3f4-xs-ekp"/>
+                <constraint firstItem="413-7u-bvt" firstAttribute="leading" secondItem="xUL-i6-Wui" secondAttribute="leading" id="5Zm-s3-G9D"/>
                 <constraint firstItem="HDE-os-v1Z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6Z2-Do-UfW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="HDE-os-v1Z" secondAttribute="bottom" id="C3z-Kf-tpr"/>
                 <constraint firstItem="xUL-i6-Wui" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="E4a-OL-gj2"/>
+                <constraint firstItem="78b-vc-jL0" firstAttribute="leading" secondItem="h6i-vv-3CD" secondAttribute="trailing" constant="20" id="GeB-iq-cga"/>
                 <constraint firstItem="GZo-2d-dp7" firstAttribute="trailing" secondItem="xUL-i6-Wui" secondAttribute="trailing" id="KAw-fE-elx"/>
                 <constraint firstItem="HDE-os-v1Z" firstAttribute="top" secondItem="h6i-vv-3CD" secondAttribute="bottom" constant="20" id="M5t-mR-4SN"/>
                 <constraint firstItem="xUL-i6-Wui" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="MEe-Gc-8Xa"/>
                 <constraint firstItem="h6i-vv-3CD" firstAttribute="top" secondItem="xUL-i6-Wui" secondAttribute="bottom" constant="10" id="MxF-cJ-wFB"/>
+                <constraint firstItem="h6i-vv-3CD" firstAttribute="top" secondItem="413-7u-bvt" secondAttribute="bottom" priority="750" constant="20" id="NDs-xB-q59"/>
+                <constraint firstItem="kzD-yb-c6X" firstAttribute="height" secondItem="h6i-vv-3CD" secondAttribute="height" id="NU0-hQ-zBN"/>
+                <constraint firstItem="kzD-yb-c6X" firstAttribute="centerY" secondItem="h6i-vv-3CD" secondAttribute="centerY" id="XvZ-RA-xv7"/>
+                <constraint firstItem="78b-vc-jL0" firstAttribute="height" secondItem="h6i-vv-3CD" secondAttribute="height" id="ZTI-vr-Nyd"/>
+                <constraint firstItem="413-7u-bvt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bA2-NI-97a"/>
                 <constraint firstItem="GZo-2d-dp7" firstAttribute="leading" secondItem="xUL-i6-Wui" secondAttribute="leading" id="fL0-uZ-rA4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xUL-i6-Wui" secondAttribute="trailing" constant="20" id="go5-vf-bRV"/>
+                <constraint firstItem="kzD-yb-c6X" firstAttribute="leading" secondItem="78b-vc-jL0" secondAttribute="trailing" constant="20" id="kt6-gJ-exa"/>
                 <constraint firstItem="HDE-os-v1Z" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="q92-oh-sqe"/>
+                <constraint firstItem="413-7u-bvt" firstAttribute="trailing" secondItem="xUL-i6-Wui" secondAttribute="trailing" id="u7z-2J-aDj"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="100.76335877862596" y="329.92957746478874"/>
