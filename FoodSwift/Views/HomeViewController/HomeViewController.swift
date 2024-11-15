@@ -72,7 +72,7 @@ class HomeViewController: BaseViewController {
     }
     
     override func setUpData() {
-        loadAPIListFeaturePartners()
+        callingDataAPI()
     }
     
     private func setUpHeaderView() {
@@ -211,19 +211,6 @@ class HomeViewController: BaseViewController {
         sliderImagePageControl.currentPage = currentIndex
     }
     
-    private func loadAPIListRestaurants() {
-        viewModel.getAPIListRestaurant { [weak self] (done, msg) in
-            guard let this = self else { return }
-            if done {
-                HUD.dismiss()
-                this.updateViewTableView()
-            } else {
-                HUD.dismiss()
-                this.showAlert(message: msg)
-            }
-        }
-    }
-    
     private func updateViewTableView() {
         guard isViewLoaded else { return }
         heightListTableView.constant = CGFloat(ScreenSize.scaleHeight(292) * CGFloat(viewModel.numberOfRowsInSectionTableView(type: .restaurant)))
@@ -233,12 +220,19 @@ class HomeViewController: BaseViewController {
         allRestaurantTableView.reloadData()
     }
     
+    private func callingDataAPI() {
+        loadAPIListFeaturePartners()
+        loadAPIListNationFood()
+        loadAPIListRestaurants()
+    }
+    
     private func loadAPIListFeaturePartners() {
         HUD.show()
         viewModel.getAPIListFeaturePartners { [weak self] (done, msg) in
             guard let this = self else { return }
             if done {
-                this.loadAPIListNationFood()
+                HUD.dismiss()
+                this.updateCollectionView()
             } else {
                 HUD.dismiss()
                 this.showAlert(message: msg)
@@ -251,7 +245,19 @@ class HomeViewController: BaseViewController {
             guard let this = self else { return }
             if done {
                 this.updateCollectionView()
-                this.loadAPIListRestaurants()
+            } else {
+                HUD.dismiss()
+                this.showAlert(message: msg)
+            }
+        }
+    }
+    
+    private func loadAPIListRestaurants() {
+        viewModel.getAPIListRestaurant { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                HUD.dismiss()
+                this.updateViewTableView()
             } else {
                 HUD.dismiss()
                 this.showAlert(message: msg)
