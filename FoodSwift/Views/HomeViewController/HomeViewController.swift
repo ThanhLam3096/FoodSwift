@@ -48,12 +48,6 @@ class HomeViewController: BaseViewController {
     @IBOutlet private weak var heightListTableView: NSLayoutConstraint!
     @IBOutlet private weak var heightContentViewConstraint: NSLayoutConstraint!
     
-    private func heightOfContentView() {
-        let totalHeightOfCollectionView = ScreenSize.scaleHeight(185) + botSpaceSliderImageConstraint.constant + heightOfFeaturedPartnersCollectionViewConstraint.constant + heightOfNationMealCollectionViewConstraint.constant
-        let spaceOfLabel = topSpaceOfPickRestaurantLabelConstraint.constant + topSpaceOfAllRestaurantLabelConstraint.constant
-        heightContentViewConstraint.constant = heightOfHeaderViewConstraint.constant + totalHeightOfCollectionView + heightOfBannerConstraint.constant + topSpaceOfBannerConstraint.constant
-    }
-    
     // MARK: - Properties
     var viewModel: HomeViewVM = HomeViewVM()
     var timer: Timer?
@@ -224,6 +218,7 @@ class HomeViewController: BaseViewController {
                 HUD.dismiss()
                 this.updateViewTableView()
             } else {
+                HUD.dismiss()
                 this.showAlert(message: msg)
             }
         }
@@ -245,6 +240,7 @@ class HomeViewController: BaseViewController {
             if done {
                 this.loadAPIListNationFood()
             } else {
+                HUD.dismiss()
                 this.showAlert(message: msg)
             }
         }
@@ -257,6 +253,7 @@ class HomeViewController: BaseViewController {
                 this.updateCollectionView()
                 this.loadAPIListRestaurants()
             } else {
+                HUD.dismiss()
                 this.showAlert(message: msg)
             }
         }

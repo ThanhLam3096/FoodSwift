@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Seafood.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

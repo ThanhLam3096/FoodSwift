@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04053D362CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04053D342CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.swift */; };
+		04053D372CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04053D352CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.xib */; };
+		04053D392CE5E1300027B379 /* NationAndCategoryCollectionCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04053D382CE5E1300027B379 /* NationAndCategoryCollectionCellVM.swift */; };
 		041330FB2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041330F92CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.swift */; };
 		041330FC2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041330FA2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.xib */; };
 		041331012CD6637F00F43D93 /* ChoiceCustomMealTableViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041331002CD6637F00F43D93 /* ChoiceCustomMealTableViewCellVM.swift */; };
@@ -65,6 +68,7 @@
 		045578F12C97E1B600EA420B /* VerifylePhoneNumberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045578F02C97E1B600EA420B /* VerifylePhoneNumberVC.xib */; };
 		045578F22C97E1B600EA420B /* VerifylePhoneNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045578EF2C97E1B600EA420B /* VerifylePhoneNumberVC.swift */; };
 		045B35472CDDBE3000D879C7 /* gun_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 045B35462CDDBE3000D879C7 /* gun_sound.mp3 */; };
+		045C00E72CE4B71000A46D71 /* SearchViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C00E62CE4B71000A46D71 /* SearchViewControllerVM.swift */; };
 		04624EFA2CE1B85B0092C32F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04624EF92CE1B85B0092C32F /* UIView.swift */; };
 		0463F9A92C8B2CC900DFA5E7 /* UITableViewEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463F9A82C8B2CC900DFA5E7 /* UITableViewEXT.swift */; };
 		046C49C42CDBB4CA0078E514 /* AddYourPaymentMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C49C22CDBB4CA0078E514 /* AddYourPaymentMethodViewController.swift */; };
@@ -116,6 +120,9 @@
 		0491EC842CB0073C00157BE7 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0491EC822CB0073C00157BE7 /* ProfileViewController.xib */; };
 		0491EC872CB12BD200157BE7 /* HeaderHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491EC862CB12BD200157BE7 /* HeaderHomeView.swift */; };
 		0491EC892CB12BE200157BE7 /* HeaderHomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0491EC882CB12BE200157BE7 /* HeaderHomeView.xib */; };
+		04A295FB2CE4C9B400EA6713 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A295F92CE4C9B400EA6713 /* SearchCollectionViewCell.swift */; };
+		04A295FC2CE4C9B400EA6713 /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A295FA2CE4C9B400EA6713 /* SearchCollectionViewCell.xib */; };
+		04A295FE2CE4C9CA00EA6713 /* SearchCollectionCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A295FD2CE4C9CA00EA6713 /* SearchCollectionCellVM.swift */; };
 		04B3CC382CB80BC600F95E94 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CC372CB80BC600F95E94 /* CustomPageControl.swift */; };
 		04B3CC3D2CB9105F00F95E94 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CC3C2CB9105F00F95E94 /* Networking.swift */; };
 		04B3CC402CB94F0000F95E94 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CC3F2CB94F0000F95E94 /* Meal.swift */; };
@@ -176,6 +183,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04053D342CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationAndCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		04053D352CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NationAndCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		04053D382CE5E1300027B379 /* NationAndCategoryCollectionCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationAndCategoryCollectionCellVM.swift; sourceTree = "<group>"; };
 		041330F92CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCustomMeaTableViewCell.swift; sourceTree = "<group>"; };
 		041330FA2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceCustomMeaTableViewCell.xib; sourceTree = "<group>"; };
 		041331002CD6637F00F43D93 /* ChoiceCustomMealTableViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCustomMealTableViewCellVM.swift; sourceTree = "<group>"; };
@@ -238,6 +248,7 @@
 		045578EF2C97E1B600EA420B /* VerifylePhoneNumberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifylePhoneNumberVC.swift; sourceTree = "<group>"; };
 		045578F02C97E1B600EA420B /* VerifylePhoneNumberVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerifylePhoneNumberVC.xib; sourceTree = "<group>"; };
 		045B35462CDDBE3000D879C7 /* gun_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gun_sound.mp3; sourceTree = "<group>"; };
+		045C00E62CE4B71000A46D71 /* SearchViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerVM.swift; sourceTree = "<group>"; };
 		04624EF92CE1B85B0092C32F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0463F9A82C8B2CC900DFA5E7 /* UITableViewEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewEXT.swift; sourceTree = "<group>"; };
 		046C49C22CDBB4CA0078E514 /* AddYourPaymentMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddYourPaymentMethodViewController.swift; sourceTree = "<group>"; };
@@ -289,6 +300,9 @@
 		0491EC822CB0073C00157BE7 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		0491EC862CB12BD200157BE7 /* HeaderHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderHomeView.swift; sourceTree = "<group>"; };
 		0491EC882CB12BE200157BE7 /* HeaderHomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderHomeView.xib; sourceTree = "<group>"; };
+		04A295F92CE4C9B400EA6713 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		04A295FA2CE4C9B400EA6713 /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
+		04A295FD2CE4C9CA00EA6713 /* SearchCollectionCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionCellVM.swift; sourceTree = "<group>"; };
 		04B3CC372CB80BC600F95E94 /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		04B3CC3C2CB9105F00F95E94 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		04B3CC3F2CB94F0000F95E94 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
@@ -365,6 +379,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04053D332CE5E0130027B379 /* CategoryAndNationCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				04053D342CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.swift */,
+				04053D352CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.xib */,
+				04053D382CE5E1300027B379 /* NationAndCategoryCollectionCellVM.swift */,
+			);
+			path = CategoryAndNationCollectionCell;
+			sourceTree = "<group>";
+		};
 		041330FD2CD6532B00F43D93 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -768,8 +792,11 @@
 		0491EC722CB0068B00157BE7 /* SearchViewController */ = {
 			isa = PBXGroup;
 			children = (
+				04053D332CE5E0130027B379 /* CategoryAndNationCollectionCell */,
+				04A295F82CE4C88400EA6713 /* SearchCollectionViewCell */,
 				0491EC732CB006D000157BE7 /* SearchViewController.swift */,
 				0491EC742CB006D000157BE7 /* SearchViewController.xib */,
+				045C00E62CE4B71000A46D71 /* SearchViewControllerVM.swift */,
 			);
 			path = SearchViewController;
 			sourceTree = "<group>";
@@ -800,6 +827,16 @@
 				042FFBAC2CB4051C004B6D85 /* HeaderHomeVM.swift */,
 			);
 			path = HeaderHomeView;
+			sourceTree = "<group>";
+		};
+		04A295F82CE4C88400EA6713 /* SearchCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				04A295F92CE4C9B400EA6713 /* SearchCollectionViewCell.swift */,
+				04A295FA2CE4C9B400EA6713 /* SearchCollectionViewCell.xib */,
+				04A295FD2CE4C9CA00EA6713 /* SearchCollectionCellVM.swift */,
+			);
+			path = SearchCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		04B3CC362CB80BA100F95E94 /* CustomPageControl */ = {
@@ -1119,11 +1156,13 @@
 				044245002CC8A5B700309971 /* FeaturedItemCollectionViewCell.xib in Resources */,
 				04343B6F2C8AA320007D3331 /* DefinePhoneNumberViewController.xib in Resources */,
 				04343B6B2C8947F7007D3331 /* ForgotPasswordViewController.xib in Resources */,
+				04053D372CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.xib in Resources */,
 				042FCE2F2CC3D8D600144702 /* FeaturePartnersViewController.xib in Resources */,
 				041529822BD7595700818A4A /* Assets.xcassets in Resources */,
 				04888EF92CE2630B00C054C6 /* ImageMealModalViewController.xib in Resources */,
 				04882A032CD7709200EC0930 /* HeaderChoiceMealTableView.xib in Resources */,
 				042FCE342CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.xib in Resources */,
+				04A295FC2CE4C9B400EA6713 /* SearchCollectionViewCell.xib in Resources */,
 				045578F12C97E1B600EA420B /* VerifylePhoneNumberVC.xib in Resources */,
 				048BECE02C8569650087F446 /* SocialButtonView.xib in Resources */,
 				048BECE92C85BC1B0087F446 /* yugothib.ttf in Resources */,
@@ -1323,6 +1362,7 @@
 				04DA26912CDA6C790055CD9E /* ListTableOrderMealTableViewCell.swift in Sources */,
 				048C75FA2C18324E001DB3AD /* PageThreeViewController.swift in Sources */,
 				041529B22BD7AB7800818A4A /* ScreenSize.swift in Sources */,
+				045C00E72CE4B71000A46D71 /* SearchViewControllerVM.swift in Sources */,
 				04E8DF262CD7D966008DB97D /* HeaderChoiceMealTableViewVM.swift in Sources */,
 				04D05FDA2CCBE9B600675B9A /* ListMealForTypeTableViewCellVM.swift in Sources */,
 				048D96292CBD1B0E00977AD1 /* Restaurant.swift in Sources */,
@@ -1333,6 +1373,7 @@
 				042FCE382CC5225A00144702 /* FeaturePartnersViewControllerVM.swift in Sources */,
 				04156AAD2CBEA6EB000A1B0F /* UIViewControllerExt.swift in Sources */,
 				04343B662C86AAB2007D3331 /* TopVericallyTextLabel.swift in Sources */,
+				04053D392CE5E1300027B379 /* NationAndCategoryCollectionCellVM.swift in Sources */,
 				046C49C72CDC6FA50078E514 /* AddYourPaymentMethodViewModel.swift in Sources */,
 				04343B6C2C8947F7007D3331 /* ForgotPasswordViewController.swift in Sources */,
 				04343B732C8B1034007D3331 /* DefinePhoneNumberVM.swift in Sources */,
@@ -1340,8 +1381,10 @@
 				04D05FD82CCBDCFE00675B9A /* TheMealDB.swift in Sources */,
 				042FFBAB2CB40127004B6D85 /* HomeViewVM.swift in Sources */,
 				041529AF2BD75C3300818A4A /* BaseViewController.swift in Sources */,
+				04A295FE2CE4C9CA00EA6713 /* SearchCollectionCellVM.swift in Sources */,
 				048D962D2CBD1E4400977AD1 /* ListAllResTableViewCell.swift in Sources */,
 				0491EC7A2CB0071100157BE7 /* OrdersViewController.swift in Sources */,
+				04053D362CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.swift in Sources */,
 				042FCE362CC4FFBB00144702 /* ListCollectionDetailVM.swift in Sources */,
 				0491EC872CB12BD200157BE7 /* HeaderHomeView.swift in Sources */,
 				048BECE22C8574AD0087F446 /* SocialButtonViewVM.swift in Sources */,
@@ -1390,6 +1433,7 @@
 				04D05FE02CCD296F00675B9A /* ImageLoader.swift in Sources */,
 				04B3CC402CB94F0000F95E94 /* Meal.swift in Sources */,
 				04C03E3F2C76D96F00DB9B0D /* UIFont.swift in Sources */,
+				04A295FB2CE4C9B400EA6713 /* SearchCollectionViewCell.swift in Sources */,
 				046E777E2C733E6B000F6FD1 /* ScreenName.swift in Sources */,
 				0491EC832CB0073C00157BE7 /* ProfileViewController.swift in Sources */,
 				046C49C42CDBB4CA0078E514 /* AddYourPaymentMethodViewController.swift in Sources */,
