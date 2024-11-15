@@ -244,6 +244,7 @@ class HomeViewController: BaseViewController {
         viewModel.getAPIListNationFood { [weak self] (done, msg) in
             guard let this = self else { return }
             if done {
+                HUD.dismiss()
                 this.updateCollectionView()
             } else {
                 HUD.dismiss()
