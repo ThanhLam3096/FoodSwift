@@ -218,6 +218,7 @@ class HomeViewController: BaseViewController {
                 HUD.dismiss()
                 this.updateViewTableView()
             } else {
+                HUD.dismiss()
                 this.showAlert(message: msg)
             }
         }
@@ -239,6 +240,7 @@ class HomeViewController: BaseViewController {
             if done {
                 this.loadAPIListNationFood()
             } else {
+                HUD.dismiss()
                 this.showAlert(message: msg)
             }
         }
@@ -251,6 +253,7 @@ class HomeViewController: BaseViewController {
                 this.updateCollectionView()
                 this.loadAPIListRestaurants()
             } else {
+                HUD.dismiss()
                 this.showAlert(message: msg)
             }
         }
