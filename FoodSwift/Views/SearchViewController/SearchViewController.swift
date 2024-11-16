@@ -141,7 +141,13 @@ class SearchViewController: BaseViewController {
         trailingSpaceHeaderViewConstraint.constant = ScreenSize.scaleWidth(20)
     }
     @IBAction func filterButtonTouchUpInside(_ sender: Any) {
-        
+        let filterVC = FilterViewController(nibName: "FilterViewController", bundle: nil)
+        filterVC.modalTransitionStyle = .coverVertical
+        filterVC.modalPresentationStyle = .pageSheet
+        filterVC.viewModel = FilterViewControllerVM(filterByNation: viewModel.flagsNationMeal, filterByCategory: viewModel.dishTypeMeal)
+//        filterVC.viewModel = FilterViewControllerVM(data: data)
+        let navController = UINavigationController(rootViewController: filterVC)
+        present(navController, animated: true, completion: nil)
     }
     
     @IBAction func nationButtonTouchUpInside(_ sender: Any) {
@@ -205,9 +211,9 @@ extension SearchViewController {
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == resultSearchCollectionView {
-            return viewModel.numberOfSections(type: .searchName)
+            return viewModel.numberOfItemSections(type: .searchName)
         } else {
-            return viewModel.numberOfSections(type: .nation)
+            return viewModel.numberOfItemSections(type: .nation)
         }
     }
     

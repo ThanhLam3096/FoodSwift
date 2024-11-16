@@ -23,7 +23,7 @@ final class SearchViewControllerVM {
     }
     
     // MARK: - Data CollectionView
-    func numberOfSections(type: TypeFilter) -> Int {
+    func numberOfItemSections(type: TypeFilter) -> Int {
         switch type {
         case .searchName:
             return listResultSearchMealByName.count
