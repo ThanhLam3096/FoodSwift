@@ -23,4 +23,5 @@ struct ScreenName {
     static let addToOrder = AddToOrderViewController()
     static let yourOrder = YourOrderViewController()
     static let addYourPaymentMethos = AddYourPaymentMethodViewController()
+    static let filterScreen = FilterViewController()
 }
