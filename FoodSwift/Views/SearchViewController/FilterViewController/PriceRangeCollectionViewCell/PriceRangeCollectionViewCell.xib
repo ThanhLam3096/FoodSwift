@@ -17,28 +17,29 @@
                 <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fb6-x9-q1A">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxb-LD-nxy">
                         <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="fb6-x9-q1A" secondAttribute="height" multiplier="1:1" id="ESI-Sh-rCD"/>
-                            <constraint firstAttribute="width" constant="64" id="HHa-e2-REH"/>
+                            <constraint firstAttribute="width" constant="64" id="Oa0-W1-DFC"/>
+                            <constraint firstAttribute="width" secondItem="oxb-LD-nxy" secondAttribute="height" multiplier="1:1" id="TG9-Zc-OvD"/>
                         </constraints>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="$"/>
-                    </button>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="fb6-x9-q1A" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1Vq-LM-NKf"/>
-                <constraint firstAttribute="bottom" secondItem="fb6-x9-q1A" secondAttribute="bottom" id="JJr-Dj-JKF"/>
-                <constraint firstAttribute="trailing" secondItem="fb6-x9-q1A" secondAttribute="trailing" id="TSk-cY-nWh"/>
-                <constraint firstItem="fb6-x9-q1A" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Tkh-XG-TuY"/>
+                <constraint firstAttribute="trailing" secondItem="oxb-LD-nxy" secondAttribute="trailing" id="1GN-It-99J"/>
+                <constraint firstItem="oxb-LD-nxy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="NX7-rZ-a1H"/>
+                <constraint firstAttribute="bottom" secondItem="oxb-LD-nxy" secondAttribute="bottom" id="YCV-cV-c8q"/>
+                <constraint firstItem="oxb-LD-nxy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="f27-04-DwH"/>
             </constraints>
             <size key="customSize" width="138" height="103"/>
             <connections>
-                <outlet property="priceRangeButton" destination="fb6-x9-q1A" id="nrd-39-gzu"/>
-                <outlet property="widthOfpriceRangeButtonButtonConstraint" destination="HHa-e2-REH" id="RgO-dT-Gqh"/>
+                <outlet property="priceRangeLabel" destination="oxb-LD-nxy" id="acN-4Q-ulm"/>
+                <outlet property="widthOfpriceRangeLabelConstraint" destination="Oa0-W1-DFC" id="doS-gX-kqD"/>
             </connections>
             <point key="canvasLocation" x="-240" y="-2"/>
         </collectionViewCell>

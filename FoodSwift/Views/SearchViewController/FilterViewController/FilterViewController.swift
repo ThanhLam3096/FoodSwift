@@ -29,6 +29,7 @@ class FilterViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        viewModel.getDataSearchFilterToLocal()
         self.navigationController?.navigationBar.isHidden = false
     }
     
@@ -36,6 +37,8 @@ class FilterViewController: BaseViewController {
         setUpNavigation()
         setUpFrame()
         setUpCollectionView()
+        applyFilterButtonView.viewModel = OrangeButtonViewModel(title: "APPLY FILTERS")
+        applyFilterButtonView.delegate = self
     }
     
     private func setUpNavigation() {
@@ -53,7 +56,7 @@ class FilterViewController: BaseViewController {
     }
 
     @objc func leftAction() {
-        self.navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     private func setUpFrame() {
@@ -71,6 +74,7 @@ class FilterViewController: BaseViewController {
         
         let layout = createLayout()
         filterCollectionView.collectionViewLayout = layout
+        filterCollectionView.allowsSelection = true
         
         let headerNib = UINib(nibName: "HeaderFilterCollectionReusableView", bundle: .main)
         filterCollectionView.register(headerNib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderFilter")
@@ -215,17 +219,85 @@ extension FilterViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         switch sectionFilter {
-        case .nation, .category:
+        case .nation:
             let cell = collectionView.dequeueReusableCell(withClass: NationAndCategoryFilterCollectionViewCell.self, for: indexPath)
-            cell.backgroundColor = UIColor(hex: "#F1F1F1")
+            if viewModel.listIndexFilterChooseByNation.contains(indexPath) {
+                cell.backgroundColor = Color.accentColor
+                cell.filterTitleLabel.textColor = Color.bgColor
+            } else {
+                cell.backgroundColor = UIColor(hex: "#F1F1F1")
+                cell.filterTitleLabel.textColor = Color.bodyTextColor
+            }
+            cell.viewModel = viewModel.cellForRowAtSectionCollection(indexPath: indexPath, sectionFilterType: sectionFilter)
+            return cell
+        case .category:
+            let cell = collectionView.dequeueReusableCell(withClass: NationAndCategoryFilterCollectionViewCell.self, for: indexPath)
+            if viewModel.listIndexFilterChooseByCategory.contains(indexPath) {
+                cell.backgroundColor = Color.accentColor
+                cell.filterTitleLabel.textColor = Color.bgColor
+            } else {
+                cell.backgroundColor = UIColor(hex: "#F1F1F1")
+                cell.filterTitleLabel.textColor = Color.bodyTextColor
+            }
             cell.viewModel = viewModel.cellForRowAtSectionCollection(indexPath: indexPath, sectionFilterType: sectionFilter)
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withClass: PriceRangeCollectionViewCell.self, for: indexPath)
-            cell.backgroundColor = UIColor(hex: "#F1F1F1")
+            if viewModel.listIndexFilterChooseByPriceRange.contains(indexPath) {
+                cell.backgroundColor = Color.accentColor
+                cell.priceRangeLabel.textColor = Color.bgColor
+            } else {
+                cell.backgroundColor = UIColor(hex: "#F1F1F1")
+                cell.priceRangeLabel.textColor = Color.bodyTextColor
+            }
             cell.layer.cornerRadius = ScreenSize.scaleHeight(32)
             cell.viewModel = viewModel.cellForRowAtPriceRangeSectionCollection(indexPath: indexPath)
             return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let sectionFilter = FilterViewControllerVM.TypeFilter(rawValue: indexPath.section) else { return }
+        switch sectionFilter {
+        case .nation:
+            let cell = filterCollectionView.cellForItem(at: indexPath) as? NationAndCategoryFilterCollectionViewCell
+            guard let cell = cell else { return }
+            if viewModel.listFilterChooseByNation.contains(viewModel.filterByNation[indexPath.row]) {
+                cell.backgroundColor = UIColor(hex: "#F1F1F1")
+                cell.filterTitleLabel.textColor = Color.bodyTextColor
+                viewModel.unSaveDataFilterByNation(indexPath: indexPath)
+                viewModel.unSaveDataIndexFilterByNation(indexPath: indexPath)
+            } else {
+                cell.backgroundColor = Color.accentColor
+                cell.filterTitleLabel.textColor = Color.bgColor
+                viewModel.saveDataFilterByNation(indexPath: indexPath)
+            }
+        case .category:
+            let cell = filterCollectionView.cellForItem(at: indexPath) as? NationAndCategoryFilterCollectionViewCell
+            guard let cell = cell else { return }
+            if viewModel.listFilterChooseByCategory.contains(viewModel.filterByCategory[indexPath.row]) {
+                cell.backgroundColor = UIColor(hex: "#F1F1F1")
+                cell.filterTitleLabel.textColor = Color.bodyTextColor
+                viewModel.unSaveDataFilterByCategory(indexPath: indexPath)
+                viewModel.unSaveDataIndexFilterByCategory(indexPath: indexPath)
+            } else {
+                cell.backgroundColor = Color.accentColor
+                cell.filterTitleLabel.textColor = Color.bgColor
+                viewModel.saveDataFilterByCategory(indexPath: indexPath)
+            }
+        case .priceRange:
+            let cell = filterCollectionView.cellForItem(at: indexPath) as? PriceRangeCollectionViewCell
+            guard let cell = cell else { return }
+            if viewModel.listFilterChooseByPriceRange.contains(viewModel.filterByPriceRange[indexPath.row]) {
+                cell.backgroundColor = UIColor(hex: "#F1F1F1")
+                cell.priceRangeLabel.textColor = Color.bodyTextColor
+                viewModel.unSaveDataFilterByPriceRange(indexPath: indexPath)
+                viewModel.unSaveDataIndexFilterByPriceRange(indexPath: indexPath)
+            } else {
+                cell.backgroundColor = Color.accentColor
+                cell.priceRangeLabel.textColor = Color.bgColor
+                viewModel.saveDataFilterByPriceRange(indexPath: indexPath)
+            }
         }
     }
     
@@ -244,57 +316,26 @@ extension FilterViewController: UICollectionViewDataSource {
     }
 }
 
-
-//extension FilterViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        guard let sectionFilter = FilterViewControllerVM.TypeFilter(rawValue: indexPath.section) else {
-//            return CGSize(width: 0, height: 0)
-//        }
-//        switch sectionFilter {
-//        case .nation:
-//            var text = ""
-//            text = viewModel.filterByNation[indexPath.item]
-//            let label = UILabel()
-//            label.text = text
-//            label.numberOfLines = 1
-//            label.font = UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(12))
-//            label.textColor = Color.bodyTextColor
-//            // Calculate the size that fits the label's text
-//            let size = label.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: collectionView.frame.height))
-//            return CGSize(width: ScreenSize.scaleWidth(size.width + ScreenSize.scaleWidth(22)), height: ScreenSize.scaleHeight(38))
-//        case .category:
-//            var text = ""
-//            text = viewModel.filterByCategory[indexPath.item]
-//            let label = UILabel()
-//            label.text = text
-//            label.numberOfLines = 1
-//            label.font = UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(12))
-//            label.textColor = Color.bodyTextColor
-//            // Calculate the size that fits the label's text
-//            let size = label.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: collectionView.frame.height))
-//            return CGSize(width: ScreenSize.scaleWidth(size.width + ScreenSize.scaleWidth(22)), height: ScreenSize.scaleHeight(38))
-//        default: return CGSize(width: ScreenSize.scaleHeight(64), height: ScreenSize.scaleHeight(64))
-//        }
-//
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return ScreenSize.scaleHeight(15) // Khoảng cách giữa các dòng
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return ScreenSize.scaleWidth(5) // Khoảng cách giữa các item
-//    }
-//}
-
 extension FilterViewController: HeaderFilterDelegate {
     func tappingInsideButton(view: HeaderFilterCollectionReusableView) {
-        guard let viewModel = view.viewModel else { return }
-        switch viewModel.headerType {
+        guard let vm = view.viewModel else { return }
+        switch vm.headerType {
         case .nationHeader:
-            print("this is first header")
+            viewModel.clearDataFilterNation()
+            filterCollectionView.reloadSections(IndexSet(integer: 0))
+        case .categoryHeader:
+            viewModel.clearDataFilterCategory()
+            filterCollectionView.reloadSections(IndexSet(integer: 1))
         default:
-            print("this is second header")
+            viewModel.clearDataFilterPriceRange()
+            filterCollectionView.reloadSections(IndexSet(integer: 2))
         }
+    }
+}
+
+extension FilterViewController: OrangeButtonViewViewDelegate {
+    func tappingInsideButton(view: OrangeButtonView) {
+        viewModel.saveDataSearchFilterToLocal()
+        dismiss(animated: true, completion: nil)
     }
 }
