@@ -113,7 +113,7 @@ class FilterViewController: BaseViewController {
             let textWidth = calculateTextWidth(text: title, font: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(12)))
             
             let itemSize = NSCollectionLayoutSize(
-                widthDimension: .absolute(textWidth + ScreenSize.scaleWidth(40)), // Thêm padding
+                widthDimension: .absolute(textWidth + ScreenSize.scaleWidth(41)), // Thêm padding
                 heightDimension: .absolute(ScreenSize.scaleHeight(38))
             )
             return NSCollectionLayoutItem(layoutSize: itemSize)
@@ -146,7 +146,7 @@ class FilterViewController: BaseViewController {
             let textWidth = calculateTextWidth(text: title, font: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(12)))
             
             let itemSize = NSCollectionLayoutSize(
-                widthDimension: .absolute(textWidth + ScreenSize.scaleWidth(40)), // Thêm padding
+                widthDimension: .fractionalWidth(0.3), // Thêm padding
                 heightDimension: .absolute(ScreenSize.scaleHeight(38))
             )
             return NSCollectionLayoutItem(layoutSize: itemSize)
