@@ -37,6 +37,7 @@ class FilterViewController: BaseViewController {
         setUpNavigation()
         setUpFrame()
         setUpCollectionView()
+        applyFilterButtonView.viewModel = OrangeButtonViewModel(title: "APPLY FILTERS")
         applyFilterButtonView.delegate = self
     }
     
