@@ -72,6 +72,7 @@
 		044E55802CE7A15800B7E21A /* PriceRangeCollectionViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E557F2CE7A15800B7E21A /* PriceRangeCollectionViewCellVM.swift */; };
 		045578F12C97E1B600EA420B /* VerifylePhoneNumberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045578F02C97E1B600EA420B /* VerifylePhoneNumberVC.xib */; };
 		045578F22C97E1B600EA420B /* VerifylePhoneNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045578EF2C97E1B600EA420B /* VerifylePhoneNumberVC.swift */; };
+		0456B1C12CE8CCCF0064A51E /* SearchFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0456B1C02CE8CCCF0064A51E /* SearchFilter.swift */; };
 		045B35472CDDBE3000D879C7 /* gun_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 045B35462CDDBE3000D879C7 /* gun_sound.mp3 */; };
 		045BB5532CE7459C006B6CDF /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045BB5512CE7459C006B6CDF /* FilterViewController.swift */; };
 		045BB5542CE7459C006B6CDF /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045BB5522CE7459C006B6CDF /* FilterViewController.xib */; };
@@ -264,6 +265,7 @@
 		044E557F2CE7A15800B7E21A /* PriceRangeCollectionViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRangeCollectionViewCellVM.swift; sourceTree = "<group>"; };
 		045578EF2C97E1B600EA420B /* VerifylePhoneNumberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifylePhoneNumberVC.swift; sourceTree = "<group>"; };
 		045578F02C97E1B600EA420B /* VerifylePhoneNumberVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerifylePhoneNumberVC.xib; sourceTree = "<group>"; };
+		0456B1C02CE8CCCF0064A51E /* SearchFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilter.swift; sourceTree = "<group>"; };
 		045B35462CDDBE3000D879C7 /* gun_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gun_sound.mp3; sourceTree = "<group>"; };
 		045BB5512CE7459C006B6CDF /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		045BB5522CE7459C006B6CDF /* FilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
@@ -672,6 +674,14 @@
 			path = VerifyPhoneNumber;
 			sourceTree = "<group>";
 		};
+		0456B1BF2CE8CCB00064A51E /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				0456B1C02CE8CCCF0064A51E /* SearchFilter.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 		045B35482CDDBE3A00D879C7 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
@@ -918,6 +928,7 @@
 		04B3CC392CB9102E00F95E94 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0456B1BF2CE8CCB00064A51E /* UserDefaults */,
 				04B3CC3E2CB94EF200F95E94 /* Schema */,
 				04B3CC3A2CB9104000F95E94 /* API */,
 			);
@@ -1501,6 +1512,7 @@
 				04888EFA2CE2630B00C054C6 /* ImageMealModalViewController.swift in Sources */,
 				0470AC6F2CBC023D00D68477 /* FeaturedPartnersCollectionViewCellViewModel.swift in Sources */,
 				04F7E2A32CDA0AC800A1F39E /* OrangeButtonViewModel.swift in Sources */,
+				0456B1C12CE8CCCF0064A51E /* SearchFilter.swift in Sources */,
 				04B3CC382CB80BC600F95E94 /* CustomPageControl.swift in Sources */,
 				04343B7A2C8B12EF007D3331 /* FlagCodeNumberCellVM.swift in Sources */,
 				04343B702C8AA320007D3331 /* DefinePhoneNumberViewController.swift in Sources */,
