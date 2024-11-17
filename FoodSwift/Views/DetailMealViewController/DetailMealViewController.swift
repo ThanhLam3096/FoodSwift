@@ -55,6 +55,8 @@ class DetailMealViewController: BaseViewController {
     @IBOutlet private weak var widthOfDollarIconConstraint: NSLayoutConstraint!
     @IBOutlet private weak var botSpaceOfFeeShipMealConstraint: NSLayoutConstraint!
     @IBOutlet private weak var botSpaceOfInfoDetailMealViewConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var trailingPriceLabelConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var trailingRatingLabelConstraint: NSLayoutConstraint!
     
     @IBOutlet private weak var heightOfContentViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var heightOfViewImageConstraint: NSLayoutConstraint!
@@ -115,6 +117,8 @@ class DetailMealViewController: BaseViewController {
         widthOfDollarIconConstraint.constant = ScreenSize.scaleWidth(17)
         botSpaceOfFeeShipMealConstraint.constant = ScreenSize.scaleHeight(10)
         botSpaceOfInfoDetailMealViewConstraint.constant = ScreenSize.scaleHeight(10)
+        trailingPriceLabelConstraint.constant = ScreenSize.scaleWidth(10)
+        trailingRatingLabelConstraint.constant = ScreenSize.scaleWidth(10)
     }
     
     private func setUpLabel() {

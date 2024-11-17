@@ -22,6 +22,11 @@ final class DetailMealViewModel {
         self.meal = meal
     }
     
+    init(themeMealDetail: TheMealDB) {
+        self.mealDetail = themeMealDetail
+    }
+    
+    
     // MARK: - Enum
     enum CollectionType: Int {
         case featuredItem = 0

@@ -48,6 +48,8 @@
                 <outlet property="shapeButton" destination="mwc-ZD-d8w" id="gOT-qD-8i8"/>
                 <outlet property="takeAwayButton" destination="ppE-WS-qbL" id="oSr-x4-lRP"/>
                 <outlet property="topSpaceOfPriceMealConstraint" destination="QUy-gi-qtf" id="E3T-8g-6B8"/>
+                <outlet property="trailingPriceLabelConstraint" destination="Sgf-b9-j05" id="7Uw-Gh-U06"/>
+                <outlet property="trailingRatingLabelConstraint" destination="He2-CW-tug" id="95a-jb-Cj4"/>
                 <outlet property="trailingSpaceConstraint" destination="nPv-90-Pf3" id="0Hj-sb-CFI"/>
                 <outlet property="typeFoodLabel" destination="zZD-SC-Emd" id="yKU-Ln-rLh"/>
                 <outlet property="typeMealCollectionView" destination="huR-0v-2el" id="OSL-8W-l0a"/>
@@ -152,14 +154,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="dT4-Eb-11Y">
-                                            <rect key="frame" x="38.333333333333314" y="66" width="12" height="12"/>
+                                            <rect key="frame" x="34.333333333333314" y="66" width="12" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="dT4-Eb-11Y" secondAttribute="height" multiplier="1:1" id="06b-eC-J2G"/>
                                                 <constraint firstAttribute="width" constant="12" id="zXE-Zz-c4o"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200+ Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUh-mZ-nA5" userLabel="NumberRating">
-                                            <rect key="frame" x="58.333333333333314" y="61.333333333333314" width="94" height="21"/>
+                                            <rect key="frame" x="54.333333333333314" y="61.333333333333314" width="94" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -237,8 +239,8 @@
                                         <constraint firstItem="141-fV-Udl" firstAttribute="centerY" secondItem="zOF-8W-hcI" secondAttribute="centerY" id="BOx-wS-nD2"/>
                                         <constraint firstItem="F6t-kX-729" firstAttribute="centerY" secondItem="zOF-8W-hcI" secondAttribute="centerY" id="C51-IS-tk7"/>
                                         <constraint firstItem="iUh-mZ-nA5" firstAttribute="centerY" secondItem="1XX-Kl-kxc" secondAttribute="centerY" id="Fef-mH-aXe"/>
+                                        <constraint firstItem="dT4-Eb-11Y" firstAttribute="leading" secondItem="1XX-Kl-kxc" secondAttribute="trailing" constant="10" id="He2-CW-tug"/>
                                         <constraint firstItem="zOF-8W-hcI" firstAttribute="leading" secondItem="LeJ-Xf-oeo" secondAttribute="leading" id="Hzz-Aa-Lmc"/>
-                                        <constraint firstItem="dT4-Eb-11Y" firstAttribute="leading" secondItem="k7k-Ll-0Dv" secondAttribute="leading" id="Ilq-iv-BjA"/>
                                         <constraint firstItem="t3q-GJ-yye" firstAttribute="centerY" secondItem="FWa-qN-HTe" secondAttribute="centerY" id="NDM-eN-G0X"/>
                                         <constraint firstItem="LeJ-Xf-oeo" firstAttribute="top" secondItem="UYh-HH-UX9" secondAttribute="top" id="NYN-Ks-4pw"/>
                                         <constraint firstItem="bmd-pT-SSY" firstAttribute="leading" secondItem="141-fV-Udl" secondAttribute="trailing" constant="5" id="OZW-gU-Aa6"/>
@@ -435,7 +437,7 @@
         <image name="white_back" width="12" height="21"/>
         <image name="white_search" width="16" height="17"/>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

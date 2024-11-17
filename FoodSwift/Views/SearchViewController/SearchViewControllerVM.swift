@@ -15,6 +15,7 @@ final class SearchViewControllerVM {
     let dishTypeMeal = ["Beef", "Breakfast", "Chicken", "Dessert", "Goat", "Lamb", "Miscellaneous", "Pasta", "Pork", "Seafood", "Side", "Starter", "Vegan", "Vegetarian"]
     var titleNationCategoryMeal: [String] = []
     var isNation = true
+    var mealDetail: Meal?
     
     // MARK: - Enum
     enum TypeFilter: Int {
@@ -52,6 +53,7 @@ final class SearchViewControllerVM {
             case .failure(let error):
                 detailMealCompletion(false, error)
             case .success(let result):
+                this.listResultSearchMealByName.removeAll()
                 let items = result.meals
                 this.listResultSearchMealByName = items
                 detailMealCompletion(true, App.String.loadSuccess)
@@ -91,6 +93,55 @@ final class SearchViewControllerVM {
                     this.titleNationCategoryMeal.append(item.category)
                 }
                 nationMealCompletion(true, App.String.loadSuccess)
+            }
+        }
+    }
+    
+    func getAPIMealByNation(nationName: String, listCategoryNameMealCompletion: @escaping (Bool, String) -> Void) {
+        Networking.shared().getListMealByNation(nationName: nationName) { [weak self] (mealResult) in
+            guard let this = self else { return }
+            switch mealResult {
+            case .failure(let error):
+                listCategoryNameMealCompletion(false, error)
+            case .success(let result):
+                this.listResultSearchMealByName.removeAll()
+                for item in result.meals {
+                    this.listResultSearchMealByName.append(item)
+                }
+                listCategoryNameMealCompletion(true, App.String.loadSuccess)
+            }
+        }
+    }
+    
+    func getAPIMealByCategory(categoryName: String, listCategoryNameMealCompletion: @escaping (Bool, String) -> Void) {
+        Networking.shared().getListMealByCategory(categoryName: categoryName) { [weak self] (mealResult) in
+            guard let this = self else { return }
+            switch mealResult {
+            case .failure(let error):
+                listCategoryNameMealCompletion(false, error)
+            case .success(let result):
+                this.listResultSearchMealByName.removeAll()
+                for item in result.meals {
+                    this.listResultSearchMealByName.append(item)
+                }
+                listCategoryNameMealCompletion(true, App.String.loadSuccess)
+            }
+        }
+    }
+    
+    func getAPIDetailMealDB(idMeal: String, detailMealCompletion: @escaping (Bool, String) -> Void) {
+        Networking.shared().getDetailMeal(idMeal: idMeal) { [weak self] (mealDetailResult) in
+            guard let this = self else { return }
+            switch mealDetailResult {
+            case .failure(let error):
+                detailMealCompletion(false, error)
+            case .success(let result):
+                let items = result.meals
+                for item in items{
+                    this.mealDetail = DetailFollowThemeMealDB().setDetailDataForThemeMealDB(themeMealDB: item)
+                    print("Meal Detail \(String(describing: this.mealDetail?.name))")
+                }
+                detailMealCompletion(true, App.String.loadSuccess)
             }
         }
     }
