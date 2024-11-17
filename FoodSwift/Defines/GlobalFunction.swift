@@ -28,3 +28,55 @@ enum HeaderFilterType {
     case categoryHeader
     case priceRangeHeader
 }
+
+struct DetailFollowThemeMealDB {
+    
+    private func randomPriceMeal() -> Double {
+        let decimalArray = Array(stride(from: 1.0, through: 100.0, by: 0.1))
+        if let randomtPrice = decimalArray.randomElement() {
+            return (randomtPrice * 10).rounded() / 10
+        }
+        return 0.0
+    }
+    
+    private func randomTimeShip() -> String {
+        let decimalArray = Array(stride(from: 1, through: 30, by: 1))
+        if let randomtTime = decimalArray.randomElement() {
+            return "\(randomtTime) Minutes"
+        }
+        return "1 Minutes"
+    }
+    
+    private func randomRating() -> String {
+        let decimalArray = Array(stride(from: 1.0, through: 5.0, by: 0.1))
+        if let randomtRating = decimalArray.randomElement() {
+            return "\((randomtRating * 10).rounded() / 10)"
+        }
+        return "5"
+    }
+    
+    private func randomTotalVote() -> Int {
+        let decimalArray = Array(stride(from: 1, through: 1000, by: 1))
+        if let randomTotalVote = decimalArray.randomElement() {
+            return randomTotalVote
+        }
+        return 12345
+    }
+    
+    private func randomFeeShip() -> Double {
+        let decimalArray = Array(stride(from: 1.0, through: 10.0, by: 0.1))
+        if let randomFeeShip = decimalArray.randomElement() {
+            return (randomFeeShip * 10).rounded() / 10
+        }
+        return 96.69
+    }
+    
+    func setDetailDataForThemeMealDB(themeMealDB: TheMealDB) -> Meal {
+        let meal = Meal(image: themeMealDB.imageMeal, name: themeMealDB.nameMeal, typeFood: themeMealDB.category, price: randomPriceMeal(), address: themeMealDB.area, nation1: themeMealDB.area, nation2: themeMealDB.area, time: randomTimeShip(), rating: randomRating(), totalVote: randomTotalVote(), fee: randomFeeShip(), idMeal: Int(themeMealDB.idMeal) ?? 69)
+        
+        return meal
+    }
+}
+
+
+

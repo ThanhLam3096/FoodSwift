@@ -194,6 +194,16 @@ class SearchViewController: BaseViewController {
             resultSearchCollectionView.isHidden = false
         }
     }
+    
+    private func showDataSearchByNationAndCategory() {
+        nationAndCategoryCollectionView.isHidden = true
+        resultSearchEmptyView.isHidden = true
+        resultSearchCollectionView.isHidden = false
+    }
+    
+    private func tappingItemDetail(idMeal: String) {
+        loadAPIDetailMeal(idMeal: idMeal)
+    }
 }
 
 extension SearchViewController {
@@ -226,6 +236,18 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             let cell = collectionView.dequeueReusableCell(withClass: NationAndCategoryCollectionViewCell.self, for: indexPath)
             cell.viewModel = viewModel.cellForRowAtSectionNationCategory(indexPath: indexPath)
             return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == resultSearchCollectionView {
+            tappingItemDetail(idMeal: viewModel.listResultSearchMealByName[indexPath.row].idMeal)
+        } else {
+            if viewModel.isNation {
+                loadAPIMealByNationName(nationMeal: viewModel.titleNationCategoryMeal[indexPath.row])
+            } else {
+                loadAPIMealByCategoryName(categoryMeal: viewModel.titleNationCategoryMeal[indexPath.row])
+            }
         }
     }
     
@@ -316,6 +338,49 @@ extension SearchViewController {
                 this.nationAndCategoryCollectionView.reloadData()
             } else {
                 HUD.dismiss()
+            }
+        }
+    }
+    
+    private func loadAPIMealByNationName(nationMeal: String) {
+        HUD.show()
+        viewModel.getAPIMealByNation(nationName: nationMeal) { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                HUD.dismiss()
+                this.showDataSearchByNationAndCategory()
+                this.reloadCollectionView()
+            } else {
+                HUD.dismiss()
+            }
+        }
+    }
+    
+    private func loadAPIMealByCategoryName(categoryMeal: String) {
+        HUD.show()
+        viewModel.getAPIMealByCategory(categoryName: categoryMeal) { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                HUD.dismiss()
+                this.showDataSearchByNationAndCategory()
+                this.reloadCollectionView()
+            } else {
+                HUD.dismiss()
+            }
+        }
+    }
+    
+    private func loadAPIDetailMeal(idMeal: String) {
+//        HUD.show()
+        viewModel.getAPIDetailMealDB(idMeal: idMeal) { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                guard let meal = this.viewModel.mealDetail, let navi = this.navigationController else {return}
+                let detailScreen = DetailMealViewController()
+                detailScreen.viewModel = DetailMealViewModel(meal: meal)
+                navi.pushViewController(detailScreen, animated: true)
+            } else {
+                this.showAlert(message: msg)
             }
         }
     }
