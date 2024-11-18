@@ -16,6 +16,8 @@ final class SearchViewControllerVM {
     var titleNationCategoryMeal: [String] = []
     var isNation = true
     var mealDetail: Meal?
+    var historySearch: [String] = []
+    
     
     // MARK: - Enum
     enum TypeFilter: Int {
@@ -43,6 +45,16 @@ final class SearchViewControllerVM {
         let image = isNation ? flagsNationMeal[indexPath.row] : dishTypeMeal[indexPath.row]
         let title = titleNationCategoryMeal[indexPath.row]
         let model = NationAndCategoryCollectionCellVM(image: image, title: title)
+        return model
+    }
+    
+    func numberOfItemRecentSearch() -> Int {
+        return historySearch.count
+    }
+    
+    func cellForRowAtItemRecentSearch(indexPath: IndexPath) -> SearchRecentTableViewCellVM {
+        let item = historySearch.reversed()[indexPath.row]
+        let model = SearchRecentTableViewCellVM(contentSearch: item)
         return model
     }
     
@@ -144,5 +156,25 @@ final class SearchViewControllerVM {
                 detailMealCompletion(true, App.String.loadSuccess)
             }
         }
+    }
+    
+    func getToHitorySearch() {
+        if let hitory = UserDefaults.standard.array(forKey: "historySearch") as? [String] {
+            historySearch = hitory
+        } else {
+            historySearch = []
+        }
+    }
+    
+    func saveToHistorySearch(history: String) {
+        if !historySearch.contains(history) {
+            historySearch.append(history)
+            UserDefaults.standard.set(historySearch, forKey: "historySearch")
+        }
+    }
+    
+    func clearAllHitorySearch() {
+        historySearch.removeAll()
+        UserDefaults.standard.set([], forKey: "historySearch")
     }
 }

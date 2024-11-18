@@ -34,7 +34,7 @@ struct DetailFollowThemeMealDB {
     private func randomPriceMeal() -> Double {
         let decimalArray = Array(stride(from: 1.0, through: 100.0, by: 0.1))
         if let randomtPrice = decimalArray.randomElement() {
-            return (randomtPrice * 10).rounded() / 10
+            return randomtPrice.rounded(toPlaces: 1)
         }
         return 0.0
     }
@@ -50,7 +50,7 @@ struct DetailFollowThemeMealDB {
     private func randomRating() -> String {
         let decimalArray = Array(stride(from: 1.0, through: 5.0, by: 0.1))
         if let randomtRating = decimalArray.randomElement() {
-            return "\((randomtRating * 10).rounded() / 10)"
+            return "\(randomtRating.rounded(toPlaces: 1))"
         }
         return "5"
     }
@@ -66,7 +66,7 @@ struct DetailFollowThemeMealDB {
     private func randomFeeShip() -> Double {
         let decimalArray = Array(stride(from: 1.0, through: 10.0, by: 0.1))
         if let randomFeeShip = decimalArray.randomElement() {
-            return (randomFeeShip * 10).rounded() / 10
+            return randomFeeShip.rounded(toPlaces: 1)
         }
         return 96.69
     }

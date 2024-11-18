@@ -10,6 +10,7 @@
 		04053D362CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04053D342CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.swift */; };
 		04053D372CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04053D352CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.xib */; };
 		04053D392CE5E1300027B379 /* NationAndCategoryCollectionCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04053D382CE5E1300027B379 /* NationAndCategoryCollectionCellVM.swift */; };
+		040EBD912CEAC8AA00540322 /* SearchRecentHeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040EBD902CEAC8AA00540322 /* SearchRecentHeaderTableView.swift */; };
 		041330FB2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041330F92CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.swift */; };
 		041330FC2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041330FA2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.xib */; };
 		041331012CD6637F00F43D93 /* ChoiceCustomMealTableViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041331002CD6637F00F43D93 /* ChoiceCustomMealTableViewCellVM.swift */; };
@@ -78,6 +79,10 @@
 		045BB5542CE7459C006B6CDF /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045BB5522CE7459C006B6CDF /* FilterViewController.xib */; };
 		045BB5562CE745A8006B6CDF /* FilterViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045BB5552CE745A8006B6CDF /* FilterViewControllerVM.swift */; };
 		045C00E72CE4B71000A46D71 /* SearchViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C00E62CE4B71000A46D71 /* SearchViewControllerVM.swift */; };
+		04622D692CEA324F00B43556 /* SearchRecentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04622D682CEA324F00B43556 /* SearchRecentTableViewCell.xib */; };
+		04622D6A2CEA324F00B43556 /* SearchRecentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04622D672CEA324F00B43556 /* SearchRecentTableViewCell.swift */; };
+		04622D6C2CEA326500B43556 /* SearchRecentTableViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04622D6B2CEA326500B43556 /* SearchRecentTableViewCellVM.swift */; };
+		04622D712CEA3C7700B43556 /* SearchRecentHeaderTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04622D702CEA3C7700B43556 /* SearchRecentHeaderTableView.xib */; };
 		04624EFA2CE1B85B0092C32F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04624EF92CE1B85B0092C32F /* UIView.swift */; };
 		0463F9A92C8B2CC900DFA5E7 /* UITableViewEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463F9A82C8B2CC900DFA5E7 /* UITableViewEXT.swift */; };
 		046C49C42CDBB4CA0078E514 /* AddYourPaymentMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C49C22CDBB4CA0078E514 /* AddYourPaymentMethodViewController.swift */; };
@@ -199,6 +204,7 @@
 		04053D342CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationAndCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		04053D352CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NationAndCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		04053D382CE5E1300027B379 /* NationAndCategoryCollectionCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationAndCategoryCollectionCellVM.swift; sourceTree = "<group>"; };
+		040EBD902CEAC8AA00540322 /* SearchRecentHeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecentHeaderTableView.swift; sourceTree = "<group>"; };
 		041330F92CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCustomMeaTableViewCell.swift; sourceTree = "<group>"; };
 		041330FA2CD6532600F43D93 /* ChoiceCustomMeaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceCustomMeaTableViewCell.xib; sourceTree = "<group>"; };
 		041331002CD6637F00F43D93 /* ChoiceCustomMealTableViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCustomMealTableViewCellVM.swift; sourceTree = "<group>"; };
@@ -271,6 +277,10 @@
 		045BB5522CE7459C006B6CDF /* FilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
 		045BB5552CE745A8006B6CDF /* FilterViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewControllerVM.swift; sourceTree = "<group>"; };
 		045C00E62CE4B71000A46D71 /* SearchViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerVM.swift; sourceTree = "<group>"; };
+		04622D672CEA324F00B43556 /* SearchRecentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecentTableViewCell.swift; sourceTree = "<group>"; };
+		04622D682CEA324F00B43556 /* SearchRecentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchRecentTableViewCell.xib; sourceTree = "<group>"; };
+		04622D6B2CEA326500B43556 /* SearchRecentTableViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecentTableViewCellVM.swift; sourceTree = "<group>"; };
+		04622D702CEA3C7700B43556 /* SearchRecentHeaderTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchRecentHeaderTableView.xib; sourceTree = "<group>"; };
 		04624EF92CE1B85B0092C32F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0463F9A82C8B2CC900DFA5E7 /* UITableViewEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewEXT.swift; sourceTree = "<group>"; };
 		046C49C22CDBB4CA0078E514 /* AddYourPaymentMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddYourPaymentMethodViewController.swift; sourceTree = "<group>"; };
@@ -714,6 +724,25 @@
 			path = NationAndCategoryFilterCell;
 			sourceTree = "<group>";
 		};
+		04622D662CEA321000B43556 /* SearchRecentTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				04622D672CEA324F00B43556 /* SearchRecentTableViewCell.swift */,
+				04622D682CEA324F00B43556 /* SearchRecentTableViewCell.xib */,
+				04622D6B2CEA326500B43556 /* SearchRecentTableViewCellVM.swift */,
+			);
+			path = SearchRecentTableViewCell;
+			sourceTree = "<group>";
+		};
+		04622D6D2CEA3BCC00B43556 /* HeaderTableViewSearchRecent */ = {
+			isa = PBXGroup;
+			children = (
+				040EBD902CEAC8AA00540322 /* SearchRecentHeaderTableView.swift */,
+				04622D702CEA3C7700B43556 /* SearchRecentHeaderTableView.xib */,
+			);
+			path = HeaderTableViewSearchRecent;
+			sourceTree = "<group>";
+		};
 		046C49C12CDBB3E40078E514 /* AddPaymentMethods */ = {
 			isa = PBXGroup;
 			children = (
@@ -859,6 +888,8 @@
 		0491EC722CB0068B00157BE7 /* SearchViewController */ = {
 			isa = PBXGroup;
 			children = (
+				04622D6D2CEA3BCC00B43556 /* HeaderTableViewSearchRecent */,
+				04622D662CEA321000B43556 /* SearchRecentTableViewCell */,
 				045BB5502CE7458B006B6CDF /* FilterViewController */,
 				04053D332CE5E0130027B379 /* CategoryAndNationCollectionCell */,
 				04A295F82CE4C88400EA6713 /* SearchCollectionViewCell */,
@@ -1243,6 +1274,7 @@
 				042FCE342CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.xib in Resources */,
 				04A295FC2CE4C9B400EA6713 /* SearchCollectionViewCell.xib in Resources */,
 				045578F12C97E1B600EA420B /* VerifylePhoneNumberVC.xib in Resources */,
+				04622D712CEA3C7700B43556 /* SearchRecentHeaderTableView.xib in Resources */,
 				048BECE02C8569650087F446 /* SocialButtonView.xib in Resources */,
 				048BECE92C85BC1B0087F446 /* yugothib.ttf in Resources */,
 				04788A302BE38729009AB6DD /* IntroducePageViewController.xib in Resources */,
@@ -1260,6 +1292,7 @@
 				048C75FB2C18324E001DB3AD /* PageThreeViewController.xib in Resources */,
 				042FFBA22CB3E27E004B6D85 /* HomeViewController.xib in Resources */,
 				045BB5542CE7459C006B6CDF /* FilterViewController.xib in Resources */,
+				04622D692CEA324F00B43556 /* SearchRecentTableViewCell.xib in Resources */,
 				044E557C2CE79E3300B7E21A /* PriceRangeCollectionViewCell.xib in Resources */,
 				0474D2EF2CD8F8EE002F4C36 /* AddInstructionTableViewCell.xib in Resources */,
 				0491EC842CB0073C00157BE7 /* ProfileViewController.xib in Resources */,
@@ -1428,6 +1461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				041331012CD6637F00F43D93 /* ChoiceCustomMealTableViewCellVM.swift in Sources */,
+				04622D6C2CEA326500B43556 /* SearchRecentTableViewCellVM.swift in Sources */,
 				042FFBA62CB3FFBA004B6D85 /* LocationListTableViewCell.swift in Sources */,
 				042FFBA92CB400A5004B6D85 /* LocationListViewModel.swift in Sources */,
 				04B4A7F12CD3B7E0008A50ED /* AddToOrderViewController.swift in Sources */,
@@ -1471,6 +1505,7 @@
 				0491EC7A2CB0071100157BE7 /* OrdersViewController.swift in Sources */,
 				04053D362CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.swift in Sources */,
 				042FCE362CC4FFBB00144702 /* ListCollectionDetailVM.swift in Sources */,
+				040EBD912CEAC8AA00540322 /* SearchRecentHeaderTableView.swift in Sources */,
 				0491EC872CB12BD200157BE7 /* HeaderHomeView.swift in Sources */,
 				048BECE22C8574AD0087F446 /* SocialButtonViewVM.swift in Sources */,
 				04E696322CC698DD00DD4B8B /* DetailMealViewModel.swift in Sources */,
@@ -1506,6 +1541,7 @@
 				04C03E4C2C81F0C200DB9B0D /* TextFieldLoginView.swift in Sources */,
 				041529792BD7595600818A4A /* AppDelegate.swift in Sources */,
 				049788B12CE78361004CF413 /* HeaderFilterCollectionViewCellVM.swift in Sources */,
+				04622D6A2CEA324F00B43556 /* SearchRecentTableViewCell.swift in Sources */,
 				0463F9A92C8B2CC900DFA5E7 /* UITableViewEXT.swift in Sources */,
 				0433CA642CC7F19000576C37 /* CGColor.swift in Sources */,
 				04D05FDC2CCBED9E00675B9A /* NumberDouble.swift in Sources */,

@@ -24,9 +24,16 @@ class SearchViewController: BaseViewController {
     @IBOutlet private weak var searchImageHeaderView2: UIImageView!
     @IBOutlet private weak var searchButtonHeaderView2: UIButton!
     @IBOutlet private weak var searchTitleLabelHeaderView2: UILabel!
+    @IBOutlet private weak var nationAndCategoryCollectionView: UICollectionView!
     
-    
-    @IBOutlet weak var nationAndCategoryCollectionView: UICollectionView!
+    // MARK: - @IBOutlet RecentSearchView
+    @IBOutlet private weak var recentSearchView: UIView!
+    @IBOutlet private weak var recentSearchImageView: UIImageView!
+    @IBOutlet private weak var recentSearchButton: UIButton!
+    @IBOutlet private weak var cancelRecentSearchLabel: UILabel!
+    @IBOutlet private weak var cancelRecentSearchButton: UIButton!
+    @IBOutlet private weak var recentSearchTextField: UITextField!
+    @IBOutlet private weak var recentSearchTableView: UITableView!
     
     // MARK: - WidthFrameViewConstraint
     
@@ -44,13 +51,18 @@ class SearchViewController: BaseViewController {
     @IBOutlet private weak var topSpaceResultSearchCollectionViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var topSpaceSearchHeaderView2ButtonConstraint: NSLayoutConstraint!
     
-    
     @IBOutlet weak var topSpaceOfFilterButtonWithHeaderViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var topSpaceOfFilterButtonWithHeaderView2Constraint: NSLayoutConstraint!
     
     // MARK: - LeadingTrailingFrameConstraint
     @IBOutlet private weak var leadingSpaceHeaderViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var trailingSpaceHeaderViewConstraint: NSLayoutConstraint!
+    
+    // MARK: -NSLayoutConstraint RecentSearchView
+    @IBOutlet weak var topSpaceOfSearchRecentButtonConstraint: NSLayoutConstraint!
+    @IBOutlet weak var widthOfSearchRecentButtonConstraint: NSLayoutConstraint!
+    @IBOutlet weak var widthOfCancelSearchRecentButtonConstraint: NSLayoutConstraint!
+    @IBOutlet weak var heightOfCancelSearchRecentButtonConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     var viewModel: SearchViewControllerVM = SearchViewControllerVM()
@@ -74,6 +86,11 @@ class SearchViewController: BaseViewController {
         setUpTopBotFrameView()
         setUpLeadingTrailingFrameView()
         actionTappingHideKeyBoard()
+        setUpRecentSearchView()
+    }
+    
+    override func setUpData() {
+        viewModel.getToHitorySearch()
     }
     
     private func setUpLabel() {
@@ -140,12 +157,52 @@ class SearchViewController: BaseViewController {
         leadingSpaceHeaderViewConstraint.constant = ScreenSize.scaleWidth(20)
         trailingSpaceHeaderViewConstraint.constant = ScreenSize.scaleWidth(20)
     }
+    
+    private func setUpRecentSearchView() {
+        recentSearchView.isHidden = true
+        recentSearchImageView.tintColor = Color.tabBarColor
+        recentSearchTextField.borderStyle = .none
+        recentSearchTextField.placeholder = "Search"
+        recentSearchTextField.font = UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(24))
+        recentSearchTextField.textColor = Color.bodyTextColor
+        recentSearchTextField.tintColor = Color.accentColor
+        recentSearchTextField.delegate = self
+        
+        setUpTextTitleFontTextColorOfLabel(label: cancelRecentSearchLabel, text: "Cancel", labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.mainColor)
+        cancelRecentSearchLabel.textAlignment = .right
+        setUpFrameRecentSearchView()
+        setUpRecentTableView()
+    }
+    
+    private func setUpRecentTableView() {
+        recentSearchTableView.delegate = self
+        recentSearchTableView.dataSource = self
+        recentSearchTableView.separatorStyle = .none
+        recentSearchTableView.sectionHeaderHeight = 70
+        recentSearchTableView.register(nibWithCellClass: SearchRecentTableViewCell.self)
+        recentSearchTableView.register(headerFooterViewClassWith: SearchRecentHeaderTableView.self)
+    }
+    
+    private func setUpFrameRecentSearchView() {
+        topSpaceOfSearchRecentButtonConstraint.constant = ScreenSize.scaleHeight(10)
+        widthOfSearchRecentButtonConstraint.constant = ScreenSize.scaleHeight(34)
+        widthOfCancelSearchRecentButtonConstraint.constant = ScreenSize.scaleWidth(51)
+        heightOfCancelSearchRecentButtonConstraint.constant = ScreenSize.scaleHeight(20)
+    }
+    
+    
+    @IBAction func cancelButtonTouchUpInside(_ sender: Any) {
+        recentSearchTextField.text = nil
+        UIView.animate(withDuration: 0.5) {
+            self.recentSearchView.isHidden = true
+        }
+    }
+    
     @IBAction func filterButtonTouchUpInside(_ sender: Any) {
         let filterVC = FilterViewController(nibName: "FilterViewController", bundle: nil)
         filterVC.modalTransitionStyle = .coverVertical
         filterVC.modalPresentationStyle = .pageSheet
         filterVC.viewModel = FilterViewControllerVM(filterByNation: viewModel.flagsNationMeal, filterByCategory: viewModel.dishTypeMeal)
-//        filterVC.viewModel = FilterViewControllerVM(data: data)
         let navController = UINavigationController(rootViewController: filterVC)
         present(navController, animated: true, completion: nil)
     }
@@ -281,15 +338,58 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfItemRecentSearch()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withClass: SearchRecentTableViewCell.self, for: indexPath)
+        cell.viewModel = viewModel.cellForRowAtItemRecentSearch(indexPath: indexPath)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return ScreenSize.scaleHeight(30)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard section == 0 else { return nil }
+        let headerCell = tableView.dequeueReusableHeaderFooterView(withClass: SearchRecentHeaderTableView.self)
+        headerCell.delegate = self
+        return headerCell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return ScreenSize.scaleHeight(34)
+    }
+}
+
 extension SearchViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard textField == searchTextField else {return}
+        UIView.animate(withDuration: 0.5) {
+            self.recentSearchView.isHidden = false
+            self.dismissKeyboard()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.recentSearchTextField.becomeFirstResponder()
+            }
+        }
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let updatedText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? string
         return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        loadAPISearchMealName(nameMeal: textField.text ?? "")
+        guard textField == recentSearchTextField, let text = textField.text else { return false }
+        loadAPISearchMealName(nameMeal: text)
         resultSearchCollectionView.isHidden = false
+        recentSearchView.isHidden = true
+        searchTextField.text = textField.text
+        viewModel.saveToHistorySearch(history: text)
+        recentSearchTableView.reloadData()
         dismissKeyboard()
         return true
     }
@@ -383,5 +483,12 @@ extension SearchViewController {
                 this.showAlert(message: msg)
             }
         }
+    }
+}
+
+extension SearchViewController: SearchRecentHeaderTableViewDelegate {
+    func tappingInsideButton(view: SearchRecentHeaderTableView) {
+        viewModel.clearAllHitorySearch()
+        recentSearchTableView.reloadData()
     }
 }
