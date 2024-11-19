@@ -71,6 +71,15 @@
 		044E557C2CE79E3300B7E21A /* PriceRangeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044E557B2CE79E3300B7E21A /* PriceRangeCollectionViewCell.xib */; };
 		044E557D2CE79E3300B7E21A /* PriceRangeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E557A2CE79E3300B7E21A /* PriceRangeCollectionViewCell.swift */; };
 		044E55802CE7A15800B7E21A /* PriceRangeCollectionViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E557F2CE7A15800B7E21A /* PriceRangeCollectionViewCellVM.swift */; };
+		0451970A2CEB63E200B1A1FC /* ProfileViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045197092CEB63E200B1A1FC /* ProfileViewControllerViewModel.swift */; };
+		0451970D2CEB64B300B1A1FC /* ProfileTableViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451970C2CEB64B300B1A1FC /* ProfileTableViewCellVM.swift */; };
+		045197102CEB64C100B1A1FC /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451970E2CEB64C100B1A1FC /* ProfileTableViewCell.swift */; };
+		045197112CEB64C100B1A1FC /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0451970F2CEB64C100B1A1FC /* ProfileTableViewCell.xib */; };
+		045197142CEB709600B1A1FC /* ProfileAccoutnSettingHeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045197132CEB709600B1A1FC /* ProfileAccoutnSettingHeaderTableView.swift */; };
+		045197162CEB709F00B1A1FC /* ProfileAccoutnSettingHeaderTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045197152CEB709F00B1A1FC /* ProfileAccoutnSettingHeaderTableView.xib */; };
+		045197192CEB788D00B1A1FC /* ProfileMoreAndNotiHeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045197182CEB788D00B1A1FC /* ProfileMoreAndNotiHeaderTableView.swift */; };
+		0451971B2CEB789300B1A1FC /* ProfileMoreAndNotiHeaderTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0451971A2CEB789300B1A1FC /* ProfileMoreAndNotiHeaderTableView.xib */; };
+		0451971D2CEB7AE600B1A1FC /* ProfileMoreAndNotiHeaderTableViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451971C2CEB7AE600B1A1FC /* ProfileMoreAndNotiHeaderTableViewVM.swift */; };
 		045578F12C97E1B600EA420B /* VerifylePhoneNumberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045578F02C97E1B600EA420B /* VerifylePhoneNumberVC.xib */; };
 		045578F22C97E1B600EA420B /* VerifylePhoneNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045578EF2C97E1B600EA420B /* VerifylePhoneNumberVC.swift */; };
 		0456B1C12CE8CCCF0064A51E /* SearchFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0456B1C02CE8CCCF0064A51E /* SearchFilter.swift */; };
@@ -269,6 +278,15 @@
 		044E557A2CE79E3300B7E21A /* PriceRangeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRangeCollectionViewCell.swift; sourceTree = "<group>"; };
 		044E557B2CE79E3300B7E21A /* PriceRangeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PriceRangeCollectionViewCell.xib; sourceTree = "<group>"; };
 		044E557F2CE7A15800B7E21A /* PriceRangeCollectionViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRangeCollectionViewCellVM.swift; sourceTree = "<group>"; };
+		045197092CEB63E200B1A1FC /* ProfileViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerViewModel.swift; sourceTree = "<group>"; };
+		0451970C2CEB64B300B1A1FC /* ProfileTableViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCellVM.swift; sourceTree = "<group>"; };
+		0451970E2CEB64C100B1A1FC /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		0451970F2CEB64C100B1A1FC /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
+		045197132CEB709600B1A1FC /* ProfileAccoutnSettingHeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAccoutnSettingHeaderTableView.swift; sourceTree = "<group>"; };
+		045197152CEB709F00B1A1FC /* ProfileAccoutnSettingHeaderTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileAccoutnSettingHeaderTableView.xib; sourceTree = "<group>"; };
+		045197182CEB788D00B1A1FC /* ProfileMoreAndNotiHeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMoreAndNotiHeaderTableView.swift; sourceTree = "<group>"; };
+		0451971A2CEB789300B1A1FC /* ProfileMoreAndNotiHeaderTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileMoreAndNotiHeaderTableView.xib; sourceTree = "<group>"; };
+		0451971C2CEB7AE600B1A1FC /* ProfileMoreAndNotiHeaderTableViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMoreAndNotiHeaderTableViewVM.swift; sourceTree = "<group>"; };
 		045578EF2C97E1B600EA420B /* VerifylePhoneNumberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifylePhoneNumberVC.swift; sourceTree = "<group>"; };
 		045578F02C97E1B600EA420B /* VerifylePhoneNumberVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerifylePhoneNumberVC.xib; sourceTree = "<group>"; };
 		0456B1C02CE8CCCF0064A51E /* SearchFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilter.swift; sourceTree = "<group>"; };
@@ -675,6 +693,35 @@
 			path = PriceRangeCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		0451970B2CEB649A00B1A1FC /* ProfileTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				0451970E2CEB64C100B1A1FC /* ProfileTableViewCell.swift */,
+				0451970F2CEB64C100B1A1FC /* ProfileTableViewCell.xib */,
+				0451970C2CEB64B300B1A1FC /* ProfileTableViewCellVM.swift */,
+			);
+			path = ProfileTableViewCell;
+			sourceTree = "<group>";
+		};
+		045197122CEB6D8500B1A1FC /* ProfileHeaderTableView */ = {
+			isa = PBXGroup;
+			children = (
+				045197132CEB709600B1A1FC /* ProfileAccoutnSettingHeaderTableView.swift */,
+				045197152CEB709F00B1A1FC /* ProfileAccoutnSettingHeaderTableView.xib */,
+			);
+			path = ProfileHeaderTableView;
+			sourceTree = "<group>";
+		};
+		045197172CEB786800B1A1FC /* ProfileHeaderMoreAndNotiTableView */ = {
+			isa = PBXGroup;
+			children = (
+				045197182CEB788D00B1A1FC /* ProfileMoreAndNotiHeaderTableView.swift */,
+				0451971A2CEB789300B1A1FC /* ProfileMoreAndNotiHeaderTableView.xib */,
+				0451971C2CEB7AE600B1A1FC /* ProfileMoreAndNotiHeaderTableViewVM.swift */,
+			);
+			path = ProfileHeaderMoreAndNotiTableView;
+			sourceTree = "<group>";
+		};
 		045578EE2C97E18C00EA420B /* VerifyPhoneNumber */ = {
 			isa = PBXGroup;
 			children = (
@@ -912,8 +959,12 @@
 		0491EC802CB0072F00157BE7 /* ProfileViewController */ = {
 			isa = PBXGroup;
 			children = (
+				045197172CEB786800B1A1FC /* ProfileHeaderMoreAndNotiTableView */,
+				045197122CEB6D8500B1A1FC /* ProfileHeaderTableView */,
+				0451970B2CEB649A00B1A1FC /* ProfileTableViewCell */,
 				0491EC812CB0073C00157BE7 /* ProfileViewController.swift */,
 				0491EC822CB0073C00157BE7 /* ProfileViewController.xib */,
+				045197092CEB63E200B1A1FC /* ProfileViewControllerViewModel.swift */,
 			);
 			path = ProfileViewController;
 			sourceTree = "<group>";
@@ -1270,6 +1321,7 @@
 				042FCE2F2CC3D8D600144702 /* FeaturePartnersViewController.xib in Resources */,
 				041529822BD7595700818A4A /* Assets.xcassets in Resources */,
 				04888EF92CE2630B00C054C6 /* ImageMealModalViewController.xib in Resources */,
+				045197112CEB64C100B1A1FC /* ProfileTableViewCell.xib in Resources */,
 				04882A032CD7709200EC0930 /* HeaderChoiceMealTableView.xib in Resources */,
 				042FCE342CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.xib in Resources */,
 				04A295FC2CE4C9B400EA6713 /* SearchCollectionViewCell.xib in Resources */,
@@ -1289,11 +1341,13 @@
 				04DA26922CDA6C790055CD9E /* ListTableOrderMealTableViewCell.xib in Resources */,
 				04343B772C8B12D8007D3331 /* FlagCodeNumberTableViewCell.xib in Resources */,
 				0491EC762CB006D000157BE7 /* SearchViewController.xib in Resources */,
+				0451971B2CEB789300B1A1FC /* ProfileMoreAndNotiHeaderTableView.xib in Resources */,
 				048C75FB2C18324E001DB3AD /* PageThreeViewController.xib in Resources */,
 				042FFBA22CB3E27E004B6D85 /* HomeViewController.xib in Resources */,
 				045BB5542CE7459C006B6CDF /* FilterViewController.xib in Resources */,
 				04622D692CEA324F00B43556 /* SearchRecentTableViewCell.xib in Resources */,
 				044E557C2CE79E3300B7E21A /* PriceRangeCollectionViewCell.xib in Resources */,
+				045197162CEB709F00B1A1FC /* ProfileAccoutnSettingHeaderTableView.xib in Resources */,
 				0474D2EF2CD8F8EE002F4C36 /* AddInstructionTableViewCell.xib in Resources */,
 				0491EC842CB0073C00157BE7 /* ProfileViewController.xib in Resources */,
 				047DB2EB2CC94539006B3E5D /* TypeMealCollectionViewCell.xib in Resources */,
@@ -1495,6 +1549,7 @@
 				044E55802CE7A15800B7E21A /* PriceRangeCollectionViewCellVM.swift in Sources */,
 				046C49C72CDC6FA50078E514 /* AddYourPaymentMethodViewModel.swift in Sources */,
 				04343B6C2C8947F7007D3331 /* ForgotPasswordViewController.swift in Sources */,
+				045197192CEB788D00B1A1FC /* ProfileMoreAndNotiHeaderTableView.swift in Sources */,
 				04343B732C8B1034007D3331 /* DefinePhoneNumberVM.swift in Sources */,
 				0491EC752CB006D000157BE7 /* SearchViewController.swift in Sources */,
 				04D05FD82CCBDCFE00675B9A /* TheMealDB.swift in Sources */,
@@ -1505,6 +1560,7 @@
 				0491EC7A2CB0071100157BE7 /* OrdersViewController.swift in Sources */,
 				04053D362CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.swift in Sources */,
 				042FCE362CC4FFBB00144702 /* ListCollectionDetailVM.swift in Sources */,
+				045197102CEB64C100B1A1FC /* ProfileTableViewCell.swift in Sources */,
 				040EBD912CEAC8AA00540322 /* SearchRecentHeaderTableView.swift in Sources */,
 				0491EC872CB12BD200157BE7 /* HeaderHomeView.swift in Sources */,
 				048BECE22C8574AD0087F446 /* SocialButtonViewVM.swift in Sources */,
@@ -1516,7 +1572,9 @@
 				04888EFC2CE2636F00C054C6 /* ImageMealModalViewModel.swift in Sources */,
 				044E55792CE78C2500B7E21A /* HeaderFilterCollectionReusableView.swift in Sources */,
 				041529B62BE0D5D500818A4A /* OrangeButtonView.swift in Sources */,
+				045197142CEB709600B1A1FC /* ProfileAccoutnSettingHeaderTableView.swift in Sources */,
 				0415297D2BD7595600818A4A /* ViewController.swift in Sources */,
+				0451971D2CEB7AE600B1A1FC /* ProfileMoreAndNotiHeaderTableViewVM.swift in Sources */,
 				04B4A7ED2CD22BC9008A50ED /* FoodTabBarViewController.swift in Sources */,
 				042FFBB12CB7DEB9004B6D85 /* SliderImageCollectionViewCell.swift in Sources */,
 				04C03E3C2C75818500DB9B0D /* SignInViewController.swift in Sources */,
@@ -1567,10 +1625,12 @@
 				045BB5532CE7459C006B6CDF /* FilterViewController.swift in Sources */,
 				042FCE332CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.swift in Sources */,
 				04788A312BE38729009AB6DD /* IntroducePageViewController.swift in Sources */,
+				0451970A2CEB63E200B1A1FC /* ProfileViewControllerViewModel.swift in Sources */,
 				04E6962F2CC67F9C00DD4B8B /* DetailMealViewController.swift in Sources */,
 				049788AA2CE777E1004CF413 /* NationAndCategoryFilterCollectionViewCellVM.swift in Sources */,
 				0474D2F02CD8F8EE002F4C36 /* AddInstructionTableViewCell.swift in Sources */,
 				04B3CC442CBBF2C800F95E94 /* FeaturedPartnersCollectionViewCell.swift in Sources */,
+				0451970D2CEB64B300B1A1FC /* ProfileTableViewCellVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

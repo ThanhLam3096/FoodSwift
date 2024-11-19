@@ -23,7 +23,7 @@ class AddToOrderViewController: BaseViewController {
     @IBOutlet private weak var minusButton: UIButton!
     @IBOutlet private weak var plusButton: UIButton!
     
-    
+    // MARK: -NSLayoutConstraint
     @IBOutlet private weak var heightOfContentViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var heightImageMealConstraint: NSLayoutConstraint!
     @IBOutlet private weak var spaceOfImageMeal: NSLayoutConstraint!
