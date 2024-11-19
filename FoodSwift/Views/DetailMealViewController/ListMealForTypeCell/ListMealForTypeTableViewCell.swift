@@ -47,7 +47,7 @@ class ListMealForTypeTableViewCell: UITableViewCell {
     private func setUpUI() {
         setUpLabel()
         setUpImageMeal()
-        lineView.backgroundColor = UIColor(hex: "#C4C4C4")
+        lineView.backgroundColor = UIColor(hex: "#F6F6F6")
     }
     
     private func setUpLabel() {
