@@ -51,14 +51,15 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let accountSettingSections = ProfileViewControllerViewModel.AccountSettingSection(rawValue: section) else {return 0}
+        guard let accountSettingSections = AccountSettingSection(rawValue: section) else {return 0}
         return viewModel.numberOfItemInSections(section: accountSettingSections)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let accountSettingSections = ProfileViewControllerViewModel.AccountSettingSection(rawValue: indexPath.section) 
+        guard let accountSettingSections = AccountSettingSection(rawValue: indexPath.section)
         else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withClass: ProfileTableViewCell.self, for: indexPath)
+        cell.delegate = self
         cell.viewModel = viewModel.cellForRowAtItem(indexPath: indexPath, sections: accountSettingSections)
         return cell
     }
@@ -69,7 +70,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         tableView.tableHeaderView = nil
-        guard let accountSettingSections = ProfileViewControllerViewModel.AccountSettingSection(rawValue: section)
+        guard let accountSettingSections = AccountSettingSection(rawValue: section)
         else { return nil }
         switch accountSettingSections {
         case .accountSettings:
@@ -82,9 +83,47 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let accountSettingSections = AccountSettingSection(rawValue: indexPath.section)
+        else { return }
+        let item = accountSettingSections.items[indexPath.row]
+        switch item {
+        case .profileInfo:
+            navigationController?.pushViewController(ScreenName.profileSettingInfo, animated: true)
+        default:
+            print("Do Something")
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard let accountSettingSections = ProfileViewControllerViewModel.AccountSettingSection(rawValue: section)
+        guard let accountSettingSections = AccountSettingSection(rawValue: section)
         else { return 0 }
         return viewModel.heightForHeaderSectionAccountSettings(sections: accountSettingSections)
+    }
+}
+
+extension ProfileViewController:  ProfileTableViewCellDelegate {
+    func tappingArrowButton(view: ProfileTableViewCell, typeItem: AccountSettingItem) {
+        switch typeItem {
+        case .profileInfo:
+            navigationController?.pushViewController(ScreenName.profileSettingInfo, animated: true)
+        case .changePassword:
+            print("Change Password")
+        case .paymentMethods:
+            print("Payment Method")
+        case .locations:
+            print("Locations")
+        case .addSocialAccount:
+            print("Add Social Account")
+        case .referToFriends:
+            print("Refer to Friend")
+        case .rateUs:
+            print("Rate Us")
+        case .faq:
+            print("Faq")
+        case .logout:
+            print("Logout")
+        default: print("Do Something")
+        }
     }
 }

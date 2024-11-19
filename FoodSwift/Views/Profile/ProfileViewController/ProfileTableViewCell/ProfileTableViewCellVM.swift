@@ -13,13 +13,15 @@ final class ProfileTableViewCellVM {
     let content: String
     let switchButton: Bool
     let isIconSystem: Bool
+    let typeItemSetting: AccountSettingItem
     
-    init(image: String, title: String, content: String, switchButton: Bool, isIconSystem: Bool) {
+    init(image: String, title: String, content: String, switchButton: Bool, isIconSystem: Bool, typeItemSetting: AccountSettingItem) {
         self.image = image
         self.title = title
         self.content = content
         self.switchButton = switchButton
         self.isIconSystem = isIconSystem
+        self.typeItemSetting = typeItemSetting
     }
     
 }

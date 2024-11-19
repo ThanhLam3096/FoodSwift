@@ -56,7 +56,7 @@ class TextFieldLoginView: UIView {
         
         
         
-        lineView.backgroundColor = UIColor(hex: "#F3F2F2")
+        lineView.backgroundColor = UIColor(hex: "#F6F6F6")
         topSpaceOfLineViewConstraint.constant = ScreenSize.scaleHeight(10)
         
     }

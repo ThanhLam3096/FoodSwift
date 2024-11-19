@@ -15,6 +15,7 @@ class ProfileTableViewCell: UITableViewCell {
     @IBOutlet private weak var contentLabel: UILabel!
     @IBOutlet private weak var rightArrowButton: UIButton!
     @IBOutlet private weak var switchButtonSwitch: UISwitch!
+    @IBOutlet private weak var lineView: UIView!
     
     // MARK: -NSLayoutConstraint
     @IBOutlet private weak var widthOfProfileIconConstraint: NSLayoutConstraint!
@@ -39,6 +40,7 @@ class ProfileTableViewCell: UITableViewCell {
             updateView()
         }
     }
+    var delegate: ProfileTableViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -57,6 +59,7 @@ class ProfileTableViewCell: UITableViewCell {
         
         centenVeticallyTitleLabelConstraint.priority = UILayoutPriority(750)
         topSpaceOfTitleLabelConstraint.priority = UILayoutPriority(1000)
+        lineView.isHidden = false
     }
     
     private func setUpUI() {
@@ -64,6 +67,7 @@ class ProfileTableViewCell: UITableViewCell {
         setUpButton()
         setUpFrameView()
         profileItemImage.contentMode = .scaleAspectFit
+        lineView.backgroundColor = UIColor(hex: "#F6F6F6")
     }
     
     private func setUpLabel() {
@@ -104,12 +108,13 @@ class ProfileTableViewCell: UITableViewCell {
             profileItemImage.tintColor = Color.bodyTextColor
         }
         
-        switch vm.title {
-        case "Rate Us":
+        switch vm.typeItemSetting {
+        case .rateUs:
             profileItemImage.tintColor = Color.activeColor
-        case "Logout":
+        case .logout:
             centenVeticallyTitleLabelConstraint.priority = UILayoutPriority(1000)
             topSpaceOfTitleLabelConstraint.priority = UILayoutPriority(750)
+            lineView.isHidden = true
         default:
             profileItemImage.tintColor = Color.bodyTextColor
         }
@@ -127,4 +132,14 @@ class ProfileTableViewCell: UITableViewCell {
             rightArrowButton.isHidden = false
         }
     }
+    
+    @IBAction func arrowButtonTouchUpInside(_ sender: Any) {
+        if let delegate = delegate, let typeItem = viewModel?.typeItemSetting {
+            delegate.tappingArrowButton(view: self, typeItem: typeItem)
+        }
+    }
+}
+
+protocol ProfileTableViewCellDelegate: AnyObject {
+    func tappingArrowButton(view: ProfileTableViewCell, typeItem: AccountSettingItem)
 }

@@ -55,7 +55,7 @@ final class HeaderHomeView: UIView {
         headerHomeView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         setUpLabel()
         setUpButton()
-        lineView.backgroundColor = UIColor(hex: "#C4C4C4")
+        lineView.backgroundColor = UIColor(hex: "#F6F6F6")
     }
     
     private func setUpLabel() {
