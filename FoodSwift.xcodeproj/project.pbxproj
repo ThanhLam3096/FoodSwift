@@ -150,6 +150,9 @@
 		049C8EAB2CEC609500112CAA /* ProfileInfomationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C8EA92CEC609500112CAA /* ProfileInfomationSettingsViewController.swift */; };
 		049C8EAC2CEC609500112CAA /* ProfileInfomationSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049C8EAA2CEC609500112CAA /* ProfileInfomationSettingsViewController.xib */; };
 		049C8EAE2CEC8A7900112CAA /* ProfileInfomationSettingsViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C8EAD2CEC8A7900112CAA /* ProfileInfomationSettingsViewControllerVM.swift */; };
+		049C8EB12CECCF4A00112CAA /* PasswordFormProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C8EB02CECCF4A00112CAA /* PasswordFormProfileSettingsView.swift */; };
+		049C8EB32CECCF5E00112CAA /* PasswordFormProfileSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049C8EB22CECCF5E00112CAA /* PasswordFormProfileSettingsView.xib */; };
+		049C8EB52CECD0A900112CAA /* PasswordFormProfileSettingsViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C8EB42CECD0A900112CAA /* PasswordFormProfileSettingsViewVM.swift */; };
 		04A295FB2CE4C9B400EA6713 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A295F92CE4C9B400EA6713 /* SearchCollectionViewCell.swift */; };
 		04A295FC2CE4C9B400EA6713 /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A295FA2CE4C9B400EA6713 /* SearchCollectionViewCell.xib */; };
 		04A295FE2CE4C9CA00EA6713 /* SearchCollectionCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A295FD2CE4C9CA00EA6713 /* SearchCollectionCellVM.swift */; };
@@ -360,6 +363,9 @@
 		049C8EA92CEC609500112CAA /* ProfileInfomationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfomationSettingsViewController.swift; sourceTree = "<group>"; };
 		049C8EAA2CEC609500112CAA /* ProfileInfomationSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileInfomationSettingsViewController.xib; sourceTree = "<group>"; };
 		049C8EAD2CEC8A7900112CAA /* ProfileInfomationSettingsViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfomationSettingsViewControllerVM.swift; sourceTree = "<group>"; };
+		049C8EB02CECCF4A00112CAA /* PasswordFormProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordFormProfileSettingsView.swift; sourceTree = "<group>"; };
+		049C8EB22CECCF5E00112CAA /* PasswordFormProfileSettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordFormProfileSettingsView.xib; sourceTree = "<group>"; };
+		049C8EB42CECD0A900112CAA /* PasswordFormProfileSettingsViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordFormProfileSettingsViewVM.swift; sourceTree = "<group>"; };
 		04A295F92CE4C9B400EA6713 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		04A295FA2CE4C9B400EA6713 /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
 		04A295FD2CE4C9CA00EA6713 /* SearchCollectionCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionCellVM.swift; sourceTree = "<group>"; };
@@ -1007,11 +1013,22 @@
 		049C8EA82CEC604000112CAA /* ProfileSettings */ = {
 			isa = PBXGroup;
 			children = (
+				049C8EAF2CECCF2200112CAA /* PasswordFormProfileSetting */,
 				049C8EA92CEC609500112CAA /* ProfileInfomationSettingsViewController.swift */,
 				049C8EAA2CEC609500112CAA /* ProfileInfomationSettingsViewController.xib */,
 				049C8EAD2CEC8A7900112CAA /* ProfileInfomationSettingsViewControllerVM.swift */,
 			);
 			path = ProfileSettings;
+			sourceTree = "<group>";
+		};
+		049C8EAF2CECCF2200112CAA /* PasswordFormProfileSetting */ = {
+			isa = PBXGroup;
+			children = (
+				049C8EB02CECCF4A00112CAA /* PasswordFormProfileSettingsView.swift */,
+				049C8EB22CECCF5E00112CAA /* PasswordFormProfileSettingsView.xib */,
+				049C8EB42CECD0A900112CAA /* PasswordFormProfileSettingsViewVM.swift */,
+			);
+			path = PasswordFormProfileSetting;
 			sourceTree = "<group>";
 		};
 		04A295F82CE4C88400EA6713 /* SearchCollectionViewCell */ = {
@@ -1377,6 +1394,7 @@
 				0474D2EF2CD8F8EE002F4C36 /* AddInstructionTableViewCell.xib in Resources */,
 				0491EC842CB0073C00157BE7 /* ProfileViewController.xib in Resources */,
 				047DB2EB2CC94539006B3E5D /* TypeMealCollectionViewCell.xib in Resources */,
+				049C8EB32CECCF5E00112CAA /* PasswordFormProfileSettingsView.xib in Resources */,
 				04E696302CC67F9C00DD4B8B /* DetailMealViewController.xib in Resources */,
 				04C03E4E2C81F0D300DB9B0D /* TextFieldLoginView.xib in Resources */,
 				041529852BD7595700818A4A /* Base in Resources */,
@@ -1592,6 +1610,7 @@
 				0491EC872CB12BD200157BE7 /* HeaderHomeView.swift in Sources */,
 				048BECE22C8574AD0087F446 /* SocialButtonViewVM.swift in Sources */,
 				04E696322CC698DD00DD4B8B /* DetailMealViewModel.swift in Sources */,
+				049C8EB12CECCF4A00112CAA /* PasswordFormProfileSettingsView.swift in Sources */,
 				048D96302CBD1E5400977AD1 /* ListAllResTableViewCellVM.swift in Sources */,
 				04D05FD62CCA80A600675B9A /* ListMealForTypeTableViewCell.swift in Sources */,
 				04F7E2A72CDA497D00A1F39E /* YourOrderViewController.swift in Sources */,
@@ -1632,6 +1651,7 @@
 				04D05FDC2CCBED9E00675B9A /* NumberDouble.swift in Sources */,
 				04888EFA2CE2630B00C054C6 /* ImageMealModalViewController.swift in Sources */,
 				0470AC6F2CBC023D00D68477 /* FeaturedPartnersCollectionViewCellViewModel.swift in Sources */,
+				049C8EB52CECD0A900112CAA /* PasswordFormProfileSettingsViewVM.swift in Sources */,
 				04F7E2A32CDA0AC800A1F39E /* OrangeButtonViewModel.swift in Sources */,
 				0456B1C12CE8CCCF0064A51E /* SearchFilter.swift in Sources */,
 				04B3CC382CB80BC600F95E94 /* CustomPageControl.swift in Sources */,

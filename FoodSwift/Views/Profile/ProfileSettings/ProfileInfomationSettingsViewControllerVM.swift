@@ -9,11 +9,4 @@ import Foundation
 
 final class ProfileInfomationSettingsViewControllerVM {
     
-    enum TypeForm: Int, CaseIterable {
-        case fullName
-        case emailAddress
-        case phoneNumber
-        case password
-    }
-        
 }
