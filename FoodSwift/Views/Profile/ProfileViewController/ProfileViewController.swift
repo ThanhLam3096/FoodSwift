@@ -83,14 +83,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        print("")
         guard let accountSettingSections = ProfileViewControllerViewModel.AccountSettingSection(rawValue: section)
         else { return 0 }
-        switch accountSettingSections {
-        case .accountSettings:
-            return ScreenSize.scaleHeight(80)
-        default: return ScreenSize.scaleHeight(25)
-        }
-//        return viewModel.heightForHeaderSectionAccountSettings(sections: accountSettingSections)
+        return viewModel.heightForHeaderSectionAccountSettings(sections: accountSettingSections)
     }
 }
