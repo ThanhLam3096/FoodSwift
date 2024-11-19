@@ -7,20 +7,24 @@
 
 import UIKit
 
-class ProfileInfomationSettingsViewController: BaseViewController {
+final class ProfileInfomationSettingsViewController: BaseViewController {
     
     // MARK: IBOutlet
     @IBOutlet private weak var profileSettingStackView: UIStackView!
     @IBOutlet private weak var emailFormView: TextFieldLoginView!
-    @IBOutlet private weak var passwordFormView: TextFieldLoginView!
+    @IBOutlet private weak var passwordFormView: PasswordFormProfileSettingsView!
     @IBOutlet private weak var phoneNumberFormView: TextFieldLoginView!
     @IBOutlet private weak var fullNameFormView: TextFieldLoginView!
+    @IBOutlet private weak var changeSettingsButtonView: OrangeButtonView!
     
     // MARK: Constraint
     @IBOutlet private weak var heightOfprofileSettingStackViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var leadingSpaceOfprofileSettingStackViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var trailingOfprofileSettingStackViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var topSpaceOfprofileSettingStackViewConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var heightOfChangeSettingButtonConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceOfChangeSettingButtonConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +39,8 @@ class ProfileInfomationSettingsViewController: BaseViewController {
     override func setUpUI() {
         setUpNavigation()
         setUpFrameStackView()
+        setUpForm()
+        setUpChangeSettingsButton()
     }
     
     private func setUpNavigation() {
@@ -61,5 +67,25 @@ class ProfileInfomationSettingsViewController: BaseViewController {
         leadingSpaceOfprofileSettingStackViewConstraint.constant = ScreenSize.scaleWidth(20)
         trailingOfprofileSettingStackViewConstraint.constant = ScreenSize.scaleWidth(20)
         topSpaceOfprofileSettingStackViewConstraint.constant = ScreenSize.scaleHeight(24)
+    }
+    
+    private func setUpForm() {
+        emailFormView.viewModel = TextFieldLoginViewVM(typeForm: .emailAddress)
+        passwordFormView.viewModel = PasswordFormProfileSettingsViewVM(typeForm: .password)
+        phoneNumberFormView.viewModel = TextFieldLoginViewVM(typeForm: .phoneNumber)
+        fullNameFormView.viewModel = TextFieldLoginViewVM(typeForm: .fullName)
+        passwordFormView.delegate = self
+    }
+    
+    private func setUpChangeSettingsButton() {
+        changeSettingsButtonView.viewModel = OrangeButtonViewModel(title: "CHANGE SETTINGS")
+        heightOfChangeSettingButtonConstraint.constant = ScreenSize.scaleHeight(48)
+        botSpaceOfChangeSettingButtonConstraint.constant = ScreenSize.scaleHeight(30)
+    }
+}
+
+extension ProfileInfomationSettingsViewController: PasswordFormProfileSettingsViewDelegate {
+    func tappingInsideButtonChangePassword(view: PasswordFormProfileSettingsView) {
+        print("Move to Screen Change Password")
     }
 }
