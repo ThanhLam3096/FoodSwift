@@ -71,14 +71,48 @@ struct DetailFollowThemeMealDB {
         return meal
     }
 }
-
+// MARK: -Enum
 enum HeaderFilterType {
     case nationHeader
     case categoryHeader
     case priceRangeHeader
 }
 
-// MARK: -Enum
+enum TypeOfTextFieldForm: Int, CaseIterable {
+    case fullName
+    case emailAddress
+    case phoneNumber
+    case password
+    case newPassword
+    case confirmPassword
+    
+    var title: String {
+        switch self {
+        case .fullName:
+            return "FULL NAME"
+        case .emailAddress:
+            return "EMAIL ADDRESS"
+        case .phoneNumber:
+            return "PHONE NUMBER"
+        case .password:
+            return "PASSWORD"
+        case .newPassword:
+            return "NEW PASSWORD"
+        case .confirmPassword:
+            return "CONFIRM PASSWORD"
+        }
+    }
+    
+    var isEyeShow: Bool {
+        switch self {
+        case .password, .newPassword, .confirmPassword:
+            return true
+        default: return false
+        }
+    }
+    
+}
+
 enum AccountSettingSection: Int, CaseIterable {
     case accountSettings
     case notifications

@@ -41,9 +41,9 @@ class TextFieldLoginView: UIView {
     }
     
     private func updateView() {
-        guard let viewModel = viewModel else { return }
-        titleTextFieldLabel.text = viewModel.infoTextField
-        eyeButton.isHidden = !viewModel.isPasswordTextField
+        guard let typeForm = viewModel?.typeForm else { return }
+        titleTextFieldLabel.text = typeForm.title
+        eyeButton.isHidden = !typeForm.isEyeShow
     }
     
     private func setUpUIView() {

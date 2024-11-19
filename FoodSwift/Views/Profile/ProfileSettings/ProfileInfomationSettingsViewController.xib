@@ -11,6 +11,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileInfomationSettingsViewController" customModule="FoodSwift" customModuleProvider="target">
             <connections>
+                <outlet property="emailFormView" destination="c6h-DC-41l" id="mME-7a-pCz"/>
+                <outlet property="fullNameFormView" destination="pJ8-hF-H5e" id="D62-pM-hqG"/>
+                <outlet property="heightOfprofileSettingStackViewConstraint" destination="83W-6H-him" id="osX-iS-tPZ"/>
+                <outlet property="leadingSpaceOfprofileSettingStackViewConstraint" destination="kMr-eJ-rev" id="beI-Ev-9A5"/>
+                <outlet property="passwordFormView" destination="DK8-0k-zNY" id="ddK-Ff-Trg"/>
+                <outlet property="phoneNumberFormView" destination="GrD-ZH-Fcw" id="inl-Ae-zKb"/>
+                <outlet property="profileSettingStackView" destination="zue-Wy-0g8" id="eXD-8F-rF6"/>
+                <outlet property="topSpaceOfprofileSettingStackViewConstraint" destination="8BR-C7-o24" id="vm0-zc-t5p"/>
+                <outlet property="trailingOfprofileSettingStackViewConstraint" destination="pBR-9I-Vs2" id="Rku-XK-6b7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,8 +27,39 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="394" height="577"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zue-Wy-0g8">
+                    <rect key="frame" x="20" y="83" width="354" height="316"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJ8-hF-H5e" userLabel="Name" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="354" height="79"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6h-DC-41l" userLabel="Email" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="79" width="354" height="79"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GrD-ZH-Fcw" userLabel="Phone Number" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="158" width="354" height="79"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DK8-0k-zNY" userLabel="Password" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="237" width="354" height="79"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="316" id="83W-6H-him"/>
+                    </constraints>
+                </stackView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="zue-Wy-0g8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="8BR-C7-o24"/>
+                <constraint firstItem="zue-Wy-0g8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="kMr-eJ-rev"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zue-Wy-0g8" secondAttribute="trailing" constant="20" id="pBR-9I-Vs2"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-85" y="-76"/>
         </view>

@@ -92,7 +92,7 @@ class ForgotPasswordViewController: BaseViewController {
     }
     
     private func setUpTextField() {
-        emailFormView.viewModel = TextFieldLoginViewVM(infoTextField: "EMAIL ADDRESS", isPasswordTextField: false)
+        emailFormView.viewModel = TextFieldLoginViewVM(typeForm: .emailAddress)
         topSpaceEmailResetFormConstraint.constant = ScreenSize.scaleHeight(34)
         botSpaceEmailResetFormConstraint.constant = ScreenSize.scaleHeight(24)
         heightOfEmailResetFormConstraint.constant = ScreenSize.scaleHeight(65)
