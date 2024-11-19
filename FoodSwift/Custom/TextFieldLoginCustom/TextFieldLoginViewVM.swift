@@ -10,11 +10,9 @@ import Foundation
 class TextFieldLoginViewVM {
     
     // MARK: - Properties
-    var infoTextField: String
-    var isPasswordTextField: Bool = false
+    let typeForm: TypeOfTextFieldForm
 
-    init(infoTextField: String, isPasswordTextField: Bool) {
-        self.infoTextField = infoTextField
-        self.isPasswordTextField = isPasswordTextField
+    init(typeForm: TypeOfTextFieldForm) {
+        self.typeForm = typeForm
     }
 }

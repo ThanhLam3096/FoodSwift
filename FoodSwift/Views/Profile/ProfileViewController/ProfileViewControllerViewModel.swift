@@ -9,11 +9,8 @@ import Foundation
 
 final class ProfileViewControllerViewModel {
     
-    // MARK: Properties
-    let sections: [AccountSettingSection] = [.accountSettings, .notifications, .more]
-    
     func numberOfSections() -> Int {
-        return sections.count
+        return AccountSettingSection.allCases.count
     }
     
     func numberOfItemInSections(section: AccountSettingSection) -> Int {

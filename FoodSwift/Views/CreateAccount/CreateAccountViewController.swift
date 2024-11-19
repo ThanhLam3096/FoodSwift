@@ -109,15 +109,15 @@ final class CreateAccountViewController: BaseViewController {
     }
     
     private func setUpTextField() {
-        fullNameFormView.viewModel = TextFieldLoginViewVM(infoTextField: "FULL NAME", isPasswordTextField: false)
+        fullNameFormView.viewModel = TextFieldLoginViewVM(typeForm: .fullName)
         topSpaceFullNameTextFieldConstraint.constant = ScreenSize.scaleHeight(20)
         heightOfFormTextFieldConstraint.constant = ScreenSize.scaleHeight(65)
         
-        emailFormView.viewModel = TextFieldLoginViewVM(infoTextField: "EMAIL ADDRESS", isPasswordTextField: false)
+        emailFormView.viewModel = TextFieldLoginViewVM(typeForm: .emailAddress)
         topSpaceEmailFormConstraint.constant = ScreenSize.scaleHeight(18)
         botSpaceEmailFormConstraint.constant = ScreenSize.scaleHeight(18)
         
-        passwordFormView.viewModel = TextFieldLoginViewVM(infoTextField: "PASSWORD", isPasswordTextField: true)
+        passwordFormView.viewModel = TextFieldLoginViewVM(typeForm: .password)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -149,6 +149,7 @@
 		049788B12CE78361004CF413 /* HeaderFilterCollectionViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049788B02CE78361004CF413 /* HeaderFilterCollectionViewCellVM.swift */; };
 		049C8EAB2CEC609500112CAA /* ProfileInfomationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C8EA92CEC609500112CAA /* ProfileInfomationSettingsViewController.swift */; };
 		049C8EAC2CEC609500112CAA /* ProfileInfomationSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049C8EAA2CEC609500112CAA /* ProfileInfomationSettingsViewController.xib */; };
+		049C8EAE2CEC8A7900112CAA /* ProfileInfomationSettingsViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C8EAD2CEC8A7900112CAA /* ProfileInfomationSettingsViewControllerVM.swift */; };
 		04A295FB2CE4C9B400EA6713 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A295F92CE4C9B400EA6713 /* SearchCollectionViewCell.swift */; };
 		04A295FC2CE4C9B400EA6713 /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A295FA2CE4C9B400EA6713 /* SearchCollectionViewCell.xib */; };
 		04A295FE2CE4C9CA00EA6713 /* SearchCollectionCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A295FD2CE4C9CA00EA6713 /* SearchCollectionCellVM.swift */; };
@@ -358,6 +359,7 @@
 		049788B02CE78361004CF413 /* HeaderFilterCollectionViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFilterCollectionViewCellVM.swift; sourceTree = "<group>"; };
 		049C8EA92CEC609500112CAA /* ProfileInfomationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfomationSettingsViewController.swift; sourceTree = "<group>"; };
 		049C8EAA2CEC609500112CAA /* ProfileInfomationSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileInfomationSettingsViewController.xib; sourceTree = "<group>"; };
+		049C8EAD2CEC8A7900112CAA /* ProfileInfomationSettingsViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfomationSettingsViewControllerVM.swift; sourceTree = "<group>"; };
 		04A295F92CE4C9B400EA6713 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		04A295FA2CE4C9B400EA6713 /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
 		04A295FD2CE4C9CA00EA6713 /* SearchCollectionCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionCellVM.swift; sourceTree = "<group>"; };
@@ -1007,6 +1009,7 @@
 			children = (
 				049C8EA92CEC609500112CAA /* ProfileInfomationSettingsViewController.swift */,
 				049C8EAA2CEC609500112CAA /* ProfileInfomationSettingsViewController.xib */,
+				049C8EAD2CEC8A7900112CAA /* ProfileInfomationSettingsViewControllerVM.swift */,
 			);
 			path = ProfileSettings;
 			sourceTree = "<group>";
@@ -1568,6 +1571,7 @@
 				042FCE382CC5225A00144702 /* FeaturePartnersViewControllerVM.swift in Sources */,
 				04156AAD2CBEA6EB000A1B0F /* UIViewControllerExt.swift in Sources */,
 				04343B662C86AAB2007D3331 /* TopVericallyTextLabel.swift in Sources */,
+				049C8EAE2CEC8A7900112CAA /* ProfileInfomationSettingsViewControllerVM.swift in Sources */,
 				04053D392CE5E1300027B379 /* NationAndCategoryCollectionCellVM.swift in Sources */,
 				044E55802CE7A15800B7E21A /* PriceRangeCollectionViewCellVM.swift in Sources */,
 				046C49C72CDC6FA50078E514 /* AddYourPaymentMethodViewModel.swift in Sources */,

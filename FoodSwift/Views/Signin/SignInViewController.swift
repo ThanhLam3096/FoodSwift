@@ -100,13 +100,13 @@ final class SignInViewController: BaseViewController {
     }
         
     private func setUpFormSignIn() {
-        emailFormView.viewModel = TextFieldLoginViewVM(infoTextField: "EMAIL ADDRESS", isPasswordTextField: false)
+        emailFormView.viewModel = TextFieldLoginViewVM(typeForm: .emailAddress)
         traillingSpaceOfEmailFormConstraint.constant = ScreenSize.scaleWidth(20)
         topSpaceOfEmailFormConstraint.constant = ScreenSize.scaleWidth(24)
         heightOfFormSignInConstraint.constant = ScreenSize.scaleHeight(65)
         spaceOfEmailPasswordFormConstraint.constant = ScreenSize.scaleHeight(18)
         
-        passwordFormView.viewModel = TextFieldLoginViewVM(infoTextField: "PASSWORD", isPasswordTextField: true)
+        passwordFormView.viewModel = TextFieldLoginViewVM(typeForm: .password)
     }
     
     private func setUpForgetPasswordButton() {

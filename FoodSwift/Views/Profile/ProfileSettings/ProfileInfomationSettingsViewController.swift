@@ -8,6 +8,19 @@
 import UIKit
 
 class ProfileInfomationSettingsViewController: BaseViewController {
+    
+    // MARK: IBOutlet
+    @IBOutlet private weak var profileSettingStackView: UIStackView!
+    @IBOutlet private weak var emailFormView: TextFieldLoginView!
+    @IBOutlet private weak var passwordFormView: TextFieldLoginView!
+    @IBOutlet private weak var phoneNumberFormView: TextFieldLoginView!
+    @IBOutlet private weak var fullNameFormView: TextFieldLoginView!
+    
+    // MARK: Constraint
+    @IBOutlet private weak var heightOfprofileSettingStackViewConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var leadingSpaceOfprofileSettingStackViewConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var trailingOfprofileSettingStackViewConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var topSpaceOfprofileSettingStackViewConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +34,7 @@ class ProfileInfomationSettingsViewController: BaseViewController {
 
     override func setUpUI() {
         setUpNavigation()
+        setUpFrameStackView()
     }
     
     private func setUpNavigation() {
@@ -39,5 +53,13 @@ class ProfileInfomationSettingsViewController: BaseViewController {
 
     @objc private func backAction() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    private func setUpFrameStackView() {
+        profileSettingStackView.spacing = ScreenSize.scaleHeight(18)
+        heightOfprofileSettingStackViewConstraint.constant = ScreenSize.scaleHeight(316)
+        leadingSpaceOfprofileSettingStackViewConstraint.constant = ScreenSize.scaleWidth(20)
+        trailingOfprofileSettingStackViewConstraint.constant = ScreenSize.scaleWidth(20)
+        topSpaceOfprofileSettingStackViewConstraint.constant = ScreenSize.scaleHeight(24)
     }
 }
