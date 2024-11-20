@@ -54,6 +54,7 @@ final class ProfileInfomationSettingsViewController: BaseViewController {
         setUpChangeSettingsButton()
         setUpFormChangePassword()
         checkForm()
+        actionOfTappingOutSideHideOfKeyBoard()
     }
     
     private func setUpNavigation() {
@@ -135,5 +136,17 @@ extension ProfileInfomationSettingsViewController: PasswordFormProfileSettingsVi
         viewModel.isChangePassword = true
         checkForm()
         changeTitleSettingsButton(title: "CHANGE PASSWORD")
+    }
+}
+
+extension ProfileInfomationSettingsViewController {
+    private func actionOfTappingOutSideHideOfKeyBoard() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

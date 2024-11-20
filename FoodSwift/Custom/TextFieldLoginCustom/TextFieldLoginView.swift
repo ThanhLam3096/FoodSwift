@@ -75,6 +75,7 @@ class TextFieldLoginView: UIView {
         infoTextField.font = UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16))
         infoTextField.textColor = Color.mainColor
         infoTextField.borderStyle = .none
+        infoTextField.delegate = self
         NSLayoutConstraint.activate([
             infoTextField.heightAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(24)),
             checkMarkButtonImageView.heightAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(24)),
@@ -90,4 +91,14 @@ class TextFieldLoginView: UIView {
         print("ádasdasd")
     }
     
+    func dismissKeyboard() {
+        self.endEditing(true)
+    }
+}
+
+extension TextFieldLoginView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        dismissKeyboard()
+        return true
+    }
 }
