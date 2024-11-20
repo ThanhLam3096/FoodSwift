@@ -8,5 +8,9 @@
 import Foundation
 
 final class ProfileInfomationSettingsViewControllerVM {
+    var isChangePassword: Bool
     
+    init(isChangePassword: Bool = false) {
+        self.isChangePassword = isChangePassword
+    }
 }
