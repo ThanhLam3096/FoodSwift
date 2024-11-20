@@ -106,9 +106,13 @@ extension ProfileViewController:  ProfileTableViewCellDelegate {
     func tappingArrowButton(view: ProfileTableViewCell, typeItem: AccountSettingItem) {
         switch typeItem {
         case .profileInfo:
-            navigationController?.pushViewController(ScreenName.profileSettingInfo, animated: true)
+            let vc = ScreenName.profileSettingInfo
+            vc.viewModel = ProfileInfomationSettingsViewControllerVM(isChangePassword: false)
+            navigationController?.pushViewController(vc, animated: true)
         case .changePassword:
-            print("Change Password")
+            let vc = ScreenName.profileSettingInfo
+            vc.viewModel = ProfileInfomationSettingsViewControllerVM(isChangePassword: true)
+            navigationController?.pushViewController(vc, animated: true)
         case .paymentMethods:
             print("Payment Method")
         case .locations:

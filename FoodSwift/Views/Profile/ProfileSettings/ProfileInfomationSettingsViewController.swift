@@ -17,14 +17,24 @@ final class ProfileInfomationSettingsViewController: BaseViewController {
     @IBOutlet private weak var fullNameFormView: TextFieldLoginView!
     @IBOutlet private weak var changeSettingsButtonView: OrangeButtonView!
     
+    @IBOutlet private weak var changePasswordStackView: UIStackView!
+    @IBOutlet private weak var currentPasswordFormView: TextFieldLoginView!
+    @IBOutlet private weak var newPasswordFormView: TextFieldLoginView!
+    @IBOutlet private weak var confirmPasswordFormView: TextFieldLoginView!
+    
     // MARK: Constraint
-    @IBOutlet private weak var heightOfprofileSettingStackViewConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightOfProfileSettingStackViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var leadingSpaceOfprofileSettingStackViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var trailingOfprofileSettingStackViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var topSpaceOfprofileSettingStackViewConstraint: NSLayoutConstraint!
     
     @IBOutlet private weak var heightOfChangeSettingButtonConstraint: NSLayoutConstraint!
     @IBOutlet private weak var botSpaceOfChangeSettingButtonConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var heightOfChangePasswordStackViewConstraint: NSLayoutConstraint!
+    
+    // MARK: - Properties
+    var viewModel: ProfileInfomationSettingsViewControllerVM = ProfileInfomationSettingsViewControllerVM()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +44,16 @@ final class ProfileInfomationSettingsViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+        checkForm()
     }
 
     override func setUpUI() {
         setUpNavigation()
         setUpFrameStackView()
-        setUpForm()
+        setUpFormProfileInfo()
         setUpChangeSettingsButton()
+        setUpFormChangePassword()
+        checkForm()
     }
     
     private func setUpNavigation() {
@@ -62,14 +75,23 @@ final class ProfileInfomationSettingsViewController: BaseViewController {
     }
     
     private func setUpFrameStackView() {
+        if viewModel.isChangePassword {
+            profileSettingStackView.isHidden = true
+        } else {
+            profileSettingStackView.isHidden = false
+        }
+        
         profileSettingStackView.spacing = ScreenSize.scaleHeight(18)
-        heightOfprofileSettingStackViewConstraint.constant = ScreenSize.scaleHeight(316)
+        heightOfProfileSettingStackViewConstraint.constant = ScreenSize.scaleHeight(316)
         leadingSpaceOfprofileSettingStackViewConstraint.constant = ScreenSize.scaleWidth(20)
         trailingOfprofileSettingStackViewConstraint.constant = ScreenSize.scaleWidth(20)
         topSpaceOfprofileSettingStackViewConstraint.constant = ScreenSize.scaleHeight(24)
+        
+        changePasswordStackView.spacing = ScreenSize.scaleHeight(18)
+        heightOfChangePasswordStackViewConstraint.constant = ScreenSize.scaleHeight(213)
     }
     
-    private func setUpForm() {
+    private func setUpFormProfileInfo() {
         emailFormView.viewModel = TextFieldLoginViewVM(typeForm: .emailAddress)
         passwordFormView.viewModel = PasswordFormProfileSettingsViewVM(typeForm: .password)
         phoneNumberFormView.viewModel = TextFieldLoginViewVM(typeForm: .phoneNumber)
@@ -82,10 +104,36 @@ final class ProfileInfomationSettingsViewController: BaseViewController {
         heightOfChangeSettingButtonConstraint.constant = ScreenSize.scaleHeight(48)
         botSpaceOfChangeSettingButtonConstraint.constant = ScreenSize.scaleHeight(30)
     }
+    
+    private func setUpFormChangePassword() {
+        currentPasswordFormView.viewModel = TextFieldLoginViewVM(typeForm: .password)
+        newPasswordFormView.viewModel = TextFieldLoginViewVM(typeForm: .newPassword)
+        confirmPasswordFormView.viewModel = TextFieldLoginViewVM(typeForm: .confirmPassword)
+    }
+    
+    private func checkForm() {
+        if viewModel.isChangePassword {
+            changePasswordStackView.isHidden = !viewModel.isChangePassword
+            profileSettingStackView.isHidden = viewModel.isChangePassword
+            changeSettingsButtonView.viewModel = OrangeButtonViewModel(title: "CHANGE PASSWORD")
+            changeTitleSettingsButton(title: "CHANGE PASSWORD")
+        } else {
+            changePasswordStackView.isHidden = !viewModel.isChangePassword
+            profileSettingStackView.isHidden = viewModel.isChangePassword
+            changeSettingsButtonView.viewModel = OrangeButtonViewModel(title: "CHANGE SETTINGS")
+            changeTitleSettingsButton(title: "CHANGE SETTINGS")
+        }
+    }
+    
+    private func changeTitleSettingsButton(title: String) {
+        changeSettingsButtonView.viewModel = OrangeButtonViewModel(title: title)
+    }
 }
 
 extension ProfileInfomationSettingsViewController: PasswordFormProfileSettingsViewDelegate {
     func tappingInsideButtonChangePassword(view: PasswordFormProfileSettingsView) {
-        print("Move to Screen Change Password")
+        viewModel.isChangePassword = true
+        checkForm()
+        changeTitleSettingsButton(title: "CHANGE PASSWORD")
     }
 }
