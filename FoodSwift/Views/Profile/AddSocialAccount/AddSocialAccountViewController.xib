@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddSocialAccountViewController" customModule="FoodSwift" customModuleProvider="target">
+            <connections>
+                <outlet property="botSpaceOfTitleLabelConstraint" destination="p1Z-vj-F0C" id="JVL-Og-5He"/>
+                <outlet property="contentLabel" destination="t2H-aC-x6E" id="PD3-pp-0qD"/>
+                <outlet property="facebookSocialButton" destination="4HF-tx-6qm" id="SB9-gj-PdW"/>
+                <outlet property="googleSocialButton" destination="46g-aA-9F2" id="T7J-qC-1FE"/>
+                <outlet property="heightOfSocialButtonViewConstraint" destination="er9-V9-0Wq" id="d8u-VE-5tD"/>
+                <outlet property="leadingSpaceOfSocialButtonViewConstraint" destination="sZZ-BN-dgj" id="muJ-RH-e8N"/>
+                <outlet property="titleLabel" destination="TlQ-Dd-nOM" id="Mrt-qg-huZ"/>
+                <outlet property="topSpaceOfTitleLabelConstraint" destination="4ue-b0-JdH" id="AeA-JV-1XY"/>
+                <outlet property="trailingSpaceOfSocialButtonViewConstraint" destination="1RW-2W-8L5" id="3CR-hC-Dbo"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add social accounts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlQ-Dd-nOM" userLabel="Add social accounts">
+                    <rect key="frame" x="120" y="139" width="153" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2H-aC-x6E">
+                    <rect key="frame" x="175.66666666666666" y="184" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4HF-tx-6qm" userLabel="Facebook" customClass="SocialButtonView" customModule="FoodSwift" customModuleProvider="target">
+                    <rect key="frame" x="20" y="240" width="353" height="44"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="er9-V9-0Wq"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46g-aA-9F2" userLabel="Google" customClass="SocialButtonView" customModule="FoodSwift" customModuleProvider="target">
+                    <rect key="frame" x="20" y="302" width="353" height="44"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="46g-aA-9F2" firstAttribute="trailing" secondItem="4HF-tx-6qm" secondAttribute="trailing" id="0kj-hb-XRk"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4HF-tx-6qm" secondAttribute="trailing" constant="20" id="1RW-2W-8L5"/>
+                <constraint firstItem="TlQ-Dd-nOM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="4ue-b0-JdH"/>
+                <constraint firstItem="46g-aA-9F2" firstAttribute="leading" secondItem="4HF-tx-6qm" secondAttribute="leading" id="C9s-NQ-ca1"/>
+                <constraint firstItem="46g-aA-9F2" firstAttribute="top" secondItem="4HF-tx-6qm" secondAttribute="bottom" constant="18" id="LUz-gF-R0O"/>
+                <constraint firstItem="46g-aA-9F2" firstAttribute="height" secondItem="4HF-tx-6qm" secondAttribute="height" id="RTS-NV-aAh"/>
+                <constraint firstItem="TlQ-Dd-nOM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UtS-Ve-eaC"/>
+                <constraint firstItem="t2H-aC-x6E" firstAttribute="top" secondItem="TlQ-Dd-nOM" secondAttribute="bottom" constant="24" id="p1Z-vj-F0C"/>
+                <constraint firstItem="4HF-tx-6qm" firstAttribute="top" secondItem="t2H-aC-x6E" secondAttribute="bottom" constant="35" id="qF7-oD-fk1"/>
+                <constraint firstItem="4HF-tx-6qm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="sZZ-BN-dgj"/>
+                <constraint firstItem="t2H-aC-x6E" firstAttribute="centerX" secondItem="TlQ-Dd-nOM" secondAttribute="centerX" id="wKS-f2-Wty"/>
+            </constraints>
+            <point key="canvasLocation" x="8" y="20"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

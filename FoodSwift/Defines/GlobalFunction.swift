@@ -245,3 +245,53 @@ enum AccountSettingItem {
     }
 }
 
+enum CreditCardType: Int, CaseIterable {
+    case payPal
+    case masterCard
+    case visa
+    
+    var title: String {
+        switch self {
+        case .payPal:
+            return "PayPal"
+        case .masterCard:
+            return "MasterCard"
+        case .visa:
+            return "Visa"
+        }
+    }
+    
+    var icon: String {
+        switch self {
+        case .payPal:
+            return "PayPal"
+        case .masterCard:
+            return "MasterCard"
+        case .visa:
+            return "Visa"
+        }
+    }
+}
+
+enum SocialAccountType: String {
+    case facebook = "facebook"
+    case google = "google"
+    
+    var title: String {
+        switch self {
+        case .facebook:
+            return "CONNECT WITH FACEBOOK"
+        case .google:
+            return "CONNECT WITH GOOGLE"
+        }
+    }
+    
+    var color: UIColor {
+        switch self {
+        case .facebook:
+            return UIColor(hex: "#395998")
+        case .google:
+            return UIColor(hex: "#4285F4")
+        }
+    }
+}

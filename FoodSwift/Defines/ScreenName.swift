@@ -26,4 +26,7 @@ struct ScreenName {
     static let filterScreen = FilterViewController()
     
     static let profileSettingInfo = ProfileInfomationSettingsViewController()
+    static let addCreditCard = AddCreditCardViewController()
+    static let connectSocicalAccount = AddSocialAccountViewController()
+    static let referToFriend = ReferToFriendViewController()
 }
