@@ -133,8 +133,8 @@ final class SignInViewController: BaseViewController {
     }
     
     private func setUpSocialLoginButton() {
-        facebookLoginButton.viewModel = SocialButtonViewVM(socialTitle: "facebook", nameIcon: "facebook", titleSocialButton: "CONNECT WITH FACEBOOK")
-        googleLoginButton.viewModel = SocialButtonViewVM(socialTitle: "google", nameIcon: "google", titleSocialButton: "CONNECT WITH GOOGLE")
+        facebookLoginButton.viewModel = SocialButtonViewVM(socialType: .facebook)
+        googleLoginButton.viewModel = SocialButtonViewVM(socialType: .google)
         
         heightOfSocialButtonViewConstraint.constant = ScreenSize.scaleHeight(44)
         betweenSpaceOfSocialButtonViewConstraint.constant = ScreenSize.scaleHeight(15)

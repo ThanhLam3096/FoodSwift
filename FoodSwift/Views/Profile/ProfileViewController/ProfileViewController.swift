@@ -108,19 +108,27 @@ extension ProfileViewController:  ProfileTableViewCellDelegate {
         case .profileInfo:
             let vc = ScreenName.profileSettingInfo
             vc.viewModel = ProfileInfomationSettingsViewControllerVM(isChangePassword: false)
+            vc.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(vc, animated: true)
         case .changePassword:
             let vc = ScreenName.profileSettingInfo
             vc.viewModel = ProfileInfomationSettingsViewControllerVM(isChangePassword: true)
+            vc.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(vc, animated: true)
         case .paymentMethods:
-            print("Payment Method")
+            let vc = ScreenName.addCreditCard
+            vc.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(vc, animated: true)
         case .locations:
             print("Locations")
         case .addSocialAccount:
-            print("Add Social Account")
+            let vc = ScreenName.connectSocicalAccount
+            vc.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(vc, animated: true)
         case .referToFriends:
-            print("Refer to Friend")
+            let vc = ScreenName.referToFriend
+            vc.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(vc, animated: true)
         case .rateUs:
             print("Rate Us")
         case .faq:
