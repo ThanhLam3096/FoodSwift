@@ -55,6 +55,9 @@ final class CreateAccountViewController: BaseViewController {
         setUpSignUPButton()
         setUpSocialLoginButton()
         heightOfContentViewConstraint.constant = ScreenSize.screenHeight
+        actionOfTappingOutSideHideOfKeyBoard()
+        actionWhenShowKeyboard()
+        actionWhenHideKeyboard()
     }
     
     private func setUpNavigation() {
@@ -175,12 +178,24 @@ extension CreateAccountViewController: OrangeButtonViewViewDelegate {
 }
 
 extension CreateAccountViewController {
+    private func actionOfTappingOutSideHideOfKeyBoard() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+extension CreateAccountViewController {
     private func actionWhenShowKeyboard() {
         keyboardObserver = KeyboardObserver()
         keyboardObserver?.onKeyboardWillShow = { [weak self] heightOfKeyBoard in
             guard let self = self else { return }
             self.heightOfContentViewConstraint.constant = heightOfContentViewConstraint.constant + heightOfKeyBoard
-            let scrollOffsetY = ScreenSize.scaleHeight(190)
+            let scrollOffsetY = ScreenSize.scaleHeight(100)
             scrollView.isScrollEnabled = true
             UIView.animate(withDuration: 0.3) {
                 self.scrollView.setContentOffset(CGPoint(x: 0, y: scrollOffsetY), animated: false)

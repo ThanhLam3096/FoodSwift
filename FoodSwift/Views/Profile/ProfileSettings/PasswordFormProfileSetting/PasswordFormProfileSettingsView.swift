@@ -75,6 +75,8 @@ final class PasswordFormProfileSettingsView: UIView {
         infoTextField.font = UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16))
         infoTextField.textColor = Color.mainColor
         infoTextField.borderStyle = .none
+        infoTextField.tintColor = Color.accentColor
+        infoTextField.delegate = self
         NSLayoutConstraint.activate([
             infoTextField.heightAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(24)),
         ])
@@ -94,5 +96,16 @@ final class PasswordFormProfileSettingsView: UIView {
         if let delegate = delegate {
             delegate.tappingInsideButtonChangePassword(view: self)
         }
+    }
+    
+    func dismissKeyboard() {
+        self.endEditing(true)
+    }
+}
+
+extension PasswordFormProfileSettingsView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        dismissKeyboard()
+        return true
     }
 }
