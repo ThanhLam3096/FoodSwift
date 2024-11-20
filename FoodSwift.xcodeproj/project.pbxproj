@@ -187,6 +187,16 @@
 		04E696302CC67F9C00DD4B8B /* DetailMealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E6962E2CC67F9C00DD4B8B /* DetailMealViewController.xib */; };
 		04E696322CC698DD00DD4B8B /* DetailMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E696312CC698DD00DD4B8B /* DetailMealViewModel.swift */; };
 		04E8DF262CD7D966008DB97D /* HeaderChoiceMealTableViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8DF252CD7D966008DB97D /* HeaderChoiceMealTableViewVM.swift */; };
+		04F551EB2CED9B2A000A983E /* AddCreditCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F551EA2CED9B2A000A983E /* AddCreditCardViewController.xib */; };
+		04F551EC2CED9B2A000A983E /* AddCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F551E92CED9B2A000A983E /* AddCreditCardViewController.swift */; };
+		04F551EE2CEDD1E4000A983E /* AddCreditCardViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F551ED2CEDD1E4000A983E /* AddCreditCardViewControllerVM.swift */; };
+		04F551F12CEDEDF8000A983E /* CreditCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F551F02CEDEDF8000A983E /* CreditCardTableViewCell.xib */; };
+		04F551F22CEDEDF8000A983E /* CreditCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F551EF2CEDEDF8000A983E /* CreditCardTableViewCell.swift */; };
+		04F551F52CEDEE0D000A983E /* CreditCardTableViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F551F42CEDEE0D000A983E /* CreditCardTableViewCellVM.swift */; };
+		04F551F92CEE0CDF000A983E /* AddSocialAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F551F82CEE0CDF000A983E /* AddSocialAccountViewController.xib */; };
+		04F551FA2CEE0CDF000A983E /* AddSocialAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F551F72CEE0CDF000A983E /* AddSocialAccountViewController.swift */; };
+		04F551FE2CEE1AC2000A983E /* ReferToFriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F551FD2CEE1AC2000A983E /* ReferToFriendViewController.xib */; };
+		04F551FF2CEE1AC2000A983E /* ReferToFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F551FC2CEE1AC2000A983E /* ReferToFriendViewController.swift */; };
 		04F7E2A32CDA0AC800A1F39E /* OrangeButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7E2A22CDA0AC800A1F39E /* OrangeButtonViewModel.swift */; };
 		04F7E2A72CDA497D00A1F39E /* YourOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7E2A52CDA497D00A1F39E /* YourOrderViewController.swift */; };
 		04F7E2A82CDA497D00A1F39E /* YourOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F7E2A62CDA497D00A1F39E /* YourOrderViewController.xib */; };
@@ -400,6 +410,16 @@
 		04E6962E2CC67F9C00DD4B8B /* DetailMealViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMealViewController.xib; sourceTree = "<group>"; };
 		04E696312CC698DD00DD4B8B /* DetailMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewModel.swift; sourceTree = "<group>"; };
 		04E8DF252CD7D966008DB97D /* HeaderChoiceMealTableViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderChoiceMealTableViewVM.swift; sourceTree = "<group>"; };
+		04F551E92CED9B2A000A983E /* AddCreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCreditCardViewController.swift; sourceTree = "<group>"; };
+		04F551EA2CED9B2A000A983E /* AddCreditCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCreditCardViewController.xib; sourceTree = "<group>"; };
+		04F551ED2CEDD1E4000A983E /* AddCreditCardViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCreditCardViewControllerVM.swift; sourceTree = "<group>"; };
+		04F551EF2CEDEDF8000A983E /* CreditCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardTableViewCell.swift; sourceTree = "<group>"; };
+		04F551F02CEDEDF8000A983E /* CreditCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditCardTableViewCell.xib; sourceTree = "<group>"; };
+		04F551F42CEDEE0D000A983E /* CreditCardTableViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardTableViewCellVM.swift; sourceTree = "<group>"; };
+		04F551F72CEE0CDF000A983E /* AddSocialAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSocialAccountViewController.swift; sourceTree = "<group>"; };
+		04F551F82CEE0CDF000A983E /* AddSocialAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddSocialAccountViewController.xib; sourceTree = "<group>"; };
+		04F551FC2CEE1AC2000A983E /* ReferToFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferToFriendViewController.swift; sourceTree = "<group>"; };
+		04F551FD2CEE1AC2000A983E /* ReferToFriendViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReferToFriendViewController.xib; sourceTree = "<group>"; };
 		04F7E2A22CDA0AC800A1F39E /* OrangeButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButtonViewModel.swift; sourceTree = "<group>"; };
 		04F7E2A52CDA497D00A1F39E /* YourOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourOrderViewController.swift; sourceTree = "<group>"; };
 		04F7E2A62CDA497D00A1F39E /* YourOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YourOrderViewController.xib; sourceTree = "<group>"; };
@@ -1004,6 +1024,9 @@
 		049C8EA72CEC602E00112CAA /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				04F551FB2CEE1AA7000A983E /* ReferToFriendViewController */,
+				04F551F62CEE0CBE000A983E /* AddSocialAccount */,
+				04F551E82CED9973000A983E /* AddCreditCard */,
 				049C8EA82CEC604000112CAA /* ProfileSettings */,
 				0491EC802CB0072F00157BE7 /* ProfileViewController */,
 			);
@@ -1208,6 +1231,45 @@
 			path = DetailMealViewController;
 			sourceTree = "<group>";
 		};
+		04F551E82CED9973000A983E /* AddCreditCard */ = {
+			isa = PBXGroup;
+			children = (
+				04F551F32CEDEE00000A983E /* CreditCardTableViewCell */,
+				04F551E92CED9B2A000A983E /* AddCreditCardViewController.swift */,
+				04F551EA2CED9B2A000A983E /* AddCreditCardViewController.xib */,
+				04F551ED2CEDD1E4000A983E /* AddCreditCardViewControllerVM.swift */,
+			);
+			path = AddCreditCard;
+			sourceTree = "<group>";
+		};
+		04F551F32CEDEE00000A983E /* CreditCardTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				04F551EF2CEDEDF8000A983E /* CreditCardTableViewCell.swift */,
+				04F551F02CEDEDF8000A983E /* CreditCardTableViewCell.xib */,
+				04F551F42CEDEE0D000A983E /* CreditCardTableViewCellVM.swift */,
+			);
+			path = CreditCardTableViewCell;
+			sourceTree = "<group>";
+		};
+		04F551F62CEE0CBE000A983E /* AddSocialAccount */ = {
+			isa = PBXGroup;
+			children = (
+				04F551F72CEE0CDF000A983E /* AddSocialAccountViewController.swift */,
+				04F551F82CEE0CDF000A983E /* AddSocialAccountViewController.xib */,
+			);
+			path = AddSocialAccount;
+			sourceTree = "<group>";
+		};
+		04F551FB2CEE1AA7000A983E /* ReferToFriendViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04F551FC2CEE1AC2000A983E /* ReferToFriendViewController.swift */,
+				04F551FD2CEE1AC2000A983E /* ReferToFriendViewController.xib */,
+			);
+			path = ReferToFriendViewController;
+			sourceTree = "<group>";
+		};
 		04F7E2A42CDA496600A1F39E /* YourOrder */ = {
 			isa = PBXGroup;
 			children = (
@@ -1370,10 +1432,12 @@
 				045578F12C97E1B600EA420B /* VerifylePhoneNumberVC.xib in Resources */,
 				04622D712CEA3C7700B43556 /* SearchRecentHeaderTableView.xib in Resources */,
 				049C8EAC2CEC609500112CAA /* ProfileInfomationSettingsViewController.xib in Resources */,
+				04F551FE2CEE1AC2000A983E /* ReferToFriendViewController.xib in Resources */,
 				048BECE02C8569650087F446 /* SocialButtonView.xib in Resources */,
 				048BECE92C85BC1B0087F446 /* yugothib.ttf in Resources */,
 				04788A302BE38729009AB6DD /* IntroducePageViewController.xib in Resources */,
 				049788A72CE777CF004CF413 /* NationAndCategoryFilterCollectionViewCell.xib in Resources */,
+				04F551F92CEE0CDF000A983E /* AddSocialAccountViewController.xib in Resources */,
 				041529AC2BD759A300818A4A /* WelcomeViewController.xib in Resources */,
 				042FFBA72CB3FFBA004B6D85 /* LocationListTableViewCell.xib in Resources */,
 				041529B82BE0D5EC00818A4A /* OrangeButtonView.xib in Resources */,
@@ -1388,6 +1452,7 @@
 				048C75FB2C18324E001DB3AD /* PageThreeViewController.xib in Resources */,
 				042FFBA22CB3E27E004B6D85 /* HomeViewController.xib in Resources */,
 				045BB5542CE7459C006B6CDF /* FilterViewController.xib in Resources */,
+				04F551F12CEDEDF8000A983E /* CreditCardTableViewCell.xib in Resources */,
 				04622D692CEA324F00B43556 /* SearchRecentTableViewCell.xib in Resources */,
 				044E557C2CE79E3300B7E21A /* PriceRangeCollectionViewCell.xib in Resources */,
 				045197162CEB709F00B1A1FC /* ProfileAccoutnSettingHeaderTableView.xib in Resources */,
@@ -1409,6 +1474,7 @@
 				048C75F32C18320E001DB3AD /* PageOneViewController.xib in Resources */,
 				046C49C52CDBB4CA0078E514 /* AddYourPaymentMethodViewController.xib in Resources */,
 				04D05FD52CCA80A600675B9A /* ListMealForTypeTableViewCell.xib in Resources */,
+				04F551EB2CED9B2A000A983E /* AddCreditCardViewController.xib in Resources */,
 				042FFBB22CB7DEB9004B6D85 /* SliderImageCollectionViewCell.xib in Resources */,
 				04F7E2A82CDA497D00A1F39E /* YourOrderViewController.xib in Resources */,
 				041C96BE2CDDC121002CEC50 /* ting_ting.mp3 in Resources */,
@@ -1561,12 +1627,14 @@
 				041331012CD6637F00F43D93 /* ChoiceCustomMealTableViewCellVM.swift in Sources */,
 				04622D6C2CEA326500B43556 /* SearchRecentTableViewCellVM.swift in Sources */,
 				042FFBA62CB3FFBA004B6D85 /* LocationListTableViewCell.swift in Sources */,
+				04F551FA2CEE0CDF000A983E /* AddSocialAccountViewController.swift in Sources */,
 				042FFBA92CB400A5004B6D85 /* LocationListViewModel.swift in Sources */,
 				04B4A7F12CD3B7E0008A50ED /* AddToOrderViewController.swift in Sources */,
 				044E557D2CE79E3300B7E21A /* PriceRangeCollectionViewCell.swift in Sources */,
 				042FFBB62CB7E78F004B6D85 /* UICollectionViewEXT.swift in Sources */,
 				04343B782C8B12D8007D3331 /* FlagCodeNumberTableViewCell.swift in Sources */,
 				04F7E2AA2CDA49D000A1F39E /* Order.swift in Sources */,
+				04F551EE2CEDD1E4000A983E /* AddCreditCardViewControllerVM.swift in Sources */,
 				047DB2E62CC93DF5006B3E5D /* GlobalFunction.swift in Sources */,
 				04C03E502C84114E00DB9B0D /* TextFieldLoginViewVM.swift in Sources */,
 				04156AA92CBEA4C6000A1B0F /* App.swift in Sources */,
@@ -1608,11 +1676,14 @@
 				045197102CEB64C100B1A1FC /* ProfileTableViewCell.swift in Sources */,
 				040EBD912CEAC8AA00540322 /* SearchRecentHeaderTableView.swift in Sources */,
 				0491EC872CB12BD200157BE7 /* HeaderHomeView.swift in Sources */,
+				04F551F52CEDEE0D000A983E /* CreditCardTableViewCellVM.swift in Sources */,
 				048BECE22C8574AD0087F446 /* SocialButtonViewVM.swift in Sources */,
 				04E696322CC698DD00DD4B8B /* DetailMealViewModel.swift in Sources */,
+				04F551FF2CEE1AC2000A983E /* ReferToFriendViewController.swift in Sources */,
 				049C8EB12CECCF4A00112CAA /* PasswordFormProfileSettingsView.swift in Sources */,
 				048D96302CBD1E5400977AD1 /* ListAllResTableViewCellVM.swift in Sources */,
 				04D05FD62CCA80A600675B9A /* ListMealForTypeTableViewCell.swift in Sources */,
+				04F551F22CEDEDF8000A983E /* CreditCardTableViewCell.swift in Sources */,
 				04F7E2A72CDA497D00A1F39E /* YourOrderViewController.swift in Sources */,
 				04B3CC3D2CB9105F00F95E94 /* Networking.swift in Sources */,
 				04888EFC2CE2636F00C054C6 /* ImageMealModalViewModel.swift in Sources */,
@@ -1621,6 +1692,7 @@
 				045197142CEB709600B1A1FC /* ProfileAccoutnSettingHeaderTableView.swift in Sources */,
 				0415297D2BD7595600818A4A /* ViewController.swift in Sources */,
 				0451971D2CEB7AE600B1A1FC /* ProfileMoreAndNotiHeaderTableViewVM.swift in Sources */,
+				04F551EC2CED9B2A000A983E /* AddCreditCardViewController.swift in Sources */,
 				04B4A7ED2CD22BC9008A50ED /* FoodTabBarViewController.swift in Sources */,
 				042FFBB12CB7DEB9004B6D85 /* SliderImageCollectionViewCell.swift in Sources */,
 				04C03E3C2C75818500DB9B0D /* SignInViewController.swift in Sources */,
