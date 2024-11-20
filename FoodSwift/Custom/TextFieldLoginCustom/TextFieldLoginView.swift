@@ -75,6 +75,7 @@ class TextFieldLoginView: UIView {
         infoTextField.font = UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16))
         infoTextField.textColor = Color.mainColor
         infoTextField.borderStyle = .none
+        infoTextField.tintColor = Color.accentColor
         infoTextField.delegate = self
         NSLayoutConstraint.activate([
             infoTextField.heightAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(24)),
