@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StoreKit
 
 final class ProfileViewController: BaseViewController {
     
@@ -42,6 +43,11 @@ final class ProfileViewController: BaseViewController {
         profileTableView.register(headerFooterViewClassWith: ProfileAccoutnSettingHeaderTableView.self)
         profileTableView.register(headerFooterViewClassWith: ProfileMoreAndNotiHeaderTableView.self)
         profileTableView.separatorStyle = .none
+    }
+    
+    private func ratingApp() {
+        guard let scene = view.window?.windowScene else { return }
+        SKStoreReviewController.requestReview(in: scene)
     }
 }
 
@@ -130,7 +136,7 @@ extension ProfileViewController:  ProfileTableViewCellDelegate {
             vc.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(vc, animated: true)
         case .rateUs:
-            print("Rate Us")
+            ratingApp()
         case .faq:
             print("Faq")
         case .logout:
