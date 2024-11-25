@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import FirebaseCore
+import GoogleSignIn
+import FirebaseAuth
 
 final class SignInViewController: BaseViewController {
     
@@ -47,6 +50,9 @@ final class SignInViewController: BaseViewController {
     @IBOutlet private weak var betweenSpaceOfSocialButtonViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var heightOfSocialButtonViewConstraint: NSLayoutConstraint!
     
+    // MARK: Properties
+    var viewModel: SigninViewControllerVM = SigninViewControllerVM()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         actionWhenShowKeyboard()
@@ -57,7 +63,7 @@ final class SignInViewController: BaseViewController {
     override func setUpUI() {
         setUpLabel()
         setUpNavigation()
-        setUpFormSignIn()
+        setUpTextFieldSignIn()
         setUpForgetPasswordButton()
         setUpSignInOrangeButtonView()
         setUpCreateAccountButton()
@@ -99,14 +105,19 @@ final class SignInViewController: BaseViewController {
         bottomSpaceOrLabelConstraint.constant = ScreenSize.scaleHeight(20)
     }
         
-    private func setUpFormSignIn() {
-        emailFormView.viewModel = TextFieldLoginViewVM(typeForm: .emailAddress)
+    private func setUpTextFieldSignIn() {
+        setUpTextFieldForm(textField: emailFormView, type: .emailAddress)
         traillingSpaceOfEmailFormConstraint.constant = ScreenSize.scaleWidth(20)
         topSpaceOfEmailFormConstraint.constant = ScreenSize.scaleWidth(24)
         heightOfFormSignInConstraint.constant = ScreenSize.scaleHeight(65)
         spaceOfEmailPasswordFormConstraint.constant = ScreenSize.scaleHeight(18)
-        
-        passwordFormView.viewModel = TextFieldLoginViewVM(typeForm: .password)
+
+        setUpTextFieldForm(textField: passwordFormView, type: .password)
+    }
+    
+    private func setUpTextFieldForm(textField: TextFieldLoginView, type: TypeOfTextFieldForm) {
+        textField.viewModel = TextFieldLoginViewVM(typeForm: type)
+        textField.delegate = self
     }
     
     private func setUpForgetPasswordButton() {
@@ -133,11 +144,16 @@ final class SignInViewController: BaseViewController {
     }
     
     private func setUpSocialLoginButton() {
-        facebookLoginButton.viewModel = SocialButtonViewVM(socialType: .facebook)
-        googleLoginButton.viewModel = SocialButtonViewVM(socialType: .google)
+        setUpSocialLoginButtonView(typeLoginView: facebookLoginButton, type: .facebook)
+        setUpSocialLoginButtonView(typeLoginView: googleLoginButton, type: .google)
         
         heightOfSocialButtonViewConstraint.constant = ScreenSize.scaleHeight(44)
         betweenSpaceOfSocialButtonViewConstraint.constant = ScreenSize.scaleHeight(15)
+    }
+    
+    private func setUpSocialLoginButtonView(typeLoginView: SocialButtonView, type: SocialAccountType) {
+        typeLoginView.viewModel = SocialButtonViewVM(socialType: type)
+        typeLoginView.delegate = self
     }
     
     @IBAction func createAccountTouchUpInside(_ sender: Any) {
@@ -166,6 +182,14 @@ final class SignInViewController: BaseViewController {
 
 extension SignInViewController: OrangeButtonViewViewDelegate {
     func tappingInsideButton(view: OrangeButtonView) {
+//        firebaseAUTH.auth().signIn(withEmail: viewModel.valueEmail, password: viewModel.valuePassword, completion: { [weak self] result, error in
+//            guard let this = self else { return }
+//            guard error == nil else {
+//                this.showAlert(message: "You Need To Account?")
+//                return
+//            }
+//            
+//        })
         self.navigationController?.pushViewController(ScreenName.baseTabbar, animated: true)
     }
 }
@@ -176,7 +200,7 @@ extension SignInViewController {
         keyboardObserver?.onKeyboardWillShow = { [weak self] heightOfKeyBoard in
             guard let self = self else { return }
             self.heightOfContentView.constant = heightOfContentView.constant + heightOfKeyBoard
-            let scrollOffsetY = ScreenSize.scaleHeight(190)
+            let scrollOffsetY = ScreenSize.scaleHeight(180)
             scrollView.isScrollEnabled = true
             UIView.animate(withDuration: 0.3) {
                 self.scrollView.setContentOffset(CGPoint(x: 0, y: scrollOffsetY), animated: false)
@@ -194,6 +218,72 @@ extension SignInViewController {
             UIView.animate(withDuration: 0.3) {
                 self.scrollView.setContentOffset(CGPoint(x: 0, y: scrollOffsetY), animated: true)
                 self.view.layoutIfNeeded()
+            }
+        }
+    }
+}
+
+extension SignInViewController: FormTextFieldDelegate {
+    func getValueTextField(value: String, type: TypeOfTextFieldForm, view: TextFieldLoginView) {
+        switch type {
+        case .emailAddress:
+            viewModel.valueEmail = value
+        case .password:
+            viewModel.valuePassword = value
+        default: print("abcd")
+        }
+    }
+}
+
+extension SignInViewController: SocialButtonViewDelegate {
+    func connectSoccialAccountButtonTapping(view: SocialButtonView, type: SocialAccountType) {
+        switch type {
+        case .facebook:
+            print("Connect Facebook Account")
+        case .google:
+            connectToGoogleAccount()
+        }
+    }
+}
+
+// Connect Social Account
+extension SignInViewController {
+    private func connectToGoogleAccount() {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+        
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] result, error in
+            guard error == nil else {
+                // ...
+                showAlert(message: "Error Can't Connect Your Google Account")
+                return
+            }
+            
+            guard let user = result?.user,
+                  let idToken = user.idToken?.tokenString
+            else {
+                showAlert(message: "Can't Find Your Account Form Google")
+                return
+            }
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                           accessToken: user.accessToken.tokenString)
+            
+            Auth.auth().signIn(with: credential) { result, error in
+                if let error = error {
+                    print("Lỗi Firebase: \(error.localizedDescription)")
+                    return
+                }
+                
+                // Đăng nhập thành công
+                print("Login Success")
+                if let user = result?.user {
+                    print("Tên: \(user.displayName ?? "Không có tên")")
+                    print("Email: \(user.email ?? "Không có email")")
+                }
             }
         }
     }

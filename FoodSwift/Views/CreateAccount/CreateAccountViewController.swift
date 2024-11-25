@@ -42,6 +42,9 @@ final class CreateAccountViewController: BaseViewController {
     @IBOutlet private weak var betweenSpaceOfSocialButtonConstraint: NSLayoutConstraint!
     @IBOutlet private weak var heightOfSocialButtonConstraint: NSLayoutConstraint!
     
+    // MARK: Properties
+    var viewModel: CreateAccountViewControllerVM = CreateAccountViewControllerVM()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -112,15 +115,20 @@ final class CreateAccountViewController: BaseViewController {
     }
     
     private func setUpTextField() {
-        fullNameFormView.viewModel = TextFieldLoginViewVM(typeForm: .fullName)
+        setUpTextFieldForm(textField: fullNameFormView, type: .fullName)
         topSpaceFullNameTextFieldConstraint.constant = ScreenSize.scaleHeight(20)
         heightOfFormTextFieldConstraint.constant = ScreenSize.scaleHeight(65)
-        
-        emailFormView.viewModel = TextFieldLoginViewVM(typeForm: .emailAddress)
+
+        setUpTextFieldForm(textField: emailFormView, type: .emailAddress)
         topSpaceEmailFormConstraint.constant = ScreenSize.scaleHeight(18)
         botSpaceEmailFormConstraint.constant = ScreenSize.scaleHeight(18)
-        
-        passwordFormView.viewModel = TextFieldLoginViewVM(typeForm: .password)
+
+        setUpTextFieldForm(textField: passwordFormView, type: .password)
+    }
+    
+    private func setUpTextFieldForm(textField: TextFieldLoginView, type: TypeOfTextFieldForm) {
+        textField.viewModel = TextFieldLoginViewVM(typeForm: type)
+        textField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -173,7 +181,22 @@ final class CreateAccountViewController: BaseViewController {
 
 extension CreateAccountViewController: OrangeButtonViewViewDelegate {
     func tappingInsideButton(view: OrangeButtonView) {
-        self.navigationController?.pushViewController(ScreenName.definePhoneNumber, animated: true)
+        createAccount(fullName: viewModel.valueFullName, email: viewModel.valueEmail, password: viewModel.valuePassword)
+//        self.navigationController?.pushViewController(ScreenName.definePhoneNumber, animated: true)
+    }
+}
+
+extension CreateAccountViewController: FormTextFieldDelegate {
+    func getValueTextField(value: String, type: TypeOfTextFieldForm, view: TextFieldLoginView) {
+        switch type {
+        case .fullName:
+            viewModel.valueFullName = value
+        case .emailAddress:
+            viewModel.valueEmail = value
+        case .password:
+            viewModel.valuePassword = value
+        default: break
+        }
     }
 }
 
@@ -213,6 +236,23 @@ extension CreateAccountViewController {
             UIView.animate(withDuration: 0.3) {
                 self.scrollView.setContentOffset(CGPoint(x: 0, y: scrollOffsetY), animated: true)
                 self.view.layoutIfNeeded()
+            }
+        }
+    }
+}
+
+// Create Account
+extension CreateAccountViewController {
+    private func createAccount(fullName: String, email: String, password: String) {
+        HUD.show()
+        viewModel.createAccount(fullName: fullName, email: email, password: password) { [weak self] (success, msg) in
+            guard let strongSelf = self else { return }
+            if success {
+                HUD.dismiss()
+                strongSelf.showAlertCreateAccount(emailAccount: email, isSuccess: success)
+            } else {
+                HUD.dismiss()
+                strongSelf.showAlertCreateAccount(emailAccount: email, isSuccess: success)
             }
         }
     }

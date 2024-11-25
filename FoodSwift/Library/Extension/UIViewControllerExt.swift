@@ -15,6 +15,19 @@ extension UIViewController {
         self.present(alert, animated: true)
     }
     
+    func showAlertCreateAccount(emailAccount: String, isSuccess: Bool) {
+        let alert = UIAlertController(title: App.String.createAccount, message: emailAccount + (isSuccess ? " Success" : " Faild"), preferredStyle: .alert)
+        let nextAction = UIAlertAction(title: isSuccess ? App.String.continueAction : App.String.cancelString, style: .default) { _ in
+            if isSuccess {
+                self.navigationController?.pushViewController(ScreenName.definePhoneNumber, animated: true)
+            } else {
+                return
+            }
+        }
+        alert.addAction(nextAction)
+        self.present(alert, animated: true)
+    }
+    
     func alertAddIntructions(completion: @escaping(String) -> Void) {
         if self.presentedViewController == nil {
             let alert = UIAlertController(title: App.String.titleAddInstructions, message: nil, preferredStyle: .alert)

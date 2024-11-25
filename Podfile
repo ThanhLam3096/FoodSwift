@@ -19,6 +19,10 @@ pod 'AlamofireNetworkActivityIndicator'
     pod 'RealmSwift'
     pod 'IQKeyboardManagerSwift'
     pod 'SkeletonView'
+    pod 'GoogleSignIn'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Core'
+    pod 'FirebaseFirestore'
 
   target 'FoodSwiftTests' do
     inherit! :search_paths

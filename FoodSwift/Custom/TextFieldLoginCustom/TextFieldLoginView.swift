@@ -29,6 +29,7 @@ class TextFieldLoginView: UIView {
             updateView()
         }
     }
+    weak var delegate: FormTextFieldDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -102,4 +103,14 @@ extension TextFieldLoginView: UITextFieldDelegate {
         dismissKeyboard()
         return true
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let delegate = delegate, let value = textField.text, let type = viewModel?.typeForm {
+            delegate.getValueTextField(value: value, type: type, view: self)
+        }
+    }
+}
+
+protocol FormTextFieldDelegate: AnyObject {
+    func getValueTextField(value: String, type: TypeOfTextFieldForm, view: TextFieldLoginView)
 }
