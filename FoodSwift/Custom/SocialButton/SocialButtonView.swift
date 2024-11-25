@@ -19,6 +19,7 @@ class SocialButtonView: UIView {
             updateView()
         }
     }
+    var delegate: SocialButtonViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,6 +63,7 @@ class SocialButtonView: UIView {
     private func setUpSocialButton() {
         socialButton.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
         socialButton.addTarget(self, action: #selector(buttonTouchUp), for: [.touchUpInside, .touchUpOutside])
+        socialButton.addTarget(self, action: #selector(buttonToychUpInside), for: .touchUpInside)
     }
 
     @objc func buttonTouchDown(_ sender: UIButton) {
@@ -75,4 +77,15 @@ class SocialButtonView: UIView {
         guard let viewModel = viewModel else { return }
         socialView.backgroundColor = viewModel.socialType.color
     }
+    
+    @objc func buttonToychUpInside(_ sender: UIButton) {
+        if let delegate = delegate, let type = viewModel?.socialType {
+            delegate.connectSoccialAccountButtonTapping(view: self, type: type)
+        }
+    }
+    
+}
+
+protocol SocialButtonViewDelegate: AnyObject {
+    func connectSoccialAccountButtonTapping(view: SocialButtonView, type: SocialAccountType)
 }

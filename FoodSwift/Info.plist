@@ -6,12 +6,12 @@
 	<dict>
 		<key>CFBundlePrimaryIcon</key>
 		<dict>
-			<key>CFBundleIconName</key>
-			<string></string>
 			<key>CFBundleIconFiles</key>
 			<array>
 				<string></string>
 			</array>
+			<key>CFBundleIconName</key>
+			<string></string>
 			<key>UIPrerenderedIcon</key>
 			<false/>
 		</dict>
@@ -21,14 +21,25 @@
 			<array>
 				<string></string>
 			</array>
-			<key>UINewsstandBindingType</key>
-			<string>UINewsstandBindingTypeMagazine</string>
 			<key>UINewsstandBindingEdge</key>
 			<string>UINewsstandBindingEdgeLeft</string>
+			<key>UINewsstandBindingType</key>
+			<string>UINewsstandBindingTypeMagazine</string>
 		</dict>
 	</dict>
-	<key>CFBundleIdentifier</key>
-	<string></string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Google Sign In</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.904633341982-58bqgni26t3imp1rfa0k2rsiecnrnjf6</string>
+			</array>
+		</dict>
+	</array>
 	<key>UIAppFonts</key>
 	<array>
 		<string>YuGothL.ttc</string>

@@ -100,10 +100,13 @@
 		046E777A2C6F547A000F6FD1 /* PageStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E77792C6F547A000F6FD1 /* PageStackView.swift */; };
 		046E777C2C6F5563000F6FD1 /* PageStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046E777B2C6F5563000F6FD1 /* PageStackView.xib */; };
 		046E777E2C733E6B000F6FD1 /* ScreenName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E777D2C733E6B000F6FD1 /* ScreenName.swift */; };
+		046E77802CF22EE8004A4716 /* SigninViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E777F2CF22EE8004A4716 /* SigninViewControllerVM.swift */; };
 		0470AC6F2CBC023D00D68477 /* FeaturedPartnersCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470AC6E2CBC023D00D68477 /* FeaturedPartnersCollectionViewCellViewModel.swift */; };
 		0470D9732CDCC9A40063E520 /* Raito.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470D9722CDCC9A30063E520 /* Raito.swift */; };
 		0474D2EF2CD8F8EE002F4C36 /* AddInstructionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0474D2EE2CD8F8EE002F4C36 /* AddInstructionTableViewCell.xib */; };
 		0474D2F02CD8F8EE002F4C36 /* AddInstructionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474D2ED2CD8F8EE002F4C36 /* AddInstructionTableViewCell.swift */; };
+		047545AD2CF32C840014AB41 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 047545AC2CF32C840014AB41 /* GoogleService-Info.plist */; };
+		047545AF2CF3651C0014AB41 /* CreateAccountViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047545AE2CF3651C0014AB41 /* CreateAccountViewControllerVM.swift */; };
 		04788A302BE38729009AB6DD /* IntroducePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04788A2F2BE38729009AB6DD /* IntroducePageViewController.xib */; };
 		04788A312BE38729009AB6DD /* IntroducePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04788A2E2BE38729009AB6DD /* IntroducePageViewController.swift */; };
 		047DB2E62CC93DF5006B3E5D /* GlobalFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DB2E52CC93DF5006B3E5D /* GlobalFunction.swift */; };
@@ -323,10 +326,13 @@
 		046E77792C6F547A000F6FD1 /* PageStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageStackView.swift; sourceTree = "<group>"; };
 		046E777B2C6F5563000F6FD1 /* PageStackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageStackView.xib; sourceTree = "<group>"; };
 		046E777D2C733E6B000F6FD1 /* ScreenName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenName.swift; sourceTree = "<group>"; };
+		046E777F2CF22EE8004A4716 /* SigninViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewControllerVM.swift; sourceTree = "<group>"; };
 		0470AC6E2CBC023D00D68477 /* FeaturedPartnersCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPartnersCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		0470D9722CDCC9A30063E520 /* Raito.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Raito.swift; sourceTree = "<group>"; };
 		0474D2ED2CD8F8EE002F4C36 /* AddInstructionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInstructionTableViewCell.swift; sourceTree = "<group>"; };
 		0474D2EE2CD8F8EE002F4C36 /* AddInstructionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddInstructionTableViewCell.xib; sourceTree = "<group>"; };
+		047545AC2CF32C840014AB41 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		047545AE2CF3651C0014AB41 /* CreateAccountViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewControllerVM.swift; sourceTree = "<group>"; };
 		04788A2E2BE38729009AB6DD /* IntroducePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroducePageViewController.swift; sourceTree = "<group>"; };
 		04788A2F2BE38729009AB6DD /* IntroducePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroducePageViewController.xib; sourceTree = "<group>"; };
 		047DB2E52CC93DF5006B3E5D /* GlobalFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunction.swift; sourceTree = "<group>"; };
@@ -522,6 +528,7 @@
 				041529782BD7595600818A4A /* AppDelegate.swift */,
 				0415297A2BD7595600818A4A /* SceneDelegate.swift */,
 				0415297C2BD7595600818A4A /* ViewController.swift */,
+				046E777C2CF216FD004A4716 /* FireBase */,
 				0415297E2BD7595600818A4A /* Main.storyboard */,
 				041529812BD7595700818A4A /* Assets.xcassets */,
 				041529832BD7595700818A4A /* LaunchScreen.storyboard */,
@@ -841,6 +848,14 @@
 			path = PageViewCustom;
 			sourceTree = "<group>";
 		};
+		046E777C2CF216FD004A4716 /* FireBase */ = {
+			isa = PBXGroup;
+			children = (
+				047545AC2CF32C840014AB41 /* GoogleService-Info.plist */,
+			);
+			path = FireBase;
+			sourceTree = "<group>";
+		};
 		0470D9712CDCC9980063E520 /* Utlis */ = {
 			isa = PBXGroup;
 			children = (
@@ -922,6 +937,7 @@
 			children = (
 				048BECEF2C85F8480087F446 /* CreateAccountViewController.swift */,
 				048BECF02C85F8480087F446 /* CreateAccountViewController.xib */,
+				047545AE2CF3651C0014AB41 /* CreateAccountViewControllerVM.swift */,
 			);
 			path = CreateAccount;
 			sourceTree = "<group>";
@@ -1170,6 +1186,7 @@
 			children = (
 				04C03E3A2C75818500DB9B0D /* SignInViewController.swift */,
 				04C03E3B2C75818500DB9B0D /* SignInViewController.xib */,
+				046E777F2CF22EE8004A4716 /* SigninViewControllerVM.swift */,
 			);
 			path = Signin;
 			sourceTree = "<group>";
@@ -1442,6 +1459,7 @@
 				042FFBA72CB3FFBA004B6D85 /* LocationListTableViewCell.xib in Resources */,
 				041529B82BE0D5EC00818A4A /* OrangeButtonView.xib in Resources */,
 				04C03E472C81655500DB9B0D /* yugothil.ttf in Resources */,
+				047545AD2CF32C840014AB41 /* GoogleService-Info.plist in Resources */,
 				048BECF22C85F8480087F446 /* CreateAccountViewController.xib in Resources */,
 				04C03E492C81772900DB9B0D /* yu-gothic-regular.ttf in Resources */,
 				04B4A7F22CD3B7E0008A50ED /* AddToOrderViewController.xib in Resources */,
@@ -1689,6 +1707,8 @@
 				04888EFC2CE2636F00C054C6 /* ImageMealModalViewModel.swift in Sources */,
 				044E55792CE78C2500B7E21A /* HeaderFilterCollectionReusableView.swift in Sources */,
 				041529B62BE0D5D500818A4A /* OrangeButtonView.swift in Sources */,
+				046E77802CF22EE8004A4716 /* SigninViewControllerVM.swift in Sources */,
+				047545AF2CF3651C0014AB41 /* CreateAccountViewControllerVM.swift in Sources */,
 				045197142CEB709600B1A1FC /* ProfileAccoutnSettingHeaderTableView.swift in Sources */,
 				0415297D2BD7595600818A4A /* ViewController.swift in Sources */,
 				0451971D2CEB7AE600B1A1FC /* ProfileMoreAndNotiHeaderTableViewVM.swift in Sources */,
