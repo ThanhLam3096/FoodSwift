@@ -35,6 +35,9 @@
 		04156AAD2CBEA6EB000A1B0F /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04156AAC2CBEA6EB000A1B0F /* UIViewControllerExt.swift */; };
 		04156AAF2CBEA759000A1B0F /* DataEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04156AAE2CBEA759000A1B0F /* DataEXT.swift */; };
 		041C96BE2CDDC121002CEC50 /* ting_ting.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 041C96BD2CDDC121002CEC50 /* ting_ting.mp3 */; };
+		042B24C22CF448C2009CB425 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B24C12CF448C2009CB425 /* PopUpView.swift */; };
+		042B24C42CF448D5009CB425 /* PopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042B24C32CF448D5009CB425 /* PopUpView.xib */; };
+		042B24C62CF4BE8F009CB425 /* PopUpViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B24C52CF4BE8F009CB425 /* PopUpViewVM.swift */; };
 		042FCE2E2CC3D8D600144702 /* FeaturePartnersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FCE2C2CC3D8D600144702 /* FeaturePartnersViewController.swift */; };
 		042FCE2F2CC3D8D600144702 /* FeaturePartnersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FCE2D2CC3D8D600144702 /* FeaturePartnersViewController.xib */; };
 		042FCE332CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FCE312CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.swift */; };
@@ -261,6 +264,9 @@
 		04156AAC2CBEA6EB000A1B0F /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		04156AAE2CBEA759000A1B0F /* DataEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEXT.swift; sourceTree = "<group>"; };
 		041C96BD2CDDC121002CEC50 /* ting_ting.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ting_ting.mp3; sourceTree = "<group>"; };
+		042B24C12CF448C2009CB425 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		042B24C32CF448D5009CB425 /* PopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpView.xib; sourceTree = "<group>"; };
+		042B24C52CF4BE8F009CB425 /* PopUpViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewVM.swift; sourceTree = "<group>"; };
 		042FCE2C2CC3D8D600144702 /* FeaturePartnersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturePartnersViewController.swift; sourceTree = "<group>"; };
 		042FCE2D2CC3D8D600144702 /* FeaturePartnersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturePartnersViewController.xib; sourceTree = "<group>"; };
 		042FCE312CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFeaturePartnersCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -604,6 +610,7 @@
 		041529B32BE0D54400818A4A /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				042B24C02CF42713009CB425 /* Popup */,
 				04B3CC462CBBF59D00F95E94 /* Cirlcle */,
 				04B3CC362CB80BA100F95E94 /* CustomPageControl */,
 				04343B672C86ADD3007D3331 /* TopAlignedLabel */,
@@ -631,6 +638,16 @@
 				04C03E362C74785100DB9B0D /* Extension */,
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		042B24C02CF42713009CB425 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				042B24C12CF448C2009CB425 /* PopUpView.swift */,
+				042B24C32CF448D5009CB425 /* PopUpView.xib */,
+				042B24C52CF4BE8F009CB425 /* PopUpViewVM.swift */,
+			);
+			path = Popup;
 			sourceTree = "<group>";
 		};
 		042FCE2B2CC3D8B300144702 /* FeaturedPartnersViewController */ = {
@@ -1476,6 +1493,7 @@
 				045197162CEB709F00B1A1FC /* ProfileAccoutnSettingHeaderTableView.xib in Resources */,
 				0474D2EF2CD8F8EE002F4C36 /* AddInstructionTableViewCell.xib in Resources */,
 				0491EC842CB0073C00157BE7 /* ProfileViewController.xib in Resources */,
+				042B24C42CF448D5009CB425 /* PopUpView.xib in Resources */,
 				047DB2EB2CC94539006B3E5D /* TypeMealCollectionViewCell.xib in Resources */,
 				049C8EB32CECCF5E00112CAA /* PasswordFormProfileSettingsView.xib in Resources */,
 				04E696302CC67F9C00DD4B8B /* DetailMealViewController.xib in Resources */,
@@ -1691,6 +1709,7 @@
 				0491EC7A2CB0071100157BE7 /* OrdersViewController.swift in Sources */,
 				04053D362CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.swift in Sources */,
 				042FCE362CC4FFBB00144702 /* ListCollectionDetailVM.swift in Sources */,
+				042B24C62CF4BE8F009CB425 /* PopUpViewVM.swift in Sources */,
 				045197102CEB64C100B1A1FC /* ProfileTableViewCell.swift in Sources */,
 				040EBD912CEAC8AA00540322 /* SearchRecentHeaderTableView.swift in Sources */,
 				0491EC872CB12BD200157BE7 /* HeaderHomeView.swift in Sources */,
@@ -1747,6 +1766,7 @@
 				04F7E2A32CDA0AC800A1F39E /* OrangeButtonViewModel.swift in Sources */,
 				0456B1C12CE8CCCF0064A51E /* SearchFilter.swift in Sources */,
 				04B3CC382CB80BC600F95E94 /* CustomPageControl.swift in Sources */,
+				042B24C22CF448C2009CB425 /* PopUpView.swift in Sources */,
 				04343B7A2C8B12EF007D3331 /* FlagCodeNumberCellVM.swift in Sources */,
 				04343B702C8AA320007D3331 /* DefinePhoneNumberViewController.swift in Sources */,
 				04624EFA2CE1B85B0092C32F /* UIView.swift in Sources */,

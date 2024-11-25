@@ -14,6 +14,9 @@ final class CreateAccountViewControllerVM {
     var valueFullName = ""
     var valueEmail = ""
     var valuePassword = ""
+    var isValidFullName: Bool = false
+    var isValidEmail: Bool = false
+    var isValidPassword: Bool = false
     
     // Create Account From FirebaseFirestore
     func createAccount(fullName: String, email: String, password: String, createAccountCompletion: @escaping (Bool, String) -> Void ) {
@@ -26,16 +29,25 @@ final class CreateAccountViewControllerVM {
         [
             "fullName" : fullName,
             "email" : email,
-            "password" : password
+            "password" : password,
+            "phoneNumber": ""
         ]
-        print("Check Data == \(data)")
-        db.collection("users").addDocument(data: data) { error in
+        db.collection("users").whereField("email", isEqualTo: email).getDocuments { querySnapshot, error in
             if let error = error {
-                print("Error Code: \((error as NSError).code)")
-                print("Error adding document: \(error.localizedDescription)")
-                createAccountCompletion(false, error.localizedDescription)
+                createAccountCompletion(false, "Error checking email: \(error.localizedDescription)")
+                return
+            }
+            
+            if let documents = querySnapshot?.documents, !documents.isEmpty {
+                createAccountCompletion(false, "Create Account Failed: Email already exists.")
             } else {
-                createAccountCompletion(true, "Create Account Success")
+                db.collection("users").addDocument(data: data) { error in
+                    if let error = error {
+                        createAccountCompletion(false, error.localizedDescription)
+                    } else {
+                        createAccountCompletion(true, "Create Account Success")
+                    }
+                }
             }
         }
     }

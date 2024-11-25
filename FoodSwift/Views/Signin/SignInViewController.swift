@@ -224,7 +224,7 @@ extension SignInViewController {
 }
 
 extension SignInViewController: FormTextFieldDelegate {
-    func getValueTextField(value: String, type: TypeOfTextFieldForm, view: TextFieldLoginView) {
+    func getValueTextField(value: String, type: TypeOfTextFieldForm, isValid: Bool, view: TextFieldLoginView) {
         switch type {
         case .emailAddress:
             viewModel.valueEmail = value
