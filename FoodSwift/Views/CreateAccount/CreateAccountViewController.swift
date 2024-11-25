@@ -44,6 +44,7 @@ final class CreateAccountViewController: BaseViewController {
     
     // MARK: Properties
     var viewModel: CreateAccountViewControllerVM = CreateAccountViewControllerVM()
+    var popUp: PopUpView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,7 +109,8 @@ final class CreateAccountViewController: BaseViewController {
     }
     
     private func setUpSignUPButton() {
-        signUpButtonView.viewModel = OrangeButtonViewModel(title: "SIGN UP")
+        let isEnable = (viewModel.isValidEmail && viewModel.isValidFullName && viewModel.isValidPassword)
+        signUpButtonView.viewModel = OrangeButtonViewModel(title: "SIGN UP", isEnableButton: isEnable)
         topSpaceOfSignUpButtonConstraint.constant = ScreenSize.scaleHeight(24)
         heightOfSignUpConstraint.constant = ScreenSize.scaleHeight(48)
         signUpButtonView.delegate = self
@@ -187,16 +189,21 @@ extension CreateAccountViewController: OrangeButtonViewViewDelegate {
 }
 
 extension CreateAccountViewController: FormTextFieldDelegate {
-    func getValueTextField(value: String, type: TypeOfTextFieldForm, view: TextFieldLoginView) {
+    func getValueTextField(value: String, type: TypeOfTextFieldForm, isValid: Bool, view: TextFieldLoginView) {
         switch type {
         case .fullName:
             viewModel.valueFullName = value
+            viewModel.isValidFullName = isValid
         case .emailAddress:
             viewModel.valueEmail = value
+            viewModel.isValidEmail = isValid
         case .password:
             viewModel.valuePassword = value
+            viewModel.isValidPassword = isValid
         default: break
         }
+        let isEnable = (viewModel.isValidEmail && viewModel.isValidFullName && viewModel.isValidPassword)
+        signUpButtonView.viewModel = OrangeButtonViewModel(title: "SIGN UP", isEnableButton: isEnable)
     }
 }
 
@@ -247,13 +254,27 @@ extension CreateAccountViewController {
         HUD.show()
         viewModel.createAccount(fullName: fullName, email: email, password: password) { [weak self] (success, msg) in
             guard let strongSelf = self else { return }
-            if success {
-                HUD.dismiss()
-                strongSelf.showAlertCreateAccount(emailAccount: email, isSuccess: success)
-            } else {
-                HUD.dismiss()
-                strongSelf.showAlertCreateAccount(emailAccount: email, isSuccess: success)
+            strongSelf.popUp = PopUpView(frame: strongSelf.view.frame, inView: strongSelf)
+            strongSelf.popUp.delegate = self
+            strongSelf.popUp.viewModel = PopUpViewVM(title: msg, isSuccesPopup: success)
+            strongSelf.popUp.delegate = self
+            strongSelf.view.addSubview(strongSelf.popUp)
+            strongSelf.popUp.transform = CGAffineTransform(a: 0.8, b: 0.8, c: 0.8, d: 0.8, tx: 0.8, ty: 0.8)
+            UIView.animate(withDuration: 0.3) {
+                strongSelf.popUp.transform = CGAffineTransform.identity
             }
+            HUD.dismiss()
+        }
+    }
+}
+
+extension CreateAccountViewController: PopUpViewDelegate {
+    func didTappingButton(view: PopUpView, isSuccess: Bool) {
+        self.popUp?.removeFromSuperview()
+        if isSuccess {
+            self.navigationController?.pushViewController(ScreenName.definePhoneNumber, animated: true)
+        } else {
+            return
         }
     }
 }

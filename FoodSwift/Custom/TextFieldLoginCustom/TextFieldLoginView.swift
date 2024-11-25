@@ -48,6 +48,12 @@ class TextFieldLoginView: UIView {
         guard let typeForm = viewModel?.typeForm else { return }
         titleTextFieldLabel.text = typeForm.title
         eyeButton.isHidden = !typeForm.isEyeShow
+        switch typeForm {
+        case .password, .newPassword, .confirmPassword:
+            infoTextField.isSecureTextEntry = true
+            infoTextField.textContentType = .none
+        default: infoTextField.isSecureTextEntry = false
+        }
     }
     
     private func setUpUIView() {
@@ -91,7 +97,7 @@ class TextFieldLoginView: UIView {
     }
     
     @IBAction func eyeShowPasswordTouchUpInside(_ sender: Any) {
-        print("ádasdasd")
+        infoTextField.isSecureTextEntry = !infoTextField.isSecureTextEntry
     }
     
     func dismissKeyboard() {
@@ -115,12 +121,14 @@ extension TextFieldLoginView: UITextFieldDelegate {
             } else {
                 checkMarkButtonImageView.image = UIImage(systemName: "xmark")
             }
+            delegate.getValueTextField(value: value, type: type, isValid: isValidNameUser(value), view: self)
         case .emailAddress:
             if isValidEmail(value) {
                 checkMarkButtonImageView.image = UIImage(named: "check")
             } else {
                 checkMarkButtonImageView.image = UIImage(systemName: "xmark")
             }
+            delegate.getValueTextField(value: value, type: type, isValid: isValidEmail(value), view: self)
         case .phoneNumber:
             return
         case .password, .newPassword, .confirmPassword:
@@ -129,11 +137,12 @@ extension TextFieldLoginView: UITextFieldDelegate {
             } else {
                 checkMarkButtonImageView.image = UIImage(systemName: "xmark")
             }
+            delegate.getValueTextField(value: value, type: type, isValid: isValidUserPassword(value), view: self)
         }
-        delegate.getValueTextField(value: value, type: type, view: self)
+        
     }
 }
 
 protocol FormTextFieldDelegate: AnyObject {
-    func getValueTextField(value: String, type: TypeOfTextFieldForm, view: TextFieldLoginView)
+    func getValueTextField(value: String, type: TypeOfTextFieldForm, isValid: Bool, view: TextFieldLoginView)
 }
