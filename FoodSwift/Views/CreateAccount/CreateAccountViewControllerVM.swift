@@ -29,14 +29,6 @@ final class CreateAccountViewControllerVM {
             "password" : password
         ]
         print("Check Data == \(data)")
-        
-        //        do {
-        //            db.collection("users").addDocument(data: data)
-        //            createAccountCompletion(true, "Create Account Success")
-        //        } catch {
-        //            print("Error adding document: \(error)")
-        //            createAccountCompletion(false, error.localizedDescription)
-        //        }
         db.collection("users").addDocument(data: data) { error in
             if let error = error {
                 print("Error Code: \((error as NSError).code)")

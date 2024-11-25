@@ -295,3 +295,24 @@ enum SocialAccountType: String {
         }
     }
 }
+
+func isValidEmail(_ email: String) -> Bool {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+    let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+    return emailPred.evaluate(with: email)
+}
+
+func isValidNameUser(_ userName: String) -> Bool {
+    let userNameRegEx = "^[a-zA-Z0-9]{4,}$"
+
+    let userNamePred = NSPredicate(format:"SELF MATCHES %@", userNameRegEx)
+    return userNamePred.evaluate(with: userName)
+}
+
+func isValidUserPassword(_ userPassword: String) -> Bool {
+    let userPasswordRegEx = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+
+    let userPasswordPred = NSPredicate(format:"SELF MATCHES %@", userPasswordRegEx)
+    return userPasswordPred.evaluate(with: userPassword)
+}

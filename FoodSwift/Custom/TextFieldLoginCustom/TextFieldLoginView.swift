@@ -23,6 +23,9 @@ class TextFieldLoginView: UIView {
     @IBOutlet private weak var heightEyeButtonConstraint: NSLayoutConstraint!
     @IBOutlet private weak var topSpaceOfLineViewConstraint: NSLayoutConstraint!
     
+    @IBOutlet private weak var widthOfCheckMarkImageConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightOfCheckMarkImageConstraint: NSLayoutConstraint!
+    
     //MARK: - Properties
     var viewModel: TextFieldLoginViewVM? {
         didSet {
@@ -55,8 +58,6 @@ class TextFieldLoginView: UIView {
         setUpLabel()
         setUpTextField()
         
-        
-        
         lineView.backgroundColor = UIColor(hex: "#F6F6F6")
         topSpaceOfLineViewConstraint.constant = ScreenSize.scaleHeight(10)
         
@@ -80,10 +81,10 @@ class TextFieldLoginView: UIView {
         infoTextField.delegate = self
         NSLayoutConstraint.activate([
             infoTextField.heightAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(24)),
-            checkMarkButtonImageView.heightAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(24)),
-            checkMarkButtonImageView.widthAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(24))
         ])
-        
+        widthOfCheckMarkImageConstraint.constant = ScreenSize.scaleHeight(17)
+        heightOfCheckMarkImageConstraint.constant = ScreenSize.scaleHeight(17)
+        checkMarkButtonImageView.isHidden = true
         eyeButton.tintColor = Color.tabBarColor
         widthEyeButtonConstraint.constant = ScreenSize.scaleWidth(14)
         heightEyeButtonConstraint.constant = ScreenSize.scaleHeight(12)
@@ -105,9 +106,31 @@ extension TextFieldLoginView: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if let delegate = delegate, let value = textField.text, let type = viewModel?.typeForm {
-            delegate.getValueTextField(value: value, type: type, view: self)
+        checkMarkButtonImageView.isHidden = false
+        guard let type = viewModel?.typeForm, let value = textField.text, let delegate = delegate else {return}
+        switch type {
+        case .fullName:
+            if isValidNameUser(value) {
+                checkMarkButtonImageView.image = UIImage(named: "check")
+            } else {
+                checkMarkButtonImageView.image = UIImage(systemName: "xmark")
+            }
+        case .emailAddress:
+            if isValidEmail(value) {
+                checkMarkButtonImageView.image = UIImage(named: "check")
+            } else {
+                checkMarkButtonImageView.image = UIImage(systemName: "xmark")
+            }
+        case .phoneNumber:
+            return
+        case .password, .newPassword, .confirmPassword:
+            if isValidUserPassword(value) {
+                checkMarkButtonImageView.image = UIImage(named: "check")
+            } else {
+                checkMarkButtonImageView.image = UIImage(systemName: "xmark")
+            }
         }
+        delegate.getValueTextField(value: value, type: type, view: self)
     }
 }
 
