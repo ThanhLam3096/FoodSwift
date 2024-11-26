@@ -7,7 +7,6 @@
 
 import UIKit
 import AVFoundation
-import AudioToolbox
 
 class OrangeButtonView: UIView {
 
@@ -26,13 +25,13 @@ class OrangeButtonView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpUIView()
-//        preloadSound()
+        preloadSound()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setUpUIView()
-//        preloadSound()
+        preloadSound()
     }
     
     private func setUpUIView() {
@@ -43,13 +42,13 @@ class OrangeButtonView: UIView {
         startButton.setAttributedTitle(NSAttributedString(string: "GET STARTED", attributes: [
             .font: UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleHeight(14)) as Any
         ]), for: .normal)
-        startButton.backgroundColor = UIColor(red: 238/255, green: 167/255, blue: 52/255, alpha: 1.0)
+        startButton.backgroundColor =  Color.activeColor
         startButton.layer.cornerRadius = 8
     }
     
     @IBAction func getStartButtonTouchUpInside(_ sender: Any) {
-//        playSound()
-        playSoundWithSystemSound()
+        playSound()
+//        playSoundWithSystemSound()
         if let delegate = delegate {
             delegate.tappingInsideButton(view: self)
         }
@@ -70,9 +69,11 @@ class OrangeButtonView: UIView {
             price = ""
         }
         startButton.setAttributedTitle(NSAttributedString(string: "\(viewModel.title) " + price, attributes: [
-            .font: UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleHeight(14)) as Any
+            .font: UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleHeight(14)) as Any,
+            .foregroundColor: Color.bgColor
         ]), for: .normal)
-
+        startButton.isEnabled = viewModel.isEnableButton
+        startButton.backgroundColor = viewModel.isEnableButton ? Color.activeColor : Color.activeColor.withAlphaComponent(0.5)
     }
     
     private func preloadSound() {
@@ -89,14 +90,6 @@ class OrangeButtonView: UIView {
     private func playSound() {
         DispatchQueue.global(qos: .userInitiated).async {
             self.audioPlayer?.play()
-        }
-    }
-    
-    private func playSoundWithSystemSound() {
-        if let soundURL = Bundle.main.url(forResource: "ting_ting", withExtension: "mp3") {
-            var soundID: SystemSoundID = 0
-            AudioServicesCreateSystemSoundID(soundURL as CFURL, &soundID)
-            AudioServicesPlaySystemSound(soundID)
         }
     }
 }

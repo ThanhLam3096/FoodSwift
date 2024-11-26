@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopUpView" customModule="FoodSwift" customModuleProvider="target">
+            <connections>
+                <outlet property="checkMarkImageView" destination="Y4J-hc-YK1" id="1qb-pV-c39"/>
+                <outlet property="checkMarkView" destination="cA1-1u-1o2" id="Oxb-Wu-EeL"/>
+                <outlet property="contentView" destination="uoq-hU-Blu" id="8yj-4K-1qz"/>
+                <outlet property="doneButton" destination="h1l-PN-GSb" id="Z3t-P6-jku"/>
+                <outlet property="heightDoneButtonConstraint" destination="kso-ju-nwk" id="LqG-WO-ahc"/>
+                <outlet property="heightOfContentViewConstraint" destination="4ja-WN-fjq" id="JUj-B1-sXM"/>
+                <outlet property="leadingSpaceOfContentViewConstraint" destination="Syv-a5-rDk" id="nKE-2S-f2T"/>
+                <outlet property="leadingSpaceOfDoneButtonConstraint" destination="HRN-jk-KFX" id="TcY-bg-nKK"/>
+                <outlet property="popUpView" destination="iN0-l3-epB" id="geM-HB-LiK"/>
+                <outlet property="titleLabel" destination="Wrk-u2-WoB" id="Q29-HE-TXu"/>
+                <outlet property="topSpaceOfCheckMarkViewConstraint" destination="l9l-Ul-pLD" id="FaB-od-Fk6"/>
+                <outlet property="topSpaceOfDoneButtonConstraint" destination="RB6-rJ-D6F" id="4VN-mn-vRB"/>
+                <outlet property="trailingSpaceOfContentViewConstraint" destination="oxe-bv-gRL" id="8jI-ns-VpF"/>
+                <outlet property="trailingSpaceOfDoneButtonConstraint" destination="w0v-Ry-MKa" id="7Op-bI-tbE"/>
+                <outlet property="widthOfCheckMarkViewConstraint" destination="7xr-zX-FRT" id="K3x-6w-LC5"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="299" height="585"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uoq-hU-Blu">
+                    <rect key="frame" x="40" y="217.66666666666663" width="219" height="150"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cA1-1u-1o2">
+                            <rect key="frame" x="89.666666666666657" y="-20" width="40" height="40"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Y4J-hc-YK1">
+                                    <rect key="frame" x="0.0" y="2.6666666666666643" width="40" height="35"/>
+                                    <color key="tintColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.93333333330000001" green="0.65490196079999996" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="7xr-zX-FRT"/>
+                                <constraint firstAttribute="bottom" secondItem="Y4J-hc-YK1" secondAttribute="bottom" id="AEa-Zh-vE9"/>
+                                <constraint firstItem="Y4J-hc-YK1" firstAttribute="leading" secondItem="cA1-1u-1o2" secondAttribute="leading" id="ZMR-ef-sco"/>
+                                <constraint firstAttribute="width" secondItem="cA1-1u-1o2" secondAttribute="height" multiplier="1:1" id="a8M-tp-nSb"/>
+                                <constraint firstAttribute="trailing" secondItem="Y4J-hc-YK1" secondAttribute="trailing" id="hyK-AR-wEd"/>
+                                <constraint firstItem="Y4J-hc-YK1" firstAttribute="top" secondItem="cA1-1u-1o2" secondAttribute="top" id="u4M-JX-U2s"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1l-PN-GSb">
+                            <rect key="frame" x="15" y="105.33333333333334" width="189" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="kso-ju-nwk"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            <connections>
+                                <action selector="doneButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="beb-sc-zfN"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wrk-u2-WoB">
+                            <rect key="frame" x="15" y="64.333333333333343" width="189" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="h1l-PN-GSb" firstAttribute="leading" secondItem="Wrk-u2-WoB" secondAttribute="leading" id="27y-dN-pcH"/>
+                        <constraint firstAttribute="height" constant="150" id="4ja-WN-fjq"/>
+                        <constraint firstItem="Wrk-u2-WoB" firstAttribute="centerY" secondItem="uoq-hU-Blu" secondAttribute="centerY" id="6eF-HI-9mx"/>
+                        <constraint firstItem="h1l-PN-GSb" firstAttribute="trailing" secondItem="Wrk-u2-WoB" secondAttribute="trailing" id="8d4-X2-muX"/>
+                        <constraint firstItem="h1l-PN-GSb" firstAttribute="leading" secondItem="uoq-hU-Blu" secondAttribute="leading" constant="15" id="HRN-jk-KFX"/>
+                        <constraint firstItem="cA1-1u-1o2" firstAttribute="centerX" secondItem="uoq-hU-Blu" secondAttribute="centerX" id="QYQ-d7-oVn"/>
+                        <constraint firstItem="h1l-PN-GSb" firstAttribute="top" secondItem="Wrk-u2-WoB" secondAttribute="bottom" constant="20" id="RB6-rJ-D6F"/>
+                        <constraint firstItem="h1l-PN-GSb" firstAttribute="centerX" secondItem="Y4J-hc-YK1" secondAttribute="centerX" id="bZb-A1-YBF"/>
+                        <constraint firstItem="cA1-1u-1o2" firstAttribute="top" secondItem="uoq-hU-Blu" secondAttribute="top" constant="-20" id="l9l-Ul-pLD"/>
+                        <constraint firstItem="Wrk-u2-WoB" firstAttribute="centerX" secondItem="Y4J-hc-YK1" secondAttribute="centerX" id="sZW-dF-zzH"/>
+                        <constraint firstAttribute="trailing" secondItem="h1l-PN-GSb" secondAttribute="trailing" constant="15" id="w0v-Ry-MKa"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="uoq-hU-Blu" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="Syv-a5-rDk"/>
+                <constraint firstItem="uoq-hU-Blu" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="cAe-SE-a82"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uoq-hU-Blu" secondAttribute="trailing" constant="40" id="oxe-bv-gRL"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-31.297709923664122" y="5.9859154929577469"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
