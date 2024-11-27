@@ -112,8 +112,8 @@ extension TextFieldLoginView: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        checkMarkButtonImageView.isHidden = false
-        guard let type = viewModel?.typeForm, let value = textField.text, let delegate = delegate else {return}
+        guard let type = viewModel?.typeForm, let isLogin = viewModel?.isLogin ,let value = textField.text, let delegate = delegate else {return}
+        checkMarkButtonImageView.isHidden = isLogin
         switch type {
         case .fullName:
             if isValidNameUser(value) {
