@@ -48,7 +48,6 @@ class OrangeButtonView: UIView {
     
     @IBAction func getStartButtonTouchUpInside(_ sender: Any) {
         playSound()
-//        playSoundWithSystemSound()
         if let delegate = delegate {
             delegate.tappingInsideButton(view: self)
         }

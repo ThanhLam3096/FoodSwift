@@ -139,11 +139,16 @@ final class CreateAccountViewController: BaseViewController {
     }
     
     private func setUpSocialLoginButton() {
-        facebookLoginButton.viewModel = SocialButtonViewVM(socialType: .facebook)
-        googleLoginButton.viewModel = SocialButtonViewVM(socialType: .google)
+        setUpSocialLoginButtonView(typeLoginView: facebookLoginButton, type: .facebook)
+        setUpSocialLoginButtonView(typeLoginView: googleLoginButton, type: .google)
         
         heightOfSocialButtonConstraint.constant = ScreenSize.scaleHeight(44)
         betweenSpaceOfSocialButtonConstraint.constant = ScreenSize.scaleHeight(20)
+    }
+    
+    private func setUpSocialLoginButtonView(typeLoginView: SocialButtonView, type: SocialAccountType) {
+        typeLoginView.viewModel = SocialButtonViewVM(socialType: type)
+        typeLoginView.delegate = self
     }
 
     @objc func leftAction() {
@@ -252,18 +257,40 @@ extension CreateAccountViewController {
 extension CreateAccountViewController {
     private func createAccount(fullName: String, email: String, password: String) {
         HUD.show()
-        viewModel.createAccount(fullName: fullName, email: email, password: password) { [weak self] (success, msg) in
+        viewModel.createAccount(fullName: fullName, email: email, password: password) { [weak self] (success, message) in
             guard let strongSelf = self else { return }
-            strongSelf.popUp = PopUpView(frame: strongSelf.view.frame, inView: strongSelf)
-            strongSelf.popUp.delegate = self
-            strongSelf.popUp.viewModel = PopUpViewVM(title: msg, isSuccesPopup: success)
-            strongSelf.popUp.delegate = self
-            strongSelf.view.addSubview(strongSelf.popUp)
-            strongSelf.popUp.transform = CGAffineTransform(a: 0.8, b: 0.8, c: 0.8, d: 0.8, tx: 0.8, ty: 0.8)
-            UIView.animate(withDuration: 0.3) {
-                strongSelf.popUp.transform = CGAffineTransform.identity
-            }
+            strongSelf.showPopUp(title: message, isSuccess: success)
             HUD.dismiss()
+        }
+    }
+    
+    private func createAccountWithGoogleAccount() {
+        viewModel.connectToGoogleAccount(presentViewController: self) { [weak self] (success, message) in
+            guard let strongSelf = self else { return }
+            strongSelf.showPopUp(title: message, isSuccess: success)
+        }
+    }
+    
+    private func showPopUp(title: String, isSuccess: Bool) {
+        self.popUp = PopUpView(frame: self.view.frame, inView: self)
+        self.popUp.delegate = self
+        self.popUp.viewModel = PopUpViewVM(title: title, isSuccesPopup: isSuccess)
+        self.popUp.delegate = self
+        self.view.addSubview(self.popUp)
+        self.popUp.transform = CGAffineTransform(a: 0.8, b: 0.8, c: 0.8, d: 0.8, tx: 0.8, ty: 0.8)
+        UIView.animate(withDuration: 0.3) {
+            self.popUp.transform = CGAffineTransform.identity
+        }
+    }
+}
+
+extension CreateAccountViewController: SocialButtonViewDelegate {
+    func connectSoccialAccountButtonTapping(view: SocialButtonView, type: SocialAccountType) {
+        switch type {
+        case .facebook:
+            print("Connect Facebook Account")
+        case .google:
+            createAccountWithGoogleAccount()
         }
     }
 }
