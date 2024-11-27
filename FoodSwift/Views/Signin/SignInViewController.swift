@@ -52,6 +52,7 @@ final class SignInViewController: BaseViewController {
     
     // MARK: Properties
     var viewModel: SigninViewControllerVM = SigninViewControllerVM()
+    var popUp: PopUpView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,7 +117,7 @@ final class SignInViewController: BaseViewController {
     }
     
     private func setUpTextFieldForm(textField: TextFieldLoginView, type: TypeOfTextFieldForm) {
-        textField.viewModel = TextFieldLoginViewVM(typeForm: type)
+        textField.viewModel = TextFieldLoginViewVM(typeForm: type, isLogin: true)
         textField.delegate = self
     }
     
@@ -182,15 +183,7 @@ final class SignInViewController: BaseViewController {
 
 extension SignInViewController: OrangeButtonViewViewDelegate {
     func tappingInsideButton(view: OrangeButtonView) {
-//        firebaseAUTH.auth().signIn(withEmail: viewModel.valueEmail, password: viewModel.valuePassword, completion: { [weak self] result, error in
-//            guard let this = self else { return }
-//            guard error == nil else {
-//                this.showAlert(message: "You Need To Account?")
-//                return
-//            }
-//            
-//        })
-        self.navigationController?.pushViewController(ScreenName.baseTabbar, animated: true)
+        checkInfoLogin(email: viewModel.valueEmail, password: viewModel.valuePassword)
     }
 }
 
@@ -241,50 +234,46 @@ extension SignInViewController: SocialButtonViewDelegate {
         case .facebook:
             print("Connect Facebook Account")
         case .google:
-            connectToGoogleAccount()
+            loginWithGoogleAccount()
         }
     }
 }
 
 // Connect Social Account
 extension SignInViewController {
-    private func connectToGoogleAccount() {
-        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-        
-        // Create Google Sign In configuration object.
-        let config = GIDConfiguration(clientID: clientID)
-        GIDSignIn.sharedInstance.configuration = config
-        
-        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] result, error in
-            guard error == nil else {
-                // ...
-                showAlert(message: "Error Can't Connect Your Google Account")
-                return
-            }
-            
-            guard let user = result?.user,
-                  let idToken = user.idToken?.tokenString
-            else {
-                showAlert(message: "Can't Find Your Account Form Google")
-                return
-            }
-            
-            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                           accessToken: user.accessToken.tokenString)
-            
-            Auth.auth().signIn(with: credential) { result, error in
-                if let error = error {
-                    print("Lỗi Firebase: \(error.localizedDescription)")
-                    return
-                }
-                
-                // Đăng nhập thành công
-                print("Login Success")
-                if let user = result?.user {
-                    print("Tên: \(user.displayName ?? "Không có tên")")
-                    print("Email: \(user.email ?? "Không có email")")
-                }
-            }
+    private func showPopUp(title: String, isSuccess: Bool) {
+        self.popUp = PopUpView(frame: self.view.frame, inView: self)
+        self.popUp.delegate = self
+        self.popUp.viewModel = PopUpViewVM(title: title, isSuccesPopup: isSuccess)
+        self.view.addSubview(self.popUp)
+        self.popUp.transform = CGAffineTransform(a: 0.8, b: 0.8, c: 0.8, d: 0.8, tx: 0.8, ty: 0.8)
+        UIView.animate(withDuration: 0.3) {
+            self.popUp.transform = CGAffineTransform.identity
+        }
+    }
+    
+    private func checkInfoLogin(email: String, password: String) {
+        viewModel.checkAccount(email: email, password: password) { [weak self] (success, message) in
+            guard let strongSelf = self else { return }
+            strongSelf.showPopUp(title: message, isSuccess: success)
+        }
+    }
+    
+    private func loginWithGoogleAccount() {
+        viewModel.connectToGoogleAccount(presentViewController: self) { [weak self] (success, message) in
+            guard let strongSelf = self else { return }
+            strongSelf.showPopUp(title: message, isSuccess: success)
+        }
+    }
+}
+
+extension SignInViewController: PopUpViewDelegate {
+    func didTappingButton(view: PopUpView, isSuccess: Bool) {
+        self.popUp?.removeFromSuperview()
+        if isSuccess {
+            self.navigationController?.pushViewController(ScreenName.baseTabbar, animated: true)
+        } else {
+            return
         }
     }
 }

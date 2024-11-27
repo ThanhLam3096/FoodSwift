@@ -11,8 +11,6 @@ import FirebaseCore
 import GoogleSignIn
 import FirebaseAuth
 
-let db = Firestore.firestore()
-
 final class CreateAccountViewControllerVM {
     var valueFullName = ""
     var valueEmail = ""
@@ -84,8 +82,6 @@ final class CreateAccountViewControllerVM {
                 }
                 
                 if let user = result?.user, let name = user.displayName, let email = user.email {
-                    print("Tên: \(user.displayName ?? "Không có tên")")
-                    print("Email: \(user.email ?? "Không có email")")
                     self.createAccountWithGoogleAccount(fullName: name, email: email)
                 }
                 sosicalAccountCompletion(true, "Success Connect Google Account")

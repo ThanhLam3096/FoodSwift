@@ -275,7 +275,6 @@ extension CreateAccountViewController {
         self.popUp = PopUpView(frame: self.view.frame, inView: self)
         self.popUp.delegate = self
         self.popUp.viewModel = PopUpViewVM(title: title, isSuccesPopup: isSuccess)
-        self.popUp.delegate = self
         self.view.addSubview(self.popUp)
         self.popUp.transform = CGAffineTransform(a: 0.8, b: 0.8, c: 0.8, d: 0.8, tx: 0.8, ty: 0.8)
         UIView.animate(withDuration: 0.3) {
