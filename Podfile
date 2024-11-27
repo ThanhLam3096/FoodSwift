@@ -4,34 +4,36 @@
 target 'FoodSwift' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
+  
+  swift_version = '5.0'
+  
   # Pods for FoodSwift
-pod 'Alamofire' 
-pod 'Kingfisher'
-pod 'AlamofireNetworkActivityIndicator'
-    pod 'ObjectMapper'
-
-    # Utils
-    pod 'SwiftLint' # A tool to enforce Swift style and conventions.
-    pod 'SwifterSwift'
-    pod 'SDWebImage'
-    pod 'SVProgressHUD'
-    pod 'RealmSwift'
-    pod 'IQKeyboardManagerSwift'
-    pod 'SkeletonView'
-    pod 'GoogleSignIn'
-    pod 'Firebase/Auth'
-    pod 'Firebase/Core'
-    pod 'FirebaseFirestore'
-
+  pod 'Alamofire'
+  pod 'Kingfisher'
+  pod 'AlamofireNetworkActivityIndicator'
+  pod 'ObjectMapper'
+  
+  # Utils
+  pod 'SwiftLint' # A tool to enforce Swift style and conventions.
+  pod 'SwifterSwift'
+  pod 'SDWebImage'
+  pod 'SVProgressHUD'
+  pod 'RealmSwift'
+  pod 'IQKeyboardManagerSwift'
+  pod 'SkeletonView'
+  pod 'GoogleSignIn'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Core'
+  pod 'FirebaseFirestore'
+  
   target 'FoodSwiftTests' do
     inherit! :search_paths
     # Pods for testing
-pod 'Nimble' #
+    pod 'Nimble' #
   end
-
+  
   target 'FoodSwiftUITests' do
     # Pods for testing
   end
-
+  
 end
