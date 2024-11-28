@@ -40,6 +40,7 @@ final class DefinePhoneNumberViewController: BaseViewController {
     @IBOutlet private weak var heightOfSignUpButtonViewConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
+    var popUp: PopUpView!
     var viewModel: DefinePhoneNumberVM = DefinePhoneNumberVM()
     
     override func viewDidLoad() {
@@ -202,11 +203,25 @@ extension DefinePhoneNumberViewController: UITextFieldDelegate {
 
 extension DefinePhoneNumberViewController: OrangeButtonViewViewDelegate {
     func tappingInsideButton(view: OrangeButtonView) {
-        self.navigationController?.pushViewController(ScreenName.verifyPhoneNumber, animated: true)
+        viewModel.sendVerificationCode(to: phoneNumberTextField.text ?? "") { [weak self] success, message in
+            guard let this = self else { return}
+            this.showPopUp(title: message, isSuccess: success)
+        }
     }
 }
 
 extension DefinePhoneNumberViewController {
+    private func showPopUp(title: String, isSuccess: Bool) {
+        self.popUp = PopUpView(frame: self.view.frame, inView: self)
+        self.popUp.delegate = self
+        self.popUp.viewModel = PopUpViewVM(title: title, isSuccesPopup: isSuccess)
+        self.view.addSubview(self.popUp)
+        self.popUp.transform = CGAffineTransform(a: 0.8, b: 0.8, c: 0.8, d: 0.8, tx: 0.8, ty: 0.8)
+        UIView.animate(withDuration: 0.3) {
+            self.popUp.transform = CGAffineTransform.identity
+        }
+    }
+    
     private func actionWhenShowKeyboard() {
         keyboardObserver = KeyboardObserver()
         keyboardObserver?.onKeyboardWillShow = { [weak self] heightOfKeyBoard in
@@ -223,6 +238,17 @@ extension DefinePhoneNumberViewController {
             UIView.animate(withDuration: 0.5) {
                 this.topSpaceSignUpButtonView.constant = ScreenSize.scaleHeight(400)
             }
+        }
+    }
+}
+
+extension DefinePhoneNumberViewController: PopUpViewDelegate {
+    func didTappingButton(view: PopUpView, isSuccess: Bool) {
+        self.popUp?.removeFromSuperview()
+        if isSuccess {
+            self.navigationController?.pushViewController(ScreenName.verifyPhoneNumber, animated: true)
+        } else {
+            return
         }
     }
 }

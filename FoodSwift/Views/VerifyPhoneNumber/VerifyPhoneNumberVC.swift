@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class VerifylePhoneNumberVC: BaseViewController {
+final class VerifyPhoneNumberVC: BaseViewController {
     
     // MARK: IBOutlet
     @IBOutlet private weak var descriptionTitleLabel: UILabel!
@@ -37,6 +37,8 @@ final class VerifylePhoneNumberVC: BaseViewController {
     @IBOutlet private weak var widthOfResendCodeStackViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var heightOfResendCodeStackViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var botSpaceOfResendCodeStackViewConstraint: NSLayoutConstraint!
+    
+    var viewModel: VerifyPhoneNumberViewModel = VerifyPhoneNumberViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,13 +159,21 @@ final class VerifylePhoneNumberVC: BaseViewController {
 
 }
 
-extension VerifylePhoneNumberVC: OrangeButtonViewViewDelegate {
+extension VerifyPhoneNumberVC: OrangeButtonViewViewDelegate {
     func tappingInsideButton(view: OrangeButtonView) {
-        print("OTP")
+        guard let verificationCode1 = otpTextField1.text, let verificationCode2 = otpTextField2.text, let verificationCode3 = otpTextField3.text, let verificationCode4 = otpTextField4.text else { return }
+        let verificationCode = verificationCode1 + verificationCode2 + verificationCode3 + verificationCode4
+        viewModel.verifyPhoneNumber(verificationCode: verificationCode) { [weak self] success, message in
+            if success {
+                self?.navigationController?.pushViewController(ScreenName.baseTabbar, animated: true) // Handle Success when enter Verify Code
+            } else {
+                self?.navigationController?.pushViewController(ScreenName.baseTabbar, animated: true) // Handle Failed when enter Verify Code
+            }
+        }
     }
 }
 
-extension VerifylePhoneNumberVC: UITextFieldDelegate {
+extension VerifyPhoneNumberVC: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 //        let listCodeOTP = [otpTextField1, otpTextField2, otpTextField3, otpTextField4]
 //        guard let text = textField.text else { return false }
@@ -214,7 +224,7 @@ extension VerifylePhoneNumberVC: UITextFieldDelegate {
     }
 }
 
-extension VerifylePhoneNumberVC {
+extension VerifyPhoneNumberVC {
     private func actionOfTappingOutSideHideOfKeyBoard() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture.cancelsTouchesInView = false
@@ -226,7 +236,7 @@ extension VerifylePhoneNumberVC {
     }
 }
 
-extension VerifylePhoneNumberVC {
+extension VerifyPhoneNumberVC {
     private func actionWhenShowKeyboard() {
         keyboardObserver = KeyboardObserver()
         keyboardObserver?.onKeyboardWillShow = { [weak self] heightOfKeyBoard in

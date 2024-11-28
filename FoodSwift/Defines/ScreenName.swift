@@ -17,7 +17,7 @@ struct ScreenName {
     static let createAccount = CreateAccountViewController()
     static let forgotPassword = ForgotPasswordViewController()
     static let definePhoneNumber = DefinePhoneNumberViewController()
-    static let verifyPhoneNumber = VerifylePhoneNumberVC()
+    static let verifyPhoneNumber = VerifyPhoneNumberVC()
     static let homeViewController = HomeViewController()
     static let baseTabbar = FoodTabBarViewController()
     static let detailMeal = DetailMealViewController()
