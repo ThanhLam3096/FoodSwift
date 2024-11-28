@@ -85,10 +85,11 @@
 		045197192CEB788D00B1A1FC /* ProfileMoreAndNotiHeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045197182CEB788D00B1A1FC /* ProfileMoreAndNotiHeaderTableView.swift */; };
 		0451971B2CEB789300B1A1FC /* ProfileMoreAndNotiHeaderTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0451971A2CEB789300B1A1FC /* ProfileMoreAndNotiHeaderTableView.xib */; };
 		0451971D2CEB7AE600B1A1FC /* ProfileMoreAndNotiHeaderTableViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451971C2CEB7AE600B1A1FC /* ProfileMoreAndNotiHeaderTableViewVM.swift */; };
-		045578F12C97E1B600EA420B /* VerifylePhoneNumberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045578F02C97E1B600EA420B /* VerifylePhoneNumberVC.xib */; };
-		045578F22C97E1B600EA420B /* VerifylePhoneNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045578EF2C97E1B600EA420B /* VerifylePhoneNumberVC.swift */; };
+		045578F12C97E1B600EA420B /* VerifyPhoneNumberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045578F02C97E1B600EA420B /* VerifyPhoneNumberVC.xib */; };
+		045578F22C97E1B600EA420B /* VerifyPhoneNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045578EF2C97E1B600EA420B /* VerifyPhoneNumberVC.swift */; };
 		0456B1C12CE8CCCF0064A51E /* SearchFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0456B1C02CE8CCCF0064A51E /* SearchFilter.swift */; };
 		045771922CF89549005AB878 /* LaunchScreenViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045771912CF89549005AB878 /* LaunchScreenViewControllerVM.swift */; };
+		045771942CF8B424005AB878 /* VerifyPhoneNumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045771932CF8B424005AB878 /* VerifyPhoneNumberViewModel.swift */; };
 		045B35472CDDBE3000D879C7 /* gun_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 045B35462CDDBE3000D879C7 /* gun_sound.mp3 */; };
 		045BB5532CE7459C006B6CDF /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045BB5512CE7459C006B6CDF /* FilterViewController.swift */; };
 		045BB5542CE7459C006B6CDF /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045BB5522CE7459C006B6CDF /* FilterViewController.xib */; };
@@ -317,10 +318,11 @@
 		045197182CEB788D00B1A1FC /* ProfileMoreAndNotiHeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMoreAndNotiHeaderTableView.swift; sourceTree = "<group>"; };
 		0451971A2CEB789300B1A1FC /* ProfileMoreAndNotiHeaderTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileMoreAndNotiHeaderTableView.xib; sourceTree = "<group>"; };
 		0451971C2CEB7AE600B1A1FC /* ProfileMoreAndNotiHeaderTableViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMoreAndNotiHeaderTableViewVM.swift; sourceTree = "<group>"; };
-		045578EF2C97E1B600EA420B /* VerifylePhoneNumberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifylePhoneNumberVC.swift; sourceTree = "<group>"; };
-		045578F02C97E1B600EA420B /* VerifylePhoneNumberVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerifylePhoneNumberVC.xib; sourceTree = "<group>"; };
+		045578EF2C97E1B600EA420B /* VerifyPhoneNumberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneNumberVC.swift; sourceTree = "<group>"; };
+		045578F02C97E1B600EA420B /* VerifyPhoneNumberVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerifyPhoneNumberVC.xib; sourceTree = "<group>"; };
 		0456B1C02CE8CCCF0064A51E /* SearchFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilter.swift; sourceTree = "<group>"; };
 		045771912CF89549005AB878 /* LaunchScreenViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewControllerVM.swift; sourceTree = "<group>"; };
+		045771932CF8B424005AB878 /* VerifyPhoneNumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneNumberViewModel.swift; sourceTree = "<group>"; };
 		045B35462CDDBE3000D879C7 /* gun_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gun_sound.mp3; sourceTree = "<group>"; };
 		045BB5512CE7459C006B6CDF /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		045BB5522CE7459C006B6CDF /* FilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
@@ -798,8 +800,9 @@
 		045578EE2C97E18C00EA420B /* VerifyPhoneNumber */ = {
 			isa = PBXGroup;
 			children = (
-				045578EF2C97E1B600EA420B /* VerifylePhoneNumberVC.swift */,
-				045578F02C97E1B600EA420B /* VerifylePhoneNumberVC.xib */,
+				045578EF2C97E1B600EA420B /* VerifyPhoneNumberVC.swift */,
+				045578F02C97E1B600EA420B /* VerifyPhoneNumberVC.xib */,
+				045771932CF8B424005AB878 /* VerifyPhoneNumberViewModel.swift */,
 			);
 			path = VerifyPhoneNumber;
 			sourceTree = "<group>";
@@ -1481,7 +1484,7 @@
 				04882A032CD7709200EC0930 /* HeaderChoiceMealTableView.xib in Resources */,
 				042FCE342CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.xib in Resources */,
 				04A295FC2CE4C9B400EA6713 /* SearchCollectionViewCell.xib in Resources */,
-				045578F12C97E1B600EA420B /* VerifylePhoneNumberVC.xib in Resources */,
+				045578F12C97E1B600EA420B /* VerifyPhoneNumberVC.xib in Resources */,
 				04622D712CEA3C7700B43556 /* SearchRecentHeaderTableView.xib in Resources */,
 				049C8EAC2CEC609500112CAA /* ProfileInfomationSettingsViewController.xib in Resources */,
 				04F551FE2CEE1AC2000A983E /* ReferToFriendViewController.xib in Resources */,
@@ -1708,6 +1711,7 @@
 				048C75F62C183221001DB3AD /* PageTwoViewController.swift in Sources */,
 				04156AA72CBEA46B000A1B0F /* String.swift in Sources */,
 				042FCE2E2CC3D8D600144702 /* FeaturePartnersViewController.swift in Sources */,
+				045771942CF8B424005AB878 /* VerifyPhoneNumberViewModel.swift in Sources */,
 				044245012CC8A5B700309971 /* FeaturedItemCollectionViewCell.swift in Sources */,
 				042FCE382CC5225A00144702 /* FeaturePartnersViewControllerVM.swift in Sources */,
 				04156AAD2CBEA6EB000A1B0F /* UIViewControllerExt.swift in Sources */,
@@ -1769,7 +1773,7 @@
 				04156AA52CBE9865000A1B0F /* API.swift in Sources */,
 				04B3CC482CBBF5B600F95E94 /* CircleGrayView.swift in Sources */,
 				049788A82CE777CF004CF413 /* NationAndCategoryFilterCollectionViewCell.swift in Sources */,
-				045578F22C97E1B600EA420B /* VerifylePhoneNumberVC.swift in Sources */,
+				045578F22C97E1B600EA420B /* VerifyPhoneNumberVC.swift in Sources */,
 				042FFBB42CB7DECA004B6D85 /* SliderImageCollectionViewCellVM.swift in Sources */,
 				045BB5562CE745A8006B6CDF /* FilterViewControllerVM.swift in Sources */,
 				04C03E4C2C81F0C200DB9B0D /* TextFieldLoginView.swift in Sources */,
