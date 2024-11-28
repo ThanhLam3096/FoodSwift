@@ -88,6 +88,7 @@
 		045578F12C97E1B600EA420B /* VerifylePhoneNumberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045578F02C97E1B600EA420B /* VerifylePhoneNumberVC.xib */; };
 		045578F22C97E1B600EA420B /* VerifylePhoneNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045578EF2C97E1B600EA420B /* VerifylePhoneNumberVC.swift */; };
 		0456B1C12CE8CCCF0064A51E /* SearchFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0456B1C02CE8CCCF0064A51E /* SearchFilter.swift */; };
+		045771922CF89549005AB878 /* LaunchScreenViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045771912CF89549005AB878 /* LaunchScreenViewControllerVM.swift */; };
 		045B35472CDDBE3000D879C7 /* gun_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 045B35462CDDBE3000D879C7 /* gun_sound.mp3 */; };
 		045BB5532CE7459C006B6CDF /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045BB5512CE7459C006B6CDF /* FilterViewController.swift */; };
 		045BB5542CE7459C006B6CDF /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045BB5522CE7459C006B6CDF /* FilterViewController.xib */; };
@@ -319,6 +320,7 @@
 		045578EF2C97E1B600EA420B /* VerifylePhoneNumberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifylePhoneNumberVC.swift; sourceTree = "<group>"; };
 		045578F02C97E1B600EA420B /* VerifylePhoneNumberVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerifylePhoneNumberVC.xib; sourceTree = "<group>"; };
 		0456B1C02CE8CCCF0064A51E /* SearchFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilter.swift; sourceTree = "<group>"; };
+		045771912CF89549005AB878 /* LaunchScreenViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewControllerVM.swift; sourceTree = "<group>"; };
 		045B35462CDDBE3000D879C7 /* gun_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gun_sound.mp3; sourceTree = "<group>"; };
 		045BB5512CE7459C006B6CDF /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		045BB5522CE7459C006B6CDF /* FilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
@@ -650,6 +652,7 @@
 			children = (
 				04263ADD2CF75C7200CE6362 /* LaunchScreenViewController.swift */,
 				04263ADE2CF75C7200CE6362 /* LaunchScreenViewController.xib */,
+				045771912CF89549005AB878 /* LaunchScreenViewControllerVM.swift */,
 			);
 			path = LaunchScreen;
 			sourceTree = "<group>";
@@ -1691,6 +1694,7 @@
 				04156AA92CBEA4C6000A1B0F /* App.swift in Sources */,
 				048C75F22C18320E001DB3AD /* PageOneViewController.swift in Sources */,
 				04DA26942CDA6C820055CD9E /* ListTableOrderMealTableViewCellVM.swift in Sources */,
+				045771922CF89549005AB878 /* LaunchScreenViewControllerVM.swift in Sources */,
 				047DB2EA2CC94539006B3E5D /* TypeMealCollectionViewCell.swift in Sources */,
 				04882A012CD7705E00EC0930 /* HeaderChoiceMealTableView.swift in Sources */,
 				04C03E382C74786B00DB9B0D /* UIColor.swift in Sources */,

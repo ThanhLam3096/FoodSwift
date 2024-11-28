@@ -271,7 +271,9 @@ extension SignInViewController: PopUpViewDelegate {
     func didTappingButton(view: PopUpView, isSuccess: Bool) {
         self.popUp?.removeFromSuperview()
         if isSuccess {
-            self.navigationController?.pushViewController(ScreenName.baseTabbar, animated: true)
+            let tabbarScreen = ScreenName.baseTabbar
+            tabbarScreen.selectedIndex = 0
+            self.navigationController?.pushViewController(tabbarScreen, animated: true)
         } else {
             return
         }
