@@ -140,7 +140,11 @@ extension ProfileViewController:  ProfileTableViewCellDelegate {
         case .faq:
             print("Faq")
         case .logout:
-            print("Logout")
+            viewModel.logoutAccount()
+            let signInScreen = UINavigationController(rootViewController: ScreenName.signIn)
+            UIApplication.shared.windows.first?.rootViewController = signInScreen
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
+            SceneDelegate.shared.changeRoot(vc: signInScreen)
         default: print("Do Something")
         }
     }

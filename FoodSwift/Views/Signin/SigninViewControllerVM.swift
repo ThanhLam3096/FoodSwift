@@ -34,6 +34,7 @@ final class SigninViewControllerVM {
                         return
                     }
                     if let documents = querySnapshot?.documents, !documents.isEmpty {
+                        self.saveLoginStatus(email: email)
                         loginAccountCompletion(true, "Login Success, Enjoy")
                     } else {
                         loginAccountCompletion(false, "Error: Email or password is incorrect. Please Try Again")
@@ -73,11 +74,10 @@ final class SigninViewControllerVM {
                     return
                 }
                 
-                if let user = result?.user, let name = user.displayName, let email = user.email {
-                    self.createAccountWithGoogleAccount(fullName: name, email: email)
-                }
+                guard let user = result?.user, let name = user.displayName, let email = user.email else { return }
+                self.createAccountWithGoogleAccount(fullName: name, email: email)
+                self.saveLoginStatus(email: email)
                 sosicalAccountCompletion(true, "Success Connect Google Account")
-                
             }
         }
     }
@@ -108,5 +108,9 @@ final class SigninViewControllerVM {
                 }
             }
         }
+    }
+    
+    func saveLoginStatus(email: String) {
+        UserDefaults.standard.set(email, forKey: "emailLogin")
     }
 }

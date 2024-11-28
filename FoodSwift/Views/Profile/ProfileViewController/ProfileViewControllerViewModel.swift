@@ -44,4 +44,8 @@ final class ProfileViewControllerViewModel {
         default: return ScreenSize.scaleHeight(25)
         }
     }
+    
+    func logoutAccount() {
+        UserDefaults.standard.set(nil, forKey: "emailLogin")
+    }
 }

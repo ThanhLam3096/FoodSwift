@@ -9,14 +9,16 @@ import UIKit
 
 class LaunchScreenViewController: BaseViewController {
     
-    
+    // MARK: -IBOulet
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var loadingView: UIView!
+    
+    // MARK: -Properties
+    var viewModel: LaunchScreenViewControllerVM = LaunchScreenViewControllerVM()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        changeRoot()
     }
 
     override func setUpUI() {
@@ -27,6 +29,9 @@ class LaunchScreenViewController: BaseViewController {
             self.startBouncingLabelWithCoreAnimation(label: self.titleLabel)
 //            self.startRotatingAndScaling(image: self.launchImageView)
         })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            self.changeRoot()
+        }
     }
     
     private func setUpTitle() {
@@ -125,9 +130,10 @@ class LaunchScreenViewController: BaseViewController {
     }
 
     private func changeRoot() {
-        _ = Timer.scheduledTimer(withTimeInterval: 4.0, repeats: false) { (timer) in
-            SceneDelegate.shared.changeRoot(vc: ScreenName.welcomeScreen)
-        }
+        let welcomeScreen = UINavigationController(rootViewController: ScreenName.welcomeScreen)
+        UIApplication.shared.windows.first?.rootViewController = welcomeScreen
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        SceneDelegate.shared.changeRoot(vc: self.viewModel.getToHitorySearch() ? ScreenName.baseTabbar : welcomeScreen)
     }
 
 }
