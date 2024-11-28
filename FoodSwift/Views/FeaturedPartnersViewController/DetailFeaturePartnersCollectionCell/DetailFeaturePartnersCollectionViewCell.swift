@@ -28,6 +28,23 @@ final class DetailFeaturePartnersCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var firstNationLabel: UILabel!
     @IBOutlet private weak var secondNationLabel: UILabel!
     
+    // MARK: - NSLayoutConstraint
+    @IBOutlet private weak var heightOfImageMealConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var widthOfRatingLabelConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightOfRatingLabelConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var widthOfPriceIconConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var widthOfTimeIconConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var topSpaceOfTimeConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceOfTimeConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var leadingSpaceOfTimeConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var botSpaceOfImageMealConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceOfTimePriceRatingViewConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightOfTimePriceRatingViewConstraint: NSLayoutConstraint!
+    
+    
     //MARK: - Properties
     var viewModel: ListCollectionDetailVM? {
         didSet {
@@ -47,30 +64,38 @@ final class DetailFeaturePartnersCollectionViewCell: UICollectionViewCell {
         imageFood.contentMode = .scaleAspectFill
         imageFood.clipsToBounds = true
         imageFood.frame = contentView.bounds
-        
-        listFeaturedPartnersView.layer.cornerRadius = 4
-        listFeaturedPartnersView.backgroundColor = Color.accentColor.withAlphaComponent(0.5)
-
-        
+        heightOfImageMealConstraint.constant = ScreenSize.scaleHeight(280)
+        setUpLabel()
+        setUpRatingPriceTimeView()
+        detailButton.setTitle("", for: .normal)
+    }
+    
+    private func setUpLabel() {
+        setUpTextTitleFontTextColorOfLabel(label: nameFoodLabel, labelFont: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(20)) ?? UIFont.systemFont(ofSize: 20), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: timeShipLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: 12), labelTextColor: Color.bgColor)
+        setUpTextTitleFontTextColorOfLabel(label: feeShipLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: 12), labelTextColor: Color.bgColor)
+        setUpTextTitleFontTextColorOfLabel(label: firstNationLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: secondNationLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: ratingLabel, labelFont: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: 12), labelTextColor: Color.bgColor)
         ratingLabel.backgroundColor = Color.activeColor
         ratingLabel.layer.cornerRadius = 4
         ratingLabel.layer.masksToBounds = true
         ratingLabel.textAlignment = .center
-        ratingLabel.font = UIFont.fontYugothicUISemiBold(ofSize: 12)
-        ratingLabel.textColor = UIColor.white
-        
-        setUpLabel(label: nameFoodLabel, font: UIFont.fontYugothicLight(ofSize: 20) ?? UIFont.systemFont(ofSize: 20), textColor: Color.mainColor)
-        setUpLabel(label: timeShipLabel, font: UIFont.fontYugothicUIRegular(ofSize: 12) ?? UIFont.systemFont(ofSize: 20), textColor: Color.bgColor)
-        setUpLabel(label: feeShipLabel, font: UIFont.fontYugothicUIRegular(ofSize: 12) ?? UIFont.systemFont(ofSize: 20), textColor: Color.bgColor)
-        setUpLabel(label: firstNationLabel, font: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 20), textColor: Color.bodyTextColor)
-        setUpLabel(label: secondNationLabel, font: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 20), textColor: Color.bodyTextColor)
-        
-        detailButton.setTitle("", for: .normal)
+        widthOfRatingLabelConstraint.constant = ScreenSize.scaleWidth(36)
+        heightOfRatingLabelConstraint.constant = ScreenSize.scaleHeight(20)
     }
     
-    private func setUpLabel(label: UILabel, font: UIFont, textColor: UIColor) {
-        label.font = font
-        label.textColor = textColor
+    private func setUpRatingPriceTimeView() {
+        listFeaturedPartnersView.layer.cornerRadius = 4
+        listFeaturedPartnersView.backgroundColor = Color.accentColor.withAlphaComponent(0.5)
+        heightOfTimePriceRatingViewConstraint.constant = ScreenSize.scaleHeight(60)
+        widthOfTimeIconConstraint.constant = ScreenSize.scaleWidth(16)
+        widthOfPriceIconConstraint.constant = ScreenSize.scaleWidth(13)
+        topSpaceOfTimeConstraint.constant = ScreenSize.scaleHeight(5)
+        botSpaceOfTimeConstraint.constant = ScreenSize.scaleHeight(10)
+        leadingSpaceOfTimeConstraint.constant = ScreenSize.scaleWidth(10)
+        botSpaceOfImageMealConstraint.constant = ScreenSize.scaleHeight(10)
+        botSpaceOfTimePriceRatingViewConstraint.constant = ScreenSize.scaleHeight(10)
     }
     
     private func updateView() {

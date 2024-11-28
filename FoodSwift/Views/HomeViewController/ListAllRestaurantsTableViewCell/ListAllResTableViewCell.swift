@@ -21,6 +21,13 @@ class ListAllResTableViewCell: UITableViewCell {
     @IBOutlet private weak var timeShipLabel: UILabel!
     @IBOutlet private weak var feeShipLabel: UILabel!
     
+    //MARK: - NSLayoutConstraint
+    @IBOutlet weak var heightOfRestaurantImageConstraint: NSLayoutConstraint!
+    @IBOutlet weak var botSpaceOfRestaurantImageConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var botSpaceOfNameRestaurantLabelConstraint: NSLayoutConstraint!
+    @IBOutlet weak var botSpaceOfpriceLabelConstraint: NSLayoutConstraint!
+    
     //MARK: - Properties
     var viewModel: ListAllResTableViewCellVM? {
         didSet {
@@ -40,22 +47,30 @@ class ListAllResTableViewCell: UITableViewCell {
     }
     
     private func setUpUI() {
-        restaurantImageView.layer.cornerRadius = 6
-        
-        setUpLabel(label: nameResLabel, labelFont: UIFont.fontYugothicLight(ofSize: 20) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.mainColor)
-        setUpLabel(label: priceLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.bodyTextColor)
-        setUpLabel(label: branch1Label, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.bodyTextColor)
-        setUpLabel(label: branch2Label, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.bodyTextColor)
-        setUpLabel(label: typeFoodLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: 16) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.bodyTextColor)
-        setUpLabel(label: ratingLabel, labelFont: UIFont.fontYugothicLight(ofSize: 12) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.mainColor)
-        setUpLabel(label: numberVoteLabel, labelFont: UIFont.fontYugothicLight(ofSize: 12) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.mainColor)
-        setUpLabel(label: timeShipLabel, labelFont: UIFont.fontYugothicLight(ofSize: 12) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.mainColor)
-        setUpLabel(label: feeShipLabel, labelFont: UIFont.fontYugothicLight(ofSize: 12) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.mainColor)
+        setUpImageRestaurant()
+        setUpLabel()
     }
     
-    private func setUpLabel(label: UILabel, labelFont: UIFont, labelTextColor: UIColor) {
-        label.font = labelFont
-        label.textColor = labelTextColor
+    private func setUpImageRestaurant() {
+        restaurantImageView.layer.cornerRadius = 6
+        heightOfRestaurantImageConstraint.constant = ScreenSize.scaleHeight(185)
+        botSpaceOfRestaurantImageConstraint.constant = ScreenSize.scaleHeight(15)
+    }
+    
+    private func setUpLabel() {
+        setUpTextTitleFontTextColorOfLabel(label: nameResLabel, labelFont: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(20)) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.mainColor)
+        botSpaceOfNameRestaurantLabelConstraint.constant = ScreenSize.scaleHeight(10)
+        
+        setUpTextTitleFontTextColorOfLabel(label: priceLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.bodyTextColor)
+        botSpaceOfpriceLabelConstraint.constant = ScreenSize.scaleHeight(10)
+        
+        setUpTextTitleFontTextColorOfLabel(label: branch1Label, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: branch2Label, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: typeFoodLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.bodyTextColor)
+        setUpTextTitleFontTextColorOfLabel(label: ratingLabel, labelFont: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: numberVoteLabel, labelFont: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: timeShipLabel, labelFont: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: feeShipLabel, labelFont: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: 17), labelTextColor: Color.mainColor)
     }
     
     private func updateView() {

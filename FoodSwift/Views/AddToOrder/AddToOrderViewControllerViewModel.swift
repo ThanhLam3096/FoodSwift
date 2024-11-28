@@ -10,6 +10,8 @@ import Foundation
 final class AddToOrderViewControllerViewModel {
     
     // MARK: Properties
+    var meal: Meal?
+    
     var numberOfMeals = 1
     var infoTopCustomMeal = ""
     var infoBottomCustomMeal = ""
@@ -17,7 +19,12 @@ final class AddToOrderViewControllerViewModel {
     var topCustomMealIndexPatch: IndexPath?
     var bottomCustomMealIndexPatch: IndexPath?
     var allInfoCustomMealOrder = ""
-    var priceMeal: Double = 10.7
+    
+    init() {}
+    
+    init(meal: Meal) {
+        self.meal = meal
+    }
     
     enum SectionType: Int {
         case top = 0
@@ -57,7 +64,11 @@ final class AddToOrderViewControllerViewModel {
     }
     
     func totalOfPriceMeal() -> Double {
-        return priceMeal * Double(numberOfMeals)
+        var totalPrice: Double = 0
+        if let meal = meal {
+            totalPrice = meal.price * Double(numberOfMeals)
+        }
+        return totalPrice
     }
     
     func numberOfSection() -> Int {

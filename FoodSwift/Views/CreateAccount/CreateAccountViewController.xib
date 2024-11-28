@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -10,16 +11,30 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateAccountViewController" customModule="FoodSwift" customModuleProvider="target">
             <connections>
+                <outlet property="betweenSpaceOfSocialButtonConstraint" destination="NMc-O5-ydu" id="Yrf-du-mTa"/>
+                <outlet property="botSpaceEmailFormConstraint" destination="c1J-hA-aNK" id="c9S-d9-KO3"/>
+                <outlet property="botSpaceOrLabelConstraint" destination="tSf-1T-nI1" id="fko-xK-PUI"/>
                 <outlet property="emailFormView" destination="Rkx-Il-jl1" id="fU9-ml-6nM"/>
                 <outlet property="facebookLoginButton" destination="51J-bi-kfC" id="l6B-KZ-Xdm"/>
                 <outlet property="fullNameFormView" destination="sjT-77-Hex" id="W7q-cH-mOk"/>
                 <outlet property="googleLoginButton" destination="jRq-DH-boS" id="OVa-C3-XEP"/>
+                <outlet property="heightOfContentViewConstraint" destination="cVL-rp-IXc" id="o0E-Ct-tp9"/>
+                <outlet property="heightOfFormTextFieldConstraint" destination="KJR-rK-qJU" id="sVr-Lp-pJI"/>
+                <outlet property="heightOfSignUpConstraint" destination="gTa-AQ-vCy" id="SQk-HT-CdN"/>
+                <outlet property="heightOfSocialButtonConstraint" destination="fas-3b-nfO" id="CRe-SK-4I6"/>
+                <outlet property="leadingSpaceOfTitle" destination="hi7-gl-nqb" id="TSQ-ca-fRo"/>
                 <outlet property="orLabel" destination="wg0-Cr-mgb" id="mYt-uB-4J5"/>
                 <outlet property="passwordFormView" destination="yaC-F2-kZH" id="wb1-x1-mTn"/>
                 <outlet property="privacyLabel" destination="fLl-Xu-Vhr" id="aPP-RI-OMN"/>
+                <outlet property="scrollView" destination="lqD-xE-qi9" id="NSn-dV-H2S"/>
                 <outlet property="signUpButtonView" destination="ceL-YB-bxe" id="wXq-Ff-4je"/>
                 <outlet property="title2CreateAccountLabel" destination="00Q-re-sAU" id="NhW-N8-kaW"/>
                 <outlet property="titleLabel" destination="dr9-5o-PTT" id="mz4-P5-3KP"/>
+                <outlet property="topSpaceEmailFormConstraint" destination="yuv-gt-Jvd" id="B0m-xb-HZY"/>
+                <outlet property="topSpaceFullNameTextFieldConstraint" destination="g8M-hp-yi1" id="3LY-7x-dKl"/>
+                <outlet property="topSpaceOfSignUpButtonConstraint" destination="njp-ex-lgr" id="u5O-n1-HlU"/>
+                <outlet property="topSpaceOrLabelConstraint" destination="5yD-EF-uIl" id="UNx-xV-wNt"/>
+                <outlet property="trailingSpaceOfTitle" destination="nnI-Zo-5mc" id="h7c-0Y-jN2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -31,116 +46,105 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lqD-xE-qi9">
                     <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQa-g5-C2Q">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQa-g5-C2Q" userLabel="Content View">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dr9-5o-PTT" userLabel="Create Account">
-                                    <rect key="frame" x="20" y="0.0" width="42" height="20.333333333333332"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="LlS-KK-4rt"/>
-                                    </constraints>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dr9-5o-PTT" userLabel="Create Account">
+                                    <rect key="frame" x="20" y="0.0" width="374" height="20.333333333333332"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00Q-re-sAU" customClass="TopAlignedLabel" customModule="FoodSwift" customModuleProvider="target">
-                                    <rect key="frame" x="20.000000000000004" y="40.333333333333343" width="41.333333333333343" height="60"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="60" id="SFv-In-6Im"/>
-                                    </constraints>
+                                    <rect key="frame" x="20" y="20.333333333333336" width="128.33333333333334" height="20.333333333333336"/>
                                     <attributedString key="attributedText">
-                                        <fragment content="Label">
+                                        <fragment content="Enter Your Name">
                                             <attributes>
                                                 <font key="NSFont" metaFont="system" size="17"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="10" tighteningFactorForTruncation="0.0"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="15" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sjT-77-Hex" userLabel="Full Name" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="120.33333333333334" width="374" height="65"/>
+                                    <rect key="frame" x="20" y="60.666666666666671" width="374" height="65"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="65" id="KJR-rK-qJU"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yaC-F2-kZH" userLabel="Password" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="290.33333333333331" width="374" height="65"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rkx-Il-jl1" userLabel="Email" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="145.66666666666666" width="374" height="65"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="65" id="brz-61-5Fn"/>
-                                    </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ceL-YB-bxe" customClass="OrangeButtonView" customModule="FoodSwift" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="375.33333333333331" width="374" height="48"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yaC-F2-kZH" userLabel="Password" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="230.66666666666663" width="374" height="65"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ceL-YB-bxe" userLabel="SIGN UP BUTTON" customClass="OrangeButtonView" customModule="FoodSwift" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="315.66666666666669" width="374" height="48"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="gTa-AQ-vCy"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rkx-Il-jl1" userLabel="Email" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="205.33333333333334" width="374" height="65.000000000000028"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="65" id="noB-Bo-x1u"/>
-                                    </constraints>
-                                </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLl-Xu-Vhr" userLabel="Privacy">
-                                    <rect key="frame" x="186" y="443.33333333333331" width="42" height="21"/>
+                                    <rect key="frame" x="186" y="383.66666666666669" width="42" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wg0-Cr-mgb">
-                                    <rect key="frame" x="186" y="484.33333333333331" width="42" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wg0-Cr-mgb" userLabel="Or">
+                                    <rect key="frame" x="197.66666666666666" y="424.66666666666669" width="19" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51J-bi-kfC" userLabel="Facebook" customClass="SocialButtonView" customModule="FoodSwift" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="525.33333333333337" width="374" height="44"/>
+                                    <rect key="frame" x="20" y="465.66666666666669" width="374" height="44"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="fas-3b-nfO"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRq-DH-boS" userLabel="Google" customClass="SocialButtonView" customModule="FoodSwift" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="589.33333333333337" width="374" height="44"/>
+                                    <rect key="frame" x="20" y="529.66666666666663" width="374" height="44"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="zAF-bO-JVv"/>
-                                    </constraints>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="fLl-Xu-Vhr" firstAttribute="centerX" secondItem="fQa-g5-C2Q" secondAttribute="centerX" id="1gu-jx-ybz"/>
-                                <constraint firstItem="sjT-77-Hex" firstAttribute="leading" secondItem="fQa-g5-C2Q" secondAttribute="leading" constant="20" id="5wT-O8-bwy"/>
+                                <constraint firstItem="yaC-F2-kZH" firstAttribute="height" secondItem="sjT-77-Hex" secondAttribute="height" id="481-co-agm"/>
                                 <constraint firstItem="wg0-Cr-mgb" firstAttribute="top" secondItem="fLl-Xu-Vhr" secondAttribute="bottom" constant="20" id="5yD-EF-uIl"/>
-                                <constraint firstItem="00Q-re-sAU" firstAttribute="leading" secondItem="fQa-g5-C2Q" secondAttribute="leading" constant="20" id="9hy-0F-DYk"/>
+                                <constraint firstItem="ceL-YB-bxe" firstAttribute="leading" secondItem="dr9-5o-PTT" secondAttribute="leading" id="DOV-b1-Jvr"/>
                                 <constraint firstItem="dr9-5o-PTT" firstAttribute="top" secondItem="fQa-g5-C2Q" secondAttribute="top" id="I4U-jp-CBp"/>
                                 <constraint firstItem="jRq-DH-boS" firstAttribute="top" secondItem="51J-bi-kfC" secondAttribute="bottom" constant="20" id="NMc-O5-ydu"/>
-                                <constraint firstAttribute="trailing" secondItem="yaC-F2-kZH" secondAttribute="trailing" constant="20" id="Nyz-3M-E9w"/>
+                                <constraint firstItem="ceL-YB-bxe" firstAttribute="trailing" secondItem="dr9-5o-PTT" secondAttribute="trailing" id="OCJ-AS-bg7"/>
                                 <constraint firstItem="fLl-Xu-Vhr" firstAttribute="top" secondItem="ceL-YB-bxe" secondAttribute="bottom" constant="20" id="P0M-Zq-nZR"/>
-                                <constraint firstAttribute="trailing" secondItem="sjT-77-Hex" secondAttribute="trailing" constant="20" id="POz-Sh-CZW"/>
-                                <constraint firstItem="00Q-re-sAU" firstAttribute="top" secondItem="dr9-5o-PTT" secondAttribute="bottom" constant="20" id="PPi-lx-L91"/>
+                                <constraint firstItem="00Q-re-sAU" firstAttribute="top" secondItem="dr9-5o-PTT" secondAttribute="bottom" id="PPi-lx-L91"/>
                                 <constraint firstItem="wg0-Cr-mgb" firstAttribute="centerX" secondItem="fQa-g5-C2Q" secondAttribute="centerX" id="QYX-Sa-mgG"/>
-                                <constraint firstAttribute="trailing" secondItem="jRq-DH-boS" secondAttribute="trailing" constant="20" id="TGn-vG-qS4"/>
-                                <constraint firstItem="51J-bi-kfC" firstAttribute="leading" secondItem="fQa-g5-C2Q" secondAttribute="leading" constant="20" id="Uwd-dD-aSw"/>
-                                <constraint firstItem="jRq-DH-boS" firstAttribute="leading" secondItem="fQa-g5-C2Q" secondAttribute="leading" constant="20" id="Vt4-Z1-u8F"/>
+                                <constraint firstItem="jRq-DH-boS" firstAttribute="leading" secondItem="dr9-5o-PTT" secondAttribute="leading" id="TIp-3o-7Hi"/>
+                                <constraint firstItem="00Q-re-sAU" firstAttribute="leading" secondItem="dr9-5o-PTT" secondAttribute="leading" id="V0o-Ek-azp"/>
+                                <constraint firstItem="Rkx-Il-jl1" firstAttribute="trailing" secondItem="dr9-5o-PTT" secondAttribute="trailing" id="ZyG-ny-hOa"/>
                                 <constraint firstItem="yaC-F2-kZH" firstAttribute="top" secondItem="Rkx-Il-jl1" secondAttribute="bottom" constant="20" id="c1J-hA-aNK"/>
                                 <constraint firstAttribute="height" constant="1500" id="cVL-rp-IXc"/>
-                                <constraint firstItem="yaC-F2-kZH" firstAttribute="leading" secondItem="fQa-g5-C2Q" secondAttribute="leading" constant="20" id="euc-e8-Oi4"/>
-                                <constraint firstItem="Rkx-Il-jl1" firstAttribute="leading" secondItem="fQa-g5-C2Q" secondAttribute="leading" constant="20" id="ftH-Gq-kGX"/>
+                                <constraint firstItem="51J-bi-kfC" firstAttribute="trailing" secondItem="dr9-5o-PTT" secondAttribute="trailing" id="fXa-Qa-bQw"/>
                                 <constraint firstItem="sjT-77-Hex" firstAttribute="top" secondItem="00Q-re-sAU" secondAttribute="bottom" constant="20" id="g8M-hp-yi1"/>
+                                <constraint firstItem="Rkx-Il-jl1" firstAttribute="leading" secondItem="dr9-5o-PTT" secondAttribute="leading" id="gvQ-Dc-DZh"/>
                                 <constraint firstItem="dr9-5o-PTT" firstAttribute="leading" secondItem="fQa-g5-C2Q" secondAttribute="leading" constant="20" id="hi7-gl-nqb"/>
-                                <constraint firstAttribute="trailing" secondItem="51J-bi-kfC" secondAttribute="trailing" constant="20" id="him-Mt-zxt"/>
-                                <constraint firstItem="ceL-YB-bxe" firstAttribute="leading" secondItem="fQa-g5-C2Q" secondAttribute="leading" constant="20" id="lPg-J7-wvY"/>
-                                <constraint firstAttribute="trailing" secondItem="ceL-YB-bxe" secondAttribute="trailing" constant="20" id="mEF-u8-B3O"/>
+                                <constraint firstItem="Rkx-Il-jl1" firstAttribute="height" secondItem="sjT-77-Hex" secondAttribute="height" id="i5M-dm-Oys"/>
                                 <constraint firstItem="ceL-YB-bxe" firstAttribute="top" secondItem="yaC-F2-kZH" secondAttribute="bottom" constant="20" id="njp-ex-lgr"/>
-                                <constraint firstAttribute="trailing" secondItem="Rkx-Il-jl1" secondAttribute="trailing" constant="20" id="nrK-8e-fwZ"/>
+                                <constraint firstAttribute="trailing" secondItem="dr9-5o-PTT" secondAttribute="trailing" constant="20" id="nnI-Zo-5mc"/>
+                                <constraint firstItem="yaC-F2-kZH" firstAttribute="leading" secondItem="dr9-5o-PTT" secondAttribute="leading" id="nnn-g0-gc8"/>
+                                <constraint firstItem="sjT-77-Hex" firstAttribute="leading" secondItem="dr9-5o-PTT" secondAttribute="leading" id="s5Z-92-OfK"/>
+                                <constraint firstItem="yaC-F2-kZH" firstAttribute="trailing" secondItem="dr9-5o-PTT" secondAttribute="trailing" id="t1O-9X-k5g"/>
+                                <constraint firstItem="jRq-DH-boS" firstAttribute="height" secondItem="51J-bi-kfC" secondAttribute="height" id="tFI-Bt-8j1"/>
                                 <constraint firstItem="51J-bi-kfC" firstAttribute="top" secondItem="wg0-Cr-mgb" secondAttribute="bottom" constant="20" id="tSf-1T-nI1"/>
+                                <constraint firstItem="51J-bi-kfC" firstAttribute="leading" secondItem="dr9-5o-PTT" secondAttribute="leading" id="tcu-mI-sd4"/>
+                                <constraint firstItem="jRq-DH-boS" firstAttribute="trailing" secondItem="dr9-5o-PTT" secondAttribute="trailing" id="uGe-8j-x9V"/>
+                                <constraint firstItem="sjT-77-Hex" firstAttribute="trailing" secondItem="dr9-5o-PTT" secondAttribute="trailing" id="xCK-ct-RM8"/>
                                 <constraint firstItem="Rkx-Il-jl1" firstAttribute="top" secondItem="sjT-77-Hex" secondAttribute="bottom" constant="20" id="yuv-gt-Jvd"/>
                             </constraints>
                         </view>

@@ -19,6 +19,7 @@ class SocialButtonView: UIView {
             updateView()
         }
     }
+    var delegate: SocialButtonViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,20 +30,7 @@ class SocialButtonView: UIView {
         super.init(coder: coder)
         setUpUIView()
     }
-    
-    private func updateView() {
-        guard let viewModel = viewModel else { return }
-        socialIcon.image = UIImage(named: viewModel.nameIcon)
-        socialButton.setAttributedTitle(NSAttributedString(string: viewModel.titleSocialButton, attributes: [
-            .font: UIFont.fontYugothicUISemiBold(ofSize: 12) as Any
-        ]), for: .normal)
-        
-        if viewModel.socialTitle == "google" {
-            socialView.backgroundColor = UIColor(hex: "#4285F4")
-        } else {
-            socialView.backgroundColor = UIColor(hex: "#395998")
-        }
-    }
+
     
     private func setUpUIView() {
         Bundle.main.loadNibNamed("SocialButtonView", owner: self, options: nil)
@@ -50,28 +38,54 @@ class SocialButtonView: UIView {
         socialView.frame = self.bounds
         socialView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         socialView.layer.cornerRadius = 8
-        socialButton.titleLabel?.tintColor = UIColor.white
+        setUpIcon()
+        setUpSocialButton()
+    }
+    
+    private func setUpIcon() {
+        NSLayoutConstraint.activate([
+            socialIcon.widthAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(28)),
+            socialIcon.heightAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(28))
+        ])
+    }
+    
+    private func updateView() {
+        guard let viewModel = viewModel else { return }
+        print("Name Icon \(viewModel.socialType.rawValue)")
+        socialIcon.image = UIImage(named: viewModel.socialType.rawValue)
+        socialButton.setAttributedTitle(NSAttributedString(string: viewModel.socialType.title, attributes: [
+            .font: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(12)) as Any,
+            .foregroundColor: UIColor.white,
+        ]), for: .normal)
+        socialView.backgroundColor = viewModel.socialType.color
+    }
+    
+    private func setUpSocialButton() {
         socialButton.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
         socialButton.addTarget(self, action: #selector(buttonTouchUp), for: [.touchUpInside, .touchUpOutside])
+        socialButton.addTarget(self, action: #selector(buttonToychUpInside), for: .touchUpInside)
     }
 
     @objc func buttonTouchDown(_ sender: UIButton) {
         guard let viewModel = viewModel else { return }
-        if viewModel.socialTitle == "google" {
-            socialView.backgroundColor = UIColor(hex: "#4285F4").withAlphaComponent(0.8)
-        } else {
-            socialView.backgroundColor = UIColor(hex: "#395998").withAlphaComponent(0.8)
-        }
+        socialView.backgroundColor = viewModel.socialType.color.withAlphaComponent(0.8)
     }
     
     // Khôi phục màu nền khi thả tay
     @objc func buttonTouchUp(_ sender: UIButton) {
         socialButton.titleLabel?.tintColor = UIColor.white
         guard let viewModel = viewModel else { return }
-        if viewModel.socialTitle == "google" {
-            socialView.backgroundColor = UIColor(hex: "#4285F4")
-        } else {
-            socialView.backgroundColor = UIColor(hex: "#395998")
+        socialView.backgroundColor = viewModel.socialType.color
+    }
+    
+    @objc func buttonToychUpInside(_ sender: UIButton) {
+        if let delegate = delegate, let type = viewModel?.socialType {
+            delegate.connectSoccialAccountButtonTapping(view: self, type: type)
         }
     }
+    
+}
+
+protocol SocialButtonViewDelegate: AnyObject {
+    func connectSoccialAccountButtonTapping(view: SocialButtonView, type: SocialAccountType)
 }

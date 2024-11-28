@@ -22,6 +22,11 @@ final class DetailMealViewModel {
         self.meal = meal
     }
     
+    init(themeMealDetail: TheMealDB) {
+        self.mealDetail = themeMealDetail
+    }
+    
+    
     // MARK: - Enum
     enum CollectionType: Int {
         case featuredItem = 0
@@ -62,7 +67,7 @@ final class DetailMealViewModel {
     }
     
     func heightForCellTableView() -> CGFloat {
-        return 151 / 812 * ScreenSize.screenHeight
+        return ScreenSize.scaleHeight(160)
     }
     
     func getAPIListMealByCategory(categoryName: String, listMealByCategoryCompletion: @escaping (Bool, String) -> Void) {

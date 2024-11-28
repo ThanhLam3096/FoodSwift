@@ -7,8 +7,14 @@
 
 import UIKit
 import SVProgressHUD
+import Firebase
+import FirebaseAuth
+import GoogleSignIn
+import FirebaseFirestore
 
 typealias HUD = SVProgressHUD
+typealias firebaseAUTH = Auth
+let db = Firestore.firestore()
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         HUD.setDefaultMaskType(.custom)
         HUD.setBackgroundLayerColor(.gray.withAlphaComponent(0.5))
         HUD.setOffsetFromCenter(UIOffset(horizontal: 0, vertical: 0))
+        FirebaseApp.configure()
+        Thread.sleep(forTimeInterval: 3)
         return true
     }
     
@@ -35,6 +43,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance.handle(url)
+    }
     
 }
 

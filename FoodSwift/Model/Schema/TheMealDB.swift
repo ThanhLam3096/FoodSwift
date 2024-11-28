@@ -48,9 +48,12 @@ final class TheMealDB: Codable {
         var ingredientsArray: [String] = []
         var measureArray: [String] = []
         
-        self.nameMeal = try container.decode(String.self, forKey: .nameMeal)
-        self.imageMeal = try container.decode(String.self, forKey: .imageMeal)
-        self.idMeal = try container.decode(String.self, forKey: .idMeal)
+//        self.nameMeal = try container.decode(String.self, forKey: .nameMeal)
+        self.nameMeal = (try container.decodeIfPresent(String.self, forKey: .nameMeal)?.isEmpty == false) ? try container.decode(String.self, forKey: .nameMeal) : ""
+//        self.imageMeal = try container.decode(String.self, forKey: .imageMeal)
+        self.imageMeal = (try container.decodeIfPresent(String.self, forKey: .imageMeal)?.isEmpty == false) ? try container.decode(String.self, forKey: .imageMeal) : ""
+//        self.idMeal = try container.decode(String.self, forKey: .idMeal)
+        self.idMeal = (try container.decodeIfPresent(String.self, forKey: .idMeal)?.isEmpty == false) ? try container.decode(String.self, forKey: .idMeal) : ""
         self.category = (try container.decodeIfPresent(String.self, forKey: .category)?.isEmpty == false) ? try container.decode(String.self, forKey: .category) : ""
         self.area = (try container.decodeIfPresent(String.self, forKey: .area)?.isEmpty == false) ? try container.decode(String.self, forKey: .area) : ""
         self.instructions = (try container.decodeIfPresent(String.self, forKey: .instructions)?.isEmpty == false) ? try container.decode(String.self, forKey: .instructions) : ""

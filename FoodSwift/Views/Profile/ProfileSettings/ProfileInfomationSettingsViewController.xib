@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileInfomationSettingsViewController" customModule="FoodSwift" customModuleProvider="target">
+            <connections>
+                <outlet property="botSpaceOfChangeSettingButtonConstraint" destination="kkw-bq-2Iw" id="n4c-0T-LB1"/>
+                <outlet property="changePasswordStackView" destination="MWC-lm-Tkg" id="D6b-Fk-Muh"/>
+                <outlet property="changeSettingsButtonView" destination="1eM-g4-frh" id="psb-IT-ug4"/>
+                <outlet property="confirmPasswordFormView" destination="hGa-l8-hRN" id="sDh-25-9Tv"/>
+                <outlet property="currentPasswordFormView" destination="vyc-k9-bLy" id="QR5-I7-4QL"/>
+                <outlet property="emailFormView" destination="c6h-DC-41l" id="mME-7a-pCz"/>
+                <outlet property="fullNameFormView" destination="pJ8-hF-H5e" id="D62-pM-hqG"/>
+                <outlet property="heightOfChangePasswordStackViewConstraint" destination="cy4-ac-zd6" id="bKC-2A-xgd"/>
+                <outlet property="heightOfChangeSettingButtonConstraint" destination="m3K-mF-OME" id="OiL-B5-gF5"/>
+                <outlet property="heightOfProfileSettingStackViewConstraint" destination="83W-6H-him" id="osX-iS-tPZ"/>
+                <outlet property="leadingSpaceOfprofileSettingStackViewConstraint" destination="kMr-eJ-rev" id="beI-Ev-9A5"/>
+                <outlet property="newPasswordFormView" destination="3Xe-E1-F43" id="NGa-Rz-nGb"/>
+                <outlet property="passwordFormView" destination="DK8-0k-zNY" id="j7K-jn-zcb"/>
+                <outlet property="phoneNumberFormView" destination="GrD-ZH-Fcw" id="inl-Ae-zKb"/>
+                <outlet property="profileSettingStackView" destination="zue-Wy-0g8" id="eXD-8F-rF6"/>
+                <outlet property="topSpaceOfprofileSettingStackViewConstraint" destination="8BR-C7-o24" id="vm0-zc-t5p"/>
+                <outlet property="trailingOfprofileSettingStackViewConstraint" destination="pBR-9I-Vs2" id="Rku-XK-6b7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="421" height="744"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MWC-lm-Tkg" userLabel="Stack View Change Password">
+                    <rect key="frame" x="20" y="83" width="381" height="231"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyc-k9-bLy" userLabel="Old Password" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="381" height="77"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Xe-E1-F43" userLabel="New Password" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="77" width="381" height="77"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGa-l8-hRN" userLabel="Confirm Password" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="154" width="381" height="77"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="231" id="cy4-ac-zd6"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zue-Wy-0g8" userLabel="Stack View Profile Info">
+                    <rect key="frame" x="20" y="83" width="381" height="316"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJ8-hF-H5e" userLabel="Name" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="381" height="79"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6h-DC-41l" userLabel="Email" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="79" width="381" height="79"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GrD-ZH-Fcw" userLabel="Phone Number" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="158" width="381" height="79"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DK8-0k-zNY" userLabel="Password" customClass="PasswordFormProfileSettingsView" customModule="FoodSwift" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="237" width="381" height="79"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="316" id="83W-6H-him"/>
+                    </constraints>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1eM-g4-frh" customClass="OrangeButtonView" customModule="FoodSwift" customModuleProvider="target">
+                    <rect key="frame" x="20" y="632" width="381" height="48"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="m3K-mF-OME"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="zue-Wy-0g8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="8BR-C7-o24"/>
+                <constraint firstItem="1eM-g4-frh" firstAttribute="leading" secondItem="zue-Wy-0g8" secondAttribute="leading" id="Ayn-6d-VaH"/>
+                <constraint firstItem="MWC-lm-Tkg" firstAttribute="top" secondItem="zue-Wy-0g8" secondAttribute="top" id="Tww-2M-Xwi"/>
+                <constraint firstItem="MWC-lm-Tkg" firstAttribute="leading" secondItem="zue-Wy-0g8" secondAttribute="leading" id="W5P-X9-2rd"/>
+                <constraint firstItem="MWC-lm-Tkg" firstAttribute="trailing" secondItem="zue-Wy-0g8" secondAttribute="trailing" id="d7a-Qq-koz"/>
+                <constraint firstItem="zue-Wy-0g8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="kMr-eJ-rev"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="1eM-g4-frh" secondAttribute="bottom" constant="30" id="kkw-bq-2Iw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zue-Wy-0g8" secondAttribute="trailing" constant="20" id="pBR-9I-Vs2"/>
+                <constraint firstItem="1eM-g4-frh" firstAttribute="trailing" secondItem="zue-Wy-0g8" secondAttribute="trailing" id="uIM-7s-jnt"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-64.885496183206101" y="-17.605633802816904"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

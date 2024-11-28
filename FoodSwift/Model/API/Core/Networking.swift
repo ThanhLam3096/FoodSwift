@@ -163,9 +163,27 @@ final class Networking {
         }
     }
     
-    // MARK: - Public Functions Call Data
+    // MARK: - Public Functions Call Data Meal By CategoryName
     func getListMealByCategory(categoryName: String, completion: @escaping APICompletion<MealByCategoryResult>) {
         guard let url = URL(string: Api.Path.apiMealCategoryAndArea + "c=\(categoryName)") else {
+            completion(.failure(App.String.alertFailedAPI))
+            return
+        }
+        AF.request(url).validate().responseDecodable(of: MealByCategoryResult.self) { response in
+            DispatchQueue.main.async {
+                switch response.result {
+                case .success(let result):
+                    completion(.success(result))
+                case .failure(_):
+                    completion(.failure(App.String.alertFailedToConnectAPI))
+                }
+            }
+        }
+    }
+    
+    // MARK: - Public Functions Call Data Meal By Nation Name
+    func getListMealByNation(nationName: String, completion: @escaping APICompletion<MealByCategoryResult>) {
+        guard let url = URL(string: Api.Path.apiMealCategoryAndArea + "a=\(nationName)") else {
             completion(.failure(App.String.alertFailedAPI))
             return
         }
@@ -184,6 +202,60 @@ final class Networking {
     // MARK: - Public Functions Call Data
     func getDetailMeal(idMeal: String, completion: @escaping APICompletion<TheMealDetailResult>) {
         guard let url = URL(string: Api.Path.apiDetailMeal + "i=\(idMeal)") else {
+            completion(.failure(App.String.alertFailedAPI))
+            return
+        }
+        AF.request(url).validate().responseDecodable(of: TheMealDetailResult.self) { response in
+            DispatchQueue.main.async {
+                switch response.result {
+                case .success(let result):
+                    completion(.success(result))
+                case .failure(_):
+                    completion(.failure(App.String.alertFailedToConnectAPI))
+                }
+            }
+        }
+    }
+    
+    // MARK: - Search Meal By Name
+    func getMealByName(nameMeal: String, completion: @escaping APICompletion<TheMealDetailResult>) {
+        guard let url = URL(string: Api.Path.apiSearchByName + nameMeal) else {
+            completion(.failure(App.String.alertFailedAPI))
+            return
+        }
+        AF.request(url).validate().responseDecodable(of: TheMealDetailResult.self) { response in
+            DispatchQueue.main.async {
+                switch response.result {
+                case .success(let result):
+                    completion(.success(result))
+                case .failure(_):
+                    completion(.failure(App.String.alertFailedToConnectAPI))
+                }
+            }
+        }
+    }
+    
+    // MARK: - Filter Meal By Nation
+    func getNationMeal(completion: @escaping APICompletion<TheMealDetailResult>) {
+        guard let url = URL(string: Api.Path.apiListArea) else {
+            completion(.failure(App.String.alertFailedAPI))
+            return
+        }
+        AF.request(url).validate().responseDecodable(of: TheMealDetailResult.self) { response in
+            DispatchQueue.main.async {
+                switch response.result {
+                case .success(let result):
+                    completion(.success(result))
+                case .failure(_):
+                    completion(.failure(App.String.alertFailedToConnectAPI))
+                }
+            }
+        }
+    }
+    
+    // MARK: - Filter Meal By Category
+    func getCategoryMeal(completion: @escaping APICompletion<TheMealDetailResult>) {
+        guard let url = URL(string: Api.Path.apiCategory) else {
             completion(.failure(App.String.alertFailedAPI))
             return
         }

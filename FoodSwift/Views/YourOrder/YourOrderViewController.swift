@@ -64,6 +64,7 @@ final class YourOrderViewController: BaseViewController {
         firstLineView.backgroundColor = Color.bodyTextColor.withAlphaComponent(0.3)
         secondLineView.backgroundColor = Color.bodyTextColor.withAlphaComponent(0.3)
         continueButtonView.viewModel = OrangeButtonViewModel(title: "CONTINUE", totalPriceMeal: viewModel.yourOrderTotalPrice)
+        continueButtonView.delegate = self
     }
     
     override func setUpData() {
@@ -74,7 +75,7 @@ final class YourOrderViewController: BaseViewController {
         let titleLabel = UILabel()
         titleLabel.numberOfLines = 0
         titleLabel.text = "Your Order"
-        titleLabel.font = UIFont.fontYugothicUISemiBold(ofSize: 16)
+        titleLabel.font = UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(16))
         titleLabel.textColor = .black
         navigationItem.titleView = titleLabel
         let leftImage = UIImageView(image: UIImage(named: "black_close"))
@@ -164,5 +165,11 @@ extension YourOrderViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return ScreenSize.scaleHeight(140)
+    }
+}
+
+extension YourOrderViewController: OrangeButtonViewViewDelegate {
+    func tappingInsideButton(view: OrangeButtonView) {
+        navigationController?.pushViewController(ScreenName.addYourPaymentMethos, animated: true)
     }
 }
