@@ -109,10 +109,6 @@ final class VerifyPhoneNumberVC: BaseViewController {
     }
     
     private func setUpResendButton() {
-        //        sendAgainButton.setTitle("Resend Again", for: .normal)
-        //        sendAgainButton.setTitleColor(Color.activeColor, for: .normal)
-        //        sendAgainButton.titleLabel?.textColor = Color.activeColor
-        //        sendAgainButton.titleLabel?.font = UIFont.fontYugothicLight(ofSize: 12)
         let attributedSendAgainButton = NSAttributedString(string: "Resend Again", attributes: [
             .font: UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(12)) as Any,
             .foregroundColor: Color.activeColor
