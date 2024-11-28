@@ -271,6 +271,8 @@ class HomeViewController: BaseViewController {
         featuredPartnersCollectionView.reloadData()
         bestFoodOfRestaurntsCollectionView.reloadData()
     }
+    
+    
 }
 
 extension HomeViewController: UITableViewDelegate {

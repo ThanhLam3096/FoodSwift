@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         HUD.setBackgroundLayerColor(.gray.withAlphaComponent(0.5))
         HUD.setOffsetFromCenter(UIOffset(horizontal: 0, vertical: 0))
         FirebaseApp.configure()
+        Thread.sleep(forTimeInterval: 3)
         return true
     }
     
