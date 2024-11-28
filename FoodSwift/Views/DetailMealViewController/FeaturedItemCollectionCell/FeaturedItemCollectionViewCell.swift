@@ -15,6 +15,11 @@ class FeaturedItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var priceMealLabel: UILabel!
     @IBOutlet private weak var nationMealLabel: UILabel!
     
+    // MARK: - NSLayoutConstraint
+    @IBOutlet private weak var heightOfImageMealConstarint: NSLayoutConstraint!
+    @IBOutlet private weak var topSpaceOfNameMealConstarint: NSLayoutConstraint!
+    @IBOutlet private weak var botSpaceOfImageMealConstarint: NSLayoutConstraint!
+    
     //MARK: - Properties
     var viewModel: FeaturedItemCollectionCellVM? {
         didSet {
@@ -29,19 +34,19 @@ class FeaturedItemCollectionViewCell: UICollectionViewCell {
     }
     
     private func setUpUI() {
-        NSLayoutConstraint.activate([
-            imageMealImageView.heightAnchor.constraint(equalToConstant: (140 / 812) * ScreenSize.screenHeight)
-        ])
+        setUpLabel()
         imageMealImageView.contentMode = .scaleAspectFill
         imageMealImageView.layer.cornerRadius = 6
-        setUpLabel(label: nameMealLabel, textFont: UIFont.fontYugothicLight(ofSize: 16) ?? UIFont.systemFont(ofSize: 16), textColor: Color.mainColor)
-        setUpLabel(label: priceMealLabel, textFont: UIFont.fontYugothicUIRegular(ofSize: 14) ?? UIFont.systemFont(ofSize: 14), textColor: Color.mainColor)
-        setUpLabel(label: nationMealLabel, textFont: UIFont.fontYugothicUIRegular(ofSize: 14) ?? UIFont.systemFont(ofSize: 14), textColor: Color.mainColor)
+        heightOfImageMealConstarint.constant = ScreenSize.scaleHeight(140)
     }
     
-    private func setUpLabel(label: UILabel, textFont: UIFont, textColor: UIColor) {
-        label.font = textFont
-        label.textColor = textColor
+    private func setUpLabel() {
+        setUpTextTitleFontTextColorOfLabel(label: nameMealLabel, labelFont: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.mainColor)
+        topSpaceOfNameMealConstarint.constant = ScreenSize.scaleHeight(10)
+        botSpaceOfImageMealConstarint.constant = ScreenSize.scaleHeight(5)
+        
+        setUpTextTitleFontTextColorOfLabel(label: priceMealLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(14)) ?? UIFont.systemFont(ofSize: 14), labelTextColor: Color.mainColor)
+        setUpTextTitleFontTextColorOfLabel(label: nationMealLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(14)) ?? UIFont.systemFont(ofSize: 14), labelTextColor: Color.mainColor)
     }
     
     private func updateView() {

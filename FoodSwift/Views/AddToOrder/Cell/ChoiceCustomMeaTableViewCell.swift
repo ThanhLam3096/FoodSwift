@@ -43,7 +43,7 @@ class ChoiceCustomMeaTableViewCell: UITableViewCell {
         inSideCircleView.clipsToBounds = true
         inSideCircleView.backgroundColor = Color.activeColor
         inSideCircleView.isHidden = true
-        customMealLabel.font = UIFont.fontYugothicUIRegular(ofSize: 16)
+        customMealLabel.font = UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16))
         customMealLabel.textColor = Color.mainColor
         lineView.backgroundColor = Color.bodyTextColor.withAlphaComponent(0.3)
         

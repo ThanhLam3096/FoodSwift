@@ -30,15 +30,15 @@ class FeaturePartnersViewController: BaseViewController {
     override func setUpUI() {
         setUpNavigation()
         setUpCollectionView()
-        leadingSpaceCollectionConstraint.constant = (17 / 375) * ScreenSize.screenWidth
-        trailingSpaceCollectionConstraint.constant = (17 / 375) * ScreenSize.screenWidth
+        leadingSpaceCollectionConstraint.constant = ScreenSize.scaleWidth(17)
+        trailingSpaceCollectionConstraint.constant = ScreenSize.scaleWidth(17)
     }
     
     private func setUpNavigation() {
         let titleLabel = UILabel()
         titleLabel.numberOfLines = 0
         titleLabel.text = viewModel.title
-        titleLabel.font = UIFont.fontYugothicUISemiBold(ofSize: 16)
+        titleLabel.font = UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(16))
         titleLabel.textColor = .black
         titleLabel.textAlignment = .center
         navigationItem.titleView = titleLabel

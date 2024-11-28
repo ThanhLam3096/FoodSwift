@@ -13,6 +13,10 @@ final class FlagCodeNumberTableViewCell: UITableViewCell {
     @IBOutlet private weak var flagUIImageView: UIImageView!
     @IBOutlet private weak var textNation: UILabel!
     
+    // MARK: - NSLayoutConstraint
+    @IBOutlet weak var widthNationFlagImageConstraint: NSLayoutConstraint!
+    @IBOutlet weak var heightNationFlagImageConstraint: NSLayoutConstraint!
+    
     //MARK: - Properties
     var viewModel: FlagCodeNumberCellVM? {
         didSet {
@@ -23,8 +27,10 @@ final class FlagCodeNumberTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        textNation.font = UIFont.fontYugothicUIBold(ofSize: 14)
+        textNation.font = UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleHeight(14))
         textNation.textColor = Color.mainColor
+        widthNationFlagImageConstraint.constant = ScreenSize.scaleWidth(38)
+        heightNationFlagImageConstraint.constant = ScreenSize.scaleHeight(30)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

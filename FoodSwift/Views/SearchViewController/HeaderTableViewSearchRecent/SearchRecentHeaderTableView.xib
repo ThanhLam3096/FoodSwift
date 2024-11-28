@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchRecentHeaderTableView" customModule="FoodSwift" customModuleProvider="target">
+            <connections>
+                <outlet property="clearAllButton" destination="Quy-gD-8vE" id="vMD-bT-gYx"/>
+                <outlet property="clearAllLabel" destination="RFl-Ni-8AC" id="BjO-Ai-das"/>
+                <outlet property="heightOfClearAllButtonConstraint" destination="wtK-7U-93t" id="oAq-k3-kMv"/>
+                <outlet property="heightOfRecentSearchLabelConstraint" destination="Ing-UZ-GMq" id="0XI-X1-62I"/>
+                <outlet property="searchRecentHeaderTableView" destination="iN0-l3-epB" id="b7z-X1-DgF"/>
+                <outlet property="titleHeaderLabel" destination="19D-KA-E7M" id="Zak-Nl-iwv"/>
+                <outlet property="widthOfClearAllButtonConstraint" destination="QF1-mh-FhD" id="YhO-0J-R6I"/>
+                <outlet property="widthOfRecentSearchLabelConstraint" destination="qxy-2l-3y2" id="XnQ-za-2JS"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="395" height="73"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19D-KA-E7M" userLabel="Title">
+                    <rect key="frame" x="0.0" y="0.0" width="140" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="Ing-UZ-GMq"/>
+                        <constraint firstAttribute="width" constant="140" id="qxy-2l-3y2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFl-Ni-8AC" userLabel="ClearAll">
+                    <rect key="frame" x="335" y="2.6666666666666661" width="60" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="QF1-mh-FhD"/>
+                        <constraint firstAttribute="height" constant="20" id="wtK-7U-93t"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Quy-gD-8vE">
+                    <rect key="frame" x="335" y="2.6666666666666661" width="60" height="20"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <buttonConfiguration key="configuration" style="plain"/>
+                    <connections>
+                        <action selector="clearAllButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="7PD-du-uLz"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="19D-KA-E7M" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0pi-sP-PJo"/>
+                <constraint firstItem="Quy-gD-8vE" firstAttribute="height" secondItem="RFl-Ni-8AC" secondAttribute="height" id="Cet-DR-XcH"/>
+                <constraint firstItem="19D-KA-E7M" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FG2-Ve-08t"/>
+                <constraint firstItem="Quy-gD-8vE" firstAttribute="trailing" secondItem="RFl-Ni-8AC" secondAttribute="trailing" id="KVL-Ez-cyx"/>
+                <constraint firstAttribute="trailing" secondItem="RFl-Ni-8AC" secondAttribute="trailing" id="Xey-nO-20l"/>
+                <constraint firstItem="RFl-Ni-8AC" firstAttribute="centerY" secondItem="19D-KA-E7M" secondAttribute="centerY" id="hF4-ug-RSh"/>
+                <constraint firstItem="Quy-gD-8vE" firstAttribute="centerY" secondItem="19D-KA-E7M" secondAttribute="centerY" id="hQw-Sx-5bl"/>
+                <constraint firstItem="Quy-gD-8vE" firstAttribute="width" secondItem="RFl-Ni-8AC" secondAttribute="width" id="x8d-gT-yEU"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-449.61832061068702" y="65.140845070422543"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

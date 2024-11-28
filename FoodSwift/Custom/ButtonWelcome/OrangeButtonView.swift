@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import AVFoundation
 
 class OrangeButtonView: UIView {
 
     @IBOutlet private var orangeButtonView: UIView!
     @IBOutlet private weak var startButton: UIButton!
-    var delegate: OrangeButtonViewViewDelegate?
+    weak var delegate: OrangeButtonViewViewDelegate?
     
     //MARK: - Properties
+    var audioPlayer: AVAudioPlayer?
     var viewModel: OrangeButtonViewModel? {
         didSet {
             updateView()
@@ -23,11 +25,13 @@ class OrangeButtonView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpUIView()
+        preloadSound()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setUpUIView()
+        preloadSound()
     }
     
     private func setUpUIView() {
@@ -36,13 +40,14 @@ class OrangeButtonView: UIView {
         orangeButtonView.frame = self.bounds
         orangeButtonView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         startButton.setAttributedTitle(NSAttributedString(string: "GET STARTED", attributes: [
-            .font: UIFont.fontYugothicUIBold(ofSize: 14) as Any
+            .font: UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleHeight(14)) as Any
         ]), for: .normal)
-        startButton.backgroundColor = UIColor(red: 238/255, green: 167/255, blue: 52/255, alpha: 1.0)
+        startButton.backgroundColor =  Color.activeColor
         startButton.layer.cornerRadius = 8
     }
     
     @IBAction func getStartButtonTouchUpInside(_ sender: Any) {
+        playSound()
         if let delegate = delegate {
             delegate.tappingInsideButton(view: self)
         }
@@ -50,7 +55,7 @@ class OrangeButtonView: UIView {
     
     func setButtonTitle(_ title: String) {
         startButton.setAttributedTitle(NSAttributedString(string: title, attributes: [
-            .font: UIFont.fontYugothicUIBold(ofSize: 14) as Any
+            .font: UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleHeight(14)) as Any
         ]), for: .normal)
     }
     
@@ -63,13 +68,31 @@ class OrangeButtonView: UIView {
             price = ""
         }
         startButton.setAttributedTitle(NSAttributedString(string: "\(viewModel.title) " + price, attributes: [
-            .font: UIFont.fontYugothicUIBold(ofSize: 14) as Any
+            .font: UIFont.fontYugothicUIBold(ofSize: ScreenSize.scaleHeight(14)) as Any,
+            .foregroundColor: Color.bgColor
         ]), for: .normal)
-
+        startButton.isEnabled = viewModel.isEnableButton
+        startButton.backgroundColor = viewModel.isEnableButton ? Color.activeColor : Color.activeColor.withAlphaComponent(0.5)
     }
     
+    private func preloadSound() {
+        guard let url = Bundle.main.url(forResource: "ting_ting", withExtension: "mp3") else { return }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.prepareToPlay()
+        } catch let error {
+            print("Error playing sound: \(error.localizedDescription)")
+        }
+    }
+    
+    private func playSound() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.audioPlayer?.play()
+        }
+    }
 }
 
-protocol OrangeButtonViewViewDelegate {
+protocol OrangeButtonViewViewDelegate: AnyObject {
     func tappingInsideButton(view: OrangeButtonView)
 }

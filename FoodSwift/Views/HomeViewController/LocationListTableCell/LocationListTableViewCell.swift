@@ -22,7 +22,7 @@ class LocationListTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        locationLabel.font = UIFont.fontYugothicLight(ofSize: 20)
+        locationLabel.font = UIFont.fontYugothicUILight(ofSize: ScreenSize.scaleHeight(20))
         locationLabel.textColor = Color.mainColor
     }
 

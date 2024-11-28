@@ -11,14 +11,12 @@ import UIKit
 struct ScreenSize {
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
-    static let scaleOfWidth = screenWidth / 375
-    static let scaleOfHeight = screenHeight / 812
     
     static func scaleWidth(_ width: CGFloat) -> CGFloat {
-        return width * scaleOfWidth
+        return width * (screenWidth / 375)
     }
     
     static func scaleHeight(_ height: CGFloat) -> CGFloat {
-        return height * scaleOfHeight
+        return height * (screenHeight / 812)
     }
 }
