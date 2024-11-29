@@ -83,10 +83,8 @@ class FilterViewController: BaseViewController {
     func createLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
             switch sectionIndex {
-            case 0:
-                return self.createNationsSection(titles: self.viewModel.filterByNation)
-            case 1:
-                return self.createCategoriesSection(titles: self.viewModel.filterByCategory)
+            case 0, 1:
+                return self.createNationsAndCategoriesSection()
             case 2:
                 return self.createPriceRangeSection()
             default:
@@ -95,73 +93,24 @@ class FilterViewController: BaseViewController {
         }
     }
     
-    func calculateTextWidth(text: String, font: UIFont) -> CGFloat {
-        let constraintSize = CGSize(width: CGFloat.greatestFiniteMagnitude, height: ScreenSize.scaleHeight(38)) // Chiều cao cố định
-        let boundingBox = text.boundingRect(
-            with: constraintSize,
-            options: .usesLineFragmentOrigin,
-            attributes: [NSAttributedString.Key.font: font],
-            context: nil
+    func createNationsAndCategoriesSection() -> NSCollectionLayoutSection {
+        // Header width height
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(ScreenSize.scaleHeight(50)))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)
+        
+        // Width height của cell
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .estimated(80),
+            heightDimension: .absolute(ScreenSize.scaleHeight(38))
         )
-        return boundingBox.width // add ceil(boundingBox.width) Làm tròn chiều rộng
-    }
-    
-    func createNationsSection(titles: [String]) -> NSCollectionLayoutSection {
-        
-        // Header width height
-        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(ScreenSize.scaleHeight(50)))
-        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)
-        
-        // Width height của cell
-        let items: [NSCollectionLayoutItem] = titles.map { title in
-            let textWidth = calculateTextWidth(text: title, font: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(12)))
-            
-            let itemSize = NSCollectionLayoutSize(
-                widthDimension: .absolute(textWidth + ScreenSize.scaleWidth(41)), // Thêm padding
-                heightDimension: .absolute(ScreenSize.scaleHeight(38))
-            )
-            return NSCollectionLayoutItem(layoutSize: itemSize)
-        }
-    
-        // Width height của nhóm cell
-        let group = NSCollectionLayoutGroup.horizontal(
-                    layoutSize: NSCollectionLayoutSize(
-                        widthDimension: .fractionalWidth(1.0),
-                        heightDimension: .absolute(ScreenSize.scaleHeight(38))
-                    ),
-                    subitems: items
-                )
-        group.interItemSpacing = .fixed(ScreenSize.scaleWidth(10)) // space left right giữa các cell
-
-        let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0)
-        section.interGroupSpacing = ScreenSize.scaleHeight(15) // space cách top bot giữa các cell
-        section.boundarySupplementaryItems = [header] // them header
-        return section
-    }
-    
-    func createCategoriesSection(titles: [String]) -> NSCollectionLayoutSection {
-        // Header width height
-        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(ScreenSize.scaleHeight(50)))
-        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)
-        
-        // Width height của cell
-        let items: [NSCollectionLayoutItem] = titles.map { title in
-            let textWidth = calculateTextWidth(text: title, font: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(12)))
-            
-            let itemSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(0.3), // Thêm padding
-                heightDimension: .absolute(ScreenSize.scaleHeight(38))
-            )
-            return NSCollectionLayoutItem(layoutSize: itemSize)
-        }
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
         // Width height của nhóm cell
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .absolute(ScreenSize.scaleHeight(38))
         )
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: items)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         group.interItemSpacing = .fixed(ScreenSize.scaleWidth(12))
         
         let section = NSCollectionLayoutSection(group: group)
@@ -228,6 +177,7 @@ extension FilterViewController: UICollectionViewDataSource {
                 cell.backgroundColor = UIColor(hex: "#F1F1F1")
                 cell.filterTitleLabel.textColor = Color.bodyTextColor
             }
+            cell.layer.cornerRadius = 6
             cell.viewModel = viewModel.cellForRowAtSectionCollection(indexPath: indexPath, sectionFilterType: sectionFilter)
             return cell
         case .category:
@@ -239,6 +189,7 @@ extension FilterViewController: UICollectionViewDataSource {
                 cell.backgroundColor = UIColor(hex: "#F1F1F1")
                 cell.filterTitleLabel.textColor = Color.bodyTextColor
             }
+            cell.layer.cornerRadius = 6
             cell.viewModel = viewModel.cellForRowAtSectionCollection(indexPath: indexPath, sectionFilterType: sectionFilter)
             return cell
         default:
