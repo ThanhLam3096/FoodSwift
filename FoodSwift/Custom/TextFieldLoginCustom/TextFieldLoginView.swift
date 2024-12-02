@@ -45,9 +45,11 @@ class TextFieldLoginView: UIView {
     }
     
     private func updateView() {
-        guard let typeForm = viewModel?.typeForm else { return }
+        guard let typeForm = viewModel?.typeForm, let isEnable = viewModel?.isEnable, let value = viewModel?.value else { return }
         titleTextFieldLabel.text = typeForm.title
         eyeButton.isHidden = !typeForm.isEyeShow
+        infoTextField.isEnabled = isEnable
+        infoTextField.text = value
         switch typeForm {
         case .password, .newPassword, .confirmPassword:
             infoTextField.isSecureTextEntry = true
@@ -130,7 +132,8 @@ extension TextFieldLoginView: UITextFieldDelegate {
             }
             delegate.getValueTextField(value: value, type: type, isValid: isValidEmail(value), view: self)
         case .phoneNumber:
-            return
+            checkMarkButtonImageView.isHidden = true
+            delegate.getValueTextField(value: value, type: type, isValid: true, view: self)
         case .password, .newPassword, .confirmPassword:
             if isValidUserPassword(value) {
                 checkMarkButtonImageView.image = UIImage(named: "check")

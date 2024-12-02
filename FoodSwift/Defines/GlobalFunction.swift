@@ -296,6 +296,34 @@ enum SocialAccountType: String {
     }
 }
 
+enum UserDefaultsKeys {
+    static let emailLogin = "emailLogin"
+}
+
+// MARK: - Error Handling
+enum UserError: LocalizedError {
+    case notFound(email: String)
+    case invalidData
+    case emailNotFound
+    case passwordMismatch
+    case invalidCurrentPassword
+    
+    var errorDescription: String? {
+        switch self {
+        case .notFound(let email):
+            return "User not found with email: \(email)"
+        case .invalidData:
+            return "Invalid user data format"
+        case .emailNotFound:
+            return "Email not found"
+        case .passwordMismatch:
+            return "New password and confirm password do not match"
+        case .invalidCurrentPassword:
+            return "Current password is incorrect"
+        }
+    }
+}
+
 func isValidEmail(_ email: String) -> Bool {
     let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 
@@ -304,7 +332,7 @@ func isValidEmail(_ email: String) -> Bool {
 }
 
 func isValidNameUser(_ userName: String) -> Bool {
-    let userNameRegEx = "^[a-zA-Z0-9]{4,}$"
+    let userNameRegEx = "^[\\p{L}\\d ]{4,}$"
 
     let userNamePred = NSPredicate(format:"SELF MATCHES %@", userNameRegEx)
     return userNamePred.evaluate(with: userName)

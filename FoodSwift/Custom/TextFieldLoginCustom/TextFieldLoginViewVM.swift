@@ -12,9 +12,13 @@ class TextFieldLoginViewVM {
     // MARK: - Properties
     let typeForm: TypeOfTextFieldForm
     let isLogin: Bool
+    let isEnable: Bool
+    let value: String
 
-    init(typeForm: TypeOfTextFieldForm, isLogin: Bool = false) {
+    init(typeForm: TypeOfTextFieldForm, isLogin: Bool = false, isEnable: Bool = true, value: String = "") {
         self.typeForm = typeForm
         self.isLogin = isLogin
+        self.isEnable = isEnable
+        self.value = value
     }
 }
