@@ -48,6 +48,8 @@ final class PasswordFormProfileSettingsView: UIView {
         guard let typeForm = viewModel?.typeForm, let value = viewModel?.value else { return }
         titleTextFieldLabel.text = typeForm.title
         infoTextField.text = value
+        infoTextField.isSecureTextEntry = true
+        infoTextField.textContentType = .none
     }
     
     private func setUpUIView() {

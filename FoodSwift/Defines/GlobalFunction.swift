@@ -301,25 +301,51 @@ enum UserDefaultsKeys {
 }
 
 // MARK: - Error Handling
+enum PasswordValidationResult {
+    case success
+    case failure(PasswordValidationError)
+}
+
+enum PasswordValidationError {
+    case empty
+    case invalidLength
+    case invalidFormat
+}
+
 enum UserError: LocalizedError {
     case notFound(email: String)
     case invalidData
     case emailNotFound
+    case emptyNewPassword
+    case invalidPasswordLength
+    case invalidPasswordFormat
     case passwordMismatch
     case invalidCurrentPassword
+    case newAndConfirmPasswordIsInvalid
+    case sameAsCurrentPassword
     
     var errorDescription: String? {
         switch self {
         case .notFound(let email):
             return "User not found with email: \(email)"
+        case .emptyNewPassword:
+            return "New password cannot be empty"
+        case .invalidPasswordLength:
+            return "Password must be between 8 and 20 characters"
+        case .invalidPasswordFormat:
+            return "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character"
         case .invalidData:
             return "Invalid user data format"
         case .emailNotFound:
             return "Email not found"
+        case .newAndConfirmPasswordIsInvalid:
+            return "New Password Or Confirm Password is invalid Please Try Again"
         case .passwordMismatch:
             return "New password and confirm password do not match"
         case .invalidCurrentPassword:
             return "Current password is incorrect"
+        case .sameAsCurrentPassword:
+            return "New password must be different from current password"
         }
     }
 }
@@ -343,4 +369,35 @@ func isValidUserPassword(_ userPassword: String) -> Bool {
 
     let userPasswordPred = NSPredicate(format:"SELF MATCHES %@", userPasswordRegEx)
     return userPasswordPred.evaluate(with: userPassword)
+}
+
+struct PasswordValidation {
+    static let minimumLength = 8
+    static let maximumLength = 20
+    static let pattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+}
+
+func validatePassword(_ password: String) -> PasswordValidationResult {
+    // Check empty
+    guard !password.isEmpty else {
+        return .failure(.empty)
+    }
+    
+    // Check length
+    guard (PasswordValidation.minimumLength...PasswordValidation.maximumLength).contains(password.count) else {
+        return .failure(.invalidLength)
+    }
+    
+    // Check pattern
+    guard password.range(of: PasswordValidation.pattern, options: .regularExpression) != nil else {
+        return .failure(.invalidFormat)
+    }
+    
+    return .success
+}
+
+enum Constants {
+    static let animationDuration: TimeInterval = 0.3
+    static let initialScale: CGFloat = 0.8
+    static let finalScale: CGFloat = 1.0
 }

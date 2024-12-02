@@ -122,13 +122,13 @@ final class ProfileInfomationSettingsViewController: BaseViewController {
     }
     
     private func setUpFormChangePassword() {
-        setUpTextFieldForm(textField: currentPasswordFormView, type: .password)
+        setUpTextFieldForm(textField: currentPasswordFormView, type: .password, isLogin: true)
         setUpTextFieldForm(textField: newPasswordFormView, type: .newPassword)
         setUpTextFieldForm(textField: confirmPasswordFormView, type: .confirmPassword)
     }
     
-    private func setUpTextFieldForm(textField: TextFieldLoginView, type: TypeOfTextFieldForm, isEnable: Bool = true, value: String = "") {
-        textField.viewModel = TextFieldLoginViewVM(typeForm: type, isEnable: isEnable, value: value)
+    private func setUpTextFieldForm(textField: TextFieldLoginView, type: TypeOfTextFieldForm, isEnable: Bool = true, value: String = "", isLogin: Bool = false) {
+        textField.viewModel = TextFieldLoginViewVM(typeForm: type, isLogin: isLogin, isEnable: isEnable, value: value)
         textField.delegate = self
     }
     
@@ -236,13 +236,41 @@ extension ProfileInfomationSettingsViewController {
     }
     
     private func showPopUp(title: String, isSuccess: Bool) {
-        self.popUp = PopUpView(frame: self.view.frame, inView: self)
-        self.popUp.delegate = self
-        self.popUp.viewModel = PopUpViewVM(title: title, isSuccesPopup: isSuccess)
-        self.view.addSubview(self.popUp)
-        self.popUp.transform = CGAffineTransform(a: 0.8, b: 0.8, c: 0.8, d: 0.8, tx: 0.8, ty: 0.8)
-        UIView.animate(withDuration: 0.3) {
-            self.popUp.transform = CGAffineTransform.identity
+        // MARK: - Setup PopUp
+        configurePopUp(title: title, isSuccess: isSuccess)
+        
+        // MARK: - Add to view hierarchy with animation
+        addPopUpToViewHierarchy()
+        animatePopUpPresentation()
+    }
+    
+    func configurePopUp(title: String, isSuccess: Bool) {
+        popUp = PopUpView(frame: view.frame, inView: self)
+        popUp.delegate = self
+        popUp.viewModel = PopUpViewVM(
+            title: title,
+            isSuccesPopup: isSuccess
+        )
+    }
+    
+    func addPopUpToViewHierarchy() {
+        guard let popUp = popUp else { return }
+        
+        // Set initial transform
+        let initialTransform = CGAffineTransform(a: Constants.initialScale, b: Constants.initialScale, c: Constants.initialScale, d: Constants.initialScale, tx: Constants.initialScale, ty: Constants.initialScale)
+        popUp.transform = initialTransform
+        
+        // Add to view
+        view.addSubview(popUp)
+    }
+    
+    func animatePopUpPresentation() {
+        UIView.animate(
+            withDuration: Constants.animationDuration,
+            delay: 0,
+            options: .curveEaseOut
+        ) { [weak self] in
+            self?.popUp?.transform = .identity
         }
     }
 }

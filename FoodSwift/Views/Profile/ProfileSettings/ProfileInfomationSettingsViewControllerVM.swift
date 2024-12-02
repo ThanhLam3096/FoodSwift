@@ -75,16 +75,47 @@ final class ProfileInfomationSettingsViewControllerVM {
         return true
     }
     
+    func validatePasswordChange(currentPassword: String,
+                                newPassword: String,
+                                confirmPassword: String) throws {
+        // Validate current password
+        guard case .success = validatePassword(currentPassword) else {
+            throw UserError.invalidCurrentPassword
+        }
+        
+        // Validate new password
+        switch validatePassword(newPassword) {
+        case .failure(.empty):
+            throw UserError.emptyNewPassword
+        case .failure(.invalidLength):
+            throw UserError.invalidPasswordLength
+        case .failure(.invalidFormat):
+            throw UserError.invalidPasswordFormat
+        case .success: break
+        }
+        
+        // Check if new password matches confirm password
+        guard newPassword == confirmPassword else {
+            throw UserError.passwordMismatch
+        }
+        
+        // Check if new password is different from current password
+        guard newPassword != currentPassword else {
+            throw UserError.sameAsCurrentPassword
+        }
+    }
+    
     func updatePassword(currentPassword: String,
-                        newPassword: String,
-                        confirmPassword: String) async throws -> Bool {
+                       newPassword: String,
+                       confirmPassword: String) async throws -> Bool {
         guard let email = email else {
             throw UserError.emailNotFound
         }
         
-        guard newPassword == confirmPassword else {
-            throw UserError.passwordMismatch
-        }
+        // Validate passwords
+        try validatePasswordChange(currentPassword: currentPassword,
+                                 newPassword: newPassword,
+                                 confirmPassword: confirmPassword)
         
         let query = db.collection(userCollection)
             .whereField("email", isEqualTo: email)
