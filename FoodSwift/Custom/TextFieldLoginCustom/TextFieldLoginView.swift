@@ -54,6 +54,9 @@ class TextFieldLoginView: UIView {
         case .password, .newPassword, .confirmPassword:
             infoTextField.isSecureTextEntry = true
             infoTextField.textContentType = .none
+        case .phoneNumber:
+            infoTextField.keyboardType = .numberPad
+            addDoneButtonToKeyboard(for: infoTextField)
         default: infoTextField.isSecureTextEntry = false
         }
     }
@@ -102,8 +105,30 @@ class TextFieldLoginView: UIView {
         infoTextField.isSecureTextEntry = !infoTextField.isSecureTextEntry
     }
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         self.endEditing(true)
+    }
+    
+    func addDoneButtonToKeyboard(for textField: UITextField) {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(dismissKeyboard))
+        let attributesNormal: [NSAttributedString.Key: Any] = [
+            .foregroundColor: Color.bodyTextColor,
+            .font: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(20)) as Any
+        ]
+        let attributesHighlight: [NSAttributedString.Key: Any] = [
+            .foregroundColor: Color.activeColor,
+            .font: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(20)) as Any
+        ]
+        doneButton.setTitleTextAttributes(attributesNormal, for: .normal)
+        doneButton.setTitleTextAttributes(attributesHighlight, for: .highlighted)
+        let flexSpaceLeft = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let flexSpaceRight = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+        toolbar.items = [flexSpaceLeft, doneButton, flexSpaceRight]
+        textField.inputAccessoryView = toolbar
     }
 }
 
