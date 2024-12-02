@@ -76,6 +76,7 @@
 		044E557C2CE79E3300B7E21A /* PriceRangeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044E557B2CE79E3300B7E21A /* PriceRangeCollectionViewCell.xib */; };
 		044E557D2CE79E3300B7E21A /* PriceRangeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E557A2CE79E3300B7E21A /* PriceRangeCollectionViewCell.swift */; };
 		044E55802CE7A15800B7E21A /* PriceRangeCollectionViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E557F2CE7A15800B7E21A /* PriceRangeCollectionViewCellVM.swift */; };
+		045126932CFC714900E553C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045126922CFC714900E553C0 /* User.swift */; };
 		0451970A2CEB63E200B1A1FC /* ProfileViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045197092CEB63E200B1A1FC /* ProfileViewControllerViewModel.swift */; };
 		0451970D2CEB64B300B1A1FC /* ProfileTableViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451970C2CEB64B300B1A1FC /* ProfileTableViewCellVM.swift */; };
 		045197102CEB64C100B1A1FC /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451970E2CEB64C100B1A1FC /* ProfileTableViewCell.swift */; };
@@ -309,6 +310,7 @@
 		044E557A2CE79E3300B7E21A /* PriceRangeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRangeCollectionViewCell.swift; sourceTree = "<group>"; };
 		044E557B2CE79E3300B7E21A /* PriceRangeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PriceRangeCollectionViewCell.xib; sourceTree = "<group>"; };
 		044E557F2CE7A15800B7E21A /* PriceRangeCollectionViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRangeCollectionViewCellVM.swift; sourceTree = "<group>"; };
+		045126922CFC714900E553C0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		045197092CEB63E200B1A1FC /* ProfileViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerViewModel.swift; sourceTree = "<group>"; };
 		0451970C2CEB64B300B1A1FC /* ProfileTableViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCellVM.swift; sourceTree = "<group>"; };
 		0451970E2CEB64C100B1A1FC /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -1159,6 +1161,7 @@
 				048D96282CBD1B0E00977AD1 /* Restaurant.swift */,
 				04D05FD72CCBDCFE00675B9A /* TheMealDB.swift */,
 				04F7E2A92CDA49D000A1F39E /* Order.swift */,
+				045126922CFC714900E553C0 /* User.swift */,
 			);
 			path = Schema;
 			sourceTree = "<group>";
@@ -1794,6 +1797,7 @@
 				04343B702C8AA320007D3331 /* DefinePhoneNumberViewController.swift in Sources */,
 				04624EFA2CE1B85B0092C32F /* UIView.swift in Sources */,
 				0470D9732CDCC9A40063E520 /* Raito.swift in Sources */,
+				045126932CFC714900E553C0 /* User.swift in Sources */,
 				04448B1F2CDC9C3300351D26 /* KeyBoardObserver.swift in Sources */,
 				042FFBAD2CB4051C004B6D85 /* HeaderHomeVM.swift in Sources */,
 				04D05FE02CCD296F00675B9A /* ImageLoader.swift in Sources */,
