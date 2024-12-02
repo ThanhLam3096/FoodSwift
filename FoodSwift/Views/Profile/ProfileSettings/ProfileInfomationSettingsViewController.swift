@@ -35,7 +35,7 @@ final class ProfileInfomationSettingsViewController: BaseViewController {
     
     // MARK: - Properties
     var viewModel: ProfileInfomationSettingsViewControllerVM = ProfileInfomationSettingsViewControllerVM()
-    var popUp: PopUpView!
+    var popUp: PopUpView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -237,20 +237,16 @@ extension ProfileInfomationSettingsViewController {
     
     private func showPopUp(title: String, isSuccess: Bool) {
         // MARK: - Setup PopUp
-        configurePopUp(title: title, isSuccess: isSuccess)
+        popUp = PopUpView(frame: view.frame, inView: self)
+        popUp?.delegate = self
+        popUp?.viewModel = PopUpViewVM(
+            title: title,
+            isSuccesPopup: isSuccess
+        )
         
         // MARK: - Add to view hierarchy with animation
         addPopUpToViewHierarchy()
         animatePopUpPresentation()
-    }
-    
-    func configurePopUp(title: String, isSuccess: Bool) {
-        popUp = PopUpView(frame: view.frame, inView: self)
-        popUp.delegate = self
-        popUp.viewModel = PopUpViewVM(
-            title: title,
-            isSuccesPopup: isSuccess
-        )
     }
     
     func addPopUpToViewHierarchy() {
