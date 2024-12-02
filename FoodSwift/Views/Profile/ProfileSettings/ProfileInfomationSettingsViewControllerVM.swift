@@ -65,6 +65,14 @@ final class ProfileInfomationSettingsViewControllerVM {
             throw UserError.notFound(email: email)
         }
         
+        guard isValidNameUser(user.name) else {
+            throw UserError.userNameInvalid
+        }
+        
+        guard isValidPhoneNumber(user.phoneNumber) else {
+            throw UserError.phoneNumberInvalid
+        }
+        
         let updateData: [String: Any] = [
             "fullName": user.name,
             "password": user.password,

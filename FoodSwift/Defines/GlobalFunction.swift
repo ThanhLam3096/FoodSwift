@@ -314,6 +314,8 @@ enum PasswordValidationError {
 
 enum UserError: LocalizedError {
     case notFound(email: String)
+    case userNameInvalid
+    case phoneNumberInvalid
     case invalidData
     case emailNotFound
     case emptyNewPassword
@@ -328,6 +330,10 @@ enum UserError: LocalizedError {
         switch self {
         case .notFound(let email):
             return "User not found with email: \(email)"
+        case .userNameInvalid:
+            return "The user needs 4 or more characters and no special characters."
+        case .phoneNumberInvalid:
+            return "Invalid phone number format."
         case .emptyNewPassword:
             return "New password cannot be empty"
         case .invalidPasswordLength:
@@ -362,6 +368,12 @@ func isValidNameUser(_ userName: String) -> Bool {
 
     let userNamePred = NSPredicate(format:"SELF MATCHES %@", userNameRegEx)
     return userNamePred.evaluate(with: userName)
+}
+
+func isValidPhoneNumber(_ phoneNumber: String) -> Bool {
+    let phoneRegex = #"^\+(84|1|33|44|86|81|91|61|7|49|34|54|55)\d{6,12}$"#
+    let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+    return phoneTest.evaluate(with: phoneNumber)
 }
 
 func isValidUserPassword(_ userPassword: String) -> Bool {

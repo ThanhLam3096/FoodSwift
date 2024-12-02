@@ -211,7 +211,6 @@ extension ProfileInfomationSettingsViewController {
                 }
             } catch let error as UserError {
                 showPopUp(title: error.errorDescription ?? "Unknown error occurred", isSuccess: false)
-                showAlert(message: error.errorDescription ?? "Unknown error occurred")
             } catch {
                 showPopUp(title: error.localizedDescription, isSuccess: false)
             }

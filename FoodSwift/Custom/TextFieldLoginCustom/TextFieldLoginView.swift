@@ -16,6 +16,8 @@ class TextFieldLoginView: UIView {
     @IBOutlet private weak var titleTextFieldLabel: UILabel!
     @IBOutlet private weak var lineView: UIView!
     @IBOutlet private weak var infoTextField: UITextField!
+    @IBOutlet private weak var dropDownMenu: UIButton!
+    @IBOutlet private weak var nationCodePhoneNumberImageView: UIImageView!
     
     // MARK: - Constraint
     @IBOutlet private weak var spaceOfTitleAndTextFieldConstraint: NSLayoutConstraint!
@@ -25,6 +27,14 @@ class TextFieldLoginView: UIView {
     
     @IBOutlet private weak var widthOfCheckMarkImageConstraint: NSLayoutConstraint!
     @IBOutlet private weak var heightOfCheckMarkImageConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var leadingSpaceOfTextFieldWithSuperViewConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var leadingSpaceOfTextFieldWithDropDownButtonConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var heightOfNationImageConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var widthOfNationImageConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var widthOfDownArrowButtonConstraint: NSLayoutConstraint!
     
     //MARK: - Properties
     var viewModel: TextFieldLoginViewVM? {
@@ -57,6 +67,10 @@ class TextFieldLoginView: UIView {
         case .phoneNumber:
             infoTextField.keyboardType = .numberPad
             addDoneButtonToKeyboard(for: infoTextField)
+            nationCodePhoneNumberImageView.isHidden = false
+            dropDownMenu.isHidden = false
+            leadingSpaceOfTextFieldWithSuperViewConstraint.priority = UILayoutPriority(750)
+            leadingSpaceOfTextFieldWithDropDownButtonConstraint.priority = UILayoutPriority(1000)
         default: infoTextField.isSecureTextEntry = false
         }
     }
@@ -93,12 +107,24 @@ class TextFieldLoginView: UIView {
         NSLayoutConstraint.activate([
             infoTextField.heightAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(24)),
         ])
-        widthOfCheckMarkImageConstraint.constant = ScreenSize.scaleHeight(17)
-        heightOfCheckMarkImageConstraint.constant = ScreenSize.scaleHeight(17)
+        dropDownMenu.tintColor = Color.bodyTextColor
+        nationCodePhoneNumberImageView.isHidden = true
+        dropDownMenu.isHidden = true
         checkMarkButtonImageView.isHidden = true
         eyeButton.tintColor = Color.tabBarColor
+    }
+    
+    private func setUpLayoutConstraint() {
+        widthOfCheckMarkImageConstraint.constant = ScreenSize.scaleHeight(17)
+        heightOfCheckMarkImageConstraint.constant = ScreenSize.scaleHeight(17)
         widthEyeButtonConstraint.constant = ScreenSize.scaleWidth(14)
         heightEyeButtonConstraint.constant = ScreenSize.scaleHeight(12)
+        
+        widthOfNationImageConstraint.constant = ScreenSize.scaleWidth(32)
+        heightOfNationImageConstraint.constant = ScreenSize.scaleHeight(24)
+        widthOfDownArrowButtonConstraint.constant = ScreenSize.scaleWidth(12)
+        
+        leadingSpaceOfTextFieldWithDropDownButtonConstraint.constant = ScreenSize.scaleWidth(10)
     }
     
     @IBAction func eyeShowPasswordTouchUpInside(_ sender: Any) {
@@ -157,7 +183,11 @@ extension TextFieldLoginView: UITextFieldDelegate {
             }
             delegate.getValueTextField(value: value, type: type, isValid: isValidEmail(value), view: self)
         case .phoneNumber:
-            checkMarkButtonImageView.isHidden = true
+            if isValidPhoneNumber(value) {
+                checkMarkButtonImageView.image = UIImage(named: "check")
+            } else {
+                checkMarkButtonImageView.image = UIImage(systemName: "xmark")
+            }
             delegate.getValueTextField(value: value, type: type, isValid: true, view: self)
         case .password, .newPassword, .confirmPassword:
             if isValidUserPassword(value) {

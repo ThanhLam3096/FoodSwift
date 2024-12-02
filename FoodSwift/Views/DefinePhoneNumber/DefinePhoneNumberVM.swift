@@ -40,9 +40,6 @@ final class DefinePhoneNumberVM {
 
         phoneAuthProvider.verifyPhoneNumber(phoneNumber, uiDelegate: nil) { verificationID, error in
             if let error = error as NSError? {
-                print("Error Code: \(error.code)")
-                print("Error Description: \(error.localizedDescription)")
-                print("Error Info: \(error.userInfo)")
                 verificationCodeCompletion(false, "Error sending verification code: \(error.localizedDescription)")
                 return
             }
