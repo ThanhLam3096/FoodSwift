@@ -12,4 +12,5 @@ struct User {
     var email: String
     var password: String
     var phoneNumber: String
+    var nation: String
 }

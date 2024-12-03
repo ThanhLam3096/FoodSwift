@@ -15,6 +15,7 @@ final class ProfileInfomationSettingsViewControllerVM {
     var currentPassword: String?
     var newPassword: String?
     var confirmPassword: String?
+    var indexOfNationFlagsList = 0
     
     init(isChangePassword: Bool = false) {
         self.isChangePassword = isChangePassword
@@ -42,9 +43,9 @@ final class ProfileInfomationSettingsViewControllerVM {
                 if let name = data["fullName"] as? String,
                    let email = data["email"] as? String,
                    let password = data["password"] as? String,
-                   let phoneNumber = data["phoneNumber"] as? String {
-                    
-                    let user = User(name: name, email: email, password: password, phoneNumber: phoneNumber)
+                   let phoneNumber = data["phoneNumber"] as? String,
+                   let nation = data["nation"] as? String {
+                    let user = User(name: name, email: email, password: password, phoneNumber: phoneNumber, nation: nation)
                     completion(user, "Get Data Success")
                 } else {
                     completion(nil, "Invalid user data format.")
@@ -76,7 +77,8 @@ final class ProfileInfomationSettingsViewControllerVM {
         let updateData: [String: Any] = [
             "fullName": user.name,
             "password": user.password,
-            "phoneNumber": user.phoneNumber
+            "phoneNumber": user.phoneNumber,
+            "nation": user.nation
         ]
         
         try await document.reference.updateData(updateData)
@@ -137,5 +139,23 @@ final class ProfileInfomationSettingsViewControllerVM {
         
         try await document.reference.updateData(["password": newPassword])
         return true
+    }
+}
+
+extension ProfileInfomationSettingsViewControllerVM {
+    // MARK: - TableView Data
+    func numberOfRowsInSection() -> Int {
+        return listFlagTitle.count
+    }
+
+    func cellForRowAt(indexPath: IndexPath) -> FlagCodeNumberCellVM {
+        let itemNation = listFlagTitle[indexPath.row]
+        let itemFlag = nameFlag[indexPath.row]
+        let model = FlagCodeNumberCellVM(nation: itemNation, imgNation: itemFlag)
+        return model
+    }
+
+    func heightForRowAt() -> CGFloat {
+        return ScreenSize.scaleHeight(36)
     }
 }

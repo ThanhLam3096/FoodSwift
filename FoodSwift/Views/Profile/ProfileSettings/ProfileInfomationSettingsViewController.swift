@@ -21,6 +21,7 @@ final class ProfileInfomationSettingsViewController: BaseViewController {
     @IBOutlet private weak var currentPasswordFormView: TextFieldLoginView!
     @IBOutlet private weak var newPasswordFormView: TextFieldLoginView!
     @IBOutlet private weak var confirmPasswordFormView: TextFieldLoginView!
+    @IBOutlet private weak var listFlagTableView: UITableView!
     
     // MARK: Constraint
     @IBOutlet private weak var heightOfProfileSettingStackViewConstraint: NSLayoutConstraint!
@@ -32,6 +33,8 @@ final class ProfileInfomationSettingsViewController: BaseViewController {
     @IBOutlet private weak var botSpaceOfChangeSettingButtonConstraint: NSLayoutConstraint!
     
     @IBOutlet private weak var heightOfChangePasswordStackViewConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var widthOfTableViewConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     var viewModel: ProfileInfomationSettingsViewControllerVM = ProfileInfomationSettingsViewControllerVM()
@@ -68,6 +71,7 @@ final class ProfileInfomationSettingsViewController: BaseViewController {
         setUpFormChangePassword()
         checkForm()
         actionOfTappingOutSideHideOfKeyBoard()
+        setUpTableView()
     }
     
     private func setUpNavigation() {
@@ -116,7 +120,8 @@ final class ProfileInfomationSettingsViewController: BaseViewController {
         guard let user = viewModel.user else { return }
         setUpTextFieldForm(textField: emailFormView, type: .emailAddress, isEnable: false, value: user.email)
         setUpTextFieldForm(textField: fullNameFormView, type: .fullName, value: user.name)
-        setUpTextFieldForm(textField: phoneNumberFormView, type: .phoneNumber, value: user.phoneNumber)
+        setUpTextFieldForm(textField: phoneNumberFormView, type: .phoneNumber, value: user.phoneNumber, codePhoneNumber: codeNumber[viewModel.indexOfNationFlagsList], imageName: user.nation)
+        phoneNumberFormView.delegatePhoneNumber = self
         passwordFormView.viewModel = PasswordFormProfileSettingsViewVM(typeForm: .password, value: user.password)
         passwordFormView.delegate = self
     }
@@ -127,8 +132,8 @@ final class ProfileInfomationSettingsViewController: BaseViewController {
         setUpTextFieldForm(textField: confirmPasswordFormView, type: .confirmPassword)
     }
     
-    private func setUpTextFieldForm(textField: TextFieldLoginView, type: TypeOfTextFieldForm, isEnable: Bool = true, value: String = "", isLogin: Bool = false) {
-        textField.viewModel = TextFieldLoginViewVM(typeForm: type, isLogin: isLogin, isEnable: isEnable, value: value)
+    private func setUpTextFieldForm(textField: TextFieldLoginView, type: TypeOfTextFieldForm, isEnable: Bool = true, value: String = "", isLogin: Bool = false, codePhoneNumber: String = "+84", imageName: String = "VietNam", isChangeCodeNumberPhone: Bool = false) {
+        textField.viewModel = TextFieldLoginViewVM(typeForm: type, isLogin: isLogin, isEnable: isEnable, value: value, codePhoneNumber: codePhoneNumber, imageName: imageName, isChangeCodeNumberPhone: isChangeCodeNumberPhone)
         textField.delegate = self
     }
     
@@ -174,6 +179,7 @@ extension ProfileInfomationSettingsViewController {
     }
     
     @objc func dismissKeyboard() {
+        phoneNumberFormView.dismissKeyboard()
         view.endEditing(true)
     }
 }
@@ -289,6 +295,12 @@ extension ProfileInfomationSettingsViewController: FormTextFieldDelegate {
     }
 }
 
+extension ProfileInfomationSettingsViewController: FormPhoneNumberTextFieldDelegate {
+    func showHideListFlag(view: TextFieldLoginView) {
+        listFlagTableView.isHidden = !listFlagTableView.isHidden
+    }
+}
+
 extension ProfileInfomationSettingsViewController: OrangeButtonViewViewDelegate {
     func tappingInsideButton(view: OrangeButtonView) {
         guard let user = viewModel.user else { return }
@@ -309,5 +321,48 @@ extension ProfileInfomationSettingsViewController: PopUpViewDelegate {
         } else {
             return
         }
+    }
+}
+
+extension ProfileInfomationSettingsViewController {
+    private func setUpTableView() {
+        listFlagTableView.register(nibWithCellClass: FlagCodeNumberTableViewCell.self)
+        listFlagTableView.isHidden = true
+        listFlagTableView.delegate = self
+        listFlagTableView.dataSource = self
+        widthOfTableViewConstraint.constant = ScreenSize.scaleWidth(120)
+    }
+}
+
+extension ProfileInfomationSettingsViewController: UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+}
+
+extension ProfileInfomationSettingsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRowsInSection()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withClass: FlagCodeNumberTableViewCell.self, for: indexPath)
+        cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.indexOfNationFlagsList = indexPath.row
+        let flag = nameFlag[indexPath.row]
+        viewModel.user?.nation = flag
+        let codeNumber = codeNumber[indexPath.row]
+        guard let user = viewModel.user else { return }
+        setUpTextFieldForm(textField: phoneNumberFormView, type: .phoneNumber, value: user.phoneNumber, codePhoneNumber: codeNumber, imageName: flag, isChangeCodeNumberPhone: true)
+        viewModel.indexOfNationFlagsList = indexPath.row
+        listFlagTableView.isHidden = true
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return viewModel.heightForRowAt()
     }
 }

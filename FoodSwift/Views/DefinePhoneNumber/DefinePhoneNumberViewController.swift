@@ -107,7 +107,7 @@ final class DefinePhoneNumberViewController: BaseViewController {
     
     private func setUpTextField() {
         phoneNumberTextField.font = UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16))
-        phoneNumberTextField.attributedText = updateStringTextField(codePhoneNumber: viewModel.codeNumber[0])
+        phoneNumberTextField.attributedText = updateStringTextField(codePhoneNumber: codeNumber[0])
         phoneNumberTextField.borderStyle = .none
         phoneNumberTextField.keyboardType = .numberPad
         phoneNumberTextField.delegate = self
@@ -130,7 +130,7 @@ final class DefinePhoneNumberViewController: BaseViewController {
     @objc func dismissKeyboard() {
         guard let text = phoneNumberTextField.text else { return }
         if text.isEmpty {
-            phoneNumberTextField.attributedText = updateStringTextField(codePhoneNumber: viewModel.codeNumber[viewModel.indexOfNationFlagsList])
+            phoneNumberTextField.attributedText = updateStringTextField(codePhoneNumber: codeNumber[viewModel.indexOfNationFlagsList])
         } else if text.count <= 3 {
             phoneNumberTextField.attributedText = updateStringTextField(codePhoneNumber: text)
         }
@@ -177,9 +177,9 @@ extension DefinePhoneNumberViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let flag = viewModel.nameFlag[indexPath.row]
+        let flag = nameFlag[indexPath.row]
         nationCodePhoneNumberImageView.image = UIImage(named: flag)
-        phoneNumberTextField.attributedText = updateStringTextField(codePhoneNumber: viewModel.codeNumber[indexPath.row])
+        phoneNumberTextField.attributedText = updateStringTextField(codePhoneNumber: codeNumber[indexPath.row])
         viewModel.indexOfNationFlagsList = indexPath.row
         listFlagTableView.isHidden = true
     }
