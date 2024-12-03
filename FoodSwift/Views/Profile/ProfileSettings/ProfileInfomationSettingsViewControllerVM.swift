@@ -42,9 +42,9 @@ final class ProfileInfomationSettingsViewControllerVM {
                 // Map data to User model
                 if let name = data["fullName"] as? String,
                    let email = data["email"] as? String,
-                   let password = data["password"] as? String,
-                   let phoneNumber = data["phoneNumber"] as? String,
-                   let nation = data["nation"] as? String {
+                   let password = data["password"] as? String {
+                   let phoneNumber = data["phoneNumber"] as? String ?? ""
+                   let nation = data["nation"] as? String ?? "USA"
                     let user = User(name: name, email: email, password: password, phoneNumber: phoneNumber, nation: nation)
                     completion(user, "Get Data Success")
                 } else {
