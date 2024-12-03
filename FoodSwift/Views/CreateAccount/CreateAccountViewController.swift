@@ -298,6 +298,8 @@ extension CreateAccountViewController: PopUpViewDelegate {
     func didTappingButton(view: PopUpView, isSuccess: Bool) {
         self.popUp?.removeFromSuperview()
         if isSuccess {
+            let vc = ScreenName.definePhoneNumber
+            vc.viewModel = DefinePhoneNumberVM(email: viewModel.valueEmail)
             self.navigationController?.pushViewController(ScreenName.definePhoneNumber, animated: true)
         } else {
             return

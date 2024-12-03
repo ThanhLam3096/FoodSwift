@@ -160,10 +160,13 @@ extension VerifyPhoneNumberVC: OrangeButtonViewViewDelegate {
         guard let verificationCode1 = otpTextField1.text, let verificationCode2 = otpTextField2.text, let verificationCode3 = otpTextField3.text, let verificationCode4 = otpTextField4.text else { return }
         let verificationCode = verificationCode1 + verificationCode2 + verificationCode3 + verificationCode4
         viewModel.verifyPhoneNumber(verificationCode: verificationCode) { [weak self] success, message in
+            guard let this = self else { return }
             if success {
                 self?.navigationController?.pushViewController(ScreenName.baseTabbar, animated: true) // Handle Success when enter Verify Code
+                this.viewModel.saveLoginStatus(email: this.viewModel.email)
             } else {
                 self?.navigationController?.pushViewController(ScreenName.baseTabbar, animated: true) // Handle Failed when enter Verify Code
+                this.viewModel.saveLoginStatus(email: this.viewModel.email)
             }
         }
     }
