@@ -244,7 +244,7 @@ protocol FormPhoneNumberTextFieldDelegate: AnyObject {
 extension TextFieldLoginView {
     private func setUpTextFieldPhoneNumber() {
         guard let viewModel = viewModel else { return }
-        if viewModel.isChangeCodeNumberPhone {
+        if viewModel.isChangeCodeNumberPhone || viewModel.value.isEmpty  {
             infoTextField.attributedText = updateStringTextField(codePhoneNumber: viewModel.codePhoneNumber)
         } else {
             infoTextField.text = viewModel.value
