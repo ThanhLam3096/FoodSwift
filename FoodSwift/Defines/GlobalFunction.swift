@@ -356,6 +356,26 @@ enum UserError: LocalizedError {
     }
 }
 
+enum OrderError: Error {
+    case emailNotFound
+    case noDataFound(email: String)
+    case fetchError(Error)
+    case parseError
+    
+    var message: String {
+        switch self {
+        case .emailNotFound:
+            return "Can't Connect Your Account"
+        case .noDataFound(let email):
+            return "Can't Found Your Order in your account \(email)"
+        case .fetchError(let error):
+            return "Failed to Load Data: \(error.localizedDescription)"
+        case .parseError:
+            return "Faild to Parse Data"
+        }
+    }
+}
+
 func isValidEmail(_ email: String) -> Bool {
     let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 

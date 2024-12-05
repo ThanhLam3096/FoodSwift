@@ -7,6 +7,13 @@
 
 import Foundation
 
+struct OrderMeal {
+    var meal: Meal
+    var topCustom: String
+    var botCustom: String
+    var total: Int
+}
+
 final class Order {
     var idMeal: String
     var nameMeal: String
