@@ -34,7 +34,7 @@ final class YourOrderViewControllerVM {
     
     func updateYourOrderTotalPrice() {
         listOrderMeals.forEach { order in
-            totalPrice = totalPrice + (order.meal.price * Double(order.total))
+            totalPrice = totalPrice + (order.meal.price * Double(order.quantity))
         }
         yourOrderTotalPrice = totalPrice + feeShip
     }
@@ -112,11 +112,13 @@ final class YourOrderViewControllerVM {
     }
 
     private func parseOrderMealData(from item: [String: Any], meal: Meal) -> OrderMeal? {
+        guard let email = email else { return nil}
         let orderMeal = OrderMeal(
             meal: meal,
             topCustom: item["topCustom"] as? String ?? "",
-            botCustom: item["botCustom"] as? String ?? "",
-            total: item["total"] as? Int ?? 0
+            bottomCustom: item["bottomCustom"] as? String ?? "",
+            quantity: item["quantity"] as? Int ?? 0, 
+            email: email
         )
         return orderMeal
     }

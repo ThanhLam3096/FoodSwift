@@ -253,20 +253,50 @@ extension AddToOrderViewController: UITableViewDelegate, UITableViewDataSource {
 extension AddToOrderViewController: OrangeButtonViewViewDelegate {
     func tappingInsideButton(view: OrangeButtonView) {
         guard let meal = viewModel.meal else { return }
-        addMealToOrder(meal: meal, infoTopCustomMeal: viewModel.infoTopCustomMeal, infoBottomCustomMeal: viewModel.infoBottomCustomMeal, total: viewModel.numberOfMeals)
+        addMealToOrder()
     }
 }
 
 extension AddToOrderViewController {
-    private func addMealToOrder(meal: Meal, infoTopCustomMeal: String, infoBottomCustomMeal: String, total: Int) {
-        viewModel.addOrderMealFireStore(meal: meal, infoTopCustomMeal: infoTopCustomMeal, infoBottomCustomMeal: infoBottomCustomMeal, totalMealOrder: total) { [weak self] (done, msg) in
-            guard let strongSelf = self else { return }
-            if done {
-                strongSelf.pushFromBottom(to: ScreenName.yourOrder, from: strongSelf)
-            } else {
-                strongSelf.showPopUp(title: msg, isSuccess: done)
+    private func addMealToOrder() {
+        guard let meal = viewModel.meal else { return }
+        Task {
+                do {
+                    HUD.show()
+                    let success = try await viewModel.addOrderMealFireStore(
+                        meal: meal,
+                        infoTopCustomMeal: viewModel.infoTopCustomMeal,
+                        infoBottomCustomMeal: viewModel.infoBottomCustomMeal,
+                        totalMealOrder: viewModel.numberOfMeals
+                    )
+                    
+                    DispatchQueue.main.async {
+                        HUD.dismiss()
+                        if success {
+                            self.showPopUp(title: "Order Success", isSuccess: success)
+                        }
+                    }
+                } catch let error as OrderError {
+                    DispatchQueue.main.async {
+                        HUD.dismiss()
+                        self.showPopUp(title: error.message, isSuccess: false)
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        HUD.dismiss()
+                        self.showPopUp(title: "It's Something happen", isSuccess: false)
+                    }
+                }
             }
-        }
+        
+//        viewModel.addOrderMealFireStore(meal: meal, infoTopCustomMeal: infoTopCustomMeal, infoBottomCustomMeal: infoBottomCustomMeal, totalMealOrder: total) { [weak self] (done, msg) in
+//            guard let strongSelf = self else { return }
+//            if done {
+//                strongSelf.pushFromBottom(to: ScreenName.yourOrder, from: strongSelf)
+//            } else {
+//                strongSelf.showPopUp(title: msg, isSuccess: done)
+//            }
+//        }
     }
 }
 
@@ -309,5 +339,11 @@ extension AddToOrderViewController: PopUpViewDelegate {
     
     func didTappingButton(view: PopUpView, isSuccess: Bool) {
         self.popUp?.removeFromSuperview()
+        if isSuccess {
+            self.pushFromBottom(to: ScreenName.yourOrder, from: self)
+        } else {
+            return
+        }
+        
     }
 }

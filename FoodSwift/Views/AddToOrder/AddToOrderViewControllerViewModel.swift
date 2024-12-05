@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestoreInternal
 
 final class AddToOrderViewControllerViewModel {
     
@@ -109,6 +110,71 @@ final class AddToOrderViewControllerViewModel {
         email = UserDefaults.standard.string(forKey: UserDefaultsKeys.emailLogin)
     }
     
+    private func createNewOrder(request: OrderMeal) async throws -> Bool {
+        try await db.collection("orderMeal").addDocument(data: request.toFirestoreData)
+        return true
+    }
+    
+    private func updateOrderQuantity(document: QueryDocumentSnapshot,
+                                     additionalQuantity: Int) async throws -> Bool {
+        guard let currentTotal = document.data()["quantity"] as? Int else {
+            throw OrderError.totalFieldMissing
+        }
+        
+        try await document.reference.updateData([
+            "quantity": currentTotal + additionalQuantity
+        ])
+        return true
+    }
+    
+    private func findExistingOrder(for request: OrderMeal) async throws -> QueryDocumentSnapshot? {
+        let query = db.collection("orderMeal")
+            .whereField("account", isEqualTo: request.email)
+            .whereField("idMeal", isEqualTo: request.meal.idMeal)
+            .whereField("topCustom", isEqualTo: request.topCustom)
+            .whereField("bottomCustom", isEqualTo: request.bottomCustom)
+        
+        let snapshot = try await query.getDocuments()
+        return snapshot.documents.first
+    }
+    
+    func addOrderMealFireStore(meal: Meal,
+                              infoTopCustomMeal: String,
+                              infoBottomCustomMeal: String,
+                               totalMealOrder: Int) async throws -> Bool {
+        // Validate input
+        guard let email = email else {
+            throw OrderError.emailNotFound
+        }
+        
+        let orderMeal = OrderMeal(
+            meal: meal,
+            topCustom: infoTopCustomMeal,
+            bottomCustom: infoBottomCustomMeal,
+            quantity: totalMealOrder,
+            email: email
+        )
+        
+        do {
+            // Check existing order
+            let existingOrder = try await findExistingOrder(for: orderMeal)
+            
+            if let existingOrder = existingOrder {
+                // Update existing order
+                return try await updateOrderQuantity(
+                    document: existingOrder,
+                    additionalQuantity: totalMealOrder
+                )
+            } else {
+                // Create new order
+                return try await createNewOrder(request: orderMeal)
+            }
+        } catch {
+            throw OrderError.firebaseError(error)
+        }
+    }
+    
+    // using completion
     func addOrderMealFireStore(meal: Meal, infoTopCustomMeal: String, infoBottomCustomMeal: String, totalMealOrder: Int, completion: @escaping (Bool, String) -> Void) {
         guard let email = email else {
             completion(false, "Error Order")
@@ -120,7 +186,7 @@ final class AddToOrderViewControllerViewModel {
                 "image": meal.image,
                 "name": meal.name,
                 "typeFood": meal.typeFood,
-                "total": totalMealOrder,
+                "quantity": totalMealOrder,
                 "price": meal.price,
                 "address": meal.address,
                 "nation1": meal.nation1,
@@ -130,14 +196,14 @@ final class AddToOrderViewControllerViewModel {
                 "totalVote": meal.totalVote,
                 "feeShip": meal.feeShip,
                 "topCustom": infoTopCustomMeal,
-                "botCustom": infoBottomCustomMeal
+                "bottomCustom": infoBottomCustomMeal
             ]
         
         db.collection("orderMeal")
             .whereField("account", isEqualTo: email)
             .whereField("idMeal", isEqualTo: meal.idMeal)
             .whereField("topCustom", isEqualTo: infoTopCustomMeal)
-            .whereField("botCustom", isEqualTo: infoBottomCustomMeal)
+            .whereField("bottomCustom", isEqualTo: infoBottomCustomMeal)
             .getDocuments { querySnapshot, error in
             if let error = error {
                 completion(false, "Error fetching data: \(error.localizedDescription)")
@@ -146,8 +212,8 @@ final class AddToOrderViewControllerViewModel {
             if let documents = querySnapshot?.documents, !documents.isEmpty {
                 // Tài liệu tồn tại, cập nhật total
                 let document = documents.first
-                if let total = document?.data()["total"] as? Int {
-                    document?.reference.updateData(["total": total + totalMealOrder]) { error in
+                if let total = document?.data()["quantity"] as? Int {
+                    document?.reference.updateData(["quantity": total + totalMealOrder]) { error in
                         if let error = error {
                             completion(false, "Error updating total: \(error.localizedDescription)")
                         } else {
@@ -168,5 +234,9 @@ final class AddToOrderViewControllerViewModel {
 
             }
         }
+    }
+    
+    private func checkMealInOrder() {
+        
     }
 }

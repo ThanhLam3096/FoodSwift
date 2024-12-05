@@ -75,7 +75,7 @@ class ListTableOrderMealTableViewCell: UITableViewCell {
         guard let viewModel = viewModel else { return }
         indexListMealLabel.text = String(viewModel.indexID)
         nameMealLabel.text = viewModel.order.meal.name
-        intructionsLabel.text = "Top: \(viewModel.order.topCustom) \nBottom: \(viewModel.order.botCustom)"
+        intructionsLabel.text = "Top: \(viewModel.order.topCustom) \nBottom: \(viewModel.order.bottomCustom)"
         totalPriceMeal.text = "Dollars$\(viewModel.summaryPriceMeal())"
     }
     

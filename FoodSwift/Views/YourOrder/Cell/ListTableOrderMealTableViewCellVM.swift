@@ -17,7 +17,7 @@ final class ListTableOrderMealTableViewCellVM {
     }
     
     func summaryPriceMeal() -> String {
-        let total = order.total
+        let total = order.quantity
         let price = order.meal.price
         return displayNumber(Double(total) * price)
     }

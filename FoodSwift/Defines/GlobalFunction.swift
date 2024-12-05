@@ -361,6 +361,8 @@ enum OrderError: Error {
     case noDataFound(email: String)
     case fetchError(Error)
     case parseError
+    case totalFieldMissing
+    case firebaseError(Error)
     
     var message: String {
         switch self {
@@ -372,6 +374,10 @@ enum OrderError: Error {
             return "Failed to Load Data: \(error.localizedDescription)"
         case .parseError:
             return "Faild to Parse Data"
+        case .totalFieldMissing:
+            return "Missing Info quality"
+        case .firebaseError(let error):
+            return "Error System: \(error.localizedDescription)"
         }
     }
 }
