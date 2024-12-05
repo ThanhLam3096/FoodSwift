@@ -123,58 +123,59 @@ final class YourOrderViewControllerVM {
         return orderMeal
     }
     
-//    private func fetchDataOrderByEmail(email: String, completion: @escaping (Result<[[String: Any]], Error>) -> Void) {
-//        db.collection("orderMeal").whereField("account", isEqualTo: email).getDocuments { querySnapshot, error in
-//            if let error = error {
-//                completion(.failure(error))
-//                return
-//            }
-//            
-//            guard let documents = querySnapshot?.documents, !documents.isEmpty else {
-//                completion(.failure(NSError(domain: "", code: 404, userInfo: [NSLocalizedDescriptionKey: "No data order found with Account \(email)"])))
-//                return
-//            }
-//            
-//            let data = documents.map { $0.data() }
-//                completion(.success(data))
-//        }
-//    }
-//    
-//    func getDataOrderMealByEmail(orderCompletion: @escaping (Bool, String) -> Void) {
-//        guard let email = email else {
-//            orderCompletion(false, "Can't Not Found Your Account")
-//            return
-//        }
-//        fetchDataOrderByEmail(email: email) { [weak self] result in
-//            switch result {
-//            case .success(let orderMeal):
-//                guard let strongSelf = self else { return }
-//                var yourOrderMeal: OrderMeal
-//                for item in orderMeal {
-//                    let idMeal = item["idMeal"] as? Int
-//                    let nameMeal = item["name"] as? String
-//                    let imageMeal = item["image"] as? String
-//                    let typeFood = item["typeFood"] as? String
-//                    let price = item["price"] as? Double
-//                    let address = item["address"] as? String
-//                    let nation1 = item["nation1"] as? String
-//                    let nation2 = item["nation2"] as? String
-//                    let time = item["time"] as? String
-//                    let rating = item["rating"] as? String
-//                    let totalVote = item["totalVote"] as? Int
-//                    let feeShip = item["feeShip"] as? Double
-//                    let topCustom = item["topCustom"] as? String
-//                    let botCustom = item["botCustom"] as? String
-//                    let total = item["total"] as? Int
-//                    let meal = Meal(image: imageMeal ?? "", name: nameMeal ?? "", typeFood: typeFood ?? "", price: price ?? 0, address: address ?? "", nation1: nation1 ?? "", nation2: nation2 ?? "", time: time ?? "", rating: rating ?? "", totalVote: totalVote ?? 0, fee: feeShip ?? 0, idMeal: idMeal ?? 0)
-//                    yourOrderMeal = OrderMeal(meal: meal, topCustom: topCustom ?? "", botCustom: botCustom ?? "", total: total ?? 0)
-//                    strongSelf.listOrderMeals.append(yourOrderMeal)
-//                }
-//                orderCompletion(true, "Fetch Order Meal Success")
-//            case .failure(let error):
-//                orderCompletion(false, "Failed To Fetch Data \(error.localizedDescription)")
-//            }
-//        }
-//    }
+    // using completion
+    private func fetchDataOrderByEmail(email: String, completion: @escaping (Result<[[String: Any]], Error>) -> Void) {
+        db.collection("orderMeal").whereField("account", isEqualTo: email).getDocuments { querySnapshot, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let documents = querySnapshot?.documents, !documents.isEmpty else {
+                completion(.failure(NSError(domain: "", code: 404, userInfo: [NSLocalizedDescriptionKey: "No data order found with Account \(email)"])))
+                return
+            }
+            
+            let data = documents.map { $0.data() }
+                completion(.success(data))
+        }
+    }
+    
+    func getDataOrderMealByEmail(orderCompletion: @escaping (Bool, String) -> Void) {
+        guard let email = email else {
+            orderCompletion(false, "Can't Not Found Your Account")
+            return
+        }
+        fetchDataOrderByEmail(email: email) { [weak self] result in
+            switch result {
+            case .success(let orderMeal):
+                guard let strongSelf = self else { return }
+                var yourOrderMeal: OrderMeal
+                for item in orderMeal {
+                    let idMeal = item["idMeal"] as? Int
+                    let nameMeal = item["name"] as? String
+                    let imageMeal = item["image"] as? String
+                    let typeFood = item["typeFood"] as? String
+                    let price = item["price"] as? Double
+                    let address = item["address"] as? String
+                    let nation1 = item["nation1"] as? String
+                    let nation2 = item["nation2"] as? String
+                    let time = item["time"] as? String
+                    let rating = item["rating"] as? String
+                    let totalVote = item["totalVote"] as? Int
+                    let feeShip = item["feeShip"] as? Double
+                    let topCustom = item["topCustom"] as? String
+                    let bottomCustom = item["bottomCustom"] as? String
+                    let quantity = item["quantity"] as? Int
+                    let meal = Meal(image: imageMeal ?? "", name: nameMeal ?? "", typeFood: typeFood ?? "", price: price ?? 0, address: address ?? "", nation1: nation1 ?? "", nation2: nation2 ?? "", time: time ?? "", rating: rating ?? "", totalVote: totalVote ?? 0, fee: feeShip ?? 0, idMeal: idMeal ?? 0)
+                    yourOrderMeal = OrderMeal(meal: meal, topCustom: topCustom ?? "", bottomCustom: bottomCustom ?? "", quantity: quantity ?? 0, email: email)
+                    strongSelf.listOrderMeals.append(yourOrderMeal)
+                }
+                orderCompletion(true, "Fetch Order Meal Success")
+            case .failure(let error):
+                orderCompletion(false, "Failed To Fetch Data \(error.localizedDescription)")
+            }
+        }
+    }
 }
 
