@@ -133,7 +133,7 @@ class LaunchScreenViewController: BaseViewController {
         let welcomeScreen = UINavigationController(rootViewController: ScreenName.welcomeScreen)
         UIApplication.shared.windows.first?.rootViewController = welcomeScreen
         UIApplication.shared.windows.first?.makeKeyAndVisible()
-        SceneDelegate.shared.changeRoot(vc: self.viewModel.getToHitorySearch() ? ScreenName.baseTabbar : welcomeScreen)
+        SceneDelegate.shared.changeRoot(vc: self.viewModel.getToEmail() ? ScreenName.baseTabbar : welcomeScreen)
     }
 
 }

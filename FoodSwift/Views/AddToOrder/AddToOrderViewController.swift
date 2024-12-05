@@ -46,6 +46,7 @@ class AddToOrderViewController: BaseViewController {
     
     // MARK: - Properties
     var viewModel: AddToOrderViewControllerViewModel = AddToOrderViewControllerViewModel()
+    var popUp: PopUpView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -251,6 +252,98 @@ extension AddToOrderViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension AddToOrderViewController: OrangeButtonViewViewDelegate {
     func tappingInsideButton(view: OrangeButtonView) {
-        pushFromBottom(to: ScreenName.yourOrder, from: self)
+        guard let meal = viewModel.meal else { return }
+        addMealToOrder()
+    }
+}
+
+extension AddToOrderViewController {
+    private func addMealToOrder() {
+        guard let meal = viewModel.meal else { return }
+        Task {
+                do {
+                    HUD.show()
+                    let success = try await viewModel.addOrderMealFireStore(
+                        meal: meal,
+                        infoTopCustomMeal: viewModel.infoTopCustomMeal,
+                        infoBottomCustomMeal: viewModel.infoBottomCustomMeal,
+                        totalMealOrder: viewModel.numberOfMeals
+                    )
+                    
+                    DispatchQueue.main.async {
+                        HUD.dismiss()
+                        if success {
+                            self.showPopUp(title: "Order Success", isSuccess: success)
+                        }
+                    }
+                } catch let error as OrderError {
+                    DispatchQueue.main.async {
+                        HUD.dismiss()
+                        self.showPopUp(title: error.message, isSuccess: false)
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        HUD.dismiss()
+                        self.showPopUp(title: "It's Something happen", isSuccess: false)
+                    }
+                }
+            }
+        
+//        viewModel.addOrderMealFireStore(meal: meal, infoTopCustomMeal: infoTopCustomMeal, infoBottomCustomMeal: infoBottomCustomMeal, totalMealOrder: total) { [weak self] (done, msg) in
+//            guard let strongSelf = self else { return }
+//            if done {
+//                strongSelf.pushFromBottom(to: ScreenName.yourOrder, from: strongSelf)
+//            } else {
+//                strongSelf.showPopUp(title: msg, isSuccess: done)
+//            }
+//        }
+    }
+}
+
+// Popup
+extension AddToOrderViewController: PopUpViewDelegate {
+    private func showPopUp(title: String, isSuccess: Bool) {
+        // MARK: - Setup PopUp
+        popUp = PopUpView(frame: view.frame, inView: self)
+        popUp?.delegate = self
+        popUp?.viewModel = PopUpViewVM(
+            title: title,
+            isSuccesPopup: isSuccess
+        )
+        
+        // MARK: - Add to view hierarchy with animation
+        addPopUpToViewHierarchy()
+        animatePopUpPresentation()
+    }
+    
+    func addPopUpToViewHierarchy() {
+        guard let popUp = popUp else { return }
+        
+        // Set initial transform
+        let initialTransform = CGAffineTransform(a: Constants.initialScale, b: Constants.initialScale, c: Constants.initialScale, d: Constants.initialScale, tx: Constants.initialScale, ty: Constants.initialScale)
+        popUp.transform = initialTransform
+        
+        // Add to view
+        view.addSubview(popUp)
+    }
+    
+    func animatePopUpPresentation() {
+        UIView.animate(
+            withDuration: Constants.animationDuration,
+            delay: 0,
+            options: .curveEaseOut
+        ) { [weak self] in
+            self?.popUp?.transform = .identity
+        }
+    }
+    
+    func didTappingButton(view: PopUpView, isSuccess: Bool) {
+        self.popUp?.removeFromSuperview()
+        if isSuccess {
+            self.pushFromBottom(to: ScreenName.yourOrder, from: self)
+        } else {
+            return
+        }
+        
     }
 }

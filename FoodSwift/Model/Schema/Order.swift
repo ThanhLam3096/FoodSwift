@@ -7,28 +7,31 @@
 
 import Foundation
 
-final class Order {
-    var idMeal: String
-    var nameMeal: String
-    var totalNumberMeal: Int
-    var instructions: String
-    var priceMeal: Double
+struct OrderMeal {
+    var meal: Meal
+    var topCustom: String
+    var bottomCustom: String
+    var quantity: Int
+    let email: String
     
-    init(idMeal: String, nameMeal: String, totalNumberMeal: Int, instructions: String, priceMeal: Double) {
-        self.idMeal = idMeal
-        self.nameMeal = nameMeal
-        self.totalNumberMeal = totalNumberMeal
-        self.instructions = instructions
-        self.priceMeal = priceMeal
+    var toFirestoreData: [String: Any] {
+        return [
+            "account": email,
+            "idMeal": meal.idMeal,
+            "image": meal.image,
+            "name": meal.name,
+            "typeFood": meal.typeFood,
+            "quantity": quantity,
+            "price": meal.price,
+            "address": meal.address,
+            "nation1": meal.nation1,
+            "nation2": meal.nation2,
+            "time": meal.time,
+            "rating": meal.rating,
+            "totalVote": meal.totalVote,
+            "feeShip": meal.feeShip,
+            "topCustom": topCustom,
+            "bottomCustom": bottomCustom
+        ]
     }
-}
-
-struct dummyOrderMeal {
-    static let orderMeal: [Order] =
-    [
-        Order(idMeal: "1", nameMeal: "Pizza", totalNumberMeal: 3, instructions: "Top : More Salt \nBottom : More Sugar \nPlease Ship Fast ASAP", priceMeal: 15.0),
-        Order(idMeal: "2", nameMeal: "Hambuger", totalNumberMeal: 15, instructions: "Top : More Salt \nBottom : More Sugar \nPlease Ship Fast ASAP", priceMeal: 5.0),
-        Order(idMeal: "3", nameMeal: "Chicken Fried", totalNumberMeal: 10, instructions: "Top : More Salt \nBottom : More Sugar \nPlease Ship Fast ASAP", priceMeal: 12.4),
-        Order(idMeal: "4", nameMeal: "Tromisu", totalNumberMeal: 20, instructions: "Top : More Salt \nBottom : More Sugar \nPlease Ship Fast ASAP", priceMeal: 10.0)
-    ]
 }
