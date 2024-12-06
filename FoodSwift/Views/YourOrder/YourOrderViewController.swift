@@ -169,7 +169,16 @@ extension YourOrderViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension YourOrderViewController: OrangeButtonViewViewDelegate {
     func tappingInsideButton(view: OrangeButtonView) {
-        navigationController?.pushViewController(ScreenName.addYourPaymentMethos, animated: true)
+//        navigationController?.pushViewController(ScreenName.addYourPaymentMethos, animated: true)
+        guard let navigationController = self.navigationController else { return }
+        navigationController.popToRootViewController(animated: true)
+        
+        // Đợi animation hoàn thành rồi set selected index
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            if let tabBarController = navigationController.viewControllers.first as? FoodTabBarViewController {
+                tabBarController.selectedIndex = 2
+            }
+        }
     }
 }
 
@@ -253,6 +262,19 @@ extension YourOrderViewController: PopUpViewDelegate {
     }
     
     func didTappingButton(view: PopUpView, isSuccess: Bool) {
+        // Xóa popup
         self.popUp?.removeFromSuperview()
+        
+        if isSuccess {
+            guard let navigationController = self.navigationController else { return }
+            navigationController.popToRootViewController(animated: true)
+            
+            // Đợi animation hoàn thành rồi set selected index
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                if let tabBarController = navigationController.viewControllers.first as? FoodTabBarViewController {
+                    tabBarController.selectedIndex = 2
+                }
+            }
+        }
     }
 }

@@ -14,24 +14,30 @@ final class OrdersViewController: BaseViewController {
     
     // MARK: - Properties
     var viewModel: OrdersViewControllerVM = OrdersViewControllerVM()
+    var popUp: PopUpView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchDataMealOrder()
+    }
 
     override func setUpUI() {
         title = "Orders"
-        setUpTableView()
     }
     
     private func setUpTableView() {
         ordersTableView.delegate = self
         ordersTableView.dataSource = self
         ordersTableView.register(nibWithCellClass: OrdersTableViewCell.self)
+        ordersTableView.register(nibWithCellClass: EmptyDataOrderTableViewCell.self)
         ordersTableView.register(headerFooterViewClassWith: HeaderOrdersTableView.self)
         ordersTableView.register(headerFooterViewClassWith: FooterOrdersTableView.self)
+        ordersTableView.reloadData()
     }
 }
 
@@ -44,20 +50,35 @@ extension OrdersViewController: UITableViewDelegate {
 extension OrdersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let typeSection = OrdersViewControllerVM.YourOrder(rawValue: section) else { return 0 }
-        return viewModel.numberOfitemInSections(type: typeSection)
+        return viewModel.numberOfItemInSections(type: typeSection)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let typeSection = OrdersViewControllerVM.YourOrder(rawValue: indexPath.section) else {
             return UITableViewCell()
         }
-        let cell = tableView.dequeueReusableCell(withClass: OrdersTableViewCell.self, for: indexPath)
-        cell.viewModel = viewModel.cellForRowAtItemsInSection(indexPath: indexPath, type: typeSection)
-        return cell
+        switch typeSection {
+        case .upComingOrders:
+            if viewModel.isUpComingOrdersEmpty {
+                let cell = tableView.dequeueReusableCell(withClass: EmptyDataOrderTableViewCell.self, for: indexPath)
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withClass: OrdersTableViewCell.self, for: indexPath)
+                cell.viewModel = viewModel.cellForRowAtItemsInSection(indexPath: indexPath, type: typeSection)
+                return cell
+            }
+        case .pastOrders:
+            let cell = tableView.dequeueReusableCell(withClass: OrdersTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAtItemsInSection(indexPath: indexPath, type: typeSection)
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return viewModel.heightForRowItem()
+        guard let typeSection = OrdersViewControllerVM.YourOrder(rawValue: indexPath.section) else {
+            return 0
+        }
+        return viewModel.heightForRowItem(type: typeSection)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -101,5 +122,75 @@ extension OrdersViewController: UITableViewDataSource {
 extension OrdersViewController: FooterOrdersTableViewDelegate {
     func tappingPaymentProceed(view: FooterOrdersTableView) {
         print("Move To Payment Order Meal")
+    }
+}
+ 
+extension OrdersViewController {
+    private func fetchDataMealOrder() {
+        HUD.show()
+        Task {
+            let result = await viewModel.getDataOrderMealByEmail()
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                HUD.dismiss()
+                
+                switch result {
+                case .success:
+                    self.setUpTableView()
+                case .failure(let error):
+                    switch error {
+                    case .noDataFound(let email):
+                        self.viewModel.isUpComingOrdersEmpty = true
+                        self.setUpTableView()
+                    default:
+                        // Xử lý các lỗi khác
+                        self.showPopUp(title: error.message, isSuccess: false)
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Popup
+extension OrdersViewController: PopUpViewDelegate {
+    private func showPopUp(title: String, isSuccess: Bool) {
+        // MARK: - Setup PopUp
+        popUp = PopUpView(frame: view.frame, inView: self)
+        popUp?.delegate = self
+        popUp?.viewModel = PopUpViewVM(
+            title: title,
+            isSuccesPopup: isSuccess
+        )
+        
+        // MARK: - Add to view hierarchy with animation
+        addPopUpToViewHierarchy()
+        animatePopUpPresentation()
+    }
+    
+    func addPopUpToViewHierarchy() {
+        guard let popUp = popUp else { return }
+        
+        // Set initial transform
+        let initialTransform = CGAffineTransform(a: Constants.initialScale, b: Constants.initialScale, c: Constants.initialScale, d: Constants.initialScale, tx: Constants.initialScale, ty: Constants.initialScale)
+        popUp.transform = initialTransform
+        
+        // Add to view
+        view.addSubview(popUp)
+    }
+    
+    func animatePopUpPresentation() {
+        UIView.animate(
+            withDuration: Constants.animationDuration,
+            delay: 0,
+            options: .curveEaseOut
+        ) { [weak self] in
+            self?.popUp?.transform = .identity
+        }
+    }
+    
+    func didTappingButton(view: PopUpView, isSuccess: Bool) {
+        self.popUp?.removeFromSuperview()
     }
 }
