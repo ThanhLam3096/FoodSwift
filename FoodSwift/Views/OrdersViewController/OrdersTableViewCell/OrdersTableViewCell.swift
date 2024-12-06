@@ -54,6 +54,7 @@ final class OrdersTableViewCell: UITableViewCell {
     private func setUpLabel() {
         setUpTextTitleFontTextColorOfLabel(label: nameMealLabel, labelFont: UIFont.fontYugothicLight(ofSize: ScreenSize.scaleHeight(18)) ?? UIFont.systemFont(ofSize: 18), labelTextColor: Color.mainColor)
         setUpTextTitleFontTextColorOfLabel(label: intructionsLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.mainColor)
+        intructionsLabel.numberOfLines = 0
         setUpTextTitleFontTextColorOfLabel(label: typeMealLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(14)) ?? UIFont.systemFont(ofSize: 14), labelTextColor: Color.mainColor)
         setUpTextTitleFontTextColorOfLabel(label: nationMealLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(14)) ?? UIFont.systemFont(ofSize: 14), labelTextColor: Color.mainColor)
         setUpTextTitleFontTextColorOfLabel(label: totalPriceMealLabel, labelFont: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(14)) ?? UIFont.systemFont(ofSize: 18), labelTextColor: Color.activeColor)

@@ -126,6 +126,8 @@
 		04788A312BE38729009AB6DD /* IntroducePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04788A2E2BE38729009AB6DD /* IntroducePageViewController.swift */; };
 		047C664A2D02A85F002A2F7B /* FooterOrdersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C66492D02A85F002A2F7B /* FooterOrdersTableView.swift */; };
 		047C664C2D02A86F002A2F7B /* FooterOrdersTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047C664B2D02A86F002A2F7B /* FooterOrdersTableView.xib */; };
+		047C664F2D032A10002A2F7B /* EmptyDataOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047C664E2D032A10002A2F7B /* EmptyDataOrderTableViewCell.xib */; };
+		047C66502D032A10002A2F7B /* EmptyDataOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C664D2D032A10002A2F7B /* EmptyDataOrderTableViewCell.swift */; };
 		047DB2E62CC93DF5006B3E5D /* GlobalFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DB2E52CC93DF5006B3E5D /* GlobalFunction.swift */; };
 		047DB2EA2CC94539006B3E5D /* TypeMealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DB2E82CC94539006B3E5D /* TypeMealCollectionViewCell.swift */; };
 		047DB2EB2CC94539006B3E5D /* TypeMealCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047DB2E92CC94539006B3E5D /* TypeMealCollectionViewCell.xib */; };
@@ -369,6 +371,8 @@
 		04788A2F2BE38729009AB6DD /* IntroducePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroducePageViewController.xib; sourceTree = "<group>"; };
 		047C66492D02A85F002A2F7B /* FooterOrdersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterOrdersTableView.swift; sourceTree = "<group>"; };
 		047C664B2D02A86F002A2F7B /* FooterOrdersTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterOrdersTableView.xib; sourceTree = "<group>"; };
+		047C664D2D032A10002A2F7B /* EmptyDataOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataOrderTableViewCell.swift; sourceTree = "<group>"; };
+		047C664E2D032A10002A2F7B /* EmptyDataOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyDataOrderTableViewCell.xib; sourceTree = "<group>"; };
 		047DB2E52CC93DF5006B3E5D /* GlobalFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunction.swift; sourceTree = "<group>"; };
 		047DB2E82CC94539006B3E5D /* TypeMealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeMealCollectionViewCell.swift; sourceTree = "<group>"; };
 		047DB2E92CC94539006B3E5D /* TypeMealCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeMealCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -978,6 +982,15 @@
 			path = FooterOfOrderTableView;
 			sourceTree = "<group>";
 		};
+		047C66512D032A17002A2F7B /* EmptyDataOrderTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				047C664D2D032A10002A2F7B /* EmptyDataOrderTableViewCell.swift */,
+				047C664E2D032A10002A2F7B /* EmptyDataOrderTableViewCell.xib */,
+			);
+			path = EmptyDataOrderTableViewCell;
+			sourceTree = "<group>";
+		};
 		047DB2E72CC94519006B3E5D /* TypeMealCollectionCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1084,6 +1097,7 @@
 		0491EC772CB006FD00157BE7 /* OrdersViewController */ = {
 			isa = PBXGroup;
 			children = (
+				047C66512D032A17002A2F7B /* EmptyDataOrderTableViewCell */,
 				047C66482D02A83A002A2F7B /* FooterOfOrderTableView */,
 				043E791D2D01E49500616433 /* HeaderOfOrdersTableView */,
 				047405BD2D01D304005AC76D /* OrdersTableViewCell */,
@@ -1531,6 +1545,7 @@
 				04343B6F2C8AA320007D3331 /* DefinePhoneNumberViewController.xib in Resources */,
 				04343B6B2C8947F7007D3331 /* ForgotPasswordViewController.xib in Resources */,
 				04053D372CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.xib in Resources */,
+				047C664F2D032A10002A2F7B /* EmptyDataOrderTableViewCell.xib in Resources */,
 				042FCE2F2CC3D8D600144702 /* FeaturePartnersViewController.xib in Resources */,
 				041529822BD7595700818A4A /* Assets.xcassets in Resources */,
 				04888EF92CE2630B00C054C6 /* ImageMealModalViewController.xib in Resources */,
@@ -1764,6 +1779,7 @@
 				048C75FA2C18324E001DB3AD /* PageThreeViewController.swift in Sources */,
 				041529B22BD7AB7800818A4A /* ScreenSize.swift in Sources */,
 				045C00E72CE4B71000A46D71 /* SearchViewControllerVM.swift in Sources */,
+				047C66502D032A10002A2F7B /* EmptyDataOrderTableViewCell.swift in Sources */,
 				04E8DF262CD7D966008DB97D /* HeaderChoiceMealTableViewVM.swift in Sources */,
 				04D05FDA2CCBE9B600675B9A /* ListMealForTypeTableViewCellVM.swift in Sources */,
 				048D96292CBD1B0E00977AD1 /* Restaurant.swift in Sources */,

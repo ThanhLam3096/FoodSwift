@@ -363,6 +363,7 @@ enum OrderError: Error {
     case parseError
     case totalFieldMissing
     case firebaseError(Error)
+    case saveHistoryError(Error)
     
     var message: String {
         switch self {
@@ -378,6 +379,8 @@ enum OrderError: Error {
             return "Missing Info quality"
         case .firebaseError(let error):
             return "Error System: \(error.localizedDescription)"
+        case .saveHistoryError(let error):
+            return "Failed when Orders: \(error.localizedDescription)"
         }
     }
 }
