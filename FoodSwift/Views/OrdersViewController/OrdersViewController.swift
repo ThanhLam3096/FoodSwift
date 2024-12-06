@@ -68,9 +68,14 @@ extension OrdersViewController: UITableViewDataSource {
                 return cell
             }
         case .pastOrders:
-            let cell = tableView.dequeueReusableCell(withClass: OrdersTableViewCell.self, for: indexPath)
-            cell.viewModel = viewModel.cellForRowAtItemsInSection(indexPath: indexPath, type: typeSection)
-            return cell
+            if viewModel.isHistoryOrdersEmpty {
+                let cell = tableView.dequeueReusableCell(withClass: EmptyDataOrderTableViewCell.self, for: indexPath)
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withClass: OrdersTableViewCell.self, for: indexPath)
+                cell.viewModel = viewModel.cellForRowAtItemsInSection(indexPath: indexPath, type: typeSection)
+                return cell
+            }
         }
     }
     
@@ -96,9 +101,13 @@ extension OrdersViewController: UITableViewDataSource {
         else { return nil }
         switch typeSection {
         case .upComingOrders:
-            let footerView = tableView.dequeueReusableHeaderFooterView(withClass: FooterOrdersTableView.self)
-            footerView.delegate = self
-            return footerView
+            if viewModel.isUpComingOrdersEmpty == true {
+                return UIView()
+            } else {
+                let footerView = tableView.dequeueReusableHeaderFooterView(withClass: FooterOrdersTableView.self)
+                footerView.delegate = self
+                return footerView
+            }
         case .pastOrders:
             return UIView()
         }
@@ -129,7 +138,30 @@ extension OrdersViewController {
     private func fetchDataMealOrder() {
         HUD.show()
         Task {
-            let result = await viewModel.getDataOrderMealByEmail()
+            let result = await viewModel.getDataOrderMealByEmail(dbCollection: "orderMeal")
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                
+                switch result {
+                case .success:
+                    fetchDataHistoryMealOrder()
+                case .failure(let error):
+                    switch error {
+                    case .noDataFound(let email):
+                        self.viewModel.isUpComingOrdersEmpty = true
+                        fetchDataHistoryMealOrder()
+                    default:
+                        fetchDataHistoryMealOrder()
+                    }
+                }
+            }
+        }
+    }
+    
+    private func fetchDataHistoryMealOrder() {
+        Task {
+            let result = await viewModel.getDataOrderMealByEmail(dbCollection: "HistoryOrderMeal")
             
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
@@ -141,7 +173,7 @@ extension OrdersViewController {
                 case .failure(let error):
                     switch error {
                     case .noDataFound(let email):
-                        self.viewModel.isUpComingOrdersEmpty = true
+                        self.viewModel.isHistoryOrdersEmpty = true
                         self.setUpTableView()
                     default:
                         // Xử lý các lỗi khác
