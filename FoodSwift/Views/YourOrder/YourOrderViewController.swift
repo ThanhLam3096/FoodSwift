@@ -169,14 +169,18 @@ extension YourOrderViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension YourOrderViewController: OrangeButtonViewViewDelegate {
     func tappingInsideButton(view: OrangeButtonView) {
-//        navigationController?.pushViewController(ScreenName.addYourPaymentMethos, animated: true)
-        guard let navigationController = self.navigationController else { return }
-        navigationController.popToRootViewController(animated: true)
-        
-        // Đợi animation hoàn thành rồi set selected index
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            if let tabBarController = navigationController.viewControllers.first as? FoodTabBarViewController {
-                tabBarController.selectedIndex = 2
+        Task {
+            do {
+                let result = try await viewModel.addHistoryOrder()
+                switch result {
+                case .success:
+                    // Xử lý khi thêm thành công
+                    self.showPopUp(title: "Success Orders", isSuccess: true)
+                case .failure(let error):
+                    self.showPopUp(title: "Error to order: \(error.message)", isSuccess: false)
+                }
+            } catch {
+                print("Lỗi: \(error.localizedDescription)")
             }
         }
     }
