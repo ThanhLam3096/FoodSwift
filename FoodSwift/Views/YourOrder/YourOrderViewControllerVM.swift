@@ -179,3 +179,29 @@ final class YourOrderViewControllerVM {
     }
 }
 
+// save to history
+extension YourOrderViewControllerVM {
+    func addHistoryOrder() async throws -> Result<Bool, OrderError> {
+        do {
+            for item in listOrderMeals {
+                try await db.collection("HistoryOrderMeal").addDocument(data: item.toFirestoreData)
+            }
+            guard let email = email else {
+                return .failure(.emailNotFound)
+            }
+            
+            let snapshot = try await db.collection("orderMeal")
+                .whereField("account", isEqualTo: email)
+                .getDocuments()
+            
+            // 3. Xóa từng document
+            for document in snapshot.documents {
+                try await document.reference.delete()
+            }
+            
+            return .success(true)
+        } catch {
+            return .failure(.saveHistoryError(error))
+        }
+    }
+}

@@ -10,8 +10,9 @@ import Foundation
 final class OrdersViewControllerVM {
     
     var upComingOrder: [OrderMeal] = []
-    var passOrder: [OrderMeal] = DummyOrderData.dummyOrderData
+    var passOrder: [OrderMeal] = []
     var isUpComingOrdersEmpty: Bool = false
+    var isHistoryOrdersEmpty: Bool = false
     
     private(set) var email: String?
     
@@ -95,14 +96,9 @@ final class OrdersViewControllerVM {
         return ScreenSize.scaleHeight(44)
     }
     
-    private func createHistoryOrder(request: OrderMeal) async throws -> Bool {
-        try await db.collection("historyOrders").addDocument(data: request.toFirestoreData)
-        return true
-    }
-    
-    private func fetchDataOrderByEmail(email: String) async -> Result<[[String: Any]], OrderError> {
+    private func fetchDataOrderByEmail(email: String, dbCollection: String) async -> Result<[[String: Any]], OrderError> {
         do {
-            let snapshot = try await db.collection("orderMeal")
+            let snapshot = try await db.collection(dbCollection)
                 .whereField("account", isEqualTo: email)
                 .getDocuments()
             let documents = snapshot.documents
@@ -117,15 +113,21 @@ final class OrdersViewControllerVM {
         }
     }
     
-    func getDataOrderMealByEmail() async -> Result<Bool, OrderError> {
+    func getDataOrderMealByEmail(dbCollection: String) async -> Result<Bool, OrderError> {
         // Clear existing data
-        upComingOrder.removeAll()
+        if dbCollection == "orderMeal" {
+            upComingOrder.removeAll()
+            isUpComingOrdersEmpty = false
+        } else {
+            isHistoryOrdersEmpty = false
+            passOrder.removeAll()
+        }
         
         guard let email = email else {
             return .failure(.emailNotFound)
         }
         
-        let result = await fetchDataOrderByEmail(email: email)
+        let result = await fetchDataOrderByEmail(email: email, dbCollection: dbCollection)
         
         switch result {
         case .success(let orderMeals):
@@ -134,7 +136,11 @@ final class OrdersViewControllerVM {
                       let orderMeal = parseOrderMealData(from: item, meal: meal) else {
                     return .failure(.parseError)
                 }
-                upComingOrder.append(orderMeal)
+                if dbCollection == "orderMeal" {
+                    upComingOrder.append(orderMeal)
+                } else {
+                    passOrder.append(orderMeal)
+                }
             }
             return .success(true)
             
