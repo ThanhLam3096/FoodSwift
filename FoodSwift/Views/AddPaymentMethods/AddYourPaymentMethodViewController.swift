@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class AddYourPaymentMethodViewController: BaseViewController {
     
@@ -145,6 +146,11 @@ class AddYourPaymentMethodViewController: BaseViewController {
         view.endEditing(true)
     }
     
+    @IBAction func backButtonTouchUpInside(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
     private func actionWhenShowKeyboard() {
         keyboardObserver = KeyboardObserver()
         keyboardObserver?.onKeyboardWillShow = { [weak self] _ in
@@ -166,6 +172,22 @@ class AddYourPaymentMethodViewController: BaseViewController {
             UIView.animate(withDuration: 0.3) {
                 self.scrollView.setContentOffset(CGPoint(x: 0, y: scrollOffsetY), animated: true)
                 self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    
+    @IBAction func scanerCardButtonTouchUpInside(_ sender: Any) {
+        AVCaptureDevice.requestAccess(for: .video) { [weak self] granted in
+            DispatchQueue.main.async {
+                if granted {
+                    let scannerVC = CardScannerViewController()
+                    scannerVC.delegate = self
+                    scannerVC.modalPresentationStyle = .fullScreen
+                    self?.present(scannerVC, animated: true)
+                } else {
+                    self?.showCameraPermissionAlert()
+                }
             }
         }
     }
@@ -197,3 +219,33 @@ extension AddYourPaymentMethodViewController: UITextFieldDelegate {
         }
     }
 }
+
+extension AddYourPaymentMethodViewController: CardScannerViewControllerDelegate {
+    func cardScanner(_ scanner: CardScannerViewController, didFinishWith card: CardDetails) {
+        // Cập nhật UI với thông tin thẻ đã scan
+        idCardTextField.text = card.formattedNumber
+        expiryCardTextField.text = card.formattedExpiry
+    }
+    
+    func cardScannerDidCancel(_ scanner: CardScannerViewController) {
+        print("Scanning was cancelled")
+    }
+    
+    private func showCameraPermissionAlert() {
+        let alert = UIAlertController(
+            title: "Camera Access Required",
+            message: "Please enable camera access in Settings to scan your card",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Settings", style: .default) { _ in
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url)
+            }
+        })
+        
+        present(alert, animated: true)
+    }
+}
+

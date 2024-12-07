@@ -191,7 +191,7 @@ extension AddCreditCardViewController: UITableViewDelegate, UITableViewDataSourc
 
 extension AddCreditCardViewController: CreditCardTableViewCellDelegate {
     func tappingChosingDefaultPayment(view: CreditCardTableViewCell, typeCard: CreditCardType) {
-        print("Set Card \(typeCard.title) is Default")
+        self.navigationController?.pushViewController(ScreenName.addYourPaymentMethos, animated: true)
     }
     
     
