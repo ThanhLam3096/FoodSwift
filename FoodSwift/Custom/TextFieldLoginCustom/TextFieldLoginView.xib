@@ -11,22 +11,29 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TextFieldLoginView" customModule="FoodSwift" customModuleProvider="target">
             <connections>
                 <outlet property="checkMarkButtonImageView" destination="GRK-Jx-re8" id="TLN-cZ-rwf"/>
+                <outlet property="dropDownMenu" destination="7DZ-KJ-YEW" id="L0e-6s-onb"/>
                 <outlet property="eyeButton" destination="ih6-h2-X8o" id="nMm-UM-VwS"/>
                 <outlet property="heightEyeButtonConstraint" destination="E92-4i-Vev" id="xcP-jI-wcg"/>
                 <outlet property="heightOfCheckMarkImageConstraint" destination="K1m-vf-jA3" id="9L6-bD-uTk"/>
+                <outlet property="heightOfNationImageConstraint" destination="Xmk-Ba-MZE" id="vJN-r8-MS2"/>
                 <outlet property="infoTextField" destination="eE2-xP-g3P" id="FZW-fw-cfs"/>
+                <outlet property="leadingSpaceOfTextFieldWithDropDownButtonConstraint" destination="niB-Jh-uX0" id="AMa-Tc-gJo"/>
+                <outlet property="leadingSpaceOfTextFieldWithSuperViewConstraint" destination="8vk-Fm-Wgs" id="tVj-ai-gqz"/>
                 <outlet property="lineView" destination="1Sa-WA-dil" id="eSf-0X-XvG"/>
                 <outlet property="loginFormTextView" destination="iN0-l3-epB" id="BCf-GU-AZc"/>
+                <outlet property="nationCodePhoneNumberImageView" destination="t2A-lq-hxH" id="PoC-Fg-yd9"/>
                 <outlet property="spaceOfTitleAndTextFieldConstraint" destination="VOb-0h-53N" id="X9b-6X-Tlq"/>
                 <outlet property="titleTextFieldLabel" destination="Zqn-kG-Vf8" id="fX2-sB-Iq8"/>
                 <outlet property="topSpaceOfLineViewConstraint" destination="9dG-yi-9vF" id="dIp-ih-oVg"/>
                 <outlet property="widthEyeButtonConstraint" destination="Eqd-ba-dTT" id="CzI-bA-19n"/>
                 <outlet property="widthOfCheckMarkImageConstraint" destination="M1m-6f-ymK" id="83L-C4-1AG"/>
+                <outlet property="widthOfDownArrowButtonConstraint" destination="SYH-Rg-Ivr" id="e2a-KC-uZQ"/>
+                <outlet property="widthOfNationImageConstraint" destination="S0i-ge-XHu" id="Uvk-l2-QnA"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="410" height="82"/>
+            <rect key="frame" x="0.0" y="0.0" width="460" height="283"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqn-kG-Vf8">
@@ -39,19 +46,37 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eE2-xP-g3P">
-                    <rect key="frame" x="0.0" y="37" width="380" height="34"/>
+                    <rect key="frame" x="0.0" y="37" width="430" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VietNam" translatesAutoresizingMaskIntoConstraints="NO" id="t2A-lq-hxH">
+                    <rect key="frame" x="0.0" y="42" width="32" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="S0i-ge-XHu"/>
+                        <constraint firstAttribute="height" constant="24" id="Xmk-Ba-MZE"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7DZ-KJ-YEW" userLabel="dropDownMenu">
+                    <rect key="frame" x="32" y="45" width="12" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="12" id="SYH-Rg-Ivr"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="pathDown"/>
+                    <connections>
+                        <action selector="dropDownButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="Ntc-9E-U2U"/>
+                    </connections>
+                </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GRK-Jx-re8">
-                    <rect key="frame" x="398" y="52.333333333333329" width="12" height="4"/>
+                    <rect key="frame" x="448" y="52.333333333333329" width="12" height="4"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="9" id="K1m-vf-jA3"/>
                         <constraint firstAttribute="width" constant="12" id="M1m-6f-ymK"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ih6-h2-X8o">
-                    <rect key="frame" x="397" y="5.6666666666666679" width="13" height="11"/>
+                    <rect key="frame" x="447" y="5.6666666666666679" width="13" height="11"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="11" id="E92-4i-Vev"/>
                         <constraint firstAttribute="width" constant="13" id="Eqd-ba-dTT"/>
@@ -63,7 +88,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sa-WA-dil">
-                    <rect key="frame" x="0.0" y="81" width="410" height="1"/>
+                    <rect key="frame" x="0.0" y="81" width="460" height="1"/>
                     <color key="backgroundColor" systemColor="systemBrownColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="gDu-Z4-Frl"/>
@@ -73,24 +98,31 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="1Sa-WA-dil" secondAttribute="trailing" id="7kU-Xt-VNx"/>
+                <constraint firstItem="eE2-xP-g3P" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8vk-Fm-Wgs"/>
                 <constraint firstItem="1Sa-WA-dil" firstAttribute="top" secondItem="eE2-xP-g3P" secondAttribute="bottom" constant="10" id="9dG-yi-9vF"/>
                 <constraint firstAttribute="trailing" secondItem="GRK-Jx-re8" secondAttribute="trailing" id="GMh-Tb-A5B"/>
                 <constraint firstItem="1Sa-WA-dil" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OFN-Wf-hA4"/>
                 <constraint firstAttribute="trailing" secondItem="eE2-xP-g3P" secondAttribute="trailing" constant="30" id="Pjh-AI-eH2"/>
+                <constraint firstItem="7DZ-KJ-YEW" firstAttribute="centerY" secondItem="t2A-lq-hxH" secondAttribute="centerY" id="RmV-FO-VAa"/>
                 <constraint firstItem="Zqn-kG-Vf8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Rrg-Zd-h7Z"/>
                 <constraint firstItem="GRK-Jx-re8" firstAttribute="centerY" secondItem="eE2-xP-g3P" secondAttribute="centerY" id="SsD-hO-iNW"/>
                 <constraint firstItem="eE2-xP-g3P" firstAttribute="top" secondItem="Zqn-kG-Vf8" secondAttribute="bottom" constant="15" id="VOb-0h-53N"/>
-                <constraint firstItem="eE2-xP-g3P" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aGC-aO-k9n"/>
+                <constraint firstItem="7DZ-KJ-YEW" firstAttribute="leading" secondItem="t2A-lq-hxH" secondAttribute="trailing" id="ai8-uE-D9f"/>
                 <constraint firstItem="ih6-h2-X8o" firstAttribute="centerY" secondItem="Zqn-kG-Vf8" secondAttribute="centerY" id="d0s-dJ-Kdy"/>
                 <constraint firstAttribute="trailing" secondItem="ih6-h2-X8o" secondAttribute="trailing" id="d82-XK-aEM"/>
                 <constraint firstItem="Zqn-kG-Vf8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gJr-AN-E2x"/>
+                <constraint firstItem="t2A-lq-hxH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jh9-4Y-VHA"/>
+                <constraint firstItem="eE2-xP-g3P" firstAttribute="leading" secondItem="7DZ-KJ-YEW" secondAttribute="trailing" priority="750" constant="10" id="niB-Jh-uX0"/>
+                <constraint firstItem="t2A-lq-hxH" firstAttribute="centerY" secondItem="eE2-xP-g3P" secondAttribute="centerY" id="zUQ-e8-m8d"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-264.12213740458014" y="-288.02816901408454"/>
+            <point key="canvasLocation" x="-302.29007633587787" y="-217.25352112676057"/>
         </view>
     </objects>
     <resources>
+        <image name="VietNam" width="1599" height="1066"/>
         <image name="eye" width="14" height="12"/>
+        <image name="pathDown" width="12" height="6"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

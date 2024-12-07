@@ -31,6 +31,7 @@
                 <outlet property="numberOfMealLabel" destination="it9-v2-SHu" id="JNd-1g-3UJ"/>
                 <outlet property="plusButton" destination="3pP-kY-UQR" id="h5a-IT-rob"/>
                 <outlet property="priceMealLabel" destination="CXz-YU-56q" id="CGP-NW-MTh"/>
+                <outlet property="scrollView" destination="ZaS-ge-c6h" id="DYQ-0G-I2j"/>
                 <outlet property="secondNationLabel" destination="Jvd-j4-Ok5" id="F70-bv-9aX"/>
                 <outlet property="spaceOfBottomTableViewConstraint" destination="ZJg-rJ-rpb" id="Uur-T2-FOZ"/>
                 <outlet property="spaceOfCustomInfoOrderMealConstraint" destination="giy-3K-DJe" id="I4l-gr-bFk"/>
@@ -267,7 +268,7 @@
         <image name="minus" width="14" height="2"/>
         <image name="plus" width="16" height="16"/>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

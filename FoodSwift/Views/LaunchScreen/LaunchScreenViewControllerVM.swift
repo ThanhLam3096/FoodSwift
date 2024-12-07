@@ -8,7 +8,7 @@
 import Foundation
 
 final class LaunchScreenViewControllerVM {
-    func getToHitorySearch() -> Bool {
+    func getToEmail() -> Bool {
         if let emailLogin = UserDefaults.standard.string(forKey: "emailLogin") {
             return true
         } else {

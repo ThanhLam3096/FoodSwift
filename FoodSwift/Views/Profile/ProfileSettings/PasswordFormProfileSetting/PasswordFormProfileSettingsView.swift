@@ -45,8 +45,11 @@ final class PasswordFormProfileSettingsView: UIView {
     }
     
     private func updateView() {
-        guard let typeForm = viewModel?.typeForm else { return }
+        guard let typeForm = viewModel?.typeForm, let value = viewModel?.value else { return }
         titleTextFieldLabel.text = typeForm.title
+        infoTextField.text = value
+        infoTextField.isSecureTextEntry = true
+        infoTextField.textContentType = .none
     }
     
     private func setUpUIView() {
@@ -76,6 +79,7 @@ final class PasswordFormProfileSettingsView: UIView {
         infoTextField.textColor = Color.mainColor
         infoTextField.borderStyle = .none
         infoTextField.tintColor = Color.accentColor
+        infoTextField.isEnabled = false
         infoTextField.delegate = self
         NSLayoutConstraint.activate([
             infoTextField.heightAnchor.constraint(equalToConstant: ScreenSize.scaleHeight(24)),

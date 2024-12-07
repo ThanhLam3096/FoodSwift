@@ -31,7 +31,8 @@ final class CreateAccountViewControllerVM {
             "fullName" : fullName,
             "email" : email,
             "password" : password,
-            "phoneNumber": ""
+            "phoneNumber": "",
+            "nation": ""
         ]
         db.collection("users").whereField("email", isEqualTo: email).getDocuments { querySnapshot, error in
             if let error = error {
@@ -96,7 +97,8 @@ final class CreateAccountViewControllerVM {
             "fullName" : fullName,
             "email" : email,
             "password" : "",
-            "phoneNumber": ""
+            "phoneNumber": "",
+            "nation": ""
         ]
         db.collection("users").whereField("email", isEqualTo: email).getDocuments { querySnapshot, error in
             if let error = error {

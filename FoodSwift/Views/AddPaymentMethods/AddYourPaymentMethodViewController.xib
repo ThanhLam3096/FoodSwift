@@ -63,6 +63,9 @@
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" image="left_arrow_back"/>
                                     <buttonConfiguration key="configuration" style="plain" image="left_arrow_back"/>
+                                    <connections>
+                                        <action selector="backButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="wmv-7u-0YV"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQh-g8-xcs" userLabel="search">
                                     <rect key="frame" x="354" y="0.0" width="40" height="40"/>
@@ -156,6 +159,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <buttonConfiguration key="configuration" style="plain"/>
+                                            <connections>
+                                                <action selector="scanerCardButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="rUP-wp-wlG"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

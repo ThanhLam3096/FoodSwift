@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardScannerViewController" customModule="FoodSwift" customModuleProvider="target">
+            <connections>
+                <outlet property="closeButton" destination="hgf-Yd-cba" id="Ygc-h4-gXE"/>
+                <outlet property="instructionLabel" destination="Kf2-gh-Lpo" id="wER-mn-XcV"/>
+                <outlet property="overlayView" destination="mnb-Vc-xza" id="Qwe-rt-yui"/>
+                <outlet property="scannerOverlayView" destination="jkl-Mn-bvc" id="Asd-fg-hjk"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Pqw-er-tyu"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mnb-Vc-xza" userLabel="Overlay View">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jkl-Mn-bvc" userLabel="Scanner Overlay View">
+                    <rect key="frame" x="29.333333333333343" y="301" width="334.33333333333326" height="210"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="jkl-Mn-bvc" secondAttribute="height" multiplier="1.59:1" id="xyz-ab-cde"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đặt thẻ vào khung để quét" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kf2-gh-Lpo">
+                    <rect key="frame" x="20" y="531" width="353" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgf-Yd-cba">
+                    <rect key="frame" x="20" y="59" width="65.666666666666671" height="38.333333333333343"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Đóng">
+                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="Zxc-vb-nml"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Kf2-gh-Lpo" secondAttribute="trailing" constant="20" id="567-89-abc"/>
+                <constraint firstItem="Kf2-gh-Lpo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="890-cd-efg"/>
+                <constraint firstItem="mnb-Vc-xza" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ABC-de-fgh"/>
+                <constraint firstAttribute="trailing" secondItem="mnb-Vc-xza" secondAttribute="trailing" id="DEF-gh-ijk"/>
+                <constraint firstAttribute="bottom" secondItem="mnb-Vc-xza" secondAttribute="bottom" id="GHI-jk-lmn"/>
+                <constraint firstItem="mnb-Vc-xza" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JKL-mn-opq"/>
+                <constraint firstItem="jkl-Mn-bvc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-20" id="MNO-pq-rst"/>
+                <constraint firstItem="jkl-Mn-bvc" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.85" id="QRS-tu-vwx"/>
+                <constraint firstItem="jkl-Mn-bvc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TUV-wx-yz1"/>
+                <constraint firstItem="Kf2-gh-Lpo" firstAttribute="top" secondItem="jkl-Mn-bvc" secondAttribute="bottom" constant="20" id="WXY-z1-234"/>
+                <constraint firstItem="hgf-Yd-cba" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="hij-kl-mno"/>
+                <constraint firstItem="hgf-Yd-cba" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="pqr-st-uvw"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="-11"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
