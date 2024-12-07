@@ -17,6 +17,6 @@ final class OrdersTableViewCellVM {
     func getTotalPriceMeal() -> String {
         let quantity = orders.quantity
         let price = orders.meal.price
-        return "Dollars$\(displayNumber(Double(quantity) * price))"
+        return "Dollars$\(displayNumber((Double(quantity) * price).rounded(toPlaces: 1)))"
     }
 }
