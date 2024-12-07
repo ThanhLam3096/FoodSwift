@@ -24,7 +24,8 @@ final class OrdersViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.setUpEmail()
-        fetchDataMealOrder()
+//        fetchDataMealOrder()
+        setupRealTimeUpdates()
     }
 
     override func setUpUI() {
@@ -257,5 +258,49 @@ extension OrdersViewController: PopUpViewDelegate {
     
     func didTappingButton(view: PopUpView, isSuccess: Bool) {
         self.popUp?.removeFromSuperview()
+    }
+}
+
+// Real Time
+extension OrdersViewController {
+    private func setupRealTimeUpdates() {
+        // Listen for upcoming orders
+        viewModel.listenToOrderChanges(dbCollection: App.String.collectionDBOrder) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success:
+                self.listenToPastOrders()
+            case .failure(let error):
+                switch error {
+                case .noDataFound(_):
+                    self.viewModel.isUpComingOrdersEmpty = true
+                    self.listenToPastOrders()
+                default:
+                    self.listenToPastOrders()
+                }
+            }
+        }
+    }
+    
+    private func listenToPastOrders() {
+        viewModel.listenToOrderChanges(dbCollection: App.String.collectionDBHistoryOrder) { [weak self] result in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    self.setUpTableView()
+                case .failure(let error):
+                    switch error {
+                    case .noDataFound(_):
+                        self.viewModel.isHistoryOrdersEmpty = true
+                        self.setUpTableView()
+                    default:
+                        self.showPopUp(title: error.message, isSuccess: false)
+                    }
+                }
+            }
+        }
     }
 }

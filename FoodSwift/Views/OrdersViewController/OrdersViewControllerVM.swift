@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 final class OrdersViewControllerVM {
     
@@ -13,6 +14,9 @@ final class OrdersViewControllerVM {
     var passOrder: [OrderMeal] = []
     var isUpComingOrdersEmpty: Bool = false
     var isHistoryOrdersEmpty: Bool = false
+    
+    private var upComingOrderListener: ListenerRegistration?
+    private var pastOrderListener: ListenerRegistration?
     
     private(set) var email: String?
     
@@ -203,5 +207,69 @@ extension OrdersViewControllerVM {
         } catch {
             return .failure(.saveHistoryError(error))
         }
+    }
+}
+
+extension OrdersViewControllerVM {
+    func listenToOrderChanges(dbCollection: String, completion: @escaping (Result<Bool, OrderError>) -> Void) {
+        guard let email = email else {
+            completion(.failure(.emailNotFound))
+            return
+        }
+        
+        let listener = db.collection(dbCollection)
+            .whereField(App.String.collectionDBAccount, isEqualTo: email)
+            .addSnapshotListener { [weak self] snapshot, error in
+                guard let self = self else { return }
+                
+                if let error = error {
+                    completion(.failure(.fetchError(error)))
+                    return
+                }
+                
+                guard let snapshot = snapshot else {
+                    completion(.failure(.noDataFound(email: email)))
+                    return
+                }
+                
+                // Clear existing data
+                if dbCollection == App.String.collectionDBOrder {
+                    self.upComingOrder.removeAll()
+                    self.isUpComingOrdersEmpty = snapshot.documents.isEmpty
+                } else {
+                    self.passOrder.removeAll()
+                    self.isHistoryOrdersEmpty = snapshot.documents.isEmpty
+                }
+                
+                // Parse new data
+                for document in snapshot.documents {
+                    let data = document.data()
+                    if let meal = self.parseMealData(from: data),
+                       let orderMeal = self.parseOrderMealData(from: data, meal: meal) {
+                        if dbCollection == App.String.collectionDBOrder {
+                            self.upComingOrder.append(orderMeal)
+                        } else {
+                            self.passOrder.append(orderMeal)
+                        }
+                    }
+                }
+                
+                completion(.success(true))
+            }
+        
+        // Lưu listener
+        if dbCollection == App.String.collectionDBOrder {
+            upComingOrderListener = listener
+        } else {
+            pastOrderListener = listener
+        }
+    }
+    
+    // Thêm method để remove listeners khi không cần thiết
+    func removeListeners() {
+        upComingOrderListener?.remove()
+        pastOrderListener?.remove()
+        upComingOrderListener = nil
+        pastOrderListener = nil
     }
 }
