@@ -24,20 +24,6 @@ final class OrdersViewControllerVM {
         email = UserDefaults.standard.string(forKey: UserDefaultsKeys.emailLogin)
     }
     
-    enum YourOrder: Int, CaseIterable  {
-        case upComingOrders
-        case pastOrders
-        
-        var title: String {
-            switch self {
-            case .upComingOrders:
-                return "UPCOMING ORDERS"
-            case .pastOrders:
-                return "PAST ORDERS"
-            }
-        }
-    }
-    
     func numberOfSections() -> Int {
         return YourOrder.allCases.count
     }
@@ -71,7 +57,7 @@ final class OrdersViewControllerVM {
     }
     
     func cellForHeaderSections(type: YourOrder) -> HeaderOrdersTableViewVM {
-        return HeaderOrdersTableViewVM(titleHeader: type.title)
+        return HeaderOrdersTableViewVM(type: type)
     }
     
     func heightForRowItem(type: YourOrder) -> CGFloat {
@@ -99,7 +85,7 @@ final class OrdersViewControllerVM {
     private func fetchDataOrderByEmail(email: String, dbCollection: String) async -> Result<[[String: Any]], OrderError> {
         do {
             let snapshot = try await db.collection(dbCollection)
-                .whereField("account", isEqualTo: email)
+                .whereField(App.String.collectionDBAccount, isEqualTo: email)
                 .getDocuments()
             let documents = snapshot.documents
             guard !documents.isEmpty else {
@@ -115,7 +101,7 @@ final class OrdersViewControllerVM {
     
     func getDataOrderMealByEmail(dbCollection: String) async -> Result<Bool, OrderError> {
         // Clear existing data
-        if dbCollection == "orderMeal" {
+        if dbCollection == App.String.collectionDBOrder{
             upComingOrder.removeAll()
             isUpComingOrdersEmpty = false
         } else {
@@ -136,7 +122,7 @@ final class OrdersViewControllerVM {
                       let orderMeal = parseOrderMealData(from: item, meal: meal) else {
                     return .failure(.parseError)
                 }
-                if dbCollection == "orderMeal" {
+                if dbCollection == App.String.collectionDBOrder{
                     upComingOrder.append(orderMeal)
                 } else {
                     passOrder.append(orderMeal)
@@ -186,5 +172,36 @@ final class OrdersViewControllerVM {
         )
         return orderMeal
     }
+}
 
+extension OrdersViewControllerVM {
+    func clearOrderMeal(collectionDB: String) async -> Result<Bool, OrderError> {
+        do {
+            guard let email = email else {
+                return .failure(.emailNotFound)
+            }
+            
+            let snapshot = try await db.collection(collectionDB)
+                .whereField(App.String.collectionDBAccount, isEqualTo: email)
+                .getDocuments()
+            
+            if snapshot.documents.isEmpty {
+                return .failure(.noDataFound(email: email))
+            }
+            
+            for document in snapshot.documents {
+                try await document.reference.delete()
+            }
+            if collectionDB == App.String.collectionDBOrder{
+                upComingOrder.removeAll()
+                isUpComingOrdersEmpty = true
+            } else {
+                isHistoryOrdersEmpty = true
+                passOrder.removeAll()
+            }
+            return .success(true)
+        } catch {
+            return .failure(.saveHistoryError(error))
+        }
+    }
 }

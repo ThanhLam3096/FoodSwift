@@ -10,6 +10,8 @@ import UIKit
 class AddToOrderViewController: BaseViewController {
     
     // MARK: - IBOutlet
+    
+    @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var imageMealImageView: UIImageView!
     @IBOutlet private weak var closeButton: UIButton!
     @IBOutlet private weak var nameMealLabel: UILabel!
@@ -54,7 +56,11 @@ class AddToOrderViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        if let scrollView = self.view.subviews.first(where: { $0 is UIScrollView }) as? UIScrollView {
+            scrollView.setContentOffset(.zero, animated: false)
+        }
         updateUIView()
+        resetStatusSelect()
     }
 
     override func setUpUI() {
@@ -104,6 +110,16 @@ class AddToOrderViewController: BaseViewController {
         updatePriceOrangeButton(price: viewModel.totalOfPriceMeal())
         customInfoLabel.sizeToFit()
         customInfoLabel.text = viewModel.updateOrderInfoMeal()
+    }
+    
+    private func resetStatusSelect() {
+        viewModel.topCustomMealIndexPatch = nil
+        viewModel.bottomCustomMealIndexPatch = nil
+        viewModel.infoTopCustomMeal = ""
+        viewModel.infoBottomCustomMeal = ""
+        viewModel.addIntructionMealOrder = ""
+        customInfoLabel.text = viewModel.updateOrderInfoMeal()
+        customMealTableView.reloadData()
     }
     
     private func updateLabel(meal: Meal) {

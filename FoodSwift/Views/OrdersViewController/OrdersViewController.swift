@@ -50,12 +50,12 @@ extension OrdersViewController: UITableViewDelegate {
 
 extension OrdersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let typeSection = OrdersViewControllerVM.YourOrder(rawValue: section) else { return 0 }
+        guard let typeSection = YourOrder(rawValue: section) else { return 0 }
         return viewModel.numberOfItemInSections(type: typeSection)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let typeSection = OrdersViewControllerVM.YourOrder(rawValue: indexPath.section) else {
+        guard let typeSection = YourOrder(rawValue: indexPath.section) else {
             return UITableViewCell()
         }
         switch typeSection {
@@ -81,7 +81,7 @@ extension OrdersViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let typeSection = OrdersViewControllerVM.YourOrder(rawValue: indexPath.section) else {
+        guard let typeSection = YourOrder(rawValue: indexPath.section) else {
             return 0
         }
         return viewModel.heightForRowItem(type: typeSection)
@@ -89,16 +89,17 @@ extension OrdersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         tableView.tableHeaderView = nil
-        guard let typeSection = OrdersViewControllerVM.YourOrder(rawValue: section)
+        guard let typeSection = YourOrder(rawValue: section)
         else { return nil }
         let headerView = tableView.dequeueReusableHeaderFooterView(withClass: HeaderOrdersTableView.self)
         headerView.viewModel = viewModel.cellForHeaderSections(type: typeSection)
+        headerView.delegate = self
         return headerView
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         tableView.tableFooterView = nil
-        guard let typeSection = OrdersViewControllerVM.YourOrder(rawValue: section)
+        guard let typeSection = YourOrder(rawValue: section)
         else { return nil }
         switch typeSection {
         case .upComingOrders:
@@ -119,7 +120,7 @@ extension OrdersViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        guard let typeSection = OrdersViewControllerVM.YourOrder(rawValue: section) else {return 0}
+        guard let typeSection = YourOrder(rawValue: section) else {return 0}
         switch typeSection {
         case .upComingOrders:
             return ScreenSize.scaleHeight(40)
@@ -129,17 +130,48 @@ extension OrdersViewController: UITableViewDataSource {
     }
 }
 
+extension OrdersViewController: HeaderOrdersTableViewDelegate {    
+    func tappingClearAllButton(view: HeaderOrdersTableView, type: YourOrder) {
+        switch type {
+        case .upComingOrders:
+            clearAllDataOrder(collectionDB: App.String.collectionDBOrder)
+        case .pastOrders:
+            clearAllDataOrder(collectionDB: App.String.collectionDBHistoryOrder)
+        }
+    }
+}
+
 extension OrdersViewController: FooterOrdersTableViewDelegate {
     func tappingPaymentProceed(view: FooterOrdersTableView) {
-        print("Move To Payment Order Meal")
+        self.navigationController?.pushViewController(ScreenName.yourOrder, animated: true)
     }
 }
  
 extension OrdersViewController {
+    private func clearAllDataOrder(collectionDB: String) {
+        HUD.show()
+        Task {
+            let result = await viewModel.clearOrderMeal(collectionDB: collectionDB)
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                
+                switch result {
+                case .success:
+                    HUD.dismiss()
+                    ordersTableView.reloadData()
+                case .failure(let error):
+                    HUD.dismiss()
+                    self.showPopUp(title: error.message.localizedCapitalized, isSuccess: false)
+                }
+            }
+        }
+    }
+    
     private func fetchDataMealOrder() {
         HUD.show()
         Task {
-            let result = await viewModel.getDataOrderMealByEmail(dbCollection: "orderMeal")
+            let result = await viewModel.getDataOrderMealByEmail(dbCollection: App.String.collectionDBOrder)
             
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
@@ -149,7 +181,7 @@ extension OrdersViewController {
                     fetchDataHistoryMealOrder()
                 case .failure(let error):
                     switch error {
-                    case .noDataFound(let email):
+                    case .noDataFound(_):
                         self.viewModel.isUpComingOrdersEmpty = true
                         fetchDataHistoryMealOrder()
                     default:
@@ -162,7 +194,7 @@ extension OrdersViewController {
     
     private func fetchDataHistoryMealOrder() {
         Task {
-            let result = await viewModel.getDataOrderMealByEmail(dbCollection: "HistoryOrderMeal")
+            let result = await viewModel.getDataOrderMealByEmail(dbCollection: App.String.collectionDBHistoryOrder)
             
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
@@ -173,7 +205,7 @@ extension OrdersViewController {
                     self.setUpTableView()
                 case .failure(let error):
                     switch error {
-                    case .noDataFound(let email):
+                    case .noDataFound(_):
                         self.viewModel.isHistoryOrdersEmpty = true
                         self.setUpTableView()
                     default:

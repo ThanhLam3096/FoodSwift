@@ -476,8 +476,9 @@ extension SearchViewController {
             guard let this = self else { return }
             if done {
                 guard let meal = this.viewModel.mealDetail, let navi = this.navigationController else {return}
-                let detailScreen = DetailMealViewController()
+                let detailScreen = ScreenName.detailMeal
                 detailScreen.viewModel = DetailMealViewModel(meal: meal)
+                detailScreen.hidesBottomBarWhenPushed = true
                 navi.pushViewController(detailScreen, animated: true)
             } else {
                 this.showAlert(message: msg)
