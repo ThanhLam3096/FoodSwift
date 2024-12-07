@@ -111,7 +111,7 @@ final class AddToOrderViewControllerViewModel {
     }
     
     private func createNewOrder(request: OrderMeal) async throws -> Bool {
-        try await db.collection("orderMeal").addDocument(data: request.toFirestoreData)
+        try await db.collection(App.String.collectionDBOrder).addDocument(data: request.toFirestoreData)
         return true
     }
     
@@ -128,8 +128,8 @@ final class AddToOrderViewControllerViewModel {
     }
     
     private func findExistingOrder(for request: OrderMeal) async throws -> QueryDocumentSnapshot? {
-        let query = db.collection("orderMeal")
-            .whereField("account", isEqualTo: request.email)
+        let query = db.collection(App.String.collectionDBOrder)
+            .whereField(App.String.collectionDBAccount, isEqualTo: request.email)
             .whereField("idMeal", isEqualTo: request.meal.idMeal)
             .whereField("topCustom", isEqualTo: request.topCustom)
             .whereField("bottomCustom", isEqualTo: request.bottomCustom)
@@ -199,8 +199,8 @@ final class AddToOrderViewControllerViewModel {
                 "bottomCustom": infoBottomCustomMeal
             ]
         
-        db.collection("orderMeal")
-            .whereField("account", isEqualTo: email)
+        db.collection(App.String.collectionDBOrder)
+            .whereField(App.String.collectionDBAccount, isEqualTo: email)
             .whereField("idMeal", isEqualTo: meal.idMeal)
             .whereField("topCustom", isEqualTo: infoTopCustomMeal)
             .whereField("bottomCustom", isEqualTo: infoBottomCustomMeal)
@@ -224,7 +224,7 @@ final class AddToOrderViewControllerViewModel {
                     completion(false, "Total field is missing.")
                 }
             } else {
-                db.collection("orderMeal").addDocument(data: data) { error in
+                db.collection(App.String.collectionDBOrder).addDocument(data: data) { error in
                     if let error = error {
                         completion(false, "Error adding document: \(error.localizedDescription)")
                     } else {

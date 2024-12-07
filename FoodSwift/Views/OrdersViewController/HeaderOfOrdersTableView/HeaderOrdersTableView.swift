@@ -6,6 +6,9 @@
 //
 
 import UIKit
+protocol HeaderOrdersTableViewDelegate: AnyObject {
+    func tappingClearAllButton(view: HeaderOrdersTableView, type: YourOrder)
+}
 
 final class HeaderOrdersTableView: UITableViewHeaderFooterView {
     
@@ -26,6 +29,7 @@ final class HeaderOrdersTableView: UITableViewHeaderFooterView {
         }
     }
     static let identifier = "HeaderOrdersTableView"
+    weak var delegate: HeaderOrdersTableViewDelegate?
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -64,7 +68,15 @@ final class HeaderOrdersTableView: UITableViewHeaderFooterView {
     }
     
     private func updateUIView() {
-        guard let titleHeader = viewModel?.titleHeader else { return }
-        titleHeaderLabel.text = titleHeader
+        guard let type = viewModel?.type else { return }
+        titleHeaderLabel.text = type.title
+    }
+    
+    
+    @IBAction func clearAllButtonTouchUpInside(_ sender: Any) {
+        guard let type = viewModel?.type else { return }
+        if let delegate = delegate {
+            delegate.tappingClearAllButton(view: self, type: type)
+        }
     }
 }

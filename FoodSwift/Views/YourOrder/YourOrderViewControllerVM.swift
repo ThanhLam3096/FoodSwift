@@ -47,8 +47,8 @@ final class YourOrderViewControllerVM {
     
     private func fetchDataOrderByEmail(email: String) async -> Result<[[String: Any]], OrderError> {
         do {
-            let snapshot = try await db.collection("orderMeal")
-                .whereField("account", isEqualTo: email)
+            let snapshot = try await db.collection(App.String.collectionDBOrder)
+                .whereField(App.String.collectionDBAccount, isEqualTo: email)
                 .getDocuments()
             let documents = snapshot.documents
             guard !documents.isEmpty else {
@@ -131,7 +131,7 @@ final class YourOrderViewControllerVM {
     
     // using completion
     private func fetchDataOrderByEmail(email: String, completion: @escaping (Result<[[String: Any]], Error>) -> Void) {
-        db.collection("orderMeal").whereField("account", isEqualTo: email).getDocuments { querySnapshot, error in
+        db.collection(App.String.collectionDBOrder).whereField(App.String.collectionDBAccount, isEqualTo: email).getDocuments { querySnapshot, error in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -190,17 +190,16 @@ extension YourOrderViewControllerVM {
     func addHistoryOrder() async throws -> Result<Bool, OrderError> {
         do {
             for item in listOrderMeals {
-                try await db.collection("HistoryOrderMeal").addDocument(data: item.toFirestoreData)
+                try await db.collection(App.String.collectionDBHistoryOrder).addDocument(data: item.toFirestoreData)
             }
             guard let email = email else {
                 return .failure(.emailNotFound)
             }
             
-            let snapshot = try await db.collection("orderMeal")
-                .whereField("account", isEqualTo: email)
+            let snapshot = try await db.collection(App.String.collectionDBOrder)
+                .whereField(App.String.collectionDBAccount, isEqualTo: email)
                 .getDocuments()
-            
-            // 3. Xóa từng document
+
             for document in snapshot.documents {
                 try await document.reference.delete()
             }

@@ -8,9 +8,9 @@
 import Foundation
 
 final class HeaderOrdersTableViewVM {
-    let titleHeader: String
+    let type: YourOrder
     
-    init(titleHeader: String) {
-        self.titleHeader = titleHeader
+    init(type: YourOrder) {
+        self.type = type
     }
 }
