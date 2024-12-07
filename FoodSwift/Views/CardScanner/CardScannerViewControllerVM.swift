@@ -21,7 +21,7 @@ final class CardScannerViewControllerVM: NSObject {
     // MARK: - Camera Setup
     func setupCamera() {
         guard let device = AVCaptureDevice.default(for: .video) else {
-            onError?("Không thể truy cập camera")
+            onError?("Can't Connect Camera")
             return
         }
         
@@ -51,7 +51,7 @@ final class CardScannerViewControllerVM: NSObject {
                 self?.captureSession.startRunning()
             }
         } catch {
-            onError?("Lỗi khi thiết lập camera")
+            onError?("Failed To Setting Camera")
         }
     }
     
