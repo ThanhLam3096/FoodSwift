@@ -73,7 +73,7 @@ final class AddToOrderViewControllerViewModel {
         if let meal = meal {
             totalPrice = meal.price * Double(numberOfMeals)
         }
-        return totalPrice
+        return totalPrice.rounded(toPlaces: 1)
     }
     
     func numberOfSection() -> Int {

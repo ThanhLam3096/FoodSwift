@@ -23,6 +23,7 @@ final class OrdersViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        viewModel.setUpEmail()
         fetchDataMealOrder()
     }
 

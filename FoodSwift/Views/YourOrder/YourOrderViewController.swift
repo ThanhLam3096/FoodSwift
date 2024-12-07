@@ -63,8 +63,6 @@ final class YourOrderViewController: BaseViewController {
         setUpNavigation()
         firstLineView.backgroundColor = Color.bodyTextColor.withAlphaComponent(0.3)
         secondLineView.backgroundColor = Color.bodyTextColor.withAlphaComponent(0.3)
-        continueButtonView.viewModel = OrangeButtonViewModel(title: "CONTINUE", totalPriceMeal: viewModel.yourOrderTotalPrice)
-        continueButtonView.delegate = self
     }
 
     private func setUpNavigation() {
@@ -142,6 +140,23 @@ final class YourOrderViewController: BaseViewController {
         viewModel.listOrderMeals.removeAll()
         popToPreviousScreen(from: self)
     }
+    
+    private func setUpOrderOrangeButton() {
+        continueButtonView.viewModel = OrangeButtonViewModel(title: "CONTINUE", totalPriceMeal: viewModel.yourOrderTotalPrice)
+        continueButtonView.delegate = self
+    }
+    
+    @IBAction func addMoreItemTouchUpInside(_ sender: Any) {
+        guard let navigationController = self.navigationController else { return }
+        navigationController.popToRootViewController(animated: true)
+        
+        // Đợi animation hoàn thành rồi set selected index
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            if let tabBarController = navigationController.viewControllers.first as? FoodTabBarViewController {
+                tabBarController.selectedIndex = 2
+            }
+        }
+    }
 }
 
 extension YourOrderViewController: UITableViewDelegate, UITableViewDataSource {
@@ -215,11 +230,12 @@ extension YourOrderViewController {
                 
                 switch result {
                 case .success:
+                    self.viewModel.updateTotalFeeShip()
                     self.viewModel.updateYourOrderTotalPrice()
                     self.setUpTableView()
                     self.setUpFrameView()
                     self.setUpLabel()
-                    
+                    self.setUpOrderOrangeButton()
                 case .failure(let error):
                     self.showPopUp(title: error.message, isSuccess: false)
                 }

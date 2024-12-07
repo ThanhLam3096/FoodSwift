@@ -39,6 +39,12 @@ final class YourOrderViewControllerVM {
         yourOrderTotalPrice = totalPrice + feeShip
     }
     
+    func updateTotalFeeShip() {
+        listOrderMeals.forEach { order in
+            feeShip = feeShip + order.meal.feeShip
+        }
+    }
+    
     private func fetchDataOrderByEmail(email: String) async -> Result<[[String: Any]], OrderError> {
         do {
             let snapshot = try await db.collection("orderMeal")
