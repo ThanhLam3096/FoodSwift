@@ -98,10 +98,10 @@ extension OrdersViewController: UITableViewDataSource {
         let vc = ScreenName.detailMeal
         switch typeSection {
         case .upComingOrders:
-            vc.viewModel = DetailMealViewModel(meal: viewModel.upComingOrder[indexPath.section].meal)
+            vc.viewModel = DetailMealViewModel(meal: viewModel.upComingOrder[indexPath.row].meal)
             self.navigationController?.pushViewController(vc, animated: true)
         case .pastOrders:
-            vc.viewModel = DetailMealViewModel(meal: viewModel.passOrder[indexPath.section].meal)
+            vc.viewModel = DetailMealViewModel(meal: viewModel.passOrder[indexPath.row].meal)
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
