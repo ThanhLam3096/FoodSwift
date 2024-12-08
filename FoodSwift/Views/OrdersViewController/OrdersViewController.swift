@@ -106,6 +106,29 @@ extension OrdersViewController: UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard let typeSection = YourOrder(rawValue: indexPath.section) else { return nil }
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (action, view, completionHandler) in
+            guard let strongSelf = self else { return }
+            switch typeSection {
+            case .upComingOrders:
+                strongSelf.deleteOrderBySwipeAction(collectionDB: App.String.collectionDBOrder, orderMeal: strongSelf.viewModel.upComingOrder[indexPath.row])
+            case .pastOrders:
+                strongSelf.deleteOrderBySwipeAction(collectionDB: App.String.collectionDBHistoryOrder, orderMeal: strongSelf.viewModel.passOrder[indexPath.row])
+            }
+            completionHandler(true)
+        }
+        
+        let image = UIImage(systemName: "trash.fill")
+        image?.withTintColor(.red.withAlphaComponent(0.7))
+        deleteAction.image = image
+        
+        // Kết hợp các action
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let typeSection = YourOrder(rawValue: indexPath.section) else {
             return 0
@@ -174,6 +197,25 @@ extension OrdersViewController: FooterOrdersTableViewDelegate {
 }
  
 extension OrdersViewController {
+    private func deleteOrderBySwipeAction(collectionDB: String, orderMeal: OrderMeal) {
+        HUD.show()
+        Task {
+            let result = await viewModel.deleteOrderMealByActionSwipe(collectionDB: collectionDB, orderMeal: orderMeal)
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                switch result {
+                case .success:
+                    HUD.dismiss()
+                    ordersTableView.reloadData()
+                case .failure(let error):
+                    HUD.dismiss()
+                    self.showPopUp(title: error.message.localizedCapitalized, isSuccess: false)
+                }
+            }
+        }
+    }
+    
     private func clearAllDataOrder(collectionDB: String) {
         HUD.show()
         Task {
