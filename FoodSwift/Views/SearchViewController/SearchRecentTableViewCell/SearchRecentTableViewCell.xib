@@ -41,6 +41,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="contentSearchLabel" destination="YqF-Mq-QB7" id="pwp-Jb-ZOn"/>
+                <outlet property="contentViewCell" destination="H2p-sc-9uM" id="0wS-sy-jew"/>
                 <outlet property="searchImageView" destination="Yiq-Ky-0xF" id="pFw-al-9nQ"/>
                 <outlet property="widthOfImageSearchConstraint" destination="IiL-9q-Vbg" id="If3-B8-Vja"/>
             </connections>
