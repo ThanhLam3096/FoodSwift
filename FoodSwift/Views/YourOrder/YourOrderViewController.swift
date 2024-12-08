@@ -57,6 +57,7 @@ final class YourOrderViewController: BaseViewController {
         self.navigationController?.navigationBar.isHidden = false
         fetchDataMealOrder()
         viewModel.updateYourOrderTotalPrice()
+        self.popUp?.removeFromSuperview()
     }
     
     override func setUpUI() {
@@ -282,7 +283,7 @@ extension YourOrderViewController: PopUpViewDelegate {
     }
     
     func didTappingButton(view: PopUpView, isSuccess: Bool) {
-        // Xóa popup
+        // Delete Popup
         self.popUp?.removeFromSuperview()
         
         if isSuccess {

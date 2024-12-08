@@ -179,6 +179,53 @@ final class OrdersViewControllerVM {
 }
 
 extension OrdersViewControllerVM {
+    func deleteOrderMealByActionSwipe(collectionDB: String, orderMeal: OrderMeal) async -> Result<Bool, OrderError> {
+        do {
+            guard let email = email else {
+                return .failure(.emailNotFound)
+            }
+            
+            // Find Data with Codition
+            let snapshot = try await db.collection(collectionDB)
+                .whereField(App.String.collectionDBAccount, isEqualTo: email)
+                .whereField("idMeal", isEqualTo: orderMeal.meal.idMeal)
+                .whereField("topCustom", isEqualTo: orderMeal.topCustom)
+                .whereField("bottomCustom", isEqualTo: orderMeal.bottomCustom)
+                .getDocuments()
+            
+            if snapshot.documents.isEmpty {
+                return .failure(.noDataFound(email: email))
+            }
+            
+            if let documentToDelete = snapshot.documents.first {
+                try await documentToDelete.reference.delete()
+                
+                // Update Local Data
+                if collectionDB == App.String.collectionDBOrder {
+                    upComingOrder.removeAll { order in
+                        return order.meal.idMeal == Int(orderMeal.meal.idMeal) &&
+                        order.topCustom == orderMeal.topCustom &&
+                        order.bottomCustom == orderMeal.bottomCustom
+                    }
+                    isUpComingOrdersEmpty = upComingOrder.isEmpty
+                } else {
+                    passOrder.removeAll { order in
+                        return order.meal.idMeal == Int(orderMeal.meal.idMeal) &&
+                        order.topCustom == orderMeal.topCustom &&
+                        order.bottomCustom == orderMeal.bottomCustom
+                    }
+                    isHistoryOrdersEmpty = passOrder.isEmpty
+                }
+                
+                return .success(true)
+            }
+            
+            return .failure(.noDataFound(email: email))
+        } catch {
+            return .failure(.deleteOrderError(error))
+        }
+    }
+    
     func clearOrderMeal(collectionDB: String) async -> Result<Bool, OrderError> {
         do {
             guard let email = email else {

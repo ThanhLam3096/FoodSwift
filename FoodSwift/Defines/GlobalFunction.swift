@@ -364,6 +364,7 @@ enum OrderError: Error {
     case totalFieldMissing
     case firebaseError(Error)
     case saveHistoryError(Error)
+    case deleteOrderError(Error)
     
     var message: String {
         switch self {
@@ -381,6 +382,8 @@ enum OrderError: Error {
             return "Error System: \(error.localizedDescription)"
         case .saveHistoryError(let error):
             return "Failed when Orders: \(error.localizedDescription)"
+        case .deleteOrderError(let error):
+            return "Failed to Delete: \(error.localizedDescription)"
         }
     }
 }
