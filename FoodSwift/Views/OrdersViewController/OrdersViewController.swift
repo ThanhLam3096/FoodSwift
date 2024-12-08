@@ -63,21 +63,46 @@ extension OrdersViewController: UITableViewDataSource {
         case .upComingOrders:
             if viewModel.isUpComingOrdersEmpty {
                 let cell = tableView.dequeueReusableCell(withClass: EmptyDataOrderTableViewCell.self, for: indexPath)
+                let selectedBackgroundView = UIView()
+                selectedBackgroundView.backgroundColor = .clear
+                cell.selectedBackgroundView = selectedBackgroundView
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withClass: OrdersTableViewCell.self, for: indexPath)
+                let selectedBackgroundView = UIView()
+                selectedBackgroundView.backgroundColor = .clear
+                cell.selectedBackgroundView = selectedBackgroundView
                 cell.viewModel = viewModel.cellForRowAtItemsInSection(indexPath: indexPath, type: typeSection)
                 return cell
             }
         case .pastOrders:
             if viewModel.isHistoryOrdersEmpty {
                 let cell = tableView.dequeueReusableCell(withClass: EmptyDataOrderTableViewCell.self, for: indexPath)
+                let selectedBackgroundView = UIView()
+                selectedBackgroundView.backgroundColor = .clear
+                cell.selectedBackgroundView = selectedBackgroundView
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withClass: OrdersTableViewCell.self, for: indexPath)
+                let selectedBackgroundView = UIView()
+                selectedBackgroundView.backgroundColor = .clear
+                cell.selectedBackgroundView = selectedBackgroundView
                 cell.viewModel = viewModel.cellForRowAtItemsInSection(indexPath: indexPath, type: typeSection)
                 return cell
             }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let typeSection = YourOrder(rawValue: indexPath.section) else { return }
+        let vc = ScreenName.detailMeal
+        switch typeSection {
+        case .upComingOrders:
+            vc.viewModel = DetailMealViewModel(meal: viewModel.upComingOrder[indexPath.section].meal)
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .pastOrders:
+            vc.viewModel = DetailMealViewModel(meal: viewModel.passOrder[indexPath.section].meal)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

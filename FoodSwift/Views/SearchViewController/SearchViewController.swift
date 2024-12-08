@@ -345,6 +345,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: SearchRecentTableViewCell.self, for: indexPath)
+        let selectedBackgroundView = UIView()
+        selectedBackgroundView.backgroundColor = .clear
+        cell.selectedBackgroundView = selectedBackgroundView
+        cell.delegate = self
         cell.viewModel = viewModel.cellForRowAtItemRecentSearch(indexPath: indexPath)
         return cell
     }
@@ -368,6 +372,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 extension SearchViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         guard textField == searchTextField else {return}
+        recentSearchTextField.text = textField.text
         UIView.animate(withDuration: 0.5) {
             self.recentSearchView.isHidden = false
             self.dismissKeyboard()
@@ -471,7 +476,7 @@ extension SearchViewController {
     }
     
     private func loadAPIDetailMeal(idMeal: String) {
-//        HUD.show()
+        HUD.show()
         viewModel.getAPIDetailMealDB(idMeal: idMeal) { [weak self] (done, msg) in
             guard let this = self else { return }
             if done {
@@ -479,8 +484,14 @@ extension SearchViewController {
                 let detailScreen = ScreenName.detailMeal
                 detailScreen.viewModel = DetailMealViewModel(meal: meal)
                 detailScreen.hidesBottomBarWhenPushed = true
+                
+                if navi.viewControllers.contains(where: { $0 === detailScreen }) {
+                    HUD.dismiss() 
+                    return
+                }
                 navi.pushViewController(detailScreen, animated: true)
             } else {
+                HUD.dismiss()
                 this.showAlert(message: msg)
             }
         }
@@ -491,5 +502,14 @@ extension SearchViewController: SearchRecentHeaderTableViewDelegate {
     func tappingInsideButton(view: SearchRecentHeaderTableView) {
         viewModel.clearAllHitorySearch()
         recentSearchTableView.reloadData()
+    }
+}
+
+extension SearchViewController: SearchRecentTableViewCellDelegate {
+    func tappingContentViewCell(view: SearchRecentTableViewCell, keySearch: String) {
+        loadAPISearchMealName(nameMeal: keySearch)
+        resultSearchCollectionView.isHidden = false
+        recentSearchView.isHidden = true
+        searchTextField.text = keySearch
     }
 }

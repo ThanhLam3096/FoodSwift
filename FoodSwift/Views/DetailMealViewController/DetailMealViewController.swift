@@ -256,6 +256,7 @@ class DetailMealViewController: BaseViewController {
             guard let this = self else { return }
             if done {
                 HUD.dismiss()
+                this.setUpTableView()
                 this.reloadDataTableView()
             } else {
                 HUD.dismiss()
