@@ -75,9 +75,7 @@ Follow these steps to set up the project on your local machine:
    open FoodSwift.xcworkspace
    ```
 7. **Video Walkthrough**
-   ```bash
     [![Video Preview](https://drive.google.com/file/d/18-WR1qte3wSg07GHHREbK9fKTrOhZVss/view)
-   ```
 
 ## Contributions
 
