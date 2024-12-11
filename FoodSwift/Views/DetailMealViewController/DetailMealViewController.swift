@@ -246,13 +246,8 @@ class DetailMealViewController: BaseViewController {
     
     private func updateDataWhenTappingMealByCategory() {
         guard let mealDB = viewModel.mealDetail else { return }
-        
-        viewModel.meal?.image = mealDB.imageMeal
-        viewModel.meal?.name = mealDB.nameMeal
-        viewModel.meal?.typeFood = mealDB.category
-        imageMealImageView.sd_setImage(with: URL(string: mealDB.imageMeal))
-        nameMealLabel.text = mealDB.nameMeal
-        typeFoodLabel.text = mealDB.category
+        viewModel.meal = DetailFollowThemeMealDB().setDetailDataForThemeMealDB(themeMealDB: mealDB)
+        updateInfoView()
     }
     
     private func loadAPIListMealByCategory(categoryName: String) {
@@ -261,6 +256,7 @@ class DetailMealViewController: BaseViewController {
             guard let this = self else { return }
             if done {
                 HUD.dismiss()
+                this.setUpTableView()
                 this.reloadDataTableView()
             } else {
                 HUD.dismiss()

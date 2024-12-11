@@ -9,10 +9,15 @@ import Foundation
 import FirebaseAuth
 
 final class DefinePhoneNumberVM {
-    let listFlagTitle: [String] = ["Viet Nam", "USA", "France", "England", "China", "Japan", "India", "Australia", "Russia", "Germany", "Spanish", "Argentina", "Brazil"]
-    let nameFlag: [String] = ["VietNam", "USA", "France", "England", "China", "Japan", "Indian", "Australia", "Russia", "Germany", "Spanish", "Argentina", "Brazil"]
-    let codeNumber = ["+84", "+1", "+33", "+44", "+86", "+81", "+91", "+61", "+7", "+49", "+34", "+54", "+55"]
+    private let userCollection = "users"
     var indexOfNationFlagsList = 0
+    var email: String = ""
+    
+    init() {}
+    
+    init(email: String) {
+        self.email = email
+    }
     
     // MARK: - TableView Data
     func numberOfRowsInSection() -> Int {
@@ -30,6 +35,31 @@ final class DefinePhoneNumberVM {
         return 36
     }
     
+    func addPhoneNumberUserInfo(phoneNumber: String, nation: String) async throws -> Bool {
+        guard email != "" else {
+            throw UserError.emailNotFound
+        }
+        
+        let query = db.collection(userCollection).whereField("email", isEqualTo: email)
+        let snapshot = try await query.getDocuments()
+        
+        guard let document = snapshot.documents.first else {
+            throw UserError.notFound(email: email)
+        }
+        
+        guard isValidPhoneNumber(phoneNumber) else {
+            throw UserError.phoneNumberInvalid
+        }
+        
+        let updateData: [String: Any] = [
+            "phoneNumber": phoneNumber,
+            "nation": nation
+        ]
+        
+        try await document.reference.updateData(updateData)
+        return true
+    }
+    
     // Need Update From Spark Plan (Free) to Blaze Plan (Using Money xD)
     func sendVerificationCode(to phoneNumber: String, verificationCodeCompletion: @escaping (Bool, String) -> Void) {
         // Verify With FireBase
@@ -40,9 +70,6 @@ final class DefinePhoneNumberVM {
 
         phoneAuthProvider.verifyPhoneNumber(phoneNumber, uiDelegate: nil) { verificationID, error in
             if let error = error as NSError? {
-                print("Error Code: \(error.code)")
-                print("Error Description: \(error.localizedDescription)")
-                print("Error Info: \(error.userInfo)")
                 verificationCodeCompletion(false, "Error sending verification code: \(error.localizedDescription)")
                 return
             }

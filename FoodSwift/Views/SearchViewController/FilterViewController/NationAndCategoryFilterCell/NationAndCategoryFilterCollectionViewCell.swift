@@ -12,6 +12,10 @@ final class NationAndCategoryFilterCollectionViewCell: UICollectionViewCell {
     // MARK: IBOutlet
     @IBOutlet weak var filterTitleLabel: UILabel!
     
+    // MARK: NSLayoutConstraint
+    @IBOutlet private weak var leadingSpaceOfFilterTitleLabelConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var trailingSpaceOFfilterTitleLabelConstraint: NSLayoutConstraint!
+    
     //MARK: - Properties
     var viewModel: NationAndCategoryFilterCollectionViewCellVM? {
         didSet {
@@ -28,6 +32,8 @@ final class NationAndCategoryFilterCollectionViewCell: UICollectionViewCell {
     private func setUpLabel() {
         setUpTextTitleFontTextColorOfLabel(label: filterTitleLabel, labelFont: UIFont.fontYugothicUISemiBold(ofSize: ScreenSize.scaleHeight(12)) ?? UIFont.systemFont(ofSize: ScreenSize.scaleHeight(12)), labelTextColor: Color.bodyTextColor)
         filterTitleLabel.textAlignment = .center
+        leadingSpaceOfFilterTitleLabelConstraint.constant = ScreenSize.scaleWidth(20)
+        trailingSpaceOFfilterTitleLabelConstraint.constant = ScreenSize.scaleWidth(20)
     }
     
     private func updateView() {

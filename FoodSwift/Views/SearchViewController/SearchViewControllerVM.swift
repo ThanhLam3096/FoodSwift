@@ -17,7 +17,9 @@ final class SearchViewControllerVM {
     var isNation = true
     var mealDetail: Meal?
     var historySearch: [String] = []
-    
+    var sortedHistorySearch: [String] {
+        return historySearch.reversed()  // hoặc return Array(historySearch.reversed())
+    }
     
     // MARK: - Enum
     enum TypeFilter: Int {

@@ -10,6 +10,14 @@ import FirebaseAuth
 
 final class VerifyPhoneNumberViewModel {
     
+    var email: String = ""
+    
+    init() {}
+    
+    init(email: String) {
+        self.email = email
+    }
+    
     // Need Update From Spark Plan (Free) to Blaze Plan (Using Money xD)
     func verifyPhoneNumber(verificationCode: String, completion: @escaping (Bool, String) -> Void) {
         // Get verificationID save
@@ -29,5 +37,9 @@ final class VerifyPhoneNumberViewModel {
             }
             completion(true, "Phone number verified successfully!")
         }
+    }
+    
+    func saveLoginStatus(email: String) {
+        UserDefaults.standard.set(email, forKey: "emailLogin")
     }
 }

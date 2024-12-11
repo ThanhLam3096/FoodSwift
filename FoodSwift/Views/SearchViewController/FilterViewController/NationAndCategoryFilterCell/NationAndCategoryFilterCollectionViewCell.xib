@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACL-jS-xKa">
-                        <rect key="frame" x="0.0" y="0.0" width="128" height="102"/>
+                        <rect key="frame" x="20" y="0.0" width="88" height="102"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -27,14 +27,16 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="ACL-jS-xKa" secondAttribute="trailing" id="5O9-X9-fXx"/>
-                <constraint firstItem="ACL-jS-xKa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DPg-4t-w2P"/>
+                <constraint firstAttribute="trailing" secondItem="ACL-jS-xKa" secondAttribute="trailing" constant="20" id="5O9-X9-fXx"/>
+                <constraint firstItem="ACL-jS-xKa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="DPg-4t-w2P"/>
                 <constraint firstItem="ACL-jS-xKa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MGl-Vt-6Mu"/>
                 <constraint firstAttribute="bottom" secondItem="ACL-jS-xKa" secondAttribute="bottom" id="u66-X4-t4z"/>
             </constraints>
             <size key="customSize" width="128" height="102"/>
             <connections>
                 <outlet property="filterTitleLabel" destination="ACL-jS-xKa" id="VEk-1P-a1F"/>
+                <outlet property="leadingSpaceOfFilterTitleLabelConstraint" destination="DPg-4t-w2P" id="qDl-Jp-Or5"/>
+                <outlet property="trailingSpaceOFfilterTitleLabelConstraint" destination="5O9-X9-fXx" id="paf-a0-G65"/>
             </connections>
             <point key="canvasLocation" x="67.175572519083971" y="1.4084507042253522"/>
         </collectionViewCell>

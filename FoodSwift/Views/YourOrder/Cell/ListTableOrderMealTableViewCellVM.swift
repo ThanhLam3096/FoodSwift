@@ -8,15 +8,17 @@
 import Foundation
 
 final class ListTableOrderMealTableViewCellVM {
-    let listOrder: Order
+    let order: OrderMeal
     let indexID: Int
     
-    init(listOrder: Order, indexID: Int) {
-        self.listOrder = listOrder
+    init(order: OrderMeal, indexID: Int) {
+        self.order = order
         self.indexID = indexID
     }
     
     func summaryPriceMeal() -> String {
-        return displayNumber(listOrder.priceMeal * Double(listOrder.totalNumberMeal))
+        let total = order.quantity
+        let price = order.meal.price
+        return displayNumber((Double(total) * price).rounded(toPlaces: 1))
     }
 }

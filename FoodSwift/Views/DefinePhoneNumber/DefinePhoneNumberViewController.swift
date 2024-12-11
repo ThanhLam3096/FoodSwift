@@ -107,7 +107,7 @@ final class DefinePhoneNumberViewController: BaseViewController {
     
     private func setUpTextField() {
         phoneNumberTextField.font = UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16))
-        phoneNumberTextField.attributedText = updateStringTextField(codePhoneNumber: viewModel.codeNumber[0])
+        phoneNumberTextField.attributedText = updateStringTextField(codePhoneNumber: codeNumber[0])
         phoneNumberTextField.borderStyle = .none
         phoneNumberTextField.keyboardType = .numberPad
         phoneNumberTextField.delegate = self
@@ -130,7 +130,7 @@ final class DefinePhoneNumberViewController: BaseViewController {
     @objc func dismissKeyboard() {
         guard let text = phoneNumberTextField.text else { return }
         if text.isEmpty {
-            phoneNumberTextField.attributedText = updateStringTextField(codePhoneNumber: viewModel.codeNumber[viewModel.indexOfNationFlagsList])
+            phoneNumberTextField.attributedText = updateStringTextField(codePhoneNumber: codeNumber[viewModel.indexOfNationFlagsList])
         } else if text.count <= 3 {
             phoneNumberTextField.attributedText = updateStringTextField(codePhoneNumber: text)
         }
@@ -177,9 +177,9 @@ extension DefinePhoneNumberViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let flag = viewModel.nameFlag[indexPath.row]
+        let flag = nameFlag[indexPath.row]
         nationCodePhoneNumberImageView.image = UIImage(named: flag)
-        phoneNumberTextField.attributedText = updateStringTextField(codePhoneNumber: viewModel.codeNumber[indexPath.row])
+        phoneNumberTextField.attributedText = updateStringTextField(codePhoneNumber: codeNumber[indexPath.row])
         viewModel.indexOfNationFlagsList = indexPath.row
         listFlagTableView.isHidden = true
     }
@@ -203,14 +203,33 @@ extension DefinePhoneNumberViewController: UITextFieldDelegate {
 
 extension DefinePhoneNumberViewController: OrangeButtonViewViewDelegate {
     func tappingInsideButton(view: OrangeButtonView) {
-        viewModel.sendVerificationCode(to: phoneNumberTextField.text ?? "") { [weak self] success, message in
-            guard let this = self else { return}
-            this.showPopUp(title: message, isSuccess: success)
-        }
+        // handle after update to Blaze Plan
+//        viewModel.sendVerificationCode(to: phoneNumberTextField.text ?? "") { [weak self] success, message in
+//            guard let this = self else { return}
+//            this.showPopUp(title: message, isSuccess: success)
+//        }
+        addPhoneNumber(phoneNumber: phoneNumberTextField.text ?? "", nation: nameFlag[viewModel.indexOfNationFlagsList])
     }
 }
 
 extension DefinePhoneNumberViewController {
+    private func addPhoneNumber(phoneNumber: String, nation: String) {
+        Task {
+            do {
+                let success = try await viewModel.addPhoneNumberUserInfo(phoneNumber: phoneNumber, nation: nation)
+                if success {
+                    showPopUp(title: "Add Phone Number successfully", isSuccess: success)
+                } else {
+                    showPopUp(title: "Can't Add Phone Number Please Try Again", isSuccess: success)
+                }
+            } catch let error as UserError {
+                showPopUp(title: error.errorDescription ?? "Unknown error occurred", isSuccess: false)
+            } catch {
+                showPopUp(title: error.localizedDescription, isSuccess: false)
+            }
+        }
+    }
+    
     private func showPopUp(title: String, isSuccess: Bool) {
         self.popUp = PopUpView(frame: self.view.frame, inView: self)
         self.popUp.delegate = self
@@ -246,9 +265,12 @@ extension DefinePhoneNumberViewController: PopUpViewDelegate {
     func didTappingButton(view: PopUpView, isSuccess: Bool) {
         self.popUp?.removeFromSuperview()
         if isSuccess {
+            let vc = ScreenName.verifyPhoneNumber
+            vc.viewModel = VerifyPhoneNumberViewModel(email: viewModel.email)
             self.navigationController?.pushViewController(ScreenName.verifyPhoneNumber, animated: true)
         } else {
-            return
+            // handle after update to Blaze Plan
+             return
         }
     }
 }

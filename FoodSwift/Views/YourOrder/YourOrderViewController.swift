@@ -46,6 +46,7 @@ final class YourOrderViewController: BaseViewController {
     
     // MARK: - Properties
     var viewModel: YourOrderViewControllerVM = YourOrderViewControllerVM()
+    var popUp: PopUpView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,21 +55,15 @@ final class YourOrderViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+        fetchDataMealOrder()
+        viewModel.updateYourOrderTotalPrice()
+        self.popUp?.removeFromSuperview()
     }
     
     override func setUpUI() {
         setUpNavigation()
-        setUpTableView()
-        setUpLabel()
-        setUpFrameView()
         firstLineView.backgroundColor = Color.bodyTextColor.withAlphaComponent(0.3)
         secondLineView.backgroundColor = Color.bodyTextColor.withAlphaComponent(0.3)
-        continueButtonView.viewModel = OrangeButtonViewModel(title: "CONTINUE", totalPriceMeal: viewModel.yourOrderTotalPrice)
-        continueButtonView.delegate = self
-    }
-    
-    override func setUpData() {
-        viewModel.updateYourOrderTotalPrice()
     }
 
     private func setUpNavigation() {
@@ -114,10 +109,12 @@ final class YourOrderViewController: BaseViewController {
         listOrderMealTableView.dataSource = self
         listOrderMealTableView.register(nibWithCellClass: ListTableOrderMealTableViewCell.self)
         listOrderMealTableView.separatorStyle = .none
-        heightOfTableViewConstraint.constant = ScreenSize.scaleHeight(140) * CGFloat(viewModel.listMealOrder.count)
+        let numberOfItems = CGFloat(viewModel.listOrderMeals.count)
+        heightOfTableViewConstraint.constant = ScreenSize.scaleHeight(140) * numberOfItems
         topSpaceTableViewWithContentViewConstraint.constant = ScreenSize.scaleWidth(24)
         leadingSpaceOfTableView.constant = ScreenSize.scaleWidth(20)
         trailingSpaceOfTableView.constant = ScreenSize.scaleWidth(20)
+        listOrderMealTableView.reloadData()
     }
     
     private func setUpFrameView() {
@@ -141,7 +138,25 @@ final class YourOrderViewController: BaseViewController {
     
     
     @objc func closeScreen() {
+        viewModel.listOrderMeals.removeAll()
         popToPreviousScreen(from: self)
+    }
+    
+    private func setUpOrderOrangeButton() {
+        continueButtonView.viewModel = OrangeButtonViewModel(title: "CONTINUE", totalPriceMeal: viewModel.yourOrderTotalPrice)
+        continueButtonView.delegate = self
+    }
+    
+    @IBAction func addMoreItemTouchUpInside(_ sender: Any) {
+        guard let navigationController = self.navigationController else { return }
+        navigationController.popToRootViewController(animated: true)
+        
+        // Đợi animation hoàn thành rồi set selected index
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            if let tabBarController = navigationController.viewControllers.first as? FoodTabBarViewController {
+                tabBarController.selectedIndex = 2
+            }
+        }
     }
 }
 
@@ -170,6 +185,117 @@ extension YourOrderViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension YourOrderViewController: OrangeButtonViewViewDelegate {
     func tappingInsideButton(view: OrangeButtonView) {
-        navigationController?.pushViewController(ScreenName.addYourPaymentMethos, animated: true)
+        Task {
+            do {
+                let result = try await viewModel.addHistoryOrder()
+                switch result {
+                case .success:
+                    // Xử lý khi thêm thành công
+                    self.showPopUp(title: "Success Orders", isSuccess: true)
+                case .failure(let error):
+                    self.showPopUp(title: "Error to order: \(error.message)", isSuccess: false)
+                }
+            } catch {
+                print("Lỗi: \(error.localizedDescription)")
+            }
+        }
+    }
+}
+
+// Fetch Meal Order
+extension YourOrderViewController {
+    
+//    private func fetchDataMealOrder() {
+//        HUD.show()
+//        viewModel.getDataOrderMealByEmail { [weak self] success, message in
+//            guard let strongSelf = self else { return }
+//            if success {
+//                HUD.dismiss()
+//                strongSelf.setUpTableView()
+//                strongSelf.setUpFrameView()
+//            } else {
+//                HUD.dismiss()
+//                strongSelf.showPopUp(title: message, isSuccess: success)
+//            }
+//        }
+//    }
+    
+    private func fetchDataMealOrder() {
+        HUD.show()
+        Task {
+            let result = await viewModel.getDataOrderMealByEmail()
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                HUD.dismiss()
+                
+                switch result {
+                case .success:
+                    self.viewModel.updateTotalFeeShip()
+                    self.viewModel.updateYourOrderTotalPrice()
+                    self.setUpTableView()
+                    self.setUpFrameView()
+                    self.setUpLabel()
+                    self.setUpOrderOrangeButton()
+                case .failure(let error):
+                    self.showPopUp(title: error.message, isSuccess: false)
+                }
+            }
+        }
+    }
+}
+
+// Popup
+extension YourOrderViewController: PopUpViewDelegate {
+    private func showPopUp(title: String, isSuccess: Bool) {
+        // MARK: - Setup PopUp
+        popUp = PopUpView(frame: view.frame, inView: self)
+        popUp?.delegate = self
+        popUp?.viewModel = PopUpViewVM(
+            title: title,
+            isSuccesPopup: isSuccess
+        )
+        
+        // MARK: - Add to view hierarchy with animation
+        addPopUpToViewHierarchy()
+        animatePopUpPresentation()
+    }
+    
+    func addPopUpToViewHierarchy() {
+        guard let popUp = popUp else { return }
+        
+        // Set initial transform
+        let initialTransform = CGAffineTransform(a: Constants.initialScale, b: Constants.initialScale, c: Constants.initialScale, d: Constants.initialScale, tx: Constants.initialScale, ty: Constants.initialScale)
+        popUp.transform = initialTransform
+        
+        // Add to view
+        view.addSubview(popUp)
+    }
+    
+    func animatePopUpPresentation() {
+        UIView.animate(
+            withDuration: Constants.animationDuration,
+            delay: 0,
+            options: .curveEaseOut
+        ) { [weak self] in
+            self?.popUp?.transform = .identity
+        }
+    }
+    
+    func didTappingButton(view: PopUpView, isSuccess: Bool) {
+        // Delete Popup
+        self.popUp?.removeFromSuperview()
+        
+        if isSuccess {
+            guard let navigationController = self.navigationController else { return }
+            navigationController.popToRootViewController(animated: true)
+            
+            // Đợi animation hoàn thành rồi set selected index
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                if let tabBarController = navigationController.viewControllers.first as? FoodTabBarViewController {
+                    tabBarController.selectedIndex = 2
+                }
+            }
+        }
     }
 }

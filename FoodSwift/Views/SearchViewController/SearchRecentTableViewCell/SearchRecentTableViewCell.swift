@@ -7,9 +7,14 @@
 
 import UIKit
 
-class SearchRecentTableViewCell: UITableViewCell {
+protocol SearchRecentTableViewCellDelegate: AnyObject {
+    func tappingContentViewCell(view: SearchRecentTableViewCell, keySearch: String)
+}
+
+final class SearchRecentTableViewCell: UITableViewCell {
     
     // MARK: -IBOulet
+    @IBOutlet private weak var contentViewCell: UIView!
     @IBOutlet private weak var searchImageView: UIImageView!
     @IBOutlet private weak var contentSearchLabel: UILabel!
     
@@ -22,6 +27,7 @@ class SearchRecentTableViewCell: UITableViewCell {
             updateView()
         }
     }
+    weak var delegate: SearchRecentTableViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,6 +47,28 @@ class SearchRecentTableViewCell: UITableViewCell {
         searchImageView.tintColor = Color.mainColor
         widthOfImageSearchConstraint.constant = ScreenSize.scaleHeight(24)
         setUpTextTitleFontTextColorOfLabel(label: contentSearchLabel, labelFont: UIFont.fontYugothicUIRegular(ofSize: ScreenSize.scaleHeight(16)) ?? UIFont.systemFont(ofSize: 16), labelTextColor: Color.mainColor)
+        handleContentViewCell()
+    }
+    
+    private func handleContentViewCell() {
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        contentViewCell.addGestureRecognizer(tapGesture)
+        contentViewCell.addGestureRecognizer(longPressGesture)
+    }
+    
+    @objc func handleTap(_ gesture: UITapGestureRecognizer) {
+        if let delegate = delegate, let contentSearch = viewModel?.contentSearch {
+            delegate.tappingContentViewCell(view: self, keySearch: contentSearch)
+        }
+    }
+    
+    @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began {
+            gesture.view?.backgroundColor = Color.bodyTextColor.withAlphaComponent(0.3)
+        } else if gesture.state == .ended {
+            gesture.view?.backgroundColor = UIColor.clear
+        }
     }
     
     private func updateView() {

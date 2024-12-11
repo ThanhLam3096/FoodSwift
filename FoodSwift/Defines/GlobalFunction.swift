@@ -296,6 +296,112 @@ enum SocialAccountType: String {
     }
 }
 
+enum UserDefaultsKeys {
+    static let emailLogin = "emailLogin"
+}
+
+// MARK: - Error Handling
+enum PasswordValidationResult {
+    case success
+    case failure(PasswordValidationError)
+}
+
+enum PasswordValidationError {
+    case empty
+    case invalidLength
+    case invalidFormat
+}
+
+enum UserError: LocalizedError {
+    case notFound(email: String)
+    case userNameInvalid
+    case phoneNumberInvalid
+    case invalidData
+    case emailNotFound
+    case emptyNewPassword
+    case invalidPasswordLength
+    case invalidPasswordFormat
+    case passwordMismatch
+    case invalidCurrentPassword
+    case newAndConfirmPasswordIsInvalid
+    case sameAsCurrentPassword
+    
+    var errorDescription: String? {
+        switch self {
+        case .notFound(let email):
+            return "User not found with email: \(email)"
+        case .userNameInvalid:
+            return "The user needs 4 or more characters and no special characters."
+        case .phoneNumberInvalid:
+            return "Invalid phone number format."
+        case .emptyNewPassword:
+            return "New password cannot be empty"
+        case .invalidPasswordLength:
+            return "Password must be between 8 and 20 characters"
+        case .invalidPasswordFormat:
+            return "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character"
+        case .invalidData:
+            return "Invalid user data format"
+        case .emailNotFound:
+            return "Email not found"
+        case .newAndConfirmPasswordIsInvalid:
+            return "New Password Or Confirm Password is invalid Please Try Again"
+        case .passwordMismatch:
+            return "New password and confirm password do not match"
+        case .invalidCurrentPassword:
+            return "Current password is incorrect"
+        case .sameAsCurrentPassword:
+            return "New password must be different from current password"
+        }
+    }
+}
+
+enum OrderError: Error {
+    case emailNotFound
+    case noDataFound(email: String)
+    case fetchError(Error)
+    case parseError
+    case totalFieldMissing
+    case firebaseError(Error)
+    case saveHistoryError(Error)
+    case deleteOrderError(Error)
+    
+    var message: String {
+        switch self {
+        case .emailNotFound:
+            return "Can't Connect Your Account"
+        case .noDataFound(let email):
+            return "Can't Found Your Order in your account \(email)"
+        case .fetchError(let error):
+            return "Failed to Load Data: \(error.localizedDescription)"
+        case .parseError:
+            return "Faild to Parse Data"
+        case .totalFieldMissing:
+            return "Missing Info quality"
+        case .firebaseError(let error):
+            return "Error System: \(error.localizedDescription)"
+        case .saveHistoryError(let error):
+            return "Failed when Orders: \(error.localizedDescription)"
+        case .deleteOrderError(let error):
+            return "Failed to Delete: \(error.localizedDescription)"
+        }
+    }
+}
+
+enum YourOrder: Int, CaseIterable  {
+    case upComingOrders
+    case pastOrders
+    
+    var title: String {
+        switch self {
+        case .upComingOrders:
+            return "UPCOMING ORDERS"
+        case .pastOrders:
+            return "PAST ORDERS"
+        }
+    }
+}
+
 func isValidEmail(_ email: String) -> Bool {
     let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 
@@ -304,10 +410,16 @@ func isValidEmail(_ email: String) -> Bool {
 }
 
 func isValidNameUser(_ userName: String) -> Bool {
-    let userNameRegEx = "^[a-zA-Z0-9]{4,}$"
+    let userNameRegEx = "^[\\p{L}\\d ]{4,}$"
 
     let userNamePred = NSPredicate(format:"SELF MATCHES %@", userNameRegEx)
     return userNamePred.evaluate(with: userName)
+}
+
+func isValidPhoneNumber(_ phoneNumber: String) -> Bool {
+    let phoneRegex = #"^\+(84|1|33|44|86|81|91|61|7|49|34|54|55)\d{6,12}$"#
+    let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+    return phoneTest.evaluate(with: phoneNumber)
 }
 
 func isValidUserPassword(_ userPassword: String) -> Bool {
@@ -316,3 +428,38 @@ func isValidUserPassword(_ userPassword: String) -> Bool {
     let userPasswordPred = NSPredicate(format:"SELF MATCHES %@", userPasswordRegEx)
     return userPasswordPred.evaluate(with: userPassword)
 }
+
+struct PasswordValidation {
+    static let minimumLength = 8
+    static let maximumLength = 20
+    static let pattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+}
+
+func validatePassword(_ password: String) -> PasswordValidationResult {
+    // Check empty
+    guard !password.isEmpty else {
+        return .failure(.empty)
+    }
+    
+    // Check length
+    guard (PasswordValidation.minimumLength...PasswordValidation.maximumLength).contains(password.count) else {
+        return .failure(.invalidLength)
+    }
+    
+    // Check pattern
+    guard password.range(of: PasswordValidation.pattern, options: .regularExpression) != nil else {
+        return .failure(.invalidFormat)
+    }
+    
+    return .success
+}
+
+enum Constants {
+    static let animationDuration: TimeInterval = 0.3
+    static let initialScale: CGFloat = 0.8
+    static let finalScale: CGFloat = 1.0
+}
+
+let listFlagTitle: [String] = ["Viet Nam", "USA", "France", "England", "China", "Japan", "India", "Australia", "Russia", "Germany", "Spanish", "Argentina", "Brazil"]
+let nameFlag: [String] = ["VietNam", "USA", "France", "England", "China", "Japan", "India", "Australia", "Russia", "Germany", "Spanish", "Argentina", "Brazil"]
+let codeNumber = ["+84", "+1", "+33", "+44", "+86", "+81", "+91", "+61", "+7", "+49", "+34", "+54", "+55"]
