@@ -33,11 +33,15 @@ class FoodTabBarViewController: UITabBarController {
         let ordersNavi = UINavigationController(rootViewController: ordersVC)
         ordersVC.tabBarItem = UITabBarItem(title: "Orders", image: UIImage(named: "order-tabbar"), tag: 2)
         
+        let messageVC = MessageViewController()
+        let messageNavi = UINavigationController(rootViewController: messageVC)
+        messageVC.tabBarItem = UITabBarItem(title: "Message", image: UIImage(systemName: "message.fill"), tag: 3)
+        
         let profileVC = ProfileViewController()
         let profileNavi = UINavigationController(rootViewController: profileVC)
-        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile_tabbar"), tag: 3)
+        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile_tabbar"), tag: 4)
 
-        self.viewControllers = [homeNavi, searchNavi, ordersNavi, profileNavi]
+        self.viewControllers = [homeNavi, searchNavi, ordersNavi, messageNavi, profileNavi]
         self.selectedIndex = 0
 //        self.tabBar.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         self.tabBar.tintColor = Color.activeColor

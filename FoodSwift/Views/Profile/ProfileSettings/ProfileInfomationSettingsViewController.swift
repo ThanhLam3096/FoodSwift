@@ -23,11 +23,12 @@ final class ProfileInfomationSettingsViewController: BaseViewController {
     @IBOutlet private weak var confirmPasswordFormView: TextFieldLoginView!
     @IBOutlet private weak var listFlagTableView: UITableView!
     
+    @IBOutlet private weak var avatarImageView: UIImageView!
+    
     // MARK: Constraint
     @IBOutlet private weak var heightOfProfileSettingStackViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var leadingSpaceOfprofileSettingStackViewConstraint: NSLayoutConstraint!
     @IBOutlet private weak var trailingOfprofileSettingStackViewConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var topSpaceOfprofileSettingStackViewConstraint: NSLayoutConstraint!
     
     @IBOutlet private weak var heightOfChangeSettingButtonConstraint: NSLayoutConstraint!
     @IBOutlet private weak var botSpaceOfChangeSettingButtonConstraint: NSLayoutConstraint!
@@ -35,10 +36,12 @@ final class ProfileInfomationSettingsViewController: BaseViewController {
     @IBOutlet private weak var heightOfChangePasswordStackViewConstraint: NSLayoutConstraint!
     
     @IBOutlet private weak var widthOfTableViewConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var widthOfAvatarImageViewConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     var viewModel: ProfileInfomationSettingsViewControllerVM = ProfileInfomationSettingsViewControllerVM()
     var popUp: PopUpView?
+    var popUpCameraLibrary: PopupChooseImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +70,7 @@ final class ProfileInfomationSettingsViewController: BaseViewController {
         }
         setUpNavigation()
         setUpFrameStackView()
+        settingAvatarImageView()
         setUpChangeSettingsButton()
         setUpFormChangePassword()
         checkForm()
@@ -103,10 +107,18 @@ final class ProfileInfomationSettingsViewController: BaseViewController {
         heightOfProfileSettingStackViewConstraint.constant = ScreenSize.scaleHeight(316)
         leadingSpaceOfprofileSettingStackViewConstraint.constant = ScreenSize.scaleWidth(20)
         trailingOfprofileSettingStackViewConstraint.constant = ScreenSize.scaleWidth(20)
-        topSpaceOfprofileSettingStackViewConstraint.constant = ScreenSize.scaleHeight(24)
-        
         changePasswordStackView.spacing = ScreenSize.scaleHeight(18)
         heightOfChangePasswordStackViewConstraint.constant = ScreenSize.scaleHeight(213)
+    }
+    
+    private func settingAvatarImageView() {
+        avatarImageView.image = UIImage(named: "default_avatar")
+        avatarImageView.layer.cornerRadius = ScreenSize.scaleWidth(50)
+        widthOfAvatarImageViewConstraint.constant = ScreenSize.scaleWidth(100)
+        
+        avatarImageView.isUserInteractionEnabled = true // accpect image take action
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(changeAvatarTapping))
+        avatarImageView.addGestureRecognizer(tapGesture)
     }
     
     private func setUpDefaulFormProfileInfo() {
@@ -365,4 +377,93 @@ extension ProfileInfomationSettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return viewModel.heightForRowAt()
     }
+}
+
+// Change Avatar
+extension ProfileInfomationSettingsViewController {
+    @objc func changeAvatarTapping() {
+        showPopUpCameraLibrary()
+    }
+    
+    private func showPopUpCameraLibrary() {
+        // MARK: - Setup PopUp
+        popUpCameraLibrary = PopupChooseImage(frame: view.frame, inView: self)
+        popUpCameraLibrary?.delegate = self
+        
+        // MARK: - Add to view hierarchy with animation
+        addPopUpCameraLibraryToViewHierarchy()
+        animatePopUpCameraLibraryPresentation()
+    }
+    
+    func addPopUpCameraLibraryToViewHierarchy() {
+        guard let popUp = popUpCameraLibrary else { return }
+        
+        // Set initial transform
+        let initialTransform = CGAffineTransform(a: Constants.initialScale, b: Constants.initialScale, c: Constants.initialScale, d: Constants.initialScale, tx: Constants.initialScale, ty: Constants.initialScale)
+        popUp.transform = initialTransform
+        
+        // Add to view
+        view.addSubview(popUp)
+    }
+    
+    func animatePopUpCameraLibraryPresentation() {
+        UIView.animate(
+            withDuration: Constants.animationDuration,
+            delay: 0,
+            options: .curveEaseOut
+        ) { [weak self] in
+            self?.popUpCameraLibrary?.transform = .identity
+        }
+    }
+}
+
+extension ProfileInfomationSettingsViewController: PopupChooseImageViewDelegate {
+    
+    func didTappingOutSideHiddenPopup(view: PopupChooseImage) {
+        self.popUpCameraLibrary?.removeFromSuperview()
+    }
+    
+    func didTappingLibraryView(view: PopupChooseImage) {
+        openImagePicker(sourceType: .photoLibrary)
+    }
+    
+    func didTappingCameraView(view: PopupChooseImage) {
+        openImagePicker(sourceType: .camera)
+    }
+}
+
+extension ProfileInfomationSettingsViewController: UIImagePickerControllerDelegate {
+    func openImagePicker(sourceType: UIImagePickerController.SourceType) {
+            guard UIImagePickerController.isSourceTypeAvailable(sourceType) else {
+                print("Nguồn không khả dụng!")
+                return
+            }
+            
+            let picker = UIImagePickerController()
+            picker.sourceType = sourceType
+            picker.delegate = self
+            picker.allowsEditing = true // Cho phép chỉnh sửa ảnh sau khi chọn
+            present(picker, animated: true)
+        }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.editedImage] as? UIImage ?? info[.originalImage] as? UIImage {
+            // Chuyển UIImage thành Data
+            guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+                print("Error converting image to data")
+                return
+            }
+            
+            // Gọi phương thức uploadImageToFirebaseStorage trong ViewModel
+            viewModel.uploadImageToFirebaseStorage(imageData: imageData) { [weak self] imageURL in
+                guard let self = self, let imageURL = imageURL else { return }
+                self.viewModel.saveImageURLToFirestore(imageURL: imageURL)
+            }
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ProfileInfomationSettingsViewController: UINavigationControllerDelegate {
+    
 }

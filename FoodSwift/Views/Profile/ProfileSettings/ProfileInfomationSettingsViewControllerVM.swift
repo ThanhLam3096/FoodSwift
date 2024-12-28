@@ -159,3 +159,42 @@ extension ProfileInfomationSettingsViewControllerVM {
         return ScreenSize.scaleHeight(36)
     }
 }
+
+// Update Avatar
+extension ProfileInfomationSettingsViewControllerVM {
+    func uploadImageToFirebaseStorage(imageData: Data, completion: @escaping (String?) -> Void) {
+        let storageRef = storage.reference().child("images/\(UUID().uuidString).jpg")
+        
+        storageRef.putData(imageData, metadata: nil) { metadata, error in
+            if let error = error {
+                print("Error uploading image: \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            
+            storageRef.downloadURL { (url, error) in
+                if let error = error {
+                    print("Error getting download URL: \(error.localizedDescription)")
+                    completion(nil)
+                    return
+                }
+                completion(url?.absoluteString)
+            }
+        }
+    }
+    
+    func saveImageURLToFirestore(imageURL: String) {
+        guard let email = email else { return }
+        let userRef = db.collection("users").document(email)
+        
+        userRef.updateData([
+            "profileImageURL": imageURL
+        ]) { error in
+            if let error = error {
+                print("Error updating document: \(error.localizedDescription)")
+            } else {
+                print("Image URL successfully saved to Firestore!")
+            }
+        }
+    }
+}

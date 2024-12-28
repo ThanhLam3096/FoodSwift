@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>NSCameraUsageDescription</key>
-    <string>Need camera access to scan card</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Please Allow Access To Select A Photo For Your Profile</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Need camera access to scan card</string>
 	<key>CFBundleIcons</key>
 	<dict>
 		<key>CFBundlePrimaryIcon</key>

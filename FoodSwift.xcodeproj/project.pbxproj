@@ -119,6 +119,10 @@
 		046E77802CF22EE8004A4716 /* SigninViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E777F2CF22EE8004A4716 /* SigninViewControllerVM.swift */; };
 		0470AC6F2CBC023D00D68477 /* FeaturedPartnersCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470AC6E2CBC023D00D68477 /* FeaturedPartnersCollectionViewCellViewModel.swift */; };
 		0470D9732CDCC9A40063E520 /* Raito.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470D9722CDCC9A30063E520 /* Raito.swift */; };
+		0471D9432D0A921300FCC31E /* MessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0471D9422D0A921300FCC31E /* MessageViewController.xib */; };
+		0471D9442D0A921400FCC31E /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471D9412D0A921300FCC31E /* MessageViewController.swift */; };
+		0471D9472D0AEFFC00FCC31E /* PopupChooseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0471D9462D0AEFFC00FCC31E /* PopupChooseImage.swift */; };
+		0471D9492D0AF00400FCC31E /* PopupChooseImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0471D9482D0AF00400FCC31E /* PopupChooseImage.xib */; };
 		047405BC2D01D1CD005AC76D /* OrdersViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047405BB2D01D1CD005AC76D /* OrdersViewControllerVM.swift */; };
 		047405C02D01D319005AC76D /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047405BE2D01D319005AC76D /* OrdersTableViewCell.swift */; };
 		047405C12D01D319005AC76D /* OrdersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047405BF2D01D319005AC76D /* OrdersTableViewCell.xib */; };
@@ -368,6 +372,10 @@
 		046E777F2CF22EE8004A4716 /* SigninViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewControllerVM.swift; sourceTree = "<group>"; };
 		0470AC6E2CBC023D00D68477 /* FeaturedPartnersCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPartnersCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		0470D9722CDCC9A30063E520 /* Raito.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Raito.swift; sourceTree = "<group>"; };
+		0471D9412D0A921300FCC31E /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		0471D9422D0A921300FCC31E /* MessageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageViewController.xib; sourceTree = "<group>"; };
+		0471D9462D0AEFFC00FCC31E /* PopupChooseImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupChooseImage.swift; sourceTree = "<group>"; };
+		0471D9482D0AF00400FCC31E /* PopupChooseImage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupChooseImage.xib; sourceTree = "<group>"; };
 		047405BB2D01D1CD005AC76D /* OrdersViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewControllerVM.swift; sourceTree = "<group>"; };
 		047405BE2D01D319005AC76D /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
 		047405BF2D01D319005AC76D /* OrdersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrdersTableViewCell.xib; sourceTree = "<group>"; };
@@ -603,6 +611,7 @@
 		041529A82BD7598700818A4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0471D9402D0A91F400FCC31E /* Message */,
 				04668BAB2D046F860055AA85 /* CardScanner */,
 				04263ADC2CF75C5700CE6362 /* LaunchScreen */,
 				049C8EA72CEC602E00112CAA /* Profile */,
@@ -652,6 +661,7 @@
 		041529B32BE0D54400818A4A /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				0471D9452D0AEFB300FCC31E /* PopupChooseImage */,
 				042B24C02CF42713009CB425 /* Popup */,
 				04B3CC462CBBF59D00F95E94 /* Cirlcle */,
 				04B3CC362CB80BA100F95E94 /* CustomPageControl */,
@@ -952,6 +962,24 @@
 				0470D9722CDCC9A30063E520 /* Raito.swift */,
 			);
 			path = Utlis;
+			sourceTree = "<group>";
+		};
+		0471D9402D0A91F400FCC31E /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				0471D9412D0A921300FCC31E /* MessageViewController.swift */,
+				0471D9422D0A921300FCC31E /* MessageViewController.xib */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		0471D9452D0AEFB300FCC31E /* PopupChooseImage */ = {
+			isa = PBXGroup;
+			children = (
+				0471D9462D0AEFFC00FCC31E /* PopupChooseImage.swift */,
+				0471D9482D0AF00400FCC31E /* PopupChooseImage.xib */,
+			);
+			path = PopupChooseImage;
 			sourceTree = "<group>";
 		};
 		047405BD2D01D304005AC76D /* OrdersTableViewCell */ = {
@@ -1567,11 +1595,13 @@
 				04053D372CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.xib in Resources */,
 				047C664F2D032A10002A2F7B /* EmptyDataOrderTableViewCell.xib in Resources */,
 				042FCE2F2CC3D8D600144702 /* FeaturePartnersViewController.xib in Resources */,
+				0471D9432D0A921300FCC31E /* MessageViewController.xib in Resources */,
 				041529822BD7595700818A4A /* Assets.xcassets in Resources */,
 				04888EF92CE2630B00C054C6 /* ImageMealModalViewController.xib in Resources */,
 				045197112CEB64C100B1A1FC /* ProfileTableViewCell.xib in Resources */,
 				04882A032CD7709200EC0930 /* HeaderChoiceMealTableView.xib in Resources */,
 				042FCE342CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.xib in Resources */,
+				0471D9492D0AF00400FCC31E /* PopupChooseImage.xib in Resources */,
 				04A295FC2CE4C9B400EA6713 /* SearchCollectionViewCell.xib in Resources */,
 				045578F12C97E1B600EA420B /* VerifyPhoneNumberVC.xib in Resources */,
 				04622D712CEA3C7700B43556 /* SearchRecentHeaderTableView.xib in Resources */,
@@ -1826,10 +1856,12 @@
 				042FFBAB2CB40127004B6D85 /* HomeViewVM.swift in Sources */,
 				041529AF2BD75C3300818A4A /* BaseViewController.swift in Sources */,
 				04A295FE2CE4C9CA00EA6713 /* SearchCollectionCellVM.swift in Sources */,
+				0471D9442D0A921400FCC31E /* MessageViewController.swift in Sources */,
 				048D962D2CBD1E4400977AD1 /* ListAllResTableViewCell.swift in Sources */,
 				0491EC7A2CB0071100157BE7 /* OrdersViewController.swift in Sources */,
 				04053D362CE5E0FA0027B379 /* NationAndCategoryCollectionViewCell.swift in Sources */,
 				0433645A2D047D7000D4330A /* CardScannerViewControllerVM.swift in Sources */,
+				0471D9472D0AEFFC00FCC31E /* PopupChooseImage.swift in Sources */,
 				042FCE362CC4FFBB00144702 /* ListCollectionDetailVM.swift in Sources */,
 				042B24C62CF4BE8F009CB425 /* PopUpViewVM.swift in Sources */,
 				045197102CEB64C100B1A1FC /* ProfileTableViewCell.swift in Sources */,
