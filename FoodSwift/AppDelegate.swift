@@ -11,10 +11,12 @@ import Firebase
 import FirebaseAuth
 import GoogleSignIn
 import FirebaseFirestore
+import FirebaseStorage
 
 typealias HUD = SVProgressHUD
 typealias firebaseAUTH = Auth
 let db = Firestore.firestore()
+let storage = Storage.storage()
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

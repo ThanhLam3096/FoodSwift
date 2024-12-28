@@ -50,6 +50,7 @@ final class PopUpView: UIView {
         super.init(coder: coder)
         setUpUI()
     }
+    
     init(frame: CGRect, inView: UIViewController) {
         super.init(frame: frame)
         xibSetUP(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
