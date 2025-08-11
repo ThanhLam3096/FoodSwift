@@ -11,15 +11,15 @@ import UIKit
 extension UIFont {
     
     static func hiraginoSansW3(ofSize size: CGFloat) -> UIFont? {
-            return UIFont(name: "HiraginoSans-W3", size: size)
+        return UIFont(name: "HiraginoSans-W3", size: size)
     }
     
     static func hiraginoSansW5(ofSize size: CGFloat) -> UIFont? {
-            return UIFont(name: "HiraginoSans-W5", size: size)
+        return UIFont(name: "HiraginoSans-W5", size: size)
     }
     
     static func hiraginoSansW6(ofSize size: CGFloat) -> UIFont? {
-            return UIFont(name: "HiraginoSans-W6", size: size)
+        return UIFont(name: "HiraginoSans-W6", size: size)
     }
     
     static func fontYugothic(ofSize size: CGFloat) -> UIFont? {

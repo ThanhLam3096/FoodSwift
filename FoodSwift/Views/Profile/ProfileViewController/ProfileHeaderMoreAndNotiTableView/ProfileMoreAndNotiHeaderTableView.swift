@@ -10,7 +10,6 @@ import UIKit
 class ProfileMoreAndNotiHeaderTableView: UITableViewHeaderFooterView {
 
     // MARK: -IBOulet
-    
     @IBOutlet private var profileMoreAndNotiHeaderTableView: UIView!
     @IBOutlet private weak var titleMoreAndNotificationLabel: UILabel!
     
