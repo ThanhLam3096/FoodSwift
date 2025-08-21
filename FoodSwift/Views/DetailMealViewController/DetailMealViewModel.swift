@@ -67,7 +67,7 @@ final class DetailMealViewModel {
     }
     
     func heightForCellTableView() -> CGFloat {
-        return ScreenSize.scaleHeight(160)
+        return ScreenSize.scaleHeight(151)
     }
     
     func getAPIListMealByCategory(categoryName: String, listMealByCategoryCompletion: @escaping (Bool, String) -> Void) {
