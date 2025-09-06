@@ -148,7 +148,8 @@ class AddToOrderViewController: BaseViewController {
     }
     
     @objc private func closeScreen() {
-        navigationController?.popViewController(animated: true)
+//        navigationController?.popViewController(animated: true)
+        popToPreviousScreen(from: self)
     }
     
     @IBAction func minusButtonTouchUpInside(_ sender: Any) {

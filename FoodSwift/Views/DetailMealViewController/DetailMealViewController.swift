@@ -188,7 +188,8 @@ class DetailMealViewController: BaseViewController {
         guard let meal = viewModel.meal else { return }
         let vcAddToOrder = ScreenName.addToOrder
         vcAddToOrder.viewModel = AddToOrderViewControllerViewModel(meal: meal)
-        navigationController?.pushViewController(ScreenName.addToOrder, animated: true)
+        self.pushFromBottom(to: vcAddToOrder, from: self)
+//        navigationController?.pushViewController(ScreenName.addToOrder, animated: true)
     }
     
     private func setUpNavigation() {

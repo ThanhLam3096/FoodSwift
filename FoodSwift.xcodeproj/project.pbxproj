@@ -186,6 +186,7 @@
 		04A295FB2CE4C9B400EA6713 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A295F92CE4C9B400EA6713 /* SearchCollectionViewCell.swift */; };
 		04A295FC2CE4C9B400EA6713 /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A295FA2CE4C9B400EA6713 /* SearchCollectionViewCell.xib */; };
 		04A295FE2CE4C9CA00EA6713 /* SearchCollectionCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A295FD2CE4C9CA00EA6713 /* SearchCollectionCellVM.swift */; };
+		04B012F12D2110A500B6F1F4 /* AvatarModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04B012EF2D2110A400B6F1F4 /* AvatarModel.xcdatamodeld */; };
 		04B3CC382CB80BC600F95E94 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CC372CB80BC600F95E94 /* CustomPageControl.swift */; };
 		04B3CC3D2CB9105F00F95E94 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CC3C2CB9105F00F95E94 /* Networking.swift */; };
 		04B3CC402CB94F0000F95E94 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3CC3F2CB94F0000F95E94 /* Meal.swift */; };
@@ -439,6 +440,7 @@
 		04A295F92CE4C9B400EA6713 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		04A295FA2CE4C9B400EA6713 /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
 		04A295FD2CE4C9CA00EA6713 /* SearchCollectionCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionCellVM.swift; sourceTree = "<group>"; };
+		04B012F02D2110A500B6F1F4 /* AvatarModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AvatarModel.xcdatamodel; sourceTree = "<group>"; };
 		04B3CC372CB80BC600F95E94 /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		04B3CC3C2CB9105F00F95E94 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		04B3CC3F2CB94F0000F95E94 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
@@ -1231,6 +1233,14 @@
 			path = SearchCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		04B012F22D2156A800B6F1F4 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				04B012EF2D2110A400B6F1F4 /* AvatarModel.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		04B3CC362CB80BA100F95E94 /* CustomPageControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -1242,6 +1252,7 @@
 		04B3CC392CB9102E00F95E94 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04B012F22D2156A800B6F1F4 /* CoreData */,
 				0456B1BF2CE8CCB00064A51E /* UserDefaults */,
 				04B3CC3E2CB94EF200F95E94 /* Schema */,
 				04B3CC3A2CB9104000F95E94 /* API */,
@@ -1944,6 +1955,7 @@
 				049C8EAB2CEC609500112CAA /* ProfileInfomationSettingsViewController.swift in Sources */,
 				042FCE332CC4F91A00144702 /* DetailFeaturePartnersCollectionViewCell.swift in Sources */,
 				04788A312BE38729009AB6DD /* IntroducePageViewController.swift in Sources */,
+				04B012F12D2110A500B6F1F4 /* AvatarModel.xcdatamodeld in Sources */,
 				0451970A2CEB63E200B1A1FC /* ProfileViewControllerViewModel.swift in Sources */,
 				04E6962F2CC67F9C00DD4B8B /* DetailMealViewController.swift in Sources */,
 				049788AA2CE777E1004CF413 /* NationAndCategoryFilterCollectionViewCellVM.swift in Sources */,
@@ -2305,6 +2317,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		04B012EF2D2110A400B6F1F4 /* AvatarModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				04B012F02D2110A500B6F1F4 /* AvatarModel.xcdatamodel */,
+			);
+			currentVersion = 04B012F02D2110A500B6F1F4 /* AvatarModel.xcdatamodel */;
+			path = AvatarModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0415296D2BD7595600818A4A /* Project object */;
 }
