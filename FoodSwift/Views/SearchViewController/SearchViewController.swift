@@ -128,10 +128,12 @@ class SearchViewController: BaseViewController {
     private func setUpCollectionView() {
         resultSearchCollectionView.delegate = self
         resultSearchCollectionView.dataSource = self
+        resultSearchCollectionView.showsVerticalScrollIndicator = false
         resultSearchCollectionView.register(nibWithCellClass: SearchCollectionViewCell.self)
         
         nationAndCategoryCollectionView.delegate = self
         nationAndCategoryCollectionView.dataSource = self
+        nationAndCategoryCollectionView.showsVerticalScrollIndicator = false
         nationAndCategoryCollectionView.register(nibWithCellClass: NationAndCategoryCollectionViewCell.self)
     }
     
@@ -177,6 +179,7 @@ class SearchViewController: BaseViewController {
     private func setUpRecentTableView() {
         recentSearchTableView.delegate = self
         recentSearchTableView.dataSource = self
+        recentSearchTableView.showsVerticalScrollIndicator = false
         recentSearchTableView.separatorStyle = .none
         recentSearchTableView.sectionHeaderHeight = 70
         recentSearchTableView.register(nibWithCellClass: SearchRecentTableViewCell.self)

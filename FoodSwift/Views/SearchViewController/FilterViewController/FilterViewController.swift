@@ -69,6 +69,7 @@ class FilterViewController: BaseViewController {
     private func setUpCollectionView() {
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
+        filterCollectionView.showsVerticalScrollIndicator = false
         filterCollectionView.register(nibWithCellClass: NationAndCategoryFilterCollectionViewCell.self)
         filterCollectionView.register(nibWithCellClass: PriceRangeCollectionViewCell.self)
         
